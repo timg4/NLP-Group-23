@@ -21,6 +21,7 @@ from tqdm import tqdm
 import stanza
 from stanza.utils.conll import CoNLL
 from datasets import load_dataset
+import random
 
 # ---------------------------------------------------------------------
 # Abbreviation protection for German legal/financial domain
@@ -70,9 +71,15 @@ def preprocess(output_path: Path, max_docs: int | None = None):
     print(f"Writing combined CoNLL-U file to {output_path}\n")
 
     with open(output_path, "w", encoding="utf-8") as fout:
-        for i, sample in enumerate(tqdm(dataset, desc="Documents")):
-            if max_docs and i >= max_docs:
-                break
+        
+        indices = list(range(len(dataset)))
+        random.seed(42)
+        random.shuffle(indices)
+        if max_docs:
+            indices = indices[:max_docs]
+
+        for i in tqdm(indices, desc="Documents"):
+            sample = dataset[i]
 
             text = sample.get("text", "").strip()
             if not text:
