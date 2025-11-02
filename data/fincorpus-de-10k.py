@@ -1,5 +1,4 @@
 import datasets
-from datasets.tasks import LanguageModeling
 
 # TODO 
 # - shows how to include metadata from a separate file: https://huggingface.co/datasets/SIA86/WaterFlowCountersRecognition/blob/e659c03dfc5e50dd08648b92d66b2f3f3ef560a4/WaterFlowCountersRecognition.py 
@@ -59,7 +58,6 @@ class Fincorpus(datasets.GeneratorBasedBuilder):
             ),
             supervised_keys=None,
             #  citation=_CITATION,
-            task_templates=[LanguageModeling(text_column="text")],
         )
 
     def _split_generators(self, dl_manager):

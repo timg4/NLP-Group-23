@@ -1,2 +1,3 @@
 /.venv
 /data/fincorpus_clean.csv
+/data/processed/*
