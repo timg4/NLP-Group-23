@@ -40,7 +40,7 @@ Data stored in CoNLL-U format with standard 10-column structure. Includes token 
 
 Documents delimited with `# newdoc id = <doc_id>` headers.
 
-**Download**: File too large for GitHub. Available at: `[INSERT_LINK_HERE]`
+**Download**: File too large for GitHub. Available at: [Google Drive](https://drive.google.com/file/d/1bs7oI4dxBr2b7Hdp_BC9zWBHjSzHUCVl/view?usp=share_link)
 
 ## Issues Identified
 
