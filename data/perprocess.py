@@ -56,9 +56,7 @@ def light_clean(text: str) -> str:
 # ---------------------------------------------------------------------
 def preprocess(output_path: Path, max_docs: int | None = None):
     print("Loading FinCorpus-DE10k dataset...")
-    # `fincorpus-de-10k` contains custom dataset code. set
-    # `trust_remote_code=True` to avoid interactive prompts when loading.
-    dataset = load_dataset("data/fincorpus-de-10k.py", split="train", trust_remote_code=True)
+    dataset = load_dataset("data/fincorpus-de-10k.py", split="train", trust_remote_code=True) # trust_remote_code important bc of custom code in dataset
     print(f"Dataset loaded: {len(dataset)} documents")
 
     print("Loading Stanza German pipeline...")
