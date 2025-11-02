@@ -41,6 +41,7 @@ Data stored in CoNLL-U format with standard 10-column structure. Includes token 
 Documents delimited with `# newdoc id = <doc_id>` headers.
 
 **Download**: File too large for GitHub. Available at: [Google Drive](https://drive.google.com/file/d/1bs7oI4dxBr2b7Hdp_BC9zWBHjSzHUCVl/view?usp=share_link)
+A glimpse into the first 2000 lines can be found at data/processed/first2000.txt.
 
 ## Issues Identified
 
@@ -58,7 +59,7 @@ All in all the file looks clean and ready to work with for future steps.
 ## Dependencies
 
 ```
-python>=3.10,<3.13
+python == 3.11.12
 nltk==3.9.1
 stanza==1.8.2
 datasets==3.0.1
