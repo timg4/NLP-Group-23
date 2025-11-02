@@ -8,11 +8,13 @@ Source: `anhaltai/fincorpus-de-10k` (HuggingFace)
 
 ## Preprocessing Pipeline
 
-The preprocessing script (`data/perprocess.py`) performs:
+In (`data/perprocess.ipynb`) some basic experimantation was done on a small subset.
+
+The real preprocessing script (`data/perprocess.py`) performs:
 
 1. **Text normalization**:
    - Whitespace cleanup
-   - Paragraph sign (§) normalization
+   - Paragraph sign (§) normalization as we have legal data here
    - Abbreviation protection (e.g., "z. B.", "bzw.", "Art.") to prevent incorrect sentence segmentation
 
 2. **NLP processing** (Stanza German pipeline):
@@ -29,12 +31,12 @@ The preprocessing script (`data/perprocess.py`) performs:
 python data/perprocess.py --output data/processed/fincorpus_processed.conllu --max_docs 1000
 ```
 
-**Current corpus**: 1,000 documents (randomly sampled with seed=42)
+**Current corpus**: 1,000 documents (randomly sampled from all collections)
 **Processing time**: ~5.5 hours
 
 ## Output Format
 
-Data stored in CoNLL-U format with standard 10-column structure. Includes token IDs, word forms, lemmas, POS tags (UPOS + German STTS), morphological features, and character offsets. Dependency columns (7-9) contain placeholders as parsing was not included.
+Data stored in CoNLL-U format with standard 10-column structure. Includes token IDs, word forms, lemmas, POS tags (UPOS + German STTS), morphological features, and character offsets.
 
 Documents delimited with `# newdoc id = <doc_id>` headers.
 
@@ -42,19 +44,16 @@ Documents delimited with `# newdoc id = <doc_id>` headers.
 
 ## Issues Identified
 
-1. **Processing performance**: Current throughput is ~10 docs/minute. Full corpus (10k docs) would take ~17 hours.
+1. **Processing performance & limmitation**: Current throughput is ~10 docs/minute. Full corpus would take ~17 hours as some of the files are very large. For the sake of experimentation in this course, we limited the docs to 1000. 
 
-2. **Multi-word tokens**: Contractions like "vom" (von+dem), "zur" (zu+der) are split but retain the same token ID range (e.g., `16-17`), which is standard CoNLL-U behavior.
+2. **HTML artefacts**: HTML entities like `&quot;` appear in output instead of standard quotes.
 
-3. **Domain-specific tokenization**: Financial abbreviations and legal references (e.g., "§ 12 PVO", "Art. 27") are preserved but may cause some segmentation artifacts.
+3. **PDF-formatting**: Multiple consecutive newlines (e.g., `SpacesAfter=\s\n\s\n\s\n`) due to formatting from the original PDF-files. 
 
-4. **Character encoding**: HTML entities like `&quot;` appear in output instead of standard quotes.
+4. **Dependency parsing**: Not included in current version (columns 7-9 are placeholders).
 
-5. **SpaceAfter metadata**: Multiple consecutive newlines (e.g., `SpacesAfter=\s\n\s\n\s\n`) reflect original document formatting.
-
-6. **Dependency parsing**: Not included in current version (columns 7-9 are placeholders).
-
-Issues 4-5 are cosmetic and could be addressed with simple text normalization if needed for downstream tasks. Issue 6 would require adding the `depparse` processor, approximately doubling processing time.
+Issues 1-3 are cosmetic and could be adressed in future steps if necessary. Issue 4 would require adding the `depparse` processor, approximately doubling processing time which is already quite high here.
+All in all the file looks clean and ready to work with for future steps.
 
 ## Dependencies
 
