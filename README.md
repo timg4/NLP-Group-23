@@ -1,4 +1,74 @@
-# NLP Project - Milestone 1
+# NLP Project - German Financial NER
+
+**Approach:** Compare 3 NER labeling methods on 150 sentences to determine which is most accurate for German financial/legal documents.
+
+---
+
+## Quick Start
+
+### Prerequisites
+```bash
+pip install -r requirements.txt
+python -m spacy download de_core_news_lg
+```
+
+### Workflow
+
+**Step 1: Sample 150 sentences**
+```bash
+python data/sample_for_manual_annotation.py \
+    --input data/processed/fincorpus_processed.conllu \
+    --output data/manual_annotation \
+    --num_sentences 150
+```
+
+**Step 2: Manual labeling**
+- Open `data/manual_annotation/sample_sentences_labeled.conllu`
+- Review/correct NER tags in 11th column (B-ORG, I-ORG, B-MON, I-MON, B-LEG, I-LEG, O)
+- Read `data/manual_annotation/labeling_guidelines.md` for instructions
+
+**Step 3: ChatGPT labeling**
+- Upload sentences to ChatGPT interface
+- Get NER predictions
+- Create `results/labeling_comparison/chatgpt_predictions.conllu` (same format as project predictions)
+
+**Step 4: Project labeling**
+```bash
+python data/project_labeling.py \
+    --input data/manual_annotation/sample_sentences.conllu \
+    --output results/labeling_comparison/project_predictions.conllu
+```
+
+**Step 5: Compare all methods**
+```bash
+python evaluation/compare_labeling_methods.py \
+    --gold data/manual_annotation/sample_sentences_labeled.conllu \
+    --chatgpt results/labeling_comparison/chatgpt_predictions.conllu \
+    --project results/labeling_comparison/project_predictions.conllu \
+    --output results/labeling_comparison
+```
+
+---
+
+## Entity Types
+
+1. **ORGANIZATION (ORG)**: Companies, banks (e.g., "Deutsche Bank AG", "LBBW")
+2. **MONETARY (MON)**: Currency amounts, percentages (e.g., "EUR 1000", "3,41 %")
+3. **LEGAL_REFERENCE (LEG)**: Legal citations (e.g., "§ 15", "Art. 12 PVO")
+
+---
+
+## Results
+
+After comparison, you'll get:
+- `labeling_comparison.csv` - Comparison table
+- `f1_comparison.png` - F1 scores chart
+- `agreement_heatmap.png` - Cohen's Kappa visualization
+- `detailed_report.txt` - Full analysis
+
+---
+
+# Milestone 1: Data Preprocessing
 
 ## Dataset
 
@@ -56,17 +126,24 @@ A glimpse into the first 2000 lines can be found at data/processed/first2000.txt
 Issues 1-3 are cosmetic and could be adressed in future steps if necessary. Issue 4 would require adding the `depparse` processor, approximately doubling processing time which is already quite high here.
 All in all the file looks clean and ready to work with for future steps.
 
-## Dependencies
+---
+
+
+
+## Project Structure
 
 ```
-python == 3.11.12
-nltk==3.9.1
-stanza==1.8.2
-datasets==3.0.1
-conllu==4.5.3
-regex==2024.9.11
-torch==2.2.2
-torchaudio==2.2.2
-torchvision==0.17.2
-tqdm==4.66.5
+NLP-Group-23/
+├── data/
+│   ├── processed/fincorpus_processed.conllu    # Milestone 1 output  
+│   ├── manual_annotation/
+│   │   ├── sample_sentences.conllu             # Sampled
+│   │   ├── sample_sentences_labeled.conllu     # Gold standard
+│   │   └── labeling_guidelines.md              # Instructions
+│   ├── sample_for_manual_annotation.py         # Sampling script
+│   └── project_labeling.py                     # spaCy + regex labeling
+├── evaluation/
+│   └── compare_labeling_methods.py             # Comparison script  
+└── results/labeling_comparison/                # Outputs
 ```
+
