@@ -1,0 +1,32 @@
+======================================================================
+LABELING METHOD COMPARISON REPORT
+======================================================================
+
+EVALUATION SUMMARY
+----------------------------------------------------------------------
+
+ChatGPT:
+  Overall F1:      0.3985
+  Token Accuracy:  0.9329
+  ORG F1:          0.4186
+  MON F1:          0.2381
+  LEG F1:          0.5333
+
+Project (spaCy+Regex):
+  Overall F1:      0.4108
+  Token Accuracy:  0.9200
+  ORG F1:          0.3967
+  MON F1:          0.3059
+  LEG F1:          0.5333
+
+
+======================================================================
+RECOMMENDATIONS
+======================================================================
+
+Best Overall Performance: Project (spaCy+Regex)
+  F1 Score: 0.4108
+
+Best for ORG: ChatGPT (F1: 0.4186)
+Best for MON: Project (spaCy+Regex) (F1: 0.3059)
+Best for LEG: ChatGPT (F1: 0.5333)

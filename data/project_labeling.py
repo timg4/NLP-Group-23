@@ -4,9 +4,7 @@ Project NER Labeling (spaCy + Regex)
 -------------------------------------------------------------
 Apply the project's spaCy + regex NER labeling method to specific sentences
 
-Usage:  python data/project_labeling.py \
-        --input data/manual_annotation/sample_sentences.conllu \
-        --output results/labeling_comparison/project_predictions.conllu
+Usage:  python data/project_labeling.py --input data/manual_annotation/sample_sentences.conllu --output results/labeling_comparison/project_predictions.conllu
 """
 
 import re
@@ -20,22 +18,36 @@ import spacy
 import sys
 sys.path.append(str(Path(__file__).parent))
 
-# Entity patterns (same as ner_annotation.py)
-MONETARY_PATTERNS = [
-    r'\d{1,3}(?:[.,]\d{3})*(?:,\d{2})?\s*(?:EUR|USD|€|\$|CHF)',
-    r'(?:EUR|USD|€|\$|CHF)\s*\d{1,3}(?:[.,]\d{3})*(?:,\d{2})?',
-    r'\d+(?:,\d+)?\s*%',
-]
+# ============================================================================
+# STRATEGY 2: Organization Keywords
+# ============================================================================
+ORG_KEYWORDS = {
+    'Bank', 'BANK', 'Banking', 'Sparkasse', 'Sparkassen',
+    'Landesbank', 'Bundesbank', 'Genossenschaftsbank', 'Girozentrale',
+    'AG', 'GmbH', 'GbR', 'Ltd.', 'Ltd', 'SE', 'KGaA',
+    'eG', 'e.V.', 'OGAW', 'OGA', 'Union',
+    'Investors', 'Services', 'Service', 'Rating', 'Ratings',
+    'Credit', 'Clearing', 'Europe',
+    'DZ', 'UniCredit', 'Helaba', 'S&P', 'Standard', 'Moody', 'Clearstream'
+}
 
-LEGAL_PATTERNS = [
-    r'§\s*\d+[a-z]?(?:\s+Abs\.\s*\d+)?',
-    r'Art\.\s*\d+[a-z]?(?:\s+[A-ZÄÖÜß]+)?',
-    r'Abs\.\s*\d+[a-z]?',
-    r'Nr\.\s*\d+',
-]
+# ============================================================================
+# STRATEGY 3: Enhanced Monetary Detection
+# ============================================================================
+CURRENCY_TOKENS = {
+    'EUR', 'Euro', '€', 'USD', 'CHF', 'GBP', '$', 'US-Dollar', 'US$'
+}
 
-MONETARY_RX = re.compile('|'.join(f'({p})' for p in MONETARY_PATTERNS), re.IGNORECASE)
-LEGAL_RX = re.compile('|'.join(f'({p})' for p in LEGAL_PATTERNS))
+MAGNITUDE_WORDS = {
+    'Million', 'Millionen', 'Mio.', 'Mio',
+    'Milliarde', 'Milliarden', 'Mrd.', 'Mrd',
+    'tausend', 'Tausend', 'Tsd.', 'Tsd'
+}
+
+# ============================================================================
+# STRATEGY 1: Legal Reference Detection (Token-Level)
+# ============================================================================
+LEGAL_START_TOKENS = {'§', '§§', 'Art.', 'Art', 'Artikel', 'Nr.', 'Nr', 'Abs.', 'Abs', 'Absatz'}
 
 
 def load_conllu_sentences(file_path: Path) -> List[Dict]:
@@ -143,6 +155,177 @@ def annotate_with_spacy(tokens: List[Dict], nlp, char_to_token: Dict[int, int], 
     return entities
 
 
+def annotate_orgs_with_keywords(tokens: List[Dict]) -> List[Tuple[int, int, str]]:
+    """
+    STRATEGY 2: Keyword-based organization detection
+    Find PROPN spans that contain organization keywords
+    """
+    entities = []
+    i = 0
+    n = len(tokens)
+
+    while i < n:
+        token = tokens[i]
+        # Check if this could start an organization
+        if token['upos'] == 'PROPN' or token['upos'] in {'X', 'SYM'}:
+            # Collect consecutive PROPN/proper tokens
+            span_start = i
+            span_tokens = []
+            j = i
+
+            while j < n:
+                t = tokens[j]
+                # Include PROPN, proper nouns, symbols, and connecting punctuation
+                if t['upos'] in {'PROPN', 'X', 'SYM'} or \
+                   (t['upos'] == 'NOUN' and t['form'] in ORG_KEYWORDS) or \
+                   (t['form'] in {'&', '-', '–', '.'}):
+                    span_tokens.append(t)
+                    j += 1
+                else:
+                    break
+
+            # Check if span contains any organization keyword
+            has_keyword = any(t['form'] in ORG_KEYWORDS or t['lemma'] in ORG_KEYWORDS
+                            for t in span_tokens)
+
+            if has_keyword and span_tokens:
+                span_end = span_start + len(span_tokens) - 1
+                entities.append((span_start, span_end, 'ORG'))
+
+            i = j
+        else:
+            i += 1
+
+    return entities
+
+
+def is_numeric_token(token: Dict) -> bool:
+    """Check if token represents a number"""
+    if token['upos'] == 'NUM':
+        return True
+    # Check if form is numeric
+    form = token['form'].replace('.', '').replace(',', '')
+    return form.isdigit() and len(form) > 0
+
+
+def is_currency_token(form: str) -> bool:
+    """Check if token is a currency symbol or word"""
+    return form in CURRENCY_TOKENS or \
+           form.startswith('EUR') or form.endswith('EUR') or \
+           form in {'€', '$'}
+
+
+def annotate_monetary_enhanced(tokens: List[Dict]) -> List[Tuple[int, int, str]]:
+    """
+    STRATEGY 3: Enhanced monetary detection with magnitude words
+    """
+    entities = []
+    n = len(tokens)
+
+    # Find currency tokens and link with numbers
+    for i, token in enumerate(tokens):
+        if is_currency_token(token['form']):
+            start = i
+            end = i
+
+            # Look backward for number
+            if i > 0 and is_numeric_token(tokens[i - 1]):
+                start = i - 1
+            # Look forward for number
+            elif i + 1 < n and is_numeric_token(tokens[i + 1]):
+                end = i + 1
+
+            # Look for magnitude words after the amount
+            if end + 1 < n and (tokens[end + 1]['form'] in MAGNITUDE_WORDS or
+                                tokens[end + 1]['lemma'] in MAGNITUDE_WORDS):
+                end = end + 1
+
+            entities.append((start, end, 'MON'))
+
+    # Find percentages
+    for i, token in enumerate(tokens):
+        if '%' in token['form'] or token['lemma'].lower() == 'prozent':
+            # Look backward for number
+            if i > 0 and is_numeric_token(tokens[i - 1]):
+                entities.append((i - 1, i, 'MON'))
+            elif '%' in token['form'] and is_numeric_token(token):
+                entities.append((i, i, 'MON'))
+
+    return entities
+
+
+def is_legal_start(form: str, lemma: str) -> bool:
+    """Check if token can start a legal reference"""
+    return form in LEGAL_START_TOKENS or \
+           lemma in {'Artikel', 'Nummer', 'Paragraph', 'Absatz'} or \
+           form.startswith('§')
+
+
+def is_legal_continuation(form: str, lemma: str, upos: str) -> bool:
+    """Check if token can continue a legal reference"""
+    # Numbers are very common in legal references
+    if upos == 'NUM':
+        return True
+
+    # Punctuation used in legal refs
+    if re.fullmatch(r'[\(\)\[\],\-–;/]', form):
+        return True
+
+    # Alphanumeric patterns like "15a" or "12b"
+    if re.fullmatch(r'\d+[a-zA-Z]*', form):
+        return True
+
+    # Legal reference words
+    if form in {'Abs.', 'Abs', 'Absatz', 'Nr.', 'Nr', 'Satz', 'S.', 'lit.', 'lit', 'Art.', 'Art'}:
+        return True
+
+    # ALL CAPS abbreviations (like "PVO", "EG")
+    if len(form) >= 2 and form.isupper() and form.isalpha():
+        return True
+
+    # Connecting words
+    if form in {'und', 'oder', 'bis'}:
+        return True
+
+    # Legal reference keywords in lemma
+    if lemma in {'Verordnung', 'Richtlinie', 'Gesetz'}:
+        return True
+
+    return False
+
+
+def annotate_legal_token_level(tokens: List[Dict]) -> List[Tuple[int, int, str]]:
+    """
+    STRATEGY 1: Token-level legal reference detection
+    Detects start of legal reference and continues while conditions are met
+    """
+    entities = []
+    i = 0
+    n = len(tokens)
+
+    while i < n:
+        token = tokens[i]
+
+        # Check if this starts a legal reference
+        if is_legal_start(token['form'], token['lemma']):
+            start = i
+            j = i + 1
+
+            # Continue while we see legal reference continuation tokens
+            while j < n and is_legal_continuation(tokens[j]['form'],
+                                                   tokens[j]['lemma'],
+                                                   tokens[j]['upos']):
+                j += 1
+
+            end = j - 1
+            entities.append((start, end, 'LEG'))
+            i = j
+        else:
+            i += 1
+
+    return entities
+
+
 def annotate_with_regex(pattern, entity_type: str, char_to_token: Dict[int, int], text: str) -> List[Tuple[int, int, str]]:
     """Use regex to find entities"""
     entities = []
@@ -174,7 +357,7 @@ def entities_to_bio(num_tokens: int, entities: List[Tuple[int, int, str]]) -> Li
 
 
 def annotate_sentence(sentence: Dict, nlp) -> List[str]:
-    """Annotate a sentence with NER tags"""
+    """Annotate a sentence with NER tags using improved strategies"""
     tokens = sentence['tokens']
 
     if not tokens:
@@ -184,14 +367,17 @@ def annotate_sentence(sentence: Dict, nlp) -> List[str]:
 
     entities = []
 
-    # Get ORG entities from spaCy
+    # STRATEGY 2: Get ORG entities from spaCy (existing method)
     entities.extend(annotate_with_spacy(tokens, nlp, char_to_token, text))
 
-    # Get MON entities from regex
-    entities.extend(annotate_with_regex(MONETARY_RX, 'MON', char_to_token, text))
+    # STRATEGY 2: Get ORG entities from keyword-based detection (NEW)
+    entities.extend(annotate_orgs_with_keywords(tokens))
 
-    # Get LEG entities from regex
-    entities.extend(annotate_with_regex(LEGAL_RX, 'LEG', char_to_token, text))
+    # STRATEGY 3: Get MON entities with enhanced detection (NEW)
+    entities.extend(annotate_monetary_enhanced(tokens))
+
+    # STRATEGY 1: Get LEG entities with token-level detection (NEW)
+    entities.extend(annotate_legal_token_level(tokens))
 
     # Convert to BIO tags
     bio_tags = entities_to_bio(len(tokens), entities)

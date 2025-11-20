@@ -9,11 +9,7 @@ Compare different NER labeling methods against manual gold standard:
 
 Calculates metrics, agreement, and provides detailed error analysis.
 
-Usage:  python evaluation/compare_labeling_methods.py \
-        --gold data/manual_annotation/sample_sentences_labeled.tsv \
-        --chatgpt results/labeling_comparison/chatgpt_predictions.conllu \
-        --project results/labeling_comparison/project_predictions.conllu \
-        --output results/labeling_comparison
+Usage:  python evaluation/compare_labeling_methods.py --gold data/manual_annotation/sample_sentences_labeled.conllu --chatgpt results/labeling_comparison/chatgpt_predictions.tsv --project results/labeling_comparison/project_predictions.conllu --output results/labeling_comparison
 """
 
 import argparse
@@ -22,7 +18,7 @@ from typing import List, Tuple, Dict
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-from sklearn.metrics import cohen_kappa_score, confusion_matrix
+from sklearn.metrics import confusion_matrix
 from seqeval.metrics import (
     precision_score,
     recall_score,
@@ -33,7 +29,7 @@ from seqeval.metrics import (
 
 def load_gold_from_tsv(file_path: Path) -> Tuple[List[List[str]], List[List[str]]]:
     """Load manually labeled data from TSV"""
-    df = pd.read_csv(file_path, sep='\t', keep_default_na=False)
+    df = pd.read_csv(file_path, sep='\t', keep_default_na=False, quoting=3)  # QUOTE_NONE
 
     # Group by sentence_id
     sentences_tokens = []
@@ -81,6 +77,33 @@ def load_predictions_from_conllu(file_path: Path) -> Tuple[List[List[str]], List
     if current_tokens:
         sentences_tokens.append(current_tokens)
         sentences_tags.append(current_tags)
+
+    print(f"Loaded {len(sentences_tags)} sentences from predictions")
+    return sentences_tokens, sentences_tags
+
+
+def load_predictions_from_tsv(file_path: Path) -> Tuple[List[List[str]], List[List[str]]]:
+    """Load predictions from TSV file (same format as gold standard TSV)"""
+    df = pd.read_csv(file_path, sep='\t', keep_default_na=False, quoting=3)  # QUOTE_NONE
+
+    # Group by sentence_id (or sent_id)
+    sent_id_col = 'sentence_id' if 'sentence_id' in df.columns else 'sent_id'
+    token_col = 'token'
+    tag_col = 'ner_tag'
+
+    sentences_tokens = []
+    sentences_tags = []
+
+    for sent_id, group in df.groupby(sent_id_col):
+        # Filter out empty rows (sentence separators)
+        group = group[group[token_col].astype(str).str.strip() != '']
+
+        tokens = group[token_col].tolist()
+        tags = group[tag_col].tolist()
+
+        if tokens and tags:
+            sentences_tokens.append(tokens)
+            sentences_tags.append(tags)
 
     print(f"Loaded {len(sentences_tags)} sentences from predictions")
     return sentences_tokens, sentences_tags
@@ -146,13 +169,6 @@ def calculate_metrics(y_true: List[List[str]], y_pred: List[List[str]], method_n
     return metrics
 
 
-def calculate_cohen_kappa(y_true: List[List[str]], y_pred: List[List[str]]) -> float:
-    """Calculate Cohen's Kappa for agreement"""
-    # Flatten lists
-    y_true_flat = [tag for sent in y_true for tag in sent]
-    y_pred_flat = [tag for sent in y_pred for tag in sent]
-
-    return cohen_kappa_score(y_true_flat, y_pred_flat)
 
 
 def create_comparison_table(results: List[Dict], output_dir: Path):
@@ -229,28 +245,9 @@ def plot_f1_comparison(df: pd.DataFrame, output_dir: Path):
     plt.close()
 
 
-def plot_agreement_heatmap(kappa_scores: Dict[str, float], output_dir: Path):
-    """Create heatmap showing agreement between methods"""
-    methods = ['Manual', 'ChatGPT', 'Project']
-    matrix = [[1.0, kappa_scores['manual_chatgpt'], kappa_scores['manual_project']],
-              [kappa_scores['manual_chatgpt'], 1.0, kappa_scores['chatgpt_project']],
-              [kappa_scores['manual_project'], kappa_scores['chatgpt_project'], 1.0]]
-
-    fig, ax = plt.subplots(figsize=(8, 6))
-    sns.heatmap(matrix, annot=True, fmt='.3f', cmap='YlGnBu',
-                xticklabels=methods, yticklabels=methods,
-                vmin=0, vmax=1, cbar_kws={'label': "Cohen's Kappa"}, ax=ax)
-
-    ax.set_title("Inter-Annotator Agreement (Cohen's Kappa)", fontsize=14, fontweight='bold')
-
-    plt.tight_layout()
-    plot_path = output_dir / 'agreement_heatmap.png'
-    plt.savefig(plot_path, dpi=300, bbox_inches='tight')
-    print(f"Saved agreement heatmap to: {plot_path}")
-    plt.close()
 
 
-def generate_detailed_report(results: List[Dict], kappa_scores: Dict, output_path: Path):
+def generate_detailed_report(results: List[Dict], output_path: Path):
     """Generate detailed comparison report"""
     with open(output_path, 'w', encoding='utf-8') as f:
         f.write("=" * 70 + "\n")
@@ -269,22 +266,6 @@ def generate_detailed_report(results: List[Dict], kappa_scores: Dict, output_pat
             f.write(f"  MON F1:          {result['MON_F1']:.4f}\n")
             f.write(f"  LEG F1:          {result['LEG_F1']:.4f}\n")
             f.write("\n")
-
-        # Agreement
-        f.write("\n" + "=" * 70 + "\n")
-        f.write("INTER-ANNOTATOR AGREEMENT (Cohen's Kappa)\n")
-        f.write("=" * 70 + "\n\n")
-
-        f.write(f"Manual vs ChatGPT:  {kappa_scores['manual_chatgpt']:.4f}\n")
-        f.write(f"Manual vs Project:  {kappa_scores['manual_project']:.4f}\n")
-        f.write(f"ChatGPT vs Project: {kappa_scores['chatgpt_project']:.4f}\n\n")
-
-        f.write("Kappa Interpretation:\n")
-        f.write("  0.00 - 0.20: Slight agreement\n")
-        f.write("  0.21 - 0.40: Fair agreement\n")
-        f.write("  0.41 - 0.60: Moderate agreement\n")
-        f.write("  0.61 - 0.80: Substantial agreement\n")
-        f.write("  0.81 - 1.00: Almost perfect agreement\n\n")
 
         # Recommendations
         f.write("\n" + "=" * 70 + "\n")
@@ -306,8 +287,8 @@ def generate_detailed_report(results: List[Dict], kappa_scores: Dict, output_pat
 
 def main():
     parser = argparse.ArgumentParser(description="Compare labeling methods")
-    parser.add_argument("--gold", required=True, help="Gold standard TSV file (manual labels)")
-    parser.add_argument("--chatgpt", required=False, help="ChatGPT predictions CoNLL-U file (optional)")
+    parser.add_argument("--gold", required=True, help="Gold standard file (manual labels, TSV or CoNLL-U)")
+    parser.add_argument("--chatgpt", required=False, help="ChatGPT predictions file (TSV or CoNLL-U, optional)")
     parser.add_argument("--project", required=True, help="Project predictions CoNLL-U file")
     parser.add_argument("--output", required=True, help="Output directory")
     args = parser.parse_args()
@@ -324,13 +305,21 @@ def main():
 
     # Load gold standard
     print("\nLoading gold standard (manual labels)...")
-    gold_tokens, gold_tags = load_gold_from_tsv(gold_path)
+    # Auto-detect format based on file extension
+    if gold_path.suffix.lower() == '.tsv':
+        gold_tokens, gold_tags = load_gold_from_tsv(gold_path)
+    else:
+        gold_tokens, gold_tags = load_predictions_from_conllu(gold_path)
 
     # Load ChatGPT predictions (if provided)
     chatgpt_tokens, chatgpt_tags = None, None
     if chatgpt_path:
         print("\nLoading ChatGPT predictions...")
-        chatgpt_tokens, chatgpt_tags = load_predictions_from_conllu(chatgpt_path)
+        # Auto-detect format based on file extension
+        if chatgpt_path.suffix.lower() == '.tsv':
+            chatgpt_tokens, chatgpt_tags = load_predictions_from_tsv(chatgpt_path)
+        else:
+            chatgpt_tokens, chatgpt_tags = load_predictions_from_conllu(chatgpt_path)
 
     # Load Project predictions
     print("\nLoading Project predictions...")
@@ -345,7 +334,7 @@ def main():
         print("ERROR: Project predictions don't align with gold standard!")
         return
 
-    print("✓ All predictions aligned with gold standard")
+    print("All predictions aligned with gold standard")
 
     # Calculate metrics
     print("\nCalculating metrics...")
@@ -360,19 +349,6 @@ def main():
     results.append(project_metrics)
     print(f"  Project F1: {project_metrics['Overall_F1']:.4f}")
 
-    # Calculate agreement
-    print("\nCalculating inter-annotator agreement...")
-    kappa_scores = {
-        'manual_project': calculate_cohen_kappa(gold_tags, project_tags)
-    }
-    if chatgpt_tags:
-        kappa_scores['manual_chatgpt'] = calculate_cohen_kappa(gold_tags, chatgpt_tags)
-        kappa_scores['chatgpt_project'] = calculate_cohen_kappa(chatgpt_tags, project_tags)
-        print(f"  Manual vs ChatGPT: {kappa_scores['manual_chatgpt']:.4f}")
-    print(f"  Manual vs Project: {kappa_scores['manual_project']:.4f}")
-    if chatgpt_tags:
-        print(f"  ChatGPT vs Project: {kappa_scores['chatgpt_project']:.4f}")
-
     # Generate outputs
     print("\nGenerating comparison outputs...")
 
@@ -381,11 +357,9 @@ def main():
 
     # Plots
     plot_f1_comparison(df, output_dir)
-    if chatgpt_tags:
-        plot_agreement_heatmap(kappa_scores, output_dir)
 
     # Detailed report
-    generate_detailed_report(results, kappa_scores, output_dir / 'detailed_report.txt')
+    generate_detailed_report(results, output_dir / 'detailed_report.txt')
 
     # Print summary
     print("\n" + "=" * 70)

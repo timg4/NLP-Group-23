@@ -49,9 +49,9 @@
 # doc_id = 623
 # text = DZ BANK AG Deutsche Zentral-Genossenschaftsbank, B.1 Legal Name
 1	DZ	DZ	PROPN	NE	Case=Nom|Gender=Fem|Number=Sing	0	_	_	start_char=32630|end_char=32632	B-ORG
-2	BANK	BANK	PROPN	NE	Case=Nom|Gender=Fem|Number=Sing	1	_	_	start_char=32633|end_char=32637	O
-3	AG	AG	PROPN	NN	Case=Nom|Gender=Fem|Number=Sing	2	_	_	SpacesAfter=\s\n|start_char=32638|end_char=32640	O
-4	Deutsche	deutsch	PROPN	ADJA	Case=Nom|Gender=Fem|Number=Sing	3	_	_	SpacesAfter=\s\n|start_char=32642|end_char=32650	B-ORG
+2	BANK	BANK	PROPN	NE	Case=Nom|Gender=Fem|Number=Sing	1	_	_	start_char=32633|end_char=32637	I-ORG
+3	AG	AG	PROPN	NN	Case=Nom|Gender=Fem|Number=Sing	2	_	_	SpacesAfter=\s\n|start_char=32638|end_char=32640	I-ORG
+4	Deutsche	deutsch	PROPN	ADJA	Case=Nom|Gender=Fem|Number=Sing	3	_	_	SpacesAfter=\s\n|start_char=32642|end_char=32650	I-ORG
 5	Zentral	Zentral	PROPN	NN	Case=Nom|Gender=Fem|Number=Sing	4	_	_	SpaceAfter=No|start_char=32652|end_char=32659	I-ORG
 6	-	-	PUNCT	$(	_	5	_	_	SpaceAfter=No|start_char=32659|end_char=32660	I-ORG
 7	Genossenschaftsbank	Genossenschaftsbank	PROPN	NN	Case=Nom|Gender=Fem|Number=Sing	6	_	_	SpaceAfter=No|start_char=32660|end_char=32679	I-ORG
@@ -85,7 +85,7 @@
 4	neben	neben	ADP	APPR	_	3	_	_	start_char=58718|end_char=58723	O
 5	der	der	DET	ART	Case=Dat|Definite=Def|Gender=Fem|Number=Sing|PronType=Art	4	_	_	start_char=58724|end_char=58727	O
 6	DZ	DZ	PROPN	NE	Case=Dat|Gender=Fem|Number=Sing	5	_	_	start_char=58728|end_char=58730	B-ORG
-7	BANK	BANK	PROPN	NE	Case=Dat|Gender=Fem|Number=Sing	6	_	_	start_char=58731|end_char=58735	O
+7	BANK	BANK	PROPN	NE	Case=Dat|Gender=Fem|Number=Sing	6	_	_	start_char=58731|end_char=58735	I-ORG
 8	als	als	ADP	KOKOM	_	7	_	_	start_char=58736|end_char=58739	O
 9	Mutterunternehmen	Mutterunternehmen	NOUN	NN	Case=Nom|Gender=Neut|Number=Sing	8	_	_	start_char=58740|end_char=58757	O
 10	27	27	NUM	CARD	NumType=Card	9	_	_	start_char=58758|end_char=58760	O
@@ -122,7 +122,7 @@
 # sent_id = 8
 # doc_id = 4556
 # text = Euro MTF (der börsenregulierte Markt der Luxemburger Wertpapierbörse)
-1	Euro	Euro	PROPN	NE	Case=Nom|Gender=Masc|Number=Sing	0	_	_	start_char=14229|end_char=14233	O
+1	Euro	Euro	PROPN	NE	Case=Nom|Gender=Masc|Number=Sing	0	_	_	start_char=14229|end_char=14233	B-MON
 2	MTF	MTF	PROPN	NE	Case=Nom|Gender=Masc|Number=Sing	1	_	_	start_char=14234|end_char=14237	O
 3	(	(	PUNCT	$(	_	2	_	_	SpaceAfter=No|start_char=14238|end_char=14239	O
 4	der	der	DET	ART	Case=Nom|Definite=Def|Gender=Masc|Number=Sing|PronType=Art	3	_	_	start_char=14239|end_char=14242	O
@@ -137,8 +137,8 @@
 # doc_id = 5806
 # text = 2 Moody’s is established in the European Community and registered since 31 October 2011 under the CRA Regulation.
 1	2	2	NUM	CARD	NumType=Card	0	_	_	start_char=49652|end_char=49653	O
-2	Moody	Moody	PROPN	FM	Foreign=Yes	1	_	_	SpaceAfter=No|start_char=49654|end_char=49659	O
-3	’s	's	X	FM	Foreign=Yes	2	_	_	start_char=49659|end_char=49661	O
+2	Moody	Moody	PROPN	FM	Foreign=Yes	1	_	_	SpaceAfter=No|start_char=49654|end_char=49659	B-ORG
+3	’s	's	X	FM	Foreign=Yes	2	_	_	start_char=49659|end_char=49661	I-ORG
 4	is	sein	AUX	FM	Foreign=Yes	3	_	_	start_char=49662|end_char=49664	O
 5	established	established	AUX	FM	Foreign=Yes	4	_	_	start_char=49665|end_char=49676	O
 6	in	in	ADP	FM	Foreign=Yes	5	_	_	start_char=49677|end_char=49679	O
@@ -226,8 +226,8 @@
 11	erfolgen	erfolgen	VERB	VVFIN	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	10	_	_	start_char=26470|end_char=26478	O
 12	an	an	ADP	APPR	_	11	_	_	start_char=26479|end_char=26481	O
 13	das	der	DET	ART	Case=Acc|Definite=Def|Gender=Neut|Number=Sing|PronType=Art	12	_	_	start_char=26482|end_char=26485	O
-14	Clearing	Clearing	PROPN	NN	Case=Acc|Gender=Neut|Number=Sing	13	_	_	start_char=26486|end_char=26494	O
-15	System	System	PROPN	NN	Case=Acc|Gender=Neut|Number=Sing	14	_	_	start_char=26495|end_char=26501	O
+14	Clearing	Clearing	PROPN	NN	Case=Acc|Gender=Neut|Number=Sing	13	_	_	start_char=26486|end_char=26494	B-ORG
+15	System	System	PROPN	NN	Case=Acc|Gender=Neut|Number=Sing	14	_	_	start_char=26495|end_char=26501	I-ORG
 16	(	(	PUNCT	$(	_	15	_	_	SpaceAfter=No|start_char=26502|end_char=26503	O
 17	wie	wie	ADP	KOKOM	_	16	_	_	start_char=26503|end_char=26506	O
 18	in	in	ADP	APPR	_	17	_	_	start_char=26507|end_char=26509	O
@@ -336,9 +336,9 @@
 17	indirekt	indirekt	ADJ	ADJD	Degree=Pos	16	_	_	SpacesAfter=\s\n|start_char=511400|end_char=511408	O
 18	über	über	ADP	APPR	_	17	_	_	start_char=511410|end_char=511414	O
 19	offene	offen	ADJ	ADJA	Case=Acc|Degree=Pos|Gender=Fem|Number=Sing	18	_	_	start_char=511415|end_char=511421	O
-20	OGAW	OGAW	PROPN	NE	Case=Acc|Gender=Fem|Number=Sing	19	_	_	start_char=511422|end_char=511426	O
+20	OGAW	OGAW	PROPN	NE	Case=Acc|Gender=Fem|Number=Sing	19	_	_	start_char=511422|end_char=511426	B-ORG
 21	oder	oder	CCONJ	KON	_	20	_	_	start_char=511427|end_char=511431	O
-22	OGA	OGA	PROPN	NE	Case=Acc|Gender=Fem|Number=Sing	21	_	_	SpaceAfter=No|start_char=511432|end_char=511435	O
+22	OGA	OGA	PROPN	NE	Case=Acc|Gender=Fem|Number=Sing	21	_	_	SpaceAfter=No|start_char=511432|end_char=511435	B-ORG
 23	)	)	PUNCT	$(	_	22	_	_	SpaceAfter=No|start_char=511435|end_char=511436	O
 24	.	.	PUNCT	$.	_	23	_	_	start_char=511436|end_char=511437	O
 
@@ -514,8 +514,8 @@
 10	oder	oder	CCONJ	KON	_	9	_	_	start_char=175971|end_char=175975	O
 11	Stellen	Stelle|Stellen	NOUN	NN	Case=Nom|Gender=Fem|Number=Plur	10	_	_	start_char=175976|end_char=175983	O
 12	nach	nach	ADP	APPR	_	11	_	_	start_char=175984|end_char=175988	O
-13	Absatz	Absatz	NOUN	NN	Case=Dat|Gender=Masc|Number=Sing	12	_	_	start_char=175989|end_char=175995	O
-14	1	1	NUM	CARD	NumType=Card	13	_	_	start_char=175996|end_char=175997	O
+13	Absatz	Absatz	NOUN	NN	Case=Dat|Gender=Masc|Number=Sing	12	_	_	start_char=175989|end_char=175995	B-LEG
+14	1	1	NUM	CARD	NumType=Card	13	_	_	start_char=175996|end_char=175997	I-LEG
 15	den	der	DET	ART	Case=Dat|Definite=Def|Number=Plur|PronType=Art	14	_	_	start_char=175998|end_char=176001	O
 16	zuständigen	zuständig	ADJ	ADJA	Case=Dat|Degree=Pos|Gender=Fem|Number=Plur	15	_	_	start_char=176002|end_char=176013	O
 17	Behörden	Behörde	NOUN	NN	Case=Dat|Gender=Fem|Number=Plur	16	_	_	start_char=176014|end_char=176022	O
@@ -532,8 +532,8 @@
 28	Zwe­	Zwe­	PROPN	NE	Case=Acc|Gender=Fem|Number=Sing	27	_	_	SpacesAfter=\n|start_char=176088|end_char=176092	B-ORG
 29	cke	cke	PROPN	NN	Case=Acc|Gender=Fem|Number=Sing	28	_	_	start_char=176093|end_char=176096	I-ORG
 30	des	der	DET	ART	Case=Gen|Definite=Def|Gender=Masc|Number=Sing|PronType=Art	29	_	_	start_char=176097|end_char=176100	O
-31	Artikels	Artikel	NOUN	NN	Case=Gen|Gender=Masc|Number=Sing	30	_	_	start_char=176101|end_char=176109	O
-32	54	54	PROPN	CARD	NumType=Card	31	_	_	start_char=176110|end_char=176112	O
+31	Artikels	Artikel	NOUN	NN	Case=Gen|Gender=Masc|Number=Sing	30	_	_	start_char=176101|end_char=176109	B-LEG
+32	54	54	PROPN	CARD	NumType=Card	31	_	_	start_char=176110|end_char=176112	I-LEG
 33	möglicherweise	möglicherweise	ADV	ADV	_	32	_	_	start_char=176113|end_char=176127	O
 34	benötigen	benötigen	VERB	VVFIN	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	33	_	_	SpaceAfter=No|start_char=176128|end_char=176137	O
 35	.	.	PUNCT	$.	_	34	_	_	SpacesAfter=\s\n|start_char=176137|end_char=176138	O
@@ -870,22 +870,22 @@
 # text = In the Bank sector of the DZ BANK Group, equity investment risk arises primarily at DZ BANK, BSH and DVB. - Market risk comprises market risk in the narrow sense of the term, and market liquidity risk.
 1	In	in	ADP	FM	Foreign=Yes	0	_	_	start_char=46010|end_char=46012	O
 2	the	the	DET	FM	Definite=Def|Foreign=Yes|PronType=Art	1	_	_	start_char=46013|end_char=46016	O
-3	Bank	Bank	PROPN	FM	Foreign=Yes	2	_	_	SpacesAfter=\s\n|start_char=46017|end_char=46021	O
-4	sector	sector	PROPN	FM	Foreign=Yes	3	_	_	start_char=46023|end_char=46029	O
-5	of	of	PROPN	FM	Foreign=Yes	4	_	_	start_char=46030|end_char=46032	O
+3	Bank	Bank	PROPN	FM	Foreign=Yes	2	_	_	SpacesAfter=\s\n|start_char=46017|end_char=46021	B-ORG
+4	sector	sector	PROPN	FM	Foreign=Yes	3	_	_	start_char=46023|end_char=46029	I-ORG
+5	of	of	PROPN	FM	Foreign=Yes	4	_	_	start_char=46030|end_char=46032	I-ORG
 6	the	the	DET	FM	Definite=Def|Foreign=Yes|PronType=Art	5	_	_	start_char=46033|end_char=46036	O
-7	DZ	DZ	PROPN	FM	Foreign=Yes	6	_	_	start_char=46037|end_char=46039	O
-8	BANK	BANK	PROPN	FM	Foreign=Yes	7	_	_	start_char=46040|end_char=46044	O
-9	Group	Group	PROPN	FM	Foreign=Yes	8	_	_	SpaceAfter=No|start_char=46045|end_char=46050	O
+7	DZ	DZ	PROPN	FM	Foreign=Yes	6	_	_	start_char=46037|end_char=46039	B-ORG
+8	BANK	BANK	PROPN	FM	Foreign=Yes	7	_	_	start_char=46040|end_char=46044	I-ORG
+9	Group	Group	PROPN	FM	Foreign=Yes	8	_	_	SpaceAfter=No|start_char=46045|end_char=46050	I-ORG
 10	,	,	PUNCT	$,	_	9	_	_	start_char=46050|end_char=46051	O
 11	equity	equity	PROPN	FM	Foreign=Yes	10	_	_	start_char=46052|end_char=46058	B-ORG
 12	investment	investment	PROPN	FM	Foreign=Yes	11	_	_	start_char=46059|end_char=46069	I-ORG
-13	risk	risk	PROPN	FM	Foreign=Yes	12	_	_	SpacesAfter=\s\n|start_char=46070|end_char=46074	O
-14	arises	arises	PROPN	FM	Foreign=Yes	13	_	_	start_char=46076|end_char=46082	O
-15	primarily	primarily	PROPN	FM	Foreign=Yes	14	_	_	start_char=46083|end_char=46092	O
-16	at	at	PROPN	FM	Foreign=Yes	15	_	_	start_char=46093|end_char=46095	O
-17	DZ	DZ	PROPN	FM	Foreign=Yes	16	_	_	start_char=46096|end_char=46098	O
-18	BANK	BANK	PROPN	FM	Foreign=Yes	17	_	_	SpaceAfter=No|start_char=46099|end_char=46103	O
+13	risk	risk	PROPN	FM	Foreign=Yes	12	_	_	SpacesAfter=\s\n|start_char=46070|end_char=46074	I-ORG
+14	arises	arises	PROPN	FM	Foreign=Yes	13	_	_	start_char=46076|end_char=46082	I-ORG
+15	primarily	primarily	PROPN	FM	Foreign=Yes	14	_	_	start_char=46083|end_char=46092	I-ORG
+16	at	at	PROPN	FM	Foreign=Yes	15	_	_	start_char=46093|end_char=46095	I-ORG
+17	DZ	DZ	PROPN	FM	Foreign=Yes	16	_	_	start_char=46096|end_char=46098	I-ORG
+18	BANK	BANK	PROPN	FM	Foreign=Yes	17	_	_	SpaceAfter=No|start_char=46099|end_char=46103	I-ORG
 19	,	,	PUNCT	$,	_	18	_	_	start_char=46103|end_char=46104	O
 20	BSH	BSH	PROPN	FM	Foreign=Yes	19	_	_	start_char=46105|end_char=46108	B-ORG
 21	and	and	CCONJ	FM	Foreign=Yes	20	_	_	start_char=46109|end_char=46112	I-ORG
@@ -938,9 +938,9 @@
 23	gemäß	gemäß	ADP	APPR	_	22	_	_	start_char=15789|end_char=15794	O
 24	§	§	NOUN	NN	Case=Dat|Gender=Masc|Number=Sing	23	_	_	start_char=15795|end_char=15796	B-LEG
 25	4	4	NUM	CARD	NumType=Card	24	_	_	start_char=15797|end_char=15798	I-LEG
-26	Absatz	Absatz	NOUN	NN	Case=Nom|Gender=Masc|Number=Plur	25	_	_	start_char=15799|end_char=15805	O
-27	3	3	NUM	CARD	NumType=Card	26	_	_	SpaceAfter=No|start_char=15806|end_char=15807	O
-28	)	)	PUNCT	$(	_	27	_	_	start_char=15807|end_char=15808	O
+26	Absatz	Absatz	NOUN	NN	Case=Nom|Gender=Masc|Number=Plur	25	_	_	start_char=15799|end_char=15805	I-LEG
+27	3	3	NUM	CARD	NumType=Card	26	_	_	SpaceAfter=No|start_char=15806|end_char=15807	I-LEG
+28	)	)	PUNCT	$(	_	27	_	_	start_char=15807|end_char=15808	I-LEG
 29	zahlbar	zahlbar	ADJ	ADJD	Degree=Pos	28	_	_	start_char=15809|end_char=15816	O
 30	und	und	CCONJ	KON	_	29	_	_	start_char=15817|end_char=15820	O
 31	werden	werden	AUX	VAFIN	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Pass	30	_	_	start_char=15821|end_char=15827	O
@@ -960,9 +960,9 @@
 45	nach	nach	ADP	APPR	_	44	_	_	start_char=15922|end_char=15926	O
 46	§	§	NOUN	NN	Case=Dat|Gender=Masc|Number=Sing	45	_	_	start_char=15927|end_char=15928	B-LEG
 47	4	4	NUM	CARD	NumType=Card	46	_	_	start_char=15929|end_char=15930	I-LEG
-48	Absatz	Absatz	NOUN	NN	Case=Nom|Gender=Masc|Number=Plur	47	_	_	start_char=15931|end_char=15937	O
-49	3	3	NUM	CARD	NumType=Card	48	_	_	SpaceAfter=No|start_char=15938|end_char=15939	O
-50	)	)	PUNCT	$(	_	49	_	_	start_char=15939|end_char=15940	O
+48	Absatz	Absatz	NOUN	NN	Case=Nom|Gender=Masc|Number=Plur	47	_	_	start_char=15931|end_char=15937	I-LEG
+49	3	3	NUM	CARD	NumType=Card	48	_	_	SpaceAfter=No|start_char=15938|end_char=15939	I-LEG
+50	)	)	PUNCT	$(	_	49	_	_	start_char=15939|end_char=15940	I-LEG
 51	von	von	ADP	APPR	_	50	_	_	start_char=15941|end_char=15944	O
 52	einem	ein	DET	ART	Case=Dat|Definite=Ind|Gender=Masc|NumType=Card|Number=Sing|PronType=Art	51	_	_	SpacesAfter=\n|start_char=15945|end_char=15950	O
 53	7	7	NUM	CARD	NumType=Card	52	_	_	SpacesAfter=\n|start_char=15951|end_char=15952	O
@@ -1071,19 +1071,19 @@
 # doc_id = 3370
 # text = DZ BANK is rated by Standard & Poor’s Credit Market Services Europe Ltd. ("S&P")2, Moody’s Deutschland GmbH ("Moody’s")3 and Fitch Ratings Ltd ("Fitch")4.
 1	DZ	DZ	PROPN	NE	_	0	_	_	start_char=43835|end_char=43837	B-ORG
-2	BANK	BANK	PROPN	NE	Foreign=Yes	1	_	_	start_char=43838|end_char=43842	O
+2	BANK	BANK	PROPN	NE	Foreign=Yes	1	_	_	start_char=43838|end_char=43842	I-ORG
 3	is	sein	AUX	FM	Foreign=Yes	2	_	_	start_char=43843|end_char=43845	O
 4	rated	rated	PROPN	FM	Foreign=Yes	3	_	_	start_char=43846|end_char=43851	O
 5	by	by	AUX	FM	Foreign=Yes	4	_	_	start_char=43852|end_char=43854	O
-6	Standard	Standard	PROPN	FM	Foreign=Yes	5	_	_	start_char=43855|end_char=43863	O
-7	&	&	SYM	NE	Foreign=Yes	6	_	_	start_char=43864|end_char=43865	O
-8	Poor	Poor	PROPN	FM	Foreign=Yes	7	_	_	SpaceAfter=No|start_char=43866|end_char=43870	O
+6	Standard	Standard	PROPN	FM	Foreign=Yes	5	_	_	start_char=43855|end_char=43863	B-ORG
+7	&	&	SYM	NE	Foreign=Yes	6	_	_	start_char=43864|end_char=43865	I-ORG
+8	Poor	Poor	PROPN	FM	Foreign=Yes	7	_	_	SpaceAfter=No|start_char=43866|end_char=43870	I-ORG
 9	’s	's	AUX	FM	Foreign=Yes	8	_	_	start_char=43870|end_char=43872	O
-10	Credit	Credit	PROPN	FM	Foreign=Yes	9	_	_	start_char=43873|end_char=43879	O
-11	Market	Market	PROPN	FM	Foreign=Yes	10	_	_	SpacesAfter=\s\n|start_char=43880|end_char=43886	O
-12	Services	Service	NOUN	FM	Foreign=Yes	11	_	_	start_char=43888|end_char=43896	O
-13	Europe	Europe	NOUN	FM	Foreign=Yes	12	_	_	start_char=43897|end_char=43903	O
-14	Ltd.	ltd.	NOUN	NN	Foreign=Yes	13	_	_	start_char=43904|end_char=43908	O
+10	Credit	Credit	PROPN	FM	Foreign=Yes	9	_	_	start_char=43873|end_char=43879	B-ORG
+11	Market	Market	PROPN	FM	Foreign=Yes	10	_	_	SpacesAfter=\s\n|start_char=43880|end_char=43886	I-ORG
+12	Services	Service	NOUN	FM	Foreign=Yes	11	_	_	start_char=43888|end_char=43896	I-ORG
+13	Europe	Europe	NOUN	FM	Foreign=Yes	12	_	_	start_char=43897|end_char=43903	I-ORG
+14	Ltd.	ltd.	NOUN	NN	Foreign=Yes	13	_	_	start_char=43904|end_char=43908	I-ORG
 15	(	(	PUNCT	$(	_	14	_	_	SpaceAfter=No|start_char=43909|end_char=43910	O
 16	"	"	PUNCT	$(	_	15	_	_	SpaceAfter=No|start_char=43910|end_char=43911	O
 17	S&P"	S&P"	PROPN	NE	Case=Nom|Number=Sing	16	_	_	SpaceAfter=No|start_char=43911|end_char=43915	O
@@ -1101,9 +1101,9 @@
 29	)	)	PUNCT	$(	_	28	_	_	SpaceAfter=No|start_char=43955|end_char=43956	O
 30	3	3	PROPN	CARD	NumType=Card	29	_	_	start_char=43956|end_char=43957	O
 31	and	and	CCONJ	FM	Foreign=Yes	30	_	_	start_char=43958|end_char=43961	O
-32	Fitch	Fitch	PROPN	NE	Foreign=Yes	31	_	_	start_char=43962|end_char=43967	O
-33	Ratings	Rating	PROPN	NE	Foreign=Yes	32	_	_	start_char=43968|end_char=43975	O
-34	Ltd	Ltd	PROPN	NE	Foreign=Yes	33	_	_	start_char=43976|end_char=43979	O
+32	Fitch	Fitch	PROPN	NE	Foreign=Yes	31	_	_	start_char=43962|end_char=43967	B-ORG
+33	Ratings	Rating	PROPN	NE	Foreign=Yes	32	_	_	start_char=43968|end_char=43975	I-ORG
+34	Ltd	Ltd	PROPN	NE	Foreign=Yes	33	_	_	start_char=43976|end_char=43979	I-ORG
 35	(	(	PUNCT	$(	_	34	_	_	SpaceAfter=No|start_char=43980|end_char=43981	O
 36	"	"	PUNCT	$(	_	35	_	_	SpaceAfter=No|start_char=43981|end_char=43982	O
 37	Fitch	Fitch	PROPN	NE	Case=Nom|Gender=Masc|Number=Sing	36	_	_	SpaceAfter=No|start_char=43982|end_char=43987	O
@@ -1440,8 +1440,8 @@
 # doc_id = 5118
 # text = Die Helaba-Gruppe wurde 2017 mit dem Schwerpunkt auf in dem Retail- Geschäft verwendete Kreditrisikomodelle und das Interne Marktpreisrisikomodell geprüft.
 1	Die	der	DET	ART	Case=Nom|Definite=Def|Gender=Fem|Number=Sing|PronType=Art	0	_	_	start_char=39753|end_char=39756	O
-2	Helaba	Helaba	PROPN	NN	Case=Nom|Gender=Fem|Number=Sing	1	_	_	SpaceAfter=No|start_char=39757|end_char=39763	O
-3	-	-	PUNCT	$(	_	2	_	_	SpaceAfter=No|start_char=39763|end_char=39764	O
+2	Helaba	Helaba	PROPN	NN	Case=Nom|Gender=Fem|Number=Sing	1	_	_	SpaceAfter=No|start_char=39757|end_char=39763	B-ORG
+3	-	-	PUNCT	$(	_	2	_	_	SpaceAfter=No|start_char=39763|end_char=39764	I-ORG
 4	Gruppe	Gruppe	NOUN	NN	Case=Nom|Gender=Fem|Number=Sing	3	_	_	start_char=39764|end_char=39770	O
 5	wurde	werden	AUX	VAFIN	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin|Voice=Pass	4	_	_	start_char=39771|end_char=39776	O
 6	2017	2017	NUM	CARD	NumType=Card	5	_	_	start_char=39777|end_char=39781	O
@@ -1775,7 +1775,7 @@
 4	von	von	ADP	APPR	_	3	_	_	start_char=17579|end_char=17582	O
 5	OGA	OGA	PROPN	NE	Case=Dat|Gender=Neut|Number=Sing	4	_	_	start_char=17583|end_char=17586	B-ORG
 6	oder	oder	CCONJ	KON	_	5	_	_	start_char=17587|end_char=17591	O
-7	OGAW	OGAW	PROPN	NE	Case=Dat|Gender=Neut|Number=Sing	6	_	_	start_char=17592|end_char=17596	O
+7	OGAW	OGAW	PROPN	NE	Case=Dat|Gender=Neut|Number=Sing	6	_	_	start_char=17592|end_char=17596	B-ORG
 8	..................................................................................	..................................................................................	PUNCT	$(	_	7	_	_	start_char=17597|end_char=17679	O
 9	144	144	NUM	CARD	NumType=Card	8	_	_	SpacesAfter=\s\n|start_char=17680|end_char=17683	O
 10	16	16	NUM	CARD	NumType=Card	9	_	_	SpaceAfter=No|start_char=17685|end_char=17687	O
@@ -1893,8 +1893,8 @@
 4	der	der	DET	ART	Case=Dat|Definite=Def|Gender=Fem|Number=Sing|PronType=Art	3	_	_	start_char=62652|end_char=62655	O
 5	Zinsformel	Zinsformel	NOUN	NN	Case=Dat|Gender=Fem|Number=Sing	4	_	_	start_char=62656|end_char=62666	O
 6	in	in	ADP	APPR	_	5	_	_	start_char=62667|end_char=62669	O
-7	Absatz	Absatz	NOUN	NN	Case=Dat|Gender=Masc|Number=Sing	6	_	_	start_char=62670|end_char=62676	O
-8	2	2	NUM	CARD	NumType=Card	7	_	_	start_char=62677|end_char=62678	O
+7	Absatz	Absatz	NOUN	NN	Case=Dat|Gender=Masc|Number=Sing	6	_	_	start_char=62670|end_char=62676	B-LEG
+8	2	2	NUM	CARD	NumType=Card	7	_	_	start_char=62677|end_char=62678	I-LEG
 9	berechnete	berechnet	ADJ	ADJA	Case=Nom|Degree=Pos|Gender=Masc|Number=Sing	8	_	_	start_char=62679|end_char=62689	O
 10	Zinssatz	Zinssatz	NOUN	NN	Case=Nom|Gender=Masc|Number=Sing	9	_	_	start_char=62690|end_char=62698	O
 11	für	für	ADP	APPR	_	10	_	_	start_char=62699|end_char=62702	O
@@ -1984,14 +1984,14 @@
 # sent_id = 81
 # doc_id = 110
 # text = Artikel 157 Zusammenarbeit bei der Aufsicht Artikel 154 Sicherungsmaßnahmen
-1	Artikel	Artikel	NOUN	NN	Case=Nom|Gender=Masc|Number=Sing	0	_	_	start_char=422449|end_char=422456	O
-2	157	157	NUM	CARD	NumType=Card	1	_	_	SpacesAfter=\s\n|start_char=422457|end_char=422460	O
+1	Artikel	Artikel	NOUN	NN	Case=Nom|Gender=Masc|Number=Sing	0	_	_	start_char=422449|end_char=422456	B-LEG
+2	157	157	NUM	CARD	NumType=Card	1	_	_	SpacesAfter=\s\n|start_char=422457|end_char=422460	I-LEG
 3	Zusammenarbeit	Zusammenarbeit	NOUN	NN	Case=Nom|Gender=Fem|Number=Sing	2	_	_	start_char=422462|end_char=422476	O
 4	bei	bei	ADP	APPR	_	3	_	_	start_char=422477|end_char=422480	O
 5	der	der	DET	ART	Case=Dat|Definite=Def|Gender=Fem|Number=Sing|PronType=Art	4	_	_	start_char=422481|end_char=422484	O
 6	Aufsicht	Aufsicht	NOUN	NN	Case=Dat|Gender=Fem|Number=Sing	5	_	_	SpacesAfter=\s\n|start_char=422485|end_char=422493	O
-7	Artikel	Artikel	NOUN	NN	Case=Dat|Gender=Fem|Number=Sing	6	_	_	start_char=422495|end_char=422502	O
-8	154	154	NUM	CARD	NumType=Card	7	_	_	SpacesAfter=\s\n|start_char=422503|end_char=422506	O
+7	Artikel	Artikel	NOUN	NN	Case=Dat|Gender=Fem|Number=Sing	6	_	_	start_char=422495|end_char=422502	B-LEG
+8	154	154	NUM	CARD	NumType=Card	7	_	_	SpacesAfter=\s\n|start_char=422503|end_char=422506	I-LEG
 9	Sicherungsmaßnahmen	Sicherungsmaßnahme	NOUN	NN	Case=Acc|Gender=Fem|Number=Plur	8	_	_	SpacesAfter=\s\n|start_char=422508|end_char=422527	O
 
 # sent_id = 82
@@ -2134,8 +2134,8 @@
 26	Zeichnungen	Zeichnung	NOUN	NN	Case=Gen|Gender=Fem|Number=Plur	25	_	_	start_char=14758|end_char=14769	O
 27	und	und	CCONJ	KON	_	26	_	_	start_char=14770|end_char=14773	O
 28	der	der	DET	ART	Case=Gen|Definite=Def|Gender=Fem|Number=Sing|PronType=Art	27	_	_	start_char=14774|end_char=14777	O
-29	Art	Art	NOUN	NN	Case=Gen|Gender=Fem|Number=Sing	28	_	_	SpacesAfter=\s\n|start_char=14778|end_char=14781	O
-30	und	und	CCONJ	KON	_	29	_	_	start_char=14783|end_char=14786	O
+29	Art	Art	NOUN	NN	Case=Gen|Gender=Fem|Number=Sing	28	_	_	SpacesAfter=\s\n|start_char=14778|end_char=14781	B-LEG
+30	und	und	CCONJ	KON	_	29	_	_	start_char=14783|end_char=14786	I-LEG
 31	Weise	Weise	NOUN	NN	Case=Gen|Gender=Fem|Number=Sing	30	_	_	start_char=14787|end_char=14792	O
 32	der	der	DET	ART	Case=Gen|Definite=Def|Gender=Fem|Number=Sing|PronType=Art	31	_	_	start_char=14793|end_char=14796	O
 33	Erstattung	Erstattung	NOUN	NN	Case=Gen|Gender=Fem|Number=Sing	32	_	_	start_char=14797|end_char=14807	O
@@ -2171,8 +2171,8 @@
 8	Ermessen	Ermesse	NOUN	NN	Case=Dat|Gender=Neut|Number=Sing	7	_	_	start_char=66629|end_char=66637	O
 9	(	(	PUNCT	$(	_	8	_	_	SpaceAfter=No|start_char=66638|end_char=66639	O
 10	§315	§315	NUM	CARD	NumType=Card	9	_	_	start_char=66639|end_char=66643	B-LEG
-11	BGB	BGB	PROPN	NN	Case=Nom|Gender=Fem|Number=Sing	10	_	_	SpaceAfter=No|start_char=66644|end_char=66647	O
-12	)	)	PUNCT	$(	_	11	_	_	start_char=66647|end_char=66648	O
+11	BGB	BGB	PROPN	NN	Case=Nom|Gender=Fem|Number=Sing	10	_	_	SpaceAfter=No|start_char=66644|end_char=66647	I-LEG
+12	)	)	PUNCT	$(	_	11	_	_	start_char=66647|end_char=66648	I-LEG
 13	bestimmt	bestimmen	VERB	VVPP	VerbForm=Part	12	_	_	start_char=66649|end_char=66657	O
 14	und	und	CCONJ	KON	_	13	_	_	start_char=66658|end_char=66661	O
 15	den	der	DET	ART	Case=Dat|Definite=Def|Number=Plur|PronType=Art	14	_	_	start_char=66662|end_char=66665	O
@@ -2213,7 +2213,7 @@
 11	(	(	PUNCT	$(	_	10	_	_	SpaceAfter=No|start_char=29962|end_char=29963	O
 12	in	in	ADP	APPR	_	11	_	_	start_char=29963|end_char=29965	O
 13	Mio.	Mio.	NOUN	NN	Case=Dat|Gender=Neut|Number=Sing	12	_	_	start_char=29966|end_char=29970	O
-14	Euro	Euro	PROPN	NN	Case=Dat|Gender=Masc|Number=Sing	13	_	_	SpaceAfter=No|start_char=29971|end_char=29975	O
+14	Euro	Euro	PROPN	NN	Case=Dat|Gender=Masc|Number=Sing	13	_	_	SpaceAfter=No|start_char=29971|end_char=29975	B-MON
 15	)	)	PUNCT	$(	_	14	_	_	SpacesAfter=\s\n|start_char=29975|end_char=29976	O
 16	Sechsmonats	Sechsmonat	NOUN	NN	Case=Nom|Gender=Masc|Number=Sing	15	_	_	SpaceAfter=No|start_char=29978|end_char=29989	O
 17	-	-	PUNCT	$(	_	16	_	_	SpacesAfter=\n|start_char=29989|end_char=29990	O
@@ -2330,8 +2330,8 @@
 28	Brokergeschäft	Brokergeschäft	NOUN	NN	Case=Acc|Gender=Neut|Number=Sing	27	_	_	SpaceAfter=No|start_char=16594|end_char=16608	O
 29	,	,	PUNCT	$,	_	28	_	_	start_char=16608|end_char=16609	O
 30	das	der	DET	ART	Case=Acc|Definite=Def|Gender=Neut|Number=Sing|PronType=Art	29	_	_	start_char=16610|end_char=16613	O
-31	Investment	Investment	PROPN	NN	Case=Acc|Gender=Neut|Number=Sing	30	_	_	start_char=16614|end_char=16624	O
-32	Banking	Banking	PROPN	NE	Case=Acc|Gender=Neut|Number=Sing	31	_	_	SpaceAfter=No|start_char=16625|end_char=16632	O
+31	Investment	Investment	PROPN	NN	Case=Acc|Gender=Neut|Number=Sing	30	_	_	start_char=16614|end_char=16624	B-ORG
+32	Banking	Banking	PROPN	NE	Case=Acc|Gender=Neut|Number=Sing	31	_	_	SpaceAfter=No|start_char=16625|end_char=16632	I-ORG
 33	,	,	PUNCT	$,	_	32	_	_	start_char=16632|end_char=16633	O
 34	die	der	DET	ART	Case=Acc|Definite=Def|Gender=Fem|Number=Sing|PronType=Art	33	_	_	start_char=16634|end_char=16637	O
 35	internationale	international	ADJ	ADJA	Case=Acc|Degree=Pos|Gender=Fem|Number=Sing	34	_	_	SpacesAfter=\n|start_char=16638|end_char=16652	O
@@ -2452,15 +2452,15 @@
 # sent_id = 100
 # doc_id = 6123
 # text = Standard & Poor’s Credit Market Services Europe Ltd. ("S&P") und Moody’s Deutschland GmbH ("Moody’s") haben ihren Sitz in der Europäischen Gemeinschaft und sind seit dem 31.
-1	Standard	Standard	PROPN	NE	Case=Nom|Number=Sing	0	_	_	start_char=17268|end_char=17276	O
-2	&	&	SYM	NE	_	1	_	_	start_char=17277|end_char=17278	O
-3	Poor	Poor	PROPN	NE	Case=Nom|Gender=Masc|Number=Sing	2	_	_	SpaceAfter=No|start_char=17279|end_char=17283	O
-4	’s	's	X	ART	Foreign=Yes	3	_	_	start_char=17283|end_char=17285	O
-5	Credit	Credit	PROPN	NE	Foreign=Yes	4	_	_	start_char=17286|end_char=17292	O
-6	Market	Market	PROPN	NE	Foreign=Yes	5	_	_	start_char=17293|end_char=17299	O
-7	Services	Service	PROPN	NE	Foreign=Yes	6	_	_	start_char=17300|end_char=17308	O
-8	Europe	Europe	PROPN	NE	Foreign=Yes	7	_	_	start_char=17309|end_char=17315	O
-9	Ltd.	ltd.	PROPN	NE	Case=Nom|Number=Sing	8	_	_	start_char=17316|end_char=17320	O
+1	Standard	Standard	PROPN	NE	Case=Nom|Number=Sing	0	_	_	start_char=17268|end_char=17276	B-ORG
+2	&	&	SYM	NE	_	1	_	_	start_char=17277|end_char=17278	I-ORG
+3	Poor	Poor	PROPN	NE	Case=Nom|Gender=Masc|Number=Sing	2	_	_	SpaceAfter=No|start_char=17279|end_char=17283	I-ORG
+4	’s	's	X	ART	Foreign=Yes	3	_	_	start_char=17283|end_char=17285	I-ORG
+5	Credit	Credit	PROPN	NE	Foreign=Yes	4	_	_	start_char=17286|end_char=17292	I-ORG
+6	Market	Market	PROPN	NE	Foreign=Yes	5	_	_	start_char=17293|end_char=17299	I-ORG
+7	Services	Service	PROPN	NE	Foreign=Yes	6	_	_	start_char=17300|end_char=17308	I-ORG
+8	Europe	Europe	PROPN	NE	Foreign=Yes	7	_	_	start_char=17309|end_char=17315	I-ORG
+9	Ltd.	ltd.	PROPN	NE	Case=Nom|Number=Sing	8	_	_	start_char=17316|end_char=17320	I-ORG
 10	(	(	PUNCT	$(	_	9	_	_	SpaceAfter=No|start_char=17321|end_char=17322	O
 11	"	"	PUNCT	$(	_	10	_	_	SpaceAfter=No|start_char=17322|end_char=17323	O
 12	S&P	S&P	PROPN	NE	Case=Nom|Gender=Fem|Number=Sing	11	_	_	SpaceAfter=No|start_char=17323|end_char=17326	B-ORG
@@ -2556,7 +2556,7 @@
 61	Assets	Assets	PROPN	NE	Case=Nom|Number=Sing	60	_	_	SpacesAfter=\s\n|start_char=24714|end_char=24720	O
 62	(	(	PUNCT	$(	_	61	_	_	SpaceAfter=No|start_char=24722|end_char=24723	O
 63	in	in	ADP	APPR	_	62	_	_	start_char=24723|end_char=24725	O
-64	EUR	EUR	PROPN	NE	Case=Dat|Gender=Neut|Number=Sing	63	_	_	start_char=24726|end_char=24729	O
+64	EUR	EUR	PROPN	NE	Case=Dat|Gender=Neut|Number=Sing	63	_	_	start_char=24726|end_char=24729	B-MON
 65	mln	mln	PROPN	NE	Case=Dat|Gender=Neut|Number=Sing	64	_	_	SpaceAfter=No|start_char=24730|end_char=24733	O
 66	)	)	PUNCT	$(	_	65	_	_	SpacesAfter=\s\n|start_char=24733|end_char=24734	O
 67	31	31	NUM	CARD	NumType=Card	66	_	_	start_char=24736|end_char=24738	O
@@ -2607,7 +2607,7 @@
 # sent_id = 104
 # doc_id = 6630
 # text = EUR Forderungen an Kreditinstitute 21.396 23.236 Forderungen an Kunden 90.747 90.821 Handelsaktiva 32.273 37.954 24.292 28.003 Finanzanlagen und Anteile an at-Equity bewerteten Unternehmen Verbindlichkeiten gegenüber 34.106 39.275
-1	EUR	EUR	PROPN	NE	Case=Nom|Gender=Fem|Number=Plur	0	_	_	SpacesAfter=\s\n|start_char=45449|end_char=45452	O
+1	EUR	EUR	PROPN	NE	Case=Nom|Gender=Fem|Number=Plur	0	_	_	SpacesAfter=\s\n|start_char=45449|end_char=45452	B-MON
 2	Forderungen	Forderung	NOUN	NN	Case=Nom|Gender=Fem|Number=Plur	1	_	_	start_char=45454|end_char=45465	O
 3	an	an	ADP	APPR	_	2	_	_	start_char=45466|end_char=45468	O
 4	Kreditinstitute	Kreditinstitut	NOUN	NN	Case=Dat|Gender=Neut|Number=Plur	3	_	_	SpacesAfter=\s\n|start_char=45469|end_char=45484	O
@@ -2688,7 +2688,7 @@
 # doc_id = 5875
 # text = §7 TAXATION All amounts payable in respect of the Pfandbriefe shall be made without withholding or deduction for or on account of any present or future taxes, duties, assessments or governmental charges of whatever nature (together, the "Taxes") imposed, levied, collected, withheld or assessed by or on behalf of the Federal Republic of Germany or any other jurisdiction in which the Issuer is subject to Taxes, or any political subdivision or any authority thereof or therein having power to tax, unless, in each case, such withholding or deduction is required by law.
 1	§7	§7	X	FM	Foreign=Yes	0	_	_	SpacesAfter=\s\n|start_char=17150|end_char=17152	B-LEG
-2	TAXATION	TAXATION	X	FM	Foreign=Yes	1	_	_	SpacesAfter=\s\n|start_char=17154|end_char=17162	O
+2	TAXATION	TAXATION	X	FM	Foreign=Yes	1	_	_	SpacesAfter=\s\n|start_char=17154|end_char=17162	I-LEG
 3	All	all	X	FM	Foreign=Yes	2	_	_	start_char=17164|end_char=17167	O
 4	amounts	amounts	X	FM	Foreign=Yes	3	_	_	start_char=17168|end_char=17175	O
 5	payable	payable	X	FM	Foreign=Yes	4	_	_	start_char=17176|end_char=17183	O
@@ -2836,8 +2836,8 @@
 # sent_id = 109
 # doc_id = 110
 # text = Artikel 163 Aufgehobene Rechtsakte Geschehen zu Brüssel an dem 26.
-1	Artikel	Artikel	NOUN	NN	Case=Nom|Gender=Masc|Number=Sing	0	_	_	start_char=441072|end_char=441079	O
-2	163	163	NUM	CARD	NumType=Card	1	_	_	SpacesAfter=\s\n|start_char=441080|end_char=441083	O
+1	Artikel	Artikel	NOUN	NN	Case=Nom|Gender=Masc|Number=Sing	0	_	_	start_char=441072|end_char=441079	B-LEG
+2	163	163	NUM	CARD	NumType=Card	1	_	_	SpacesAfter=\s\n|start_char=441080|end_char=441083	I-LEG
 3	Aufgehobene	Aufgehobene	PROPN	ADJA	Case=Nom|Gender=Fem|Number=Plur	2	_	_	start_char=441085|end_char=441096	O
 4	Rechtsakte	Rechtsakte	PROPN	NN	Case=Nom|Gender=Neut|Number=Plur	3	_	_	SpacesAfter=\s\n|start_char=441097|end_char=441107	O
 5	Geschehen	Geschehen	PROPN	NN	Case=Nom|Gender=Neut|Number=Sing	4	_	_	start_char=441109|end_char=441118	O
@@ -2865,10 +2865,10 @@
 1	Für	für	ADP	APPR	_	0	_	_	start_char=383287|end_char=383290	O
 2	die	der	DET	ART	Case=Acc|Definite=Def|Gender=Fem|Number=Sing|PronType=Art	1	_	_	start_char=383291|end_char=383294	O
 3	in	in	ADP	APPR	_	2	_	_	start_char=383295|end_char=383297	O
-4	Artikel	Artikel	NOUN	NN	Case=Dat|Gender=Masc|Number=Sing	3	_	_	start_char=383298|end_char=383305	O
-5	140	140	NUM	CARD	NumType=Card	4	_	_	start_char=383306|end_char=383309	O
-6	Absatz	Absatz	NOUN	NN	Case=Nom|Gender=Masc|Number=Plur	5	_	_	start_char=383310|end_char=383316	O
-7	2	2	NUM	CARD	NumType=Card	6	_	_	start_char=383317|end_char=383318	O
+4	Artikel	Artikel	NOUN	NN	Case=Dat|Gender=Masc|Number=Sing	3	_	_	start_char=383298|end_char=383305	B-LEG
+5	140	140	NUM	CARD	NumType=Card	4	_	_	start_char=383306|end_char=383309	I-LEG
+6	Absatz	Absatz	NOUN	NN	Case=Nom|Gender=Masc|Number=Plur	5	_	_	start_char=383310|end_char=383316	I-LEG
+7	2	2	NUM	CARD	NumType=Card	6	_	_	start_char=383317|end_char=383318	I-LEG
 8	dieser	dieser	DET	PDAT	Case=Gen|Gender=Fem|Number=Sing|PronType=Dem	7	_	_	start_char=383319|end_char=383325	O
 9	Richtlinie	Richtlinie	NOUN	NN	Case=Gen|Gender=Fem|Number=Sing	8	_	_	start_char=383326|end_char=383336	O
 10	genann­	genann­	ADJ	ADJA	Case=Gen|Degree=Pos|Gender=Fem|Number=Sing	9	_	_	SpacesAfter=\n|start_char=383337|end_char=383344	O
@@ -2890,10 +2890,10 @@
 26	%	%	NOUN	NN	Case=Acc|Gender=Neut|Number=Plur	25	_	_	start_char=383447|end_char=383448	I-MON
 27	des	der	DET	ART	Case=Gen|Definite=Def|Gender=Masc|Number=Sing|PronType=Art	26	_	_	start_char=383449|end_char=383452	O
 28	nach	nach	ADP	APPR	_	27	_	_	start_char=383453|end_char=383457	O
-29	Artikel	Artikel	NOUN	NN	Case=Dat|Gender=Masc|Number=Sing	28	_	_	start_char=383458|end_char=383465	O
-30	92	92	NUM	CARD	NumType=Card	29	_	_	SpacesAfter=\s\n|start_char=383466|end_char=383468	O
-31	Absatz	Absatz	NOUN	NN	Case=Nom|Gender=Masc|Number=Sing	30	_	_	start_char=383470|end_char=383476	O
-32	3	3	NUM	CARD	NumType=Card	31	_	_	start_char=383477|end_char=383478	O
+29	Artikel	Artikel	NOUN	NN	Case=Dat|Gender=Masc|Number=Sing	28	_	_	start_char=383458|end_char=383465	B-LEG
+30	92	92	NUM	CARD	NumType=Card	29	_	_	SpacesAfter=\s\n|start_char=383466|end_char=383468	I-LEG
+31	Absatz	Absatz	NOUN	NN	Case=Nom|Gender=Masc|Number=Sing	30	_	_	start_char=383470|end_char=383476	I-LEG
+32	3	3	NUM	CARD	NumType=Card	31	_	_	start_char=383477|end_char=383478	I-LEG
 33	der	der	DET	ART	Case=Gen|Definite=Def|Gender=Fem|Number=Sing|PronType=Art	32	_	_	start_char=383479|end_char=383482	O
 34	Verordnung	Verordnung	NOUN	NN	Case=Gen|Gender=Fem|Number=Sing	33	_	_	start_char=383483|end_char=383493	O
 35	(	(	PUNCT	$(	_	34	_	_	SpaceAfter=No|start_char=383494|end_char=383495	O
@@ -2913,8 +2913,8 @@
 49	Grundlage	Grundlage	NOUN	NN	Case=Dat|Gender=Fem|Number=Sing	48	_	_	start_char=383578|end_char=383587	O
 50	der	der	DET	ART	Case=Gen|Definite=Def|Gender=Fem|Number=Sing|PronType=Art	49	_	_	SpacesAfter=\s\n|start_char=383588|end_char=383591	O
 51	in	in	ADP	APPR	_	50	_	_	start_char=383593|end_char=383595	O
-52	Absatz	Absatz	NOUN	NN	Case=Dat|Gender=Masc|Number=Sing	51	_	_	start_char=383596|end_char=383602	O
-53	3	3	NUM	CARD	NumType=Card	52	_	_	start_char=383603|end_char=383604	O
+52	Absatz	Absatz	NOUN	NN	Case=Dat|Gender=Masc|Number=Sing	51	_	_	start_char=383596|end_char=383602	B-LEG
+53	3	3	NUM	CARD	NumType=Card	52	_	_	start_char=383603|end_char=383604	I-LEG
 54	genannten	genannt	ADJ	ADJA	Case=Nom|Degree=Pos|Gender=Masc|Number=Plur	53	_	_	start_char=383605|end_char=383614	O
 55	Aspekte	Aspekt	NOUN	NN	Case=Nom|Gender=Masc|Number=Plur	54	_	_	start_char=383615|end_char=383622	O
 56	gerechtfertigt	gerechtfertigen	ADJ	VVPP	Degree=Pos|VerbForm=Part	55	_	_	start_char=383623|end_char=383637	O
@@ -3011,10 +3011,10 @@
 6	die	der	DET	ART	Case=Acc|Definite=Def|Number=Plur|PronType=Art	5	_	_	start_char=2108|end_char=2111	O
 7	Zwecke	Zweck	NOUN	NN	Case=Acc|Gender=Masc|Number=Plur	6	_	_	start_char=2112|end_char=2118	O
 8	des	der	DET	ART	Case=Gen|Definite=Def|Gender=Masc|Number=Sing|PronType=Art	7	_	_	start_char=2119|end_char=2122	O
-9	Artikels	Artikel	NOUN	NN	Case=Gen|Gender=Masc|Number=Sing	8	_	_	start_char=2123|end_char=2131	O
-10	5	5	NUM	CARD	NumType=Card	9	_	_	start_char=2132|end_char=2133	O
-11	Absatz	Absatz	NOUN	NN	Case=Acc|Gender=Masc|Number=Sing	10	_	_	start_char=2134|end_char=2140	O
-12	4	4	NUM	CARD	NumType=Card	11	_	_	start_char=2141|end_char=2142	O
+9	Artikels	Artikel	NOUN	NN	Case=Gen|Gender=Masc|Number=Sing	8	_	_	start_char=2123|end_char=2131	B-LEG
+10	5	5	NUM	CARD	NumType=Card	9	_	_	start_char=2132|end_char=2133	I-LEG
+11	Absatz	Absatz	NOUN	NN	Case=Acc|Gender=Masc|Number=Sing	10	_	_	start_char=2134|end_char=2140	I-LEG
+12	4	4	NUM	CARD	NumType=Card	11	_	_	start_char=2141|end_char=2142	I-LEG
 13	der	der	DET	ART	Case=Gen|Definite=Def|Gender=Fem|Number=Sing|PronType=Art	12	_	_	start_char=2143|end_char=2146	O
 14	EU	EU	PROPN	NN	Case=Gen|Gender=Fem|Number=Sing	13	_	_	SpaceAfter=No|start_char=2147|end_char=2149	O
 15	-	-	PUNCT	$(	_	14	_	_	SpaceAfter=No|start_char=2149|end_char=2150	O
@@ -3049,8 +3049,8 @@
 44	Programme	Programme	PROPN	NN	Case=Nom|Gender=Neut|Number=Sing	43	_	_	start_char=2332|end_char=2341	O
 45	der	der	DET	ART	Case=Gen|Definite=Def|Gender=Fem|Number=Sing|PronType=Art	44	_	_	start_char=2342|end_char=2345	O
 46	DekaBank	DekaBank	PROPN	NN	Case=Gen|Gender=Fem|Number=Sing	45	_	_	start_char=2346|end_char=2354	B-ORG
-47	Deutsche	deutsch	PROPN	ADJA	Case=Nom|Gender=Fem|Number=Sing	46	_	_	start_char=2355|end_char=2363	O
-48	Girozentrale	Girozentrale	PROPN	NN	Case=Nom|Gender=Fem|Number=Sing	47	_	_	start_char=2364|end_char=2376	O
+47	Deutsche	deutsch	PROPN	ADJA	Case=Nom|Gender=Fem|Number=Sing	46	_	_	start_char=2355|end_char=2363	I-ORG
+48	Girozentrale	Girozentrale	PROPN	NN	Case=Nom|Gender=Fem|Number=Sing	47	_	_	start_char=2364|end_char=2376	I-ORG
 49	von	von	ADP	APPR	_	48	_	_	_	O
 50	dem	der	DET	ART	Case=Dat|Definite=Def|Gender=Neut|Number=Sing|PronType=Art	49	_	_	_	O
 51	11	11	NUM	CARD	NumType=Card	50	_	_	SpaceAfter=No|start_char=2381|end_char=2383	O
@@ -3074,7 +3074,7 @@
 13	(	(	PUNCT	$(	_	12	_	_	SpaceAfter=No|start_char=45308|end_char=45309	O
 14	in	in	ADP	APPR	_	13	_	_	start_char=45309|end_char=45311	O
 15	Mrd.	Mrd.	NOUN	NN	Case=Dat|Gender=Neut|Number=Sing	14	_	_	start_char=45312|end_char=45316	O
-16	EUR	EUR	PROPN	NE	Case=Dat|Gender=Masc|Number=Sing	15	_	_	SpaceAfter=No|start_char=45317|end_char=45320	O
+16	EUR	EUR	PROPN	NE	Case=Dat|Gender=Masc|Number=Sing	15	_	_	SpaceAfter=No|start_char=45317|end_char=45320	B-MON
 17	)	)	PUNCT	$(	_	16	_	_	SpacesAfter=\s\n\s|start_char=45320|end_char=45321	O
 18	75,9	75,9	NUM	CARD	NumType=Card	17	_	_	SpacesAfter=\s\n\s\n\s|start_char=45324|end_char=45328	O
 
@@ -3197,11 +3197,11 @@
 11	unter	unter	ADP	APPR	_	10	_	_	start_char=2302|end_char=2307	O
 12	dem	der	DET	ART	Case=Dat|Definite=Def|Gender=Masc|Number=Sing|PronType=Art	11	_	_	start_char=2308|end_char=2311	O
 13	DZ	DZ	PROPN	NN	Case=Dat|Gender=Masc|Number=Sing	12	_	_	start_char=2312|end_char=2314	B-ORG
-14	BANK	BANK	PROPN	NE	Case=Dat|Gender=Masc|Number=Sing	13	_	_	start_char=2315|end_char=2319	O
-15	AG	AG	PROPN	NN	Case=Dat|Gender=Fem|Number=Sing	14	_	_	start_char=2320|end_char=2322	O
-16	Debt	Debt	PROPN	NE	Case=Dat|Gender=Masc|Number=Sing	15	_	_	start_char=2323|end_char=2327	O
-17	Issuance	Issuance	PROPN	NE	Number=Sing	16	_	_	start_char=2328|end_char=2336	O
-18	Programme	Programme	PROPN	NE	Case=Nom|Gender=Neut|Number=Sing	17	_	_	start_char=2337|end_char=2346	O
+14	BANK	BANK	PROPN	NE	Case=Dat|Gender=Masc|Number=Sing	13	_	_	start_char=2315|end_char=2319	I-ORG
+15	AG	AG	PROPN	NN	Case=Dat|Gender=Fem|Number=Sing	14	_	_	start_char=2320|end_char=2322	I-ORG
+16	Debt	Debt	PROPN	NE	Case=Dat|Gender=Masc|Number=Sing	15	_	_	start_char=2323|end_char=2327	I-ORG
+17	Issuance	Issuance	PROPN	NE	Number=Sing	16	_	_	start_char=2328|end_char=2336	I-ORG
+18	Programme	Programme	PROPN	NE	Case=Nom|Gender=Neut|Number=Sing	17	_	_	start_char=2337|end_char=2346	I-ORG
 19	(	(	PUNCT	$(	_	18	_	_	SpaceAfter=No|start_char=2347|end_char=2348	O
 20	das	der	DET	ART	Case=Nom|Definite=Def|Gender=Neut|Number=Sing|PronType=Art	19	_	_	start_char=2348|end_char=2351	O
 21	"	"	PUNCT	$(	_	20	_	_	SpaceAfter=No|start_char=2352|end_char=2353	O
@@ -3210,9 +3210,9 @@
 24	)	)	PUNCT	$(	_	23	_	_	start_char=2362|end_char=2363	O
 25	der	der	DET	ART	Case=Gen|Definite=Def|Gender=Fem|Number=Sing|PronType=Art	24	_	_	start_char=2364|end_char=2367	O
 26	DZ	DZ	PROPN	NE	Case=Gen|Gender=Fem|Number=Sing	25	_	_	start_char=2368|end_char=2370	B-ORG
-27	BANK	BANK	PROPN	NE	Case=Gen|Gender=Fem|Number=Sing	26	_	_	start_char=2371|end_char=2375	O
-28	AG	AG	PROPN	NN	Case=Gen|Gender=Fem|Number=Sing	27	_	_	start_char=2376|end_char=2378	O
-29	Deutsche	deutsch	PROPN	ADJA	Case=Gen|Gender=Fem|Number=Sing	28	_	_	SpacesAfter=\s\n|start_char=2379|end_char=2387	B-ORG
+27	BANK	BANK	PROPN	NE	Case=Gen|Gender=Fem|Number=Sing	26	_	_	start_char=2371|end_char=2375	I-ORG
+28	AG	AG	PROPN	NN	Case=Gen|Gender=Fem|Number=Sing	27	_	_	start_char=2376|end_char=2378	I-ORG
+29	Deutsche	deutsch	PROPN	ADJA	Case=Gen|Gender=Fem|Number=Sing	28	_	_	SpacesAfter=\s\n|start_char=2379|end_char=2387	I-ORG
 30	Zentral	Zentral	PROPN	NN	Case=Nom|Gender=Fem|Number=Sing	29	_	_	SpaceAfter=No|start_char=2389|end_char=2396	I-ORG
 31	-	-	PUNCT	$(	_	30	_	_	SpaceAfter=No|start_char=2396|end_char=2397	I-ORG
 32	Genossenschaftsbank	Genossenschaftsbank	PROPN	NN	Case=Nom|Gender=Fem|Number=Sing	31	_	_	SpaceAfter=No|start_char=2397|end_char=2416	I-ORG
@@ -3251,11 +3251,11 @@
 7	einer	ein	DET	ART	Case=Gen|Definite=Ind|Gender=Fem|NumType=Card|Number=Sing|PronType=Art	6	_	_	start_char=26423|end_char=26428	O
 8	Bekanntmachung	Bekanntmachung	NOUN	NN	Case=Gen|Gender=Fem|Number=Sing	7	_	_	start_char=26429|end_char=26443	O
 9	nach	nach	ADP	APPR	_	8	_	_	start_char=26444|end_char=26448	O
-10	Absatz	Absatz	NOUN	NN	Case=Dat|Gender=Masc|Number=Sing	9	_	_	SpacesAfter=\s\n|start_char=26449|end_char=26455	O
-11	(	(	PUNCT	$(	_	10	_	_	SpaceAfter=No|start_char=26457|end_char=26458	O
-12	1	1	NUM	CARD	NumType=Card	11	_	_	SpaceAfter=No|start_char=26458|end_char=26459	O
-13	)	)	PUNCT	$(	_	12	_	_	SpaceAfter=No|start_char=26459|end_char=26460	O
-14	,	,	PUNCT	$,	_	13	_	_	start_char=26460|end_char=26461	O
+10	Absatz	Absatz	NOUN	NN	Case=Dat|Gender=Masc|Number=Sing	9	_	_	SpacesAfter=\s\n|start_char=26449|end_char=26455	B-LEG
+11	(	(	PUNCT	$(	_	10	_	_	SpaceAfter=No|start_char=26457|end_char=26458	I-LEG
+12	1	1	NUM	CARD	NumType=Card	11	_	_	SpaceAfter=No|start_char=26458|end_char=26459	I-LEG
+13	)	)	PUNCT	$(	_	12	_	_	SpaceAfter=No|start_char=26459|end_char=26460	I-LEG
+14	,	,	PUNCT	$,	_	13	_	_	start_char=26460|end_char=26461	I-LEG
 15	ist	sein	AUX	VAFIN	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	14	_	_	start_char=26462|end_char=26465	O
 16	für	für	ADP	APPR	_	15	_	_	start_char=26466|end_char=26469	O
 17	die	der	DET	ART	Case=Acc|Definite=Def|Gender=Fem|Number=Sing|PronType=Art	16	_	_	start_char=26470|end_char=26473	O
@@ -3313,7 +3313,7 @@
 1	2,50%	2,50%	NUM	CARD	NumType=Card	0	_	_	SpacesAfter=\s\n|start_char=404781|end_char=404786	B-MON
 2	Max.	Max.	NOUN	NN	Case=Nom|Gender=Neut|Number=Plur	1	_	_	start_char=404788|end_char=404792	O
 3	0,90%	0,90%	NUM	CARD	NumType=Card	2	_	_	SpacesAfter=\s\n|start_char=404793|end_char=404798	B-MON
-4	0%	0%	NUM	CARD	NumType=Card	3	_	_	SpacesAfter=\s\n|start_char=404800|end_char=404802	B-MON
+4	0%	0%	NUM	CARD	NumType=Card	3	_	_	SpacesAfter=\s\n|start_char=404800|end_char=404802	I-MON
 5	n.	n.	X	XY	_	4	_	_	start_char=404804|end_char=404806	O
 6	z.	z.	X	APPRART	_	5	_	_	SpacesAfter=\s\n|start_char=404807|end_char=404809	O
 7	2.0	2.0	NUM	CARD	NumType=Card	6	_	_	start_char=404811|end_char=404814	B-MON
@@ -3396,7 +3396,7 @@
 # text = § 8 VERJÄHRUNG Ansprüche gegen die Emittentin auf Zahlungen hinsichtlich der Schuldverschreibungen verjähren und werden unwirksam, wenn diese nicht innerhalb von dreißig Jahren (in dem Falle des Kapitals) und innerhalb von drei Jahren (in dem Falle von Zinsen) ab dem maßgeblichen Fälligkeitstag geltend gemacht werden.
 1	§	§	NOUN	NN	Case=Nom|Gender=Masc|Number=Sing	0	_	_	start_char=24578|end_char=24579	B-LEG
 2	8	8	NUM	CARD	NumType=Card	1	_	_	SpacesAfter=\n|start_char=24580|end_char=24581	I-LEG
-3	VERJÄHRUNG	VERJÄHRUNG	PROPN	NN	Case=Nom|Gender=Masc|Number=Plur	2	_	_	SpacesAfter=\n|start_char=24582|end_char=24592	O
+3	VERJÄHRUNG	VERJÄHRUNG	PROPN	NN	Case=Nom|Gender=Masc|Number=Plur	2	_	_	SpacesAfter=\n|start_char=24582|end_char=24592	I-LEG
 4	Ansprüche	Anspruch	NOUN	NN	Case=Nom|Gender=Masc|Number=Plur	3	_	_	start_char=24593|end_char=24602	O
 5	gegen	gegen	ADP	APPR	_	4	_	_	start_char=24603|end_char=24608	O
 6	die	der	DET	ART	Case=Acc|Definite=Def|Gender=Fem|Number=Sing|PronType=Art	5	_	_	start_char=24609|end_char=24612	O
@@ -3450,7 +3450,7 @@
 # doc_id = 1349
 # text = §2 STATUS The obligations under the Pfandbriefe constitute direct, unconditional and unsubordinated obligations of the Issuer ranking pari passu among themselves.
 1	§2	§2	PROPN	NE	Case=Nom|Gender=Masc|Number=Sing	0	_	_	SpacesAfter=\s\n|start_char=29097|end_char=29099	B-LEG
-2	STATUS	STATUS	PROPN	FM	Foreign=Yes	1	_	_	SpacesAfter=\s\n|start_char=29101|end_char=29107	O
+2	STATUS	STATUS	PROPN	FM	Foreign=Yes	1	_	_	SpacesAfter=\s\n|start_char=29101|end_char=29107	I-LEG
 3	The	the	DET	FM	Definite=Def|Foreign=Yes|PronType=Art	2	_	_	start_char=29109|end_char=29112	O
 4	obligations	obligations	PROPN	FM	Foreign=Yes	3	_	_	start_char=29113|end_char=29124	O
 5	under	under	PROPN	FM	Foreign=Yes	4	_	_	start_char=29125|end_char=29130	O
@@ -3491,7 +3491,7 @@
 13	.	.	PUNCT	$.	_	12	_	_	SpacesAfter=\s\n|start_char=29297|end_char=29298	O
 14	§	§	NOUN	NN	Case=Nom|Gender=Masc|Number=Sing	13	_	_	start_char=29300|end_char=29301	B-LEG
 15	11	11	NUM	CARD	NumType=Card	14	_	_	SpacesAfter=\s\n|start_char=29302|end_char=29304	I-LEG
-16	(	(	PUNCT	$(	_	15	_	_	SpaceAfter=No|start_char=29306|end_char=29307	O
+16	(	(	PUNCT	$(	_	15	_	_	SpaceAfter=No|start_char=29306|end_char=29307	I-LEG
 17	Zusätzliche	zusätzlich	ADJ	ADJA	Case=Nom|Degree=Pos|Gender=Fem|Number=Plur	16	_	_	start_char=29307|end_char=29318	O
 18	Bestimmungen	Bestimmung	NOUN	NN	Case=Nom|Gender=Fem|Number=Plur	17	_	_	SpaceAfter=No|start_char=29319|end_char=29331	O
 19	)	)	PUNCT	$(	_	18	_	_	SpacesAfter=\s\n\s\n|start_char=29331|end_char=29332	O
@@ -3535,10 +3535,10 @@
 13	,	,	PUNCT	$,	_	12	_	_	start_char=9305|end_char=9306	O
 14	der	der	DET	ART	Case=Nom|Definite=Def|Gender=Masc|Number=Sing|PronType=Art	13	_	_	start_char=9307|end_char=9310	O
 15	gemäß	gemäß	ADP	APPR	_	14	_	_	start_char=9311|end_char=9316	O
-16	Absatz	Absatz	NOUN	NN	Case=Dat|Gender=Masc|Number=Sing	15	_	_	start_char=9317|end_char=9323	O
-17	(	(	PUNCT	$(	_	16	_	_	SpaceAfter=No|start_char=9324|end_char=9325	O
-18	1	1	NUM	CARD	NumType=Card	17	_	_	SpaceAfter=No|start_char=9325|end_char=9326	O
-19	)	)	PUNCT	$(	_	18	_	_	SpacesAfter=\s\n|start_char=9326|end_char=9327	O
+16	Absatz	Absatz	NOUN	NN	Case=Dat|Gender=Masc|Number=Sing	15	_	_	start_char=9317|end_char=9323	B-LEG
+17	(	(	PUNCT	$(	_	16	_	_	SpaceAfter=No|start_char=9324|end_char=9325	I-LEG
+18	1	1	NUM	CARD	NumType=Card	17	_	_	SpaceAfter=No|start_char=9325|end_char=9326	I-LEG
+19	)	)	PUNCT	$(	_	18	_	_	SpacesAfter=\s\n|start_char=9326|end_char=9327	I-LEG
 20	vereinbarte	vereinbart	ADJ	ADJA	Case=Nom|Degree=Pos|Gender=Masc|Number=Sing	19	_	_	start_char=9329|end_char=9340	O
 21	Zinssatz	Zinssatz	NOUN	NN	Case=Nom|Gender=Masc|Number=Sing	20	_	_	start_char=9341|end_char=9349	O
 22	ist	sein	AUX	VAFIN	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	21	_	_	start_char=9350|end_char=9353	O
@@ -3576,8 +3576,8 @@
 4	einer	ein	DET	ART	Case=Gen|Definite=Ind|Gender=Fem|NumType=Card|Number=Sing|PronType=Art	3	_	_	start_char=18508|end_char=18513	O
 5	Schuldnerersetzung	Schuldnerersetzung	NOUN	NN	Case=Gen|Gender=Fem|Number=Sing	4	_	_	start_char=18514|end_char=18532	O
 6	gemäß	gemäß	ADP	APPR	_	5	_	_	start_char=18533|end_char=18538	O
-7	Absatz	Absatz	NOUN	NN	Case=Dat|Gender=Masc|Number=Sing	6	_	_	start_char=18539|end_char=18545	O
-8	(	(	PUNCT	$(	_	7	_	_	SpaceAfter=No|start_char=18546|end_char=18547	O
+7	Absatz	Absatz	NOUN	NN	Case=Dat|Gender=Masc|Number=Sing	6	_	_	start_char=18539|end_char=18545	B-LEG
+8	(	(	PUNCT	$(	_	7	_	_	SpaceAfter=No|start_char=18546|end_char=18547	I-LEG
 9	a	a	PROPN	XY	_	8	_	_	SpaceAfter=No|start_char=18547|end_char=18548	O
 10	)	)	PUNCT	$(	_	9	_	_	start_char=18548|end_char=18549	O
 11	dieses	dieser	DET	PDAT	Case=Gen|Gender=Masc|Number=Sing|PronType=Dem	10	_	_	start_char=18550|end_char=18556	O
@@ -3844,7 +3844,7 @@
 133	0,75	0,75	NUM	CARD	NumType=Card	132	_	_	SpacesAfter=\s\n|start_char=18503|end_char=18507	O
 134	§	§	NOUN	NN	Case=Nom|Gender=Masc|Number=Sing	133	_	_	start_char=18509|end_char=18510	B-LEG
 135	3	3	NUM	CARD	NumType=Card	134	_	_	SpacesAfter=\s\n|start_char=18511|end_char=18512	I-LEG
-136	(	(	PUNCT	$(	_	135	_	_	SpaceAfter=No|start_char=18514|end_char=18515	O
+136	(	(	PUNCT	$(	_	135	_	_	SpaceAfter=No|start_char=18514|end_char=18515	I-LEG
 137	Fälligkeit	Fälligkeit	NOUN	NN	Case=Nom|Gender=Fem|Number=Sing	136	_	_	SpaceAfter=No|start_char=18515|end_char=18525	O
 138	,	,	PUNCT	$,	_	137	_	_	start_char=18525|end_char=18526	O
 139	Rückzahlung	Rückzahlung	NOUN	NN	Case=Nom|Gender=Fem|Number=Sing	138	_	_	SpaceAfter=No|start_char=18527|end_char=18538	O
@@ -3977,16 +3977,16 @@
 7	Endgültigen	endgültig	ADJ	ADJA	Case=Gen|Degree=Pos|Gender=Fem|Number=Plur	6	_	_	start_char=5407|end_char=5418	O
 8	Bedingungen	Bedingung	NOUN	NN	Case=Gen|Gender=Fem|Number=Plur	7	_	_	start_char=5419|end_char=5430	O
 9	auf	auf	ADP	APPR	_	8	_	_	start_char=5431|end_char=5434	O
-10	Paragraphen	Paragraph	NOUN	NN	Case=Acc|Gender=Fem|Number=Plur	9	_	_	start_char=5435|end_char=5446	O
-11	und	und	CCONJ	KON	_	10	_	_	start_char=5447|end_char=5450	O
-12	Absätze	Absatz	NOUN	NN	Case=Acc|Gender=Masc|Number=Plur	11	_	_	SpacesAfter=\s\n|start_char=5451|end_char=5458	O
+10	Paragraphen	Paragraph	NOUN	NN	Case=Acc|Gender=Fem|Number=Plur	9	_	_	start_char=5435|end_char=5446	B-LEG
+11	und	und	CCONJ	KON	_	10	_	_	start_char=5447|end_char=5450	I-LEG
+12	Absätze	Absatz	NOUN	NN	Case=Acc|Gender=Masc|Number=Plur	11	_	_	SpacesAfter=\s\n|start_char=5451|end_char=5458	B-LEG
 13	beziehen	beziehen	VERB	VVFIN	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	12	_	_	start_char=5460|end_char=5468	O
 14	sich	sich	PRON	PRF	Case=Acc|Person=3|PronType=Prs|Reflex=Yes	13	_	_	start_char=5469|end_char=5473	O
 15	auf	auf	ADP	APPR	_	14	_	_	start_char=5474|end_char=5477	O
 16	die	der	DET	ART	Case=Acc|Definite=Def|Number=Plur|PronType=Art	15	_	_	start_char=5478|end_char=5481	O
-17	Paragraphen	Paragraph	NOUN	NN	Case=Acc|Gender=Fem|Number=Plur	16	_	_	start_char=5482|end_char=5493	O
-18	und	und	CCONJ	KON	_	17	_	_	start_char=5494|end_char=5497	O
-19	Absätze	Absatz	NOUN	NN	Case=Acc|Gender=Masc|Number=Plur	18	_	_	start_char=5498|end_char=5505	O
+17	Paragraphen	Paragraph	NOUN	NN	Case=Acc|Gender=Fem|Number=Plur	16	_	_	start_char=5482|end_char=5493	B-LEG
+18	und	und	CCONJ	KON	_	17	_	_	start_char=5494|end_char=5497	I-LEG
+19	Absätze	Absatz	NOUN	NN	Case=Acc|Gender=Masc|Number=Plur	18	_	_	start_char=5498|end_char=5505	B-LEG
 20	der	der	DET	ART	Case=Gen|Definite=Def|Number=Plur|PronType=Art	19	_	_	start_char=5506|end_char=5509	O
 21	Anleihebedingungen	Anleihebedingung	NOUN	NN	Case=Gen|Gender=Fem|Number=Plur	20	_	_	SpaceAfter=No|start_char=5510|end_char=5528	O
 22	.	.	PUNCT	$.	_	21	_	_	SpacesAfter=\s\n|start_char=5528|end_char=5529	O

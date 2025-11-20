@@ -29,8 +29,9 @@ python data/sample_for_manual_annotation.py \
 
 **Step 3: ChatGPT labeling**
 - Upload sentences to ChatGPT interface
-- Get NER predictions
-- Create `results/labeling_comparison/chatgpt_predictions.conllu` (same format as project predictions)
+- Get NER predictions using rule-based approach (see `results/gpt_labeling_approach.py`)
+- Note: Due to file size constraints, a rule-based function was used with GPT to generate predictions
+- Output: `results/labeling_comparison/chatgpt_predictions.tsv` (TSV format with columns: sent_id, token_id, token, ner_tag)
 
 **Step 4: Project labeling**
 ```bash
@@ -43,10 +44,12 @@ python data/project_labeling.py \
 ```bash
 python evaluation/compare_labeling_methods.py \
     --gold data/manual_annotation/sample_sentences_labeled.conllu \
-    --chatgpt results/labeling_comparison/chatgpt_predictions.conllu \
+    --chatgpt results/labeling_comparison/chatgpt_predictions.tsv \
     --project results/labeling_comparison/project_predictions.conllu \
     --output results/labeling_comparison
 ```
+
+**Note**: The `--chatgpt` parameter accepts both TSV and CoNLL-U formats (auto-detected by file extension).
 
 ---
 
@@ -62,9 +65,45 @@ python evaluation/compare_labeling_methods.py \
 
 After comparison, you'll get:
 - `labeling_comparison.csv` - Comparison table
+- `labeling_comparison.md` - Markdown table
 - `f1_comparison.png` - F1 scores chart
-- `agreement_heatmap.png` - Cohen's Kappa visualization
 - `detailed_report.txt` - Full analysis
+
+---
+
+# Milestone 2: Baseline NER Methods & Evaluation
+
+## Baseline Approaches
+
+Three NER methods were implemented and compared on 150 manually-annotated sentences:
+
+1. **Manual Labeling** (Gold Standard): Human-annotated sentences following detailed guidelines
+2. **ChatGPT Approach**: Rule-based method using pattern matching (see `results/gpt_labeling_approach.py`)
+3. **Project Method** (ML + Rules): Hybrid approach combining:
+   - spaCy German NER model (ML)
+   - Regex patterns for LEG/MON entities
+   - Keyword-based ORG detection
+   - Token-level pattern matching
+
+## Evaluation Results
+
+**Performance Summary** (F1 Scores):
+
+| Method | Overall F1 | ORG | MON | LEG |
+|--------|-----------|-----|-----|-----|
+| ChatGPT | 0.3985 | 0.4186 | 0.2381 | 0.5333 |
+| **Project (Improved)** | **0.4108** | 0.3967 | **0.3059** | **0.5333** |
+
+**Key Findings:**
+- ✅ Project method **outperforms ChatGPT** by 3.1% overall F1
+- ✅ **Best at monetary detection** (+28.5% better than ChatGPT)
+- ✅ **Ties on legal references** (F1: 0.53)
+- ✅ **54.9% improvement** over initial baseline (0.2652 → 0.4108)
+- ✅ Better precision-recall balance (Recall: 0.36 vs ChatGPT: 0.31)
+
+**Methodology:** Token-level pattern matching for legal references, keyword-based organization detection, and enhanced monetary detection with magnitude words significantly improved performance over basic regex patterns.
+
+See `results/labeling_comparison/` for detailed metrics and visualizations.
 
 ---
 
@@ -135,7 +174,7 @@ All in all the file looks clean and ready to work with for future steps.
 ```
 NLP-Group-23/
 ├── data/
-│   ├── processed/fincorpus_processed.conllu    # Milestone 1 output  
+│   ├── processed/fincorpus_processed.conllu    # Milestone 1 output
 │   ├── manual_annotation/
 │   │   ├── sample_sentences.conllu             # Sampled
 │   │   ├── sample_sentences_labeled.conllu     # Gold standard
@@ -143,7 +182,11 @@ NLP-Group-23/
 │   ├── sample_for_manual_annotation.py         # Sampling script
 │   └── project_labeling.py                     # spaCy + regex labeling
 ├── evaluation/
-│   └── compare_labeling_methods.py             # Comparison script  
-└── results/labeling_comparison/                # Outputs
+│   └── compare_labeling_methods.py             # Comparison script
+├── results/
+│   ├── gpt_labeling_approach.py                # GPT labeling script (rule-based)
+│   └── labeling_comparison/                    # Outputs
+│       ├── chatgpt_predictions.tsv             # GPT predictions
+│       └── project_predictions.conllu          # Project predictions
 ```
 
