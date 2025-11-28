@@ -338,7 +338,7 @@
 19	offene	offen	ADJ	ADJA	Case=Acc|Degree=Pos|Gender=Fem|Number=Sing	18	_	_	start_char=511415|end_char=511421	O
 20	OGAW	OGAW	PROPN	NE	Case=Acc|Gender=Fem|Number=Sing	19	_	_	start_char=511422|end_char=511426	B-ORG
 21	oder	oder	CCONJ	KON	_	20	_	_	start_char=511427|end_char=511431	O
-22	OGA	OGA	PROPN	NE	Case=Acc|Gender=Fem|Number=Sing	21	_	_	SpaceAfter=No|start_char=511432|end_char=511435	B-ORGl
+22	OGA	OGA	PROPN	NE	Case=Acc|Gender=Fem|Number=Sing	21	_	_	SpaceAfter=No|start_char=511432|end_char=511435	B-ORG
 23	)	)	PUNCT	$(	_	22	_	_	SpaceAfter=No|start_char=511435|end_char=511436	O
 24	.	.	PUNCT	$.	_	23	_	_	start_char=511436|end_char=511437	O
 
