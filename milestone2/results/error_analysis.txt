@@ -1,0 +1,81 @@
+
+================================================================================
+ERROR ANALYSIS: SimpleRuleNER
+================================================================================
+
+================================================================================
+ERROR ANALYSIS
+================================================================================
+
+Errors by Entity Type:
+--------------------------------------------------------------------------------
+ORG:
+  False Positives (predicted ORG, actually O): 3
+  False Negatives (missed ORG): 4
+  Boundary Errors (B/I confusion or type mismatch): 1
+
+MON:
+  False Positives (predicted MON, actually O): 14
+  False Negatives (missed MON): 4
+  Boundary Errors (B/I confusion or type mismatch): 1
+
+LEG:
+  False Positives (predicted LEG, actually O): 20
+  False Negatives (missed LEG): 11
+  Boundary Errors (B/I confusion or type mismatch): 2
+
+
+
+================================================================================
+ERROR ANALYSIS: TokenNB_data_priors
+================================================================================
+
+================================================================================
+ERROR ANALYSIS
+================================================================================
+
+Errors by Entity Type:
+--------------------------------------------------------------------------------
+ORG:
+  False Positives (predicted ORG, actually O): 0
+  False Negatives (missed ORG): 6
+  Boundary Errors (B/I confusion or type mismatch): 0
+
+MON:
+  False Positives (predicted MON, actually O): 0
+  False Negatives (missed MON): 25
+  Boundary Errors (B/I confusion or type mismatch): 0
+
+LEG:
+  False Positives (predicted LEG, actually O): 0
+  False Negatives (missed LEG): 23
+  Boundary Errors (B/I confusion or type mismatch): 0
+
+
+
+================================================================================
+ERROR ANALYSIS: TokenNB_uniform_priors
+================================================================================
+
+================================================================================
+ERROR ANALYSIS
+================================================================================
+
+Errors by Entity Type:
+--------------------------------------------------------------------------------
+ORG:
+  False Positives (predicted ORG, actually O): 10
+  False Negatives (missed ORG): 3
+  Boundary Errors (B/I confusion or type mismatch): 0
+
+MON:
+  False Positives (predicted MON, actually O): 102
+  False Negatives (missed MON): 22
+  Boundary Errors (B/I confusion or type mismatch): 1
+
+LEG:
+  False Positives (predicted LEG, actually O): 10
+  False Negatives (missed LEG): 9
+  Boundary Errors (B/I confusion or type mismatch): 5
+
+

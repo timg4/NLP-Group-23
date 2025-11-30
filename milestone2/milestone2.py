@@ -21,6 +21,9 @@ from math import log
 from typing import List, Dict
 
 from sklearn.metrics import classification_report
+import os
+from pathlib import Path
+from collections import defaultdict
 
 
 #load data
@@ -304,6 +307,7 @@ LABEL_ORDER = ["B-LEG", "I-LEG", "B-MON", "I-MON", "B-ORG", "I-ORG", "O"]
 
 def evaluate_model(model, sentences, name=""):
     y_true, y_pred = [], []
+    sentence_predictions = []
 
     for sent in sentences:
         gold = sent["labels"]
@@ -312,9 +316,125 @@ def evaluate_model(model, sentences, name=""):
             raise ValueError("Length mismatch between gold and prediction")
         y_true.extend(gold)
         y_pred.extend(pred)
+        sentence_predictions.append({
+            "tokens": sent["tokens"],
+            "gold": gold,
+            "pred": pred
+        })
 
     print(f"\n=== {name} ===")
-    print(classification_report(y_true, y_pred, labels=LABEL_ORDER, digits=3))
+    report = classification_report(y_true, y_pred, labels=LABEL_ORDER, digits=3)
+    print(report)
+
+    return report, sentence_predictions, y_true, y_pred
+
+
+# ----------------------------------------------------------------------
+# Output Generation
+# ----------------------------------------------------------------------
+
+def save_predictions_conllu(sentence_predictions, output_path, sent_id_offset=0):
+    """Save predictions in CoNLL-U format."""
+    with open(output_path, "w", encoding="utf-8") as f:
+        for i, sent_pred in enumerate(sentence_predictions):
+            f.write(f"# sent_id = {sent_id_offset + i + 1}\n")
+            for j, (token, label) in enumerate(zip(sent_pred["tokens"], sent_pred["pred"])):
+                # CoNLL-U format: ID, FORM, ... (10 columns), NER_TAG (11th column)
+                f.write(f"{j+1}\t{token}\t_\t_\t_\t_\t_\t_\t_\t_\t{label}\n")
+            f.write("\n")
+
+
+def analyze_errors(sentence_predictions, y_true, y_pred):
+    """Generate error analysis by category."""
+    from sklearn.metrics import confusion_matrix
+
+    analysis = []
+    analysis.append("=" * 80)
+    analysis.append("ERROR ANALYSIS")
+    analysis.append("=" * 80)
+    analysis.append("")
+
+    # Count errors by entity type
+    entity_errors = defaultdict(lambda: {"FP": 0, "FN": 0, "boundary": 0})
+
+    for sent_pred in sentence_predictions:
+        gold = sent_pred["gold"]
+        pred = sent_pred["pred"]
+
+        for i, (g, p) in enumerate(zip(gold, pred)):
+            if g != p:
+                # False positive: predicted entity when gold is O
+                if g == "O" and p != "O":
+                    entity_type = p.split("-")[1] if "-" in p else p
+                    entity_errors[entity_type]["FP"] += 1
+                # False negative: missed entity
+                elif g != "O" and p == "O":
+                    entity_type = g.split("-")[1] if "-" in g else g
+                    entity_errors[entity_type]["FN"] += 1
+                # Boundary errors (B/I confusion or wrong entity type)
+                elif g != "O" and p != "O":
+                    entity_type = g.split("-")[1] if "-" in g else g
+                    entity_errors[entity_type]["boundary"] += 1
+
+    analysis.append("Errors by Entity Type:")
+    analysis.append("-" * 80)
+    for ent_type in ["ORG", "MON", "LEG"]:
+        errs = entity_errors[ent_type]
+        analysis.append(f"{ent_type}:")
+        analysis.append(f"  False Positives (predicted {ent_type}, actually O): {errs['FP']}")
+        analysis.append(f"  False Negatives (missed {ent_type}): {errs['FN']}")
+        analysis.append(f"  Boundary Errors (B/I confusion or type mismatch): {errs['boundary']}")
+        analysis.append("")
+
+    return "\n".join(analysis)
+
+
+def extract_example_sentences(sentence_predictions, num_examples=5):
+    """Extract representative example sentences for qualitative analysis."""
+    examples = []
+    examples.append("=" * 80)
+    examples.append("EXAMPLE SENTENCES")
+    examples.append("=" * 80)
+    examples.append("")
+
+    # Find sentences with different error patterns
+    selected = []
+
+    # 1. Sentences with all correct predictions
+    for sent_pred in sentence_predictions:
+        if sent_pred["gold"] == sent_pred["pred"] and any(l != "O" for l in sent_pred["gold"]):
+            selected.append(("CORRECT", sent_pred))
+            break
+
+    # 2. Sentences with errors
+    error_sents = []
+    for sent_pred in sentence_predictions:
+        if sent_pred["gold"] != sent_pred["pred"]:
+            error_sents.append(sent_pred)
+
+    # Take diverse error examples
+    if error_sents:
+        selected.extend([("ERROR", s) for s in error_sents[:num_examples-1]])
+
+    for label, sent_pred in selected[:num_examples]:
+        tokens = sent_pred["tokens"]
+        gold = sent_pred["gold"]
+        pred = sent_pred["pred"]
+
+        examples.append(f"[{label}] Sentence: {' '.join(tokens)}")
+        examples.append("")
+        examples.append(f"{'Token':<20} {'Gold':<15} {'Predicted':<15}")
+        examples.append("-" * 50)
+
+        for token, g, p in zip(tokens, gold, pred):
+            marker = "✓" if g == p else "✗"
+            examples.append(f"{token:<20} {g:<15} {p:<15} {marker}")
+
+        examples.append("")
+        examples.append("=" * 80)
+        examples.append("")
+
+    return "\n".join(examples)
 
 
 # ----------------------------------------------------------------------
@@ -346,21 +466,133 @@ def main():
 
     train_pairs = build_token_label_pairs(train_set)
 
+    # Create results directory
+    results_dir = Path(__file__).parent / "results"
+    results_dir.mkdir(exist_ok=True)
+
+    # Store all results for combined analysis
+    all_results = {}
+
     # 1) Rule-based
+    print("\n" + "=" * 80)
+    print("EVALUATING: SimpleRuleNER")
+    print("=" * 80)
     rule_model = SimpleRuleNER()
-    evaluate_model(rule_model, dev_set, name="SimpleRuleNER")
+    report_rule, sent_preds_rule, y_true_rule, y_pred_rule = evaluate_model(
+        rule_model, dev_set, name="SimpleRuleNER"
+    )
+    all_results["SimpleRuleNER"] = {
+        "report": report_rule,
+        "sent_preds": sent_preds_rule,
+        "y_true": y_true_rule,
+        "y_pred": y_pred_rule
+    }
 
     # 2) Naive Bayes with label priors from data (biased to 'O')
+    print("\n" + "=" * 80)
+    print("EVALUATING: TokenNB (data priors)")
+    print("=" * 80)
     nb_imb = TokenNB(use_uniform_priors=False)
     nb_imb.count_tokens(train_pairs)
     nb_imb.calculate_weights()
-    evaluate_model(nb_imb, dev_set, name="TokenNB (data priors)")
+    report_nb_data, sent_preds_nb_data, y_true_nb_data, y_pred_nb_data = evaluate_model(
+        nb_imb, dev_set, name="TokenNB (data priors)"
+    )
+    all_results["TokenNB_data_priors"] = {
+        "report": report_nb_data,
+        "sent_preds": sent_preds_nb_data,
+        "y_true": y_true_nb_data,
+        "y_pred": y_pred_nb_data
+    }
 
     # 3) Naive Bayes with uniform label priors (handles imbalance a bit)
+    print("\n" + "=" * 80)
+    print("EVALUATING: TokenNB (uniform priors)")
+    print("=" * 80)
     nb_bal = TokenNB(use_uniform_priors=True)
     nb_bal.count_tokens(train_pairs)
     nb_bal.calculate_weights()
-    evaluate_model(nb_bal, dev_set, name="TokenNB (uniform priors)")
+    report_nb_uniform, sent_preds_nb_uniform, y_true_nb_uniform, y_pred_nb_uniform = evaluate_model(
+        nb_bal, dev_set, name="TokenNB (uniform priors)"
+    )
+    all_results["TokenNB_uniform_priors"] = {
+        "report": report_nb_uniform,
+        "sent_preds": sent_preds_nb_uniform,
+        "y_true": y_true_nb_uniform,
+        "y_pred": y_pred_nb_uniform
+    }
+
+    # Save predictions in CoNLL-U format
+    print("\n" + "=" * 80)
+    print("SAVING PREDICTIONS")
+    print("=" * 80)
+
+    save_predictions_conllu(
+        sent_preds_rule,
+        results_dir / "rule_based_predictions.conllu"
+    )
+    print(f"✓ Saved: {results_dir / 'rule_based_predictions.conllu'}")
+
+    save_predictions_conllu(
+        sent_preds_nb_data,
+        results_dir / "nb_data_priors_predictions.conllu"
+    )
+    print(f"✓ Saved: {results_dir / 'nb_data_priors_predictions.conllu'}")
+
+    save_predictions_conllu(
+        sent_preds_nb_uniform,
+        results_dir / "nb_uniform_priors_predictions.conllu"
+    )
+    print(f"✓ Saved: {results_dir / 'nb_uniform_priors_predictions.conllu'}")
+
+    # Save metrics summary
+    metrics_path = results_dir / "metrics_summary.txt"
+    with open(metrics_path, "w", encoding="utf-8") as f:
+        f.write("=" * 80 + "\n")
+        f.write("MILESTONE 2 BASELINE METRICS SUMMARY\n")
+        f.write("=" * 80 + "\n\n")
+
+        for method_name, results in all_results.items():
+            f.write(f"=== {method_name} ===\n")
+            f.write(results["report"] + "\n\n")
+
+    print(f"✓ Saved: {metrics_path}")
+
+    # Generate and save error analysis for each method
+    error_analysis_path = results_dir / "error_analysis.txt"
+    with open(error_analysis_path, "w", encoding="utf-8") as f:
+        for method_name, results in all_results.items():
+            f.write(f"\n{'=' * 80}\n")
+            f.write(f"ERROR ANALYSIS: {method_name}\n")
+            f.write(f"{'=' * 80}\n\n")
+            error_text = analyze_errors(
+                results["sent_preds"],
+                results["y_true"],
+                results["y_pred"]
+            )
+            f.write(error_text + "\n\n")
+
+    print(f"✓ Saved: {error_analysis_path}")
+
+    # Extract and save example sentences
+    examples_path = results_dir / "example_sentences.txt"
+    with open(examples_path, "w", encoding="utf-8") as f:
+        f.write("=" * 80 + "\n")
+        f.write("EXAMPLE SENTENCES FOR QUALITATIVE ANALYSIS\n")
+        f.write("=" * 80 + "\n\n")
+
+        for method_name, results in all_results.items():
+            f.write(f"\n{'=' * 80}\n")
+            f.write(f"METHOD: {method_name}\n")
+            f.write(f"{'=' * 80}\n\n")
+            examples_text = extract_example_sentences(results["sent_preds"], num_examples=3)
+            f.write(examples_text + "\n\n")
+
+    print(f"✓ Saved: {examples_path}")
+
+    print("\n" + "=" * 80)
+    print("ALL OUTPUTS SAVED TO: milestone2/results/")
+    print("=" * 80)
 
 
 if __name__ == "__main__":

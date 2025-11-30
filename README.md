@@ -1,129 +1,56 @@
 # NLP Project - German Financial NER
 
-**Approach:** Compare 3 NER labeling methods on 150 sentences to determine which is most accurate for German financial/legal documents.
+**Topic 10: Named Entity Recognition for German Official Documents**
+
+Comparing baseline NER methods for German financial/legal documents with three entity types: ORGANIZATION (ORG), MONETARY (MON), and LEGAL_REFERENCE (LEG).
 
 ---
 
-## Quick Start
+## Setup
 
 ### Prerequisites
+- Python 3.11 or higher
+- Virtual environment recommended
+
+### Installation
 ```bash
+# Create and activate virtual environment
+python -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+
+# Install dependencies
 pip install -r requirements.txt
-python -m spacy download de_core_news_lg
 ```
 
-### Workflow
-
-**Step 1: Sample 150 sentences**
+### Running Milestone 2 Baselines
 ```bash
-python data/sample_for_manual_annotation.py \
-    --input data/processed/fincorpus_processed.conllu \
-    --output data/manual_annotation \
-    --num_sentences 150
+python milestone2/milestone2.py --data data/manual_annotation/sample_sentences_labeled.conllu
 ```
 
-**Step 2: Manual labeling**
-- Open `data/manual_annotation/sample_sentences_labeled.conllu`
-- Review/correct NER tags in 11th column (B-ORG, I-ORG, B-MON, I-MON, B-LEG, I-LEG, O)
-- Read `data/manual_annotation/labeling_guidelines.md` for instructions
-
-**Step 3: ChatGPT labeling**
-- Upload sentences to ChatGPT interface
-- Get NER predictions using rule-based approach (see `results/gpt_labeling_approach.py`)
-- Note: Due to file size constraints, a rule-based function was used with GPT to generate predictions
-- Output: `results/labeling_comparison/chatgpt_predictions.tsv` (TSV format with columns: sent_id, token_id, token, ner_tag)
-
-**Step 4: Project labeling**
-```bash
-python data/project_labeling.py \
-    --input data/manual_annotation/sample_sentences.conllu \
-    --output results/labeling_comparison/project_predictions.conllu
-```
-
-**Step 5: Compare all methods**
-```bash
-python evaluation/compare_labeling_methods.py \
-    --gold data/manual_annotation/sample_sentences_labeled.conllu \
-    --chatgpt results/labeling_comparison/chatgpt_predictions.tsv \
-    --project results/labeling_comparison/project_predictions.conllu \
-    --output results/labeling_comparison
-```
-
-**Note**: The `--chatgpt` parameter accepts both TSV and CoNLL-U formats (auto-detected by file extension).
+This will:
+- Train and evaluate 3 baseline NER methods (80/20 train/dev split)
+- Generate predictions in CoNLL-U format
+- Save metrics, error analysis, and example sentences to `milestone2/results/`
 
 ---
 
-## Entity Types
+## Milestone 1: Data Preprocessing
 
-1. **ORGANIZATION (ORG)**: Companies, banks (e.g., "Deutsche Bank AG", "LBBW")
-2. **MONETARY (MON)**: Currency amounts, percentages (e.g., "EUR 1000", "3,41 %")
-3. **LEGAL_REFERENCE (LEG)**: Legal citations (e.g., "§ 15", "Art. 12 PVO")
-
----
-
-## Results
-
-After comparison, you'll get:
-- `labeling_comparison.csv` - Comparison table
-- `labeling_comparison.md` - Markdown table
-- `f1_comparison.png` - F1 scores chart
-- `detailed_report.txt` - Full analysis
-
----
-
-# Milestone 2: Baseline NER Methods & Evaluation
-
-## Baseline Approaches
-
-Three NER methods were implemented and compared on 150 manually-annotated sentences:
-
-1. **Manual Labeling** (Gold Standard): Human-annotated sentences following detailed guidelines
-2. **ChatGPT Approach**: Rule-based method using pattern matching (see `results/gpt_labeling_approach.py`)
-3. **Project Method** (ML + Rules): Hybrid approach combining:
-   - spaCy German NER model (ML)
-   - Regex patterns for LEG/MON entities
-   - Keyword-based ORG detection
-   - Token-level pattern matching
-
-## Evaluation Results
-
-**Performance Summary** (F1 Scores):
-
-| Method | Overall F1 | ORG | MON | LEG |
-|--------|-----------|-----|-----|-----|
-| ChatGPT | 0.3985 | 0.4186 | 0.2381 | 0.5333 |
-| **Project (Improved)** | **0.4108** | 0.3967 | **0.3059** | **0.5333** |
-
-**Key Findings:**
-- ✅ Project method **outperforms ChatGPT** by 3.1% overall F1
-- ✅ **Best at monetary detection** (+28.5% better than ChatGPT)
-- ✅ **Ties on legal references** (F1: 0.53)
-- ✅ **54.9% improvement** over initial baseline (0.2652 → 0.4108)
-- ✅ Better precision-recall balance (Recall: 0.36 vs ChatGPT: 0.31)
-
-**Methodology:** Token-level pattern matching for legal references, keyword-based organization detection, and enhanced monetary detection with magnitude words significantly improved performance over basic regex patterns.
-
-See `results/labeling_comparison/` for detailed metrics and visualizations.
-
----
-
-# Milestone 1: Data Preprocessing
-
-## Dataset
+### Dataset
 
 **FinCorpus-DE10k**: A German financial/legal corpus containing 10,000 PDF documents with extracted text (165M+ tokens). Documents include annual reports, base prospectuses, final terms, and legal texts.
 
-Source: `anhaltai/fincorpus-de-10k` (HuggingFace)
+**Source**: `anhaltai/fincorpus-de-10k` (HuggingFace)
 
-## Preprocessing Pipeline
+### Preprocessing Pipeline
 
-In (`data/perprocess.ipynb`) some basic experimantation was done on a small subset.
+Initial experimentation was conducted in `data/preprocess.ipynb` on a small subset.
 
-The real preprocessing script (`data/perprocess.py`) performs:
+The preprocessing script (`data/perprocess.py`) performs:
 
 1. **Text normalization**:
    - Whitespace cleanup
-   - Paragraph sign (§) normalization as we have legal data here
+   - Paragraph sign (§) normalization
    - Abbreviation protection (e.g., "z. B.", "bzw.", "Art.") to prevent incorrect sentence segmentation
 
 2. **NLP processing** (Stanza German pipeline):
@@ -143,50 +70,149 @@ python data/perprocess.py --output data/processed/fincorpus_processed.conllu --m
 **Current corpus**: 1,000 documents (randomly sampled from all collections)
 **Processing time**: ~5.5 hours
 
-## Output Format
+### Output Format
 
 Data stored in CoNLL-U format with standard 10-column structure. Includes token IDs, word forms, lemmas, POS tags (UPOS + German STTS), morphological features, and character offsets.
 
 Documents delimited with `# newdoc id = <doc_id>` headers.
 
 **Download**: File too large for GitHub. Available at: [Google Drive](https://drive.google.com/file/d/1bs7oI4dxBr2b7Hdp_BC9zWBHjSzHUCVl/view?usp=share_link)
-A glimpse into the first 2000 lines can be found at data/processed/first2000.txt.
+A glimpse into the first 2000 lines can be found at `data/processed/first2000.txt`.
 
-## Issues Identified
+### Issues Identified
 
-1. **Processing performance & limmitation**: Current throughput is ~10 docs/minute. Full corpus would take ~17 hours as some of the files are very large. For the sake of experimentation in this course, we limited the docs to 1000. 
+1. **Processing performance**: Current throughput is ~10 docs/minute. Full corpus would take ~17 hours. Limited to 1000 docs for this project.
 
-2. **HTML artefacts**: HTML entities like `&quot;` appear in output instead of standard quotes.
+2. **HTML artifacts**: HTML entities like `&quot;` appear in output instead of standard quotes.
 
-3. **PDF-formatting**: Multiple consecutive newlines (e.g., `SpacesAfter=\s\n\s\n\s\n`) due to formatting from the original PDF-files. 
+3. **PDF formatting**: Multiple consecutive newlines (e.g., `SpacesAfter=\s\n\s\n\s\n`) due to formatting from original PDFs.
 
-4. **Dependency parsing**: Not included in current version (columns 7-9 are placeholders).
+4. **Dependency parsing**: Not included in current version (columns 7-9 are placeholders). Adding `depparse` processor would approximately double processing time.
 
-Issues 1-3 are cosmetic and could be adressed in future steps if necessary. Issue 4 would require adding the `depparse` processor, approximately doubling processing time which is already quite high here.
-All in all the file looks clean and ready to work with for future steps.
+Issues 1-3 are cosmetic and could be addressed in future steps if necessary. Issue 4 was skipped due to time constraints. Overall, the file is clean and ready for downstream tasks.
 
 ---
 
+## Milestone 2: Baseline NER Methods
 
+We implemented three baseline methods for German financial NER with entity types ORGANIZATION (ORG), MONETARY (MON), and LEGAL_REFERENCE (LEG). The dataset consists of 150 manually annotated sentences split 80/20 into train and dev sets.
+
+The three methods are SimpleRuleNER (pattern-based rules), TokenNB with data priors (Naive Bayes using empirical label frequencies), and TokenNB with uniform priors (Naive Bayes with equal prior probabilities for all labels).
+
+### Results
+
+SimpleRuleNER achieved the best overall performance with 0.920 accuracy and 0.926 weighted F1. It performed well on monetary values (F1: 0.654) and legal references (F1: 0.667 for B-LEG tags) but completely failed on organizations (F1: 0.000). TokenNB with data priors predicted only 'O' labels due to severe class imbalance in the training data (~93% 'O' tags), resulting in 0% recall on all entity types despite high overall accuracy (0.928). TokenNB with uniform priors performed better by treating all labels equally, achieving the best organization detection (F1: 0.667) but at the cost of lower overall accuracy (0.784) due to many false positives.
+
+Performance comparison on the 30-sentence dev set:
+
+| Method | Accuracy | Macro F1 | ORG F1 | MON F1 | LEG F1 |
+|--------|----------|----------|--------|--------|--------|
+| SimpleRuleNER | 0.920 | 0.489 | 0.000 | 0.654 | 0.667 |
+| TokenNB (data priors) | 0.928 | 0.138 | 0.000 | 0.000 | 0.000 |
+| TokenNB (uniform priors) | 0.784 | 0.400 | 0.667 | 0.100 | 0.571 |
+
+### Example Predictions
+
+Example showing organization detection failure:
+
+Sentence: "Berechnungsstelle : UniCredit Bank AG , Apianstr ."
+
+```
+Token          Gold      SimpleRuleNER    TokenNB (data)    TokenNB (uniform)
+UniCredit      B-ORG     O                O                 O
+Bank           I-ORG     O                O                 O
+AG             I-ORG     O                O                 O
+```
+
+All three methods failed to detect this organization. SimpleRuleNER only has patterns for specific keywords like "sparkasse" and suffixes like "AG" in isolation. The Naive Bayes models either predict only 'O' (data priors) or make random guesses (uniform priors) without understanding multi-word entities.
+
+Example showing legal reference detection:
+
+Sentence: "Moody's is established in the European Community and registered since 31 October 2011 under the CRA Regulation ."
+
+```
+Token          Gold      SimpleRuleNER
+CRA            B-LEG     O
+Regulation     I-LEG     O
+```
+
+SimpleRuleNER missed this legal reference because its patterns only look for "§", "Artikel", and "Art." followed by numbers. Legal abbreviations like "CRA Regulation" are not covered.
+
+Example showing false positive on monetary:
+
+Sentence: "112 Rechte der Anteilsinhaber ..."
+
+```
+Token    Gold    SimpleRuleNER
+112      O       B-MON
+```
+
+SimpleRuleNER incorrectly tagged "112" as monetary. The pattern matches any number with separators or percentages, but cannot distinguish section numbers from actual amounts.
+
+### Analysis
+
+The main issue with SimpleRuleNER is insufficient pattern coverage. It works well for stereotypical cases like "§ 15" or "3,41 %" but misses variations. The keyword list for organizations is too limited and doesn't handle multi-word company names properly.
+
+TokenNB with data priors demonstrates a critical problem with class imbalance. When 93% of training tokens are 'O', the prior probability P(O) ≈ 0.93 overwhelms any token-label associations. Even strong indicators like "§" for legal references get outweighed by the prior, causing the model to predict only 'O'.
+
+TokenNB with uniform priors (P(label) = 1/7) forces the model to rely on token likelihoods rather than priors. This helps detect entities but introduces many errors because single-token features cannot capture multi-word entities or sequential dependencies. Accuracy drops from 0.928 to 0.784, but macro F1 improves from 0.138 to 0.400.
+
+Token-level Naive Bayes is fundamentally inadequate for NER because it treats each token independently. BIO tagging requires understanding sequences (B- must precede I- tags), and multi-word entities require context beyond single tokens. The class imbalance problem could be partially addressed with techniques like oversampling rare classes or using class weights, but the independence assumption remains a core limitation.
+
+For future work, sequence models like CRF or BiLSTM-CRF would better handle the sequential dependencies and context needed for accurate NER. Rule-based methods could be improved by expanding pattern coverage and adding context checks to reduce false positives.
+
+Detailed outputs are available in `milestone2/results/` including full predictions, error breakdowns by entity type, and classification reports.
+
+---
 
 ## Project Structure
 
 ```
 NLP-Group-23/
+├── README.md                           # This file
+├── requirements.txt                    # Python dependencies
+├── .gitignore
+│
 ├── data/
-│   ├── processed/fincorpus_processed.conllu    # Milestone 1 output
-│   ├── manual_annotation/
-│   │   ├── sample_sentences.conllu             # Sampled
-│   │   ├── sample_sentences_labeled.conllu     # Gold standard
-│   │   └── labeling_guidelines.md              # Instructions
-│   ├── sample_for_manual_annotation.py         # Sampling script
-│   └── project_labeling.py                     # spaCy + regex labeling
-├── evaluation/
-│   └── compare_labeling_methods.py             # Comparison script
-├── results/
-│   ├── gpt_labeling_approach.py                # GPT labeling script (rule-based)
-│   └── labeling_comparison/                    # Outputs
-│       ├── chatgpt_predictions.tsv             # GPT predictions
-│       └── project_predictions.conllu          # Project predictions
+│   ├── fincorpus-de-10k.py            # Dataset loader
+│   ├── perprocess.py                   # M1: Preprocessing script
+│   ├── preprocess.ipynb                # M1: Preprocessing experimentation
+│   ├── sample_for_manual_annotation.py # Sampling for annotation
+│   ├── processed/                      # M1 output (CoNLL-U corpus)
+│   │   ├── fincorpus_processed.conllu  # Too large for GitHub
+│   │   ├── fincorpus_processed.conllu.zip
+│   │   └── first2000.txt               # Preview
+│   └── manual_annotation/              # Gold standard annotations
+│       ├── sample_sentences.conllu
+│       ├── sample_sentences_labeled.conllu
+│       └── labeling_guidelines.md
+│
+├── milestone2/
+│   ├── milestone2.py                   # M2: Main baseline script
+│   ├── experimentation.ipynb           # M2: Exploration notebook
+│   └── results/                        # M2 outputs
+│       ├── rule_based_predictions.conllu
+│       ├── nb_data_priors_predictions.conllu
+│       ├── nb_uniform_priors_predictions.conllu
+│       ├── error_analysis.txt
+│       ├── metrics_summary.txt
+│       └── example_sentences.txt
+│
+├── future_work/                        # Advanced methods (beyond M2)
+│   ├── README_FUTURE_WORK.md          # Documentation
+│   ├── baselines/                      # CRF methods
+│   ├── evaluation/                     # Comparison scripts
+│   ├── results/                        # ChatGPT vs Project comparison
+│   └── data/                           # spaCy + regex hybrid
+│
+└── NLP_IE_2025WS_Exercise-2.pdf       # Assignment description
 ```
 
+---
+
+## Notes
+
+- Milestone 1 & 2 represent the core project requirements
+- See `future_work/` for advanced methods explored beyond baseline scope
+- All evaluation uses 150 manually-labeled sentences with 80/20 train/dev split
+- Results generated with: `python milestone2/milestone2.py --data data/manual_annotation/sample_sentences_labeled.conllu`
