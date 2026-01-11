@@ -1,0 +1,426 @@
+{
+  "name": "default",
+  "task": {
+    "name": "MON span extraction",
+    "description": "Extract MON entity spans from the input text. Return character-based spans with start/end offsets into the original text.",
+    "input_schema": {
+      "text": "string"
+    },
+    "output_schema": {
+      "spans": "List[Span]"
+    },
+    "type": "extraction"
+  },
+  "description": "",
+  "examples": [
+    {
+      "id": "f8afb265",
+      "input": {
+        "text": "Der Teilfonds kann bis zu 35 % seines Verm\u00f6gens in Aktien investieren (entweder direkt oder indirekt \u00fcber offene OGAW oder OGA)."
+      },
+      "expected_output": {
+        "spans": [
+          {
+            "text": "35 %",
+            "start": 26,
+            "end": 30
+          }
+        ]
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "dbc126a0",
+      "input": {
+        "text": "E.2b. Gr\u00fcnde f\u00fcr das Angebot, Zweckbestimmung der Erl\u00f6se E.3. Angebotskonditionen Beschreibung der Angebotskonditionen: Ausgabepreis: 100,00 % je Festgelegte St\u00fcckelung (Anf\u00e4nglicher Ausgabepreis, danach freibleibend)."
+      },
+      "expected_output": {
+        "spans": [
+          {
+            "text": "100,00 %",
+            "start": 134,
+            "end": 142
+          }
+        ]
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "f6394c8d",
+      "input": {
+        "text": "for the six-month for the year ended 31 December 2018 for the year ended 31 December 2017 (in USD/thousand) period ended 30 June 2019"
+      },
+      "expected_output": {
+        "spans": [
+          {
+            "text": "USD/thousand",
+            "start": 94,
+            "end": 106
+          }
+        ]
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "ead321af",
+      "input": {
+        "text": "Mai 2023 0,20 % 31."
+      },
+      "expected_output": {
+        "spans": [
+          {
+            "text": "0,20 %",
+            "start": 9,
+            "end": 15
+          }
+        ]
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "84e6a7fd",
+      "input": {
+        "text": "Gesch\u00e4ftsjahr zu dem 31. Dezember 2018 Gewinn- und Verlustrechnung (in Mio. Euro) Sechsmonats- zeitraum zu dem 30."
+      },
+      "expected_output": {
+        "spans": [
+          {
+            "text": "Mio. Euro",
+            "start": 71,
+            "end": 80
+          }
+        ]
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "cb5eb21b",
+      "input": {
+        "text": "Operating income1 6,555 6,110 Allowances for losses on loans and advances -786 -569 Profit before taxes 1,810 2,197 Net profit 1,098 1,606"
+      },
+      "expected_output": {
+        "spans": [
+          {
+            "text": "6,555",
+            "start": 18,
+            "end": 23
+          },
+          {
+            "text": "6,110",
+            "start": 24,
+            "end": 29
+          },
+          {
+            "text": "-786",
+            "start": 74,
+            "end": 78
+          },
+          {
+            "text": "-569",
+            "start": 79,
+            "end": 83
+          },
+          {
+            "text": "1,810",
+            "start": 104,
+            "end": 109
+          },
+          {
+            "text": "2,197",
+            "start": 110,
+            "end": 115
+          },
+          {
+            "text": "1,098",
+            "start": 127,
+            "end": 132
+          },
+          {
+            "text": "1,606",
+            "start": 133,
+            "end": 138
+          }
+        ]
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "ae5214d5",
+      "input": {
+        "text": "Der Teilfonds kann bis zu 35 % seines Verm\u00f6gens in Aktien investieren (entweder direkt oder indirekt \u00fcber offene OGAW oder OGA)."
+      },
+      "expected_output": {
+        "spans": [
+          {
+            "text": "35 %",
+            "start": 26,
+            "end": 30
+          }
+        ]
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "9842708e",
+      "input": {
+        "text": "E.2b. Gr\u00fcnde f\u00fcr das Angebot, Zweckbestimmung der Erl\u00f6se E.3. Angebotskonditionen Beschreibung der Angebotskonditionen: Ausgabepreis: 100,00 % je Festgelegte St\u00fcckelung (Anf\u00e4nglicher Ausgabepreis, danach freibleibend)."
+      },
+      "expected_output": {
+        "spans": [
+          {
+            "text": "100,00 %",
+            "start": 134,
+            "end": 142
+          }
+        ]
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "8f153506",
+      "input": {
+        "text": "for the six-month for the year ended 31 December 2018 for the year ended 31 December 2017 (in USD/thousand) period ended 30 June 2019"
+      },
+      "expected_output": {
+        "spans": [
+          {
+            "text": "USD/thousand",
+            "start": 94,
+            "end": 106
+          }
+        ]
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "69546a79",
+      "input": {
+        "text": "Mai 2023 0,20 % 31."
+      },
+      "expected_output": {
+        "spans": [
+          {
+            "text": "0,20 %",
+            "start": 9,
+            "end": 15
+          }
+        ]
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "77a4cb82",
+      "input": {
+        "text": "Gesch\u00e4ftsjahr zu dem 31. Dezember 2018 Gewinn- und Verlustrechnung (in Mio. Euro) Sechsmonats- zeitraum zu dem 30."
+      },
+      "expected_output": {
+        "spans": [
+          {
+            "text": "Mio. Euro",
+            "start": 71,
+            "end": 80
+          }
+        ]
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "85e30660",
+      "input": {
+        "text": "Operating income1 6,555 6,110 Allowances for losses on loans and advances -786 -569 Profit before taxes 1,810 2,197 Net profit 1,098 1,606"
+      },
+      "expected_output": {
+        "spans": [
+          {
+            "text": "6,555",
+            "start": 18,
+            "end": 23
+          },
+          {
+            "text": "6,110",
+            "start": 24,
+            "end": 29
+          },
+          {
+            "text": "-786",
+            "start": 74,
+            "end": 78
+          },
+          {
+            "text": "-569",
+            "start": 79,
+            "end": 83
+          },
+          {
+            "text": "1,810",
+            "start": 104,
+            "end": 109
+          },
+          {
+            "text": "2,197",
+            "start": 110,
+            "end": 115
+          },
+          {
+            "text": "1,098",
+            "start": 127,
+            "end": 132
+          },
+          {
+            "text": "1,606",
+            "start": 133,
+            "end": 138
+          }
+        ]
+      },
+      "source": "human",
+      "confidence": 0.8
+    }
+  ],
+  "corrections": [],
+  "feedback": [],
+  "rules": [
+    {
+      "id": "2d051b82",
+      "name": "Extract Percentages",
+      "description": "This rule extracts percentage values, which are typically formatted with a '%' sign following a numeric value.",
+      "format": "regex",
+      "content": "\\b\\d{1,3}(?:[.,]\\d{1,2})? %\\b",
+      "priority": 10,
+      "confidence": 0.5,
+      "times_applied": 0,
+      "successes": 0,
+      "failures": 0,
+      "created_at": "2026-01-12T00:29:20.513243"
+    },
+    {
+      "id": "a2370ba8",
+      "name": "Extract Monetary Values with Comma Format",
+      "description": "This rule captures monetary values in comma format (e.g., 1,234.56), possibly with a currency notation that follows.",
+      "format": "regex",
+      "content": "\\b\\d{1,3}(?:[.,]\\d{3})*(?:[.,]\\d{2})? \\w*\\b",
+      "priority": 9,
+      "confidence": 0.5,
+      "times_applied": 0,
+      "successes": 0,
+      "failures": 0,
+      "created_at": "2026-01-12T00:29:20.513243"
+    },
+    {
+      "id": "1765d78b",
+      "name": "Capture Currency Considerations",
+      "description": "This rule captures common currency terms like USD, Euro, along with their formats.",
+      "format": "regex",
+      "content": "\\b\\w+\\b(?:\\s*\\/\\s*\\w+)?",
+      "priority": 8,
+      "confidence": 0.5,
+      "times_applied": 0,
+      "successes": 0,
+      "failures": 0,
+      "created_at": "2026-01-12T00:29:20.513243"
+    },
+    {
+      "id": "b4c54e3c",
+      "name": "Handle Numeric Values (General)",
+      "description": "Extract general numeric values that could represent financial data, without specific formatting or units.",
+      "format": "regex",
+      "content": "\\b-?\\d{1,3}(?:[.,]\\d{1,3})*\\b",
+      "priority": 7,
+      "confidence": 0.5,
+      "times_applied": 0,
+      "successes": 0,
+      "failures": 0,
+      "created_at": "2026-01-12T00:29:20.513243"
+    },
+    {
+      "id": "a1e33f54",
+      "name": "Extract Specific Financial Terms",
+      "description": "Capture specific terms that indicate financial values such as 'Mio', 'thousand', and similar terms.",
+      "format": "regex",
+      "content": "\\b(?:Mio|thousand|million|billion)\\b",
+      "priority": 6,
+      "confidence": 0.5,
+      "times_applied": 0,
+      "successes": 0,
+      "failures": 0,
+      "created_at": "2026-01-12T00:29:20.513853"
+    },
+    {
+      "id": "55f60d1b",
+      "name": "Extract Detailed Numerical Patterns",
+      "description": "This rule addresses detailed numerical patterns, including those with potential subunits.",
+      "format": "code",
+      "content": "def extract(input_data):\n    import re\n    spans = []\n    text = input_data['text']\n    # Handling monetary values with decimals\n    decimal_pattern = r'\\b-?\\d+(?:[.,]\\d{1,2})?\\s*%?\\s*(?:Mio|million|Euro|USD)?\\b'\n    matches = re.finditer(decimal_pattern, text)\n    for match in matches:\n        spans.append({'text': match.group(0), 'start': match.start(), 'end': match.end()})\n    return spans",
+      "priority": 5,
+      "confidence": 0.5,
+      "times_applied": 0,
+      "successes": 0,
+      "failures": 0,
+      "created_at": "2026-01-12T00:29:20.513853"
+    },
+    {
+      "id": "768bde8a",
+      "name": "Extract Conditional Patterns",
+      "description": "Extracts values that depend on specific conditions or formats surrounding them.",
+      "format": "code",
+      "content": "def extract(input_data):\n    import re\n    spans = []\n    text = input_data['text']\n    percentage_pattern = r'\\b\\d{1,3}(?:[.,]\\d{1,2})? %\\b'\n    matches = re.finditer(percentage_pattern, text)\n    for match in matches:\n        spans.append({'text': match.group(0), 'start': match.start(), 'end': match.end()})\n    return spans",
+      "priority": 4,
+      "confidence": 0.5,
+      "times_applied": 0,
+      "successes": 0,
+      "failures": 0,
+      "created_at": "2026-01-12T00:29:20.513853"
+    },
+    {
+      "id": "40aa5bc0",
+      "name": "Normalize Different Currency Formats",
+      "description": "Standardize formats for extracted currencies regardless of their variations.",
+      "format": "code",
+      "content": "def extract(input_data):\n    import re\n    spans = []\n    text = input_data['text']\n    currency_pattern = r'\\b(?:USD|Euro|%|Mio)\\b'\n    matches = re.finditer(currency_pattern, text)\n    for match in matches:\n        spans.append({'text': match.group(0), 'start': match.start(), 'end': match.end()})\n    return spans",
+      "priority": 3,
+      "confidence": 0.5,
+      "times_applied": 0,
+      "successes": 0,
+      "failures": 0,
+      "created_at": "2026-01-12T00:29:20.513853"
+    },
+    {
+      "id": "cfdc0c06",
+      "name": "Filter Extracted Values for Relevance",
+      "description": "This rule aims to filter out results based on contextual relevance, e.g., ignoring zero entries.",
+      "format": "code",
+      "content": "def extract(input_data):\n    import re\n    spans = []\n    text = input_data['text']\n    values_pattern = r'\\b\\d{1,3}(?:[.,]\\d{1,2})?\\b'\n    matches = re.finditer(values_pattern, text)\n    for match in matches:\n        if float(match.group(0).replace(',', '.')) > 0:\n            spans.append({'text': match.group(0), 'start': match.start(), 'end': match.end()})\n    return spans",
+      "priority": 2,
+      "confidence": 0.5,
+      "times_applied": 0,
+      "successes": 0,
+      "failures": 0,
+      "created_at": "2026-01-12T00:29:20.513853"
+    },
+    {
+      "id": "ec203b38",
+      "name": "Enhance Extraction of Complex Numbers",
+      "description": "Extract numbers that might be intricately formatted, needing specific approaches.",
+      "format": "code",
+      "content": "def extract(input_data):\n    import re\n    spans = []\n    text = input_data['text']\n    complex_pattern = r'\\b-?\\d{1,3}(?:[.,]\\d{3})*(?:[.,]\\d{1,2})?\\b'\n    matches = re.finditer(complex_pattern, text)\n    for match in matches:\n        spans.append({'text': match.group(0), 'start': match.start(), 'end': match.end()})\n    return spans",
+      "priority": 1,
+      "confidence": 0.5,
+      "times_applied": 0,
+      "successes": 0,
+      "failures": 0,
+      "created_at": "2026-01-12T00:29:20.513853"
+    }
+  ],
+  "version": 1
+}
