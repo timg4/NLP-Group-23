@@ -13,8 +13,14 @@ def pick_examples(gold, label: str, k_pos: int = 6):
         spans = [sp for sp in item["gold_spans"] if sp["label"] == label]
         if not spans:
             continue
-        out_spans = [{"text": sp.get("text", item["text"][sp["start"]:sp["end"]]),
-                      "start": sp["start"], "end": sp["end"]} for sp in spans]
+        out_spans = [
+            {
+                "text": sp.get("text", item["text"][sp["start"]:sp["end"]]),
+                "start": sp["start"],
+                "end": sp["end"],
+            }
+            for sp in spans
+        ]
         ex.append((item["text"], out_spans))
     return ex[:k_pos]
 
@@ -28,13 +34,15 @@ def main():
     if len(examples) < 3:
         raise RuntimeError(f"Not enough positive examples for {label} to smoke test.")
 
+    question = f"Extract all {label} spans from the context. Return character spans."
+
     task = Task(
         name=f"{label} span extraction",
         description=(
-            f"Extract {label} entity spans from the input text. "
-            "Return character-based spans with start/end offsets into the original text."
+            f"Extract {label} entity spans from the context. "
+            "Return character-based spans with start/end offsets into the original context."
         ),
-        input_schema={"text": "string"},
+        input_schema={"question": "string", "context": "string"},
         output_schema={"spans": "List[Span]"},
     )
 
@@ -43,25 +51,20 @@ def main():
     # add a few training examples
     for text, spans in examples:
         chef.add_example(
-            input_data={"text": text},
+            input_data={"question": question, "context": text},
             output_data={"spans": spans},
         )
 
-    # learn rules (RuleChef README shows learn_rules() without args) :contentReference[oaicite:2]{index=2}
-    rules = chef.learn_rules()
+    rules, metrics = chef.learn_rules()
     print("\n=== LEARNED RULES ===")
-    print(rules)
+    print(rules, metrics)
 
-    # test on a random example text (could also pick a different one)
+    # test on a random example
     test_text, gold_spans = rng.choice(examples)
     print("\n=== TEST TEXT ===")
     print(test_text)
 
-    # extract: try kwargs first, fallback to positional (RuleChef matches schema fields)
-    try:
-        pred = chef.extract(text=test_text)
-    except TypeError:
-        pred = chef.extract(test_text)
+    pred = chef.extract({"question": question, "context": test_text})
 
     print("\n=== PREDICTION ===")
     print(pred)
