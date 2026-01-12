@@ -1,0 +1,406 @@
+{
+  "name": "smoke_MON",
+  "task": {
+    "name": "MON span extraction",
+    "description": "Extract MON entity spans from the input context. Return character-based spans with start/end offsets into the original context.",
+    "input_schema": {
+      "context": "string"
+    },
+    "output_schema": {
+      "spans": "List[Span]"
+    },
+    "type": "extraction"
+  },
+  "description": "",
+  "examples": [
+    {
+      "id": "ff277dac",
+      "input": {
+        "context": "Mai 2023 0,20 % 31."
+      },
+      "expected_output": {
+        "spans": [
+          {
+            "text": "0,20 %",
+            "start": 9,
+            "end": 15
+          }
+        ]
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "b3f549d0",
+      "input": {
+        "context": "Gesch\u00e4tzter Netto-Emissionserl\u00f6s EUR 15.253.500"
+      },
+      "expected_output": {
+        "spans": [
+          {
+            "text": "EUR 15.253.500",
+            "start": 33,
+            "end": 47
+          }
+        ]
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "fd419512",
+      "input": {
+        "context": "Kennzahlen gem\u00e4\u00df CRR/CRD IV (mit \u00dcbergangsvorschriften) 30.06.2017 31.12.2016 Risikogewichtete Aktiva (in Mrd. EUR) 75,9"
+      },
+      "expected_output": {
+        "spans": [
+          {
+            "text": "EUR",
+            "start": 111,
+            "end": 114
+          },
+          {
+            "text": "75,9",
+            "start": 116,
+            "end": 120
+          }
+        ]
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "3ab144a9",
+      "input": {
+        "context": "3,00% Max. 1,00 % 0% n. z. 2,0 %2 11."
+      },
+      "expected_output": {
+        "spans": [
+          {
+            "text": "3,00%",
+            "start": 0,
+            "end": 5
+          },
+          {
+            "text": "1,00 % 0%",
+            "start": 11,
+            "end": 20
+          },
+          {
+            "text": "2,0 %2",
+            "start": 27,
+            "end": 33
+          }
+        ]
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "c344e295",
+      "input": {
+        "context": "Bei Eintritt eines Referenzzinssatz-Ersetzungsereignisses in Bezug auf den \u20acSTR oder einen weiteren Nachfolgesatz ist die Emittentin berechtigt, den Referenzzinssatz ab dem Referenzzinssatz-Ersetzungsereignis-Stichtag in Bezug auf den \u20acSTR oder einen weiteren Nachfolgesatz nach Ma\u00dfgabe der nachfolgenden Bestimmungen anzupassen: (1)"
+      },
+      "expected_output": {
+        "spans": [
+          {
+            "text": "\u20acSTR",
+            "start": 75,
+            "end": 79
+          },
+          {
+            "text": "\u20acSTR",
+            "start": 235,
+            "end": 239
+          }
+        ]
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "0c1ece6d",
+      "input": {
+        "context": "E.2b. Gr\u00fcnde f\u00fcr das Angebot, Zweckbestimmung der Erl\u00f6se E.3. Angebotskonditionen Beschreibung der Angebotskonditionen: Ausgabepreis: 100,00 % je Festgelegte St\u00fcckelung (Anf\u00e4nglicher Ausgabepreis, danach freibleibend)."
+      },
+      "expected_output": {
+        "spans": [
+          {
+            "text": "100,00 %",
+            "start": 134,
+            "end": 142
+          }
+        ]
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "cb20ce9b",
+      "input": {
+        "context": "2,50% Max. 0,90% 0% n. z. 2.0 %1 6. Buy and Watch High Income Bond 11/2025 Max."
+      },
+      "expected_output": {
+        "spans": [
+          {
+            "text": "2,50%",
+            "start": 0,
+            "end": 5
+          },
+          {
+            "text": "0,90% 0%",
+            "start": 11,
+            "end": 19
+          },
+          {
+            "text": "2.0 %1",
+            "start": 26,
+            "end": 32
+          }
+        ]
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "77a713b8",
+      "input": {
+        "context": "Es wird damit ein Mindestanteil an nachhaltigen Investitionen mit einem sozialen Ziel get\u00e4tigt:___% - Es werden damit \u00f6kologische/soziale Merkmale beworben, aber keine nachhaltigen Investitionen get\u00e4tigt."
+      },
+      "expected_output": {
+        "spans": [
+          {
+            "text": "___%",
+            "start": 95,
+            "end": 99
+          }
+        ]
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "063c166c",
+      "input": {
+        "context": "Summaries are made up of disclosure requirements known as \"Elements\"."
+      },
+      "expected_output": {
+        "spans": []
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "ec1ca3e1",
+      "input": {
+        "context": "Die Kursentwicklung des jeweiligen Korbbestandteilsi entspricht dem Quotienten aus Ki (final) (wie in C.19 definiert) und Ki (initial)."
+      },
+      "expected_output": {
+        "spans": []
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "81a67a83",
+      "input": {
+        "context": "B.2 Sitz / Rechtsform / geltendes Recht / Land der Die Bank hat ihre Sitze in Frankfurt an dem Main und Erfurt."
+      },
+      "expected_output": {
+        "spans": []
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "3572f6c1",
+      "input": {
+        "context": "November 2017 in Bezug auf die Zulassung von unter dem Emissionsprogramm f\u00fcr Inhaberschuldverschreibungen II begebenen Schuldverschreibungen."
+      },
+      "expected_output": {
+        "spans": []
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "d049ed2b",
+      "input": {
+        "context": "9"
+      },
+      "expected_output": {
+        "spans": []
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "e9cc06fd",
+      "input": {
+        "context": "Diese enthalten besondere Beschreibungen der Regelungen, die zu einer vorzeitigen Beendigung der Laufzeit der Schuldverschreibungen f\u00fchren k\u00f6nnen."
+      },
+      "expected_output": {
+        "spans": []
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "214d5bdc",
+      "input": {
+        "context": "Nicht anwendbar Berechnungsstelle: UniCredit Bank AG, Apianstr."
+      },
+      "expected_output": {
+        "spans": []
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "026d8cbc",
+      "input": {
+        "context": "solche Sicherheiten oder Garantien werden auch zu keinem sp\u00e4teren Zeitpunkt gestellt werden."
+      },
+      "expected_output": {
+        "spans": []
+      },
+      "source": "human",
+      "confidence": 0.8
+    }
+  ],
+  "corrections": [],
+  "feedback": [],
+  "rules": [
+    {
+      "id": "f1dd1255",
+      "name": "Extract Percentages",
+      "description": "This rule extracts percentage values, which can be formatted as numbers followed by a percentage sign, with or without spaces.",
+      "format": "regex",
+      "content": "(\\d+[,.]?\\d*\\s*%)",
+      "priority": 1,
+      "confidence": 0.5,
+      "times_applied": 0,
+      "successes": 0,
+      "failures": 0,
+      "created_at": "2026-01-12T16:26:32.723344"
+    },
+    {
+      "id": "bc719f22",
+      "name": "Extract Currency Values",
+      "description": "This rule extracts monetary values, which can include currency indicators like EUR and numbers formatted with commas and periods.",
+      "format": "regex",
+      "content": "(EUR\\s*\\d+(?:[.,]\\d{1,3})*)",
+      "priority": 2,
+      "confidence": 0.5,
+      "times_applied": 0,
+      "successes": 0,
+      "failures": 0,
+      "created_at": "2026-01-12T16:26:32.723344"
+    },
+    {
+      "id": "3a37b18e",
+      "name": "Extract Mixed Percentages and Values",
+      "description": "This rule extracts values that combine both percentages and additional indicators like 'n.z.' that may indicate non-zero values.",
+      "format": "regex",
+      "content": "(\\d+[,.]?\\d*\\s*%\\s*n\\.\\s*z\\s*|\\d+[,.]?\\d*\\s*%)",
+      "priority": 3,
+      "confidence": 0.5,
+      "times_applied": 0,
+      "successes": 0,
+      "failures": 0,
+      "created_at": "2026-01-12T16:26:32.723344"
+    },
+    {
+      "id": "f5768ad4",
+      "name": "Capture Numeric Ranges with Percentage",
+      "description": "This rule addresses the extraction of numeric ranges formatted with percentage, indicating variation between minimum and maximum values.",
+      "format": "regex",
+      "content": "(\\d+[,.]?\\d*\\s*%\\s*-\\s*\\d+[,.]?\\d*\\s*%)",
+      "priority": 4,
+      "confidence": 0.5,
+      "times_applied": 0,
+      "successes": 0,
+      "failures": 0,
+      "created_at": "2026-01-12T16:26:32.723344"
+    },
+    {
+      "id": "d99843e7",
+      "name": "Handle Currency Variants",
+      "description": "This rule will extract currencies structured as 'X.XXX.XXX,YY' or similar formats, keeping the currency label consistent.",
+      "format": "regex",
+      "content": "(\\d{1,3}(?:\\.\\d{3})*(?:,\\d{1,2})?\\s*(EUR|USD|GBP)?)",
+      "priority": 5,
+      "confidence": 0.5,
+      "times_applied": 0,
+      "successes": 0,
+      "failures": 0,
+      "created_at": "2026-01-12T16:26:32.723344"
+    },
+    {
+      "id": "4e77f8a3",
+      "name": "Identify Undefined Percentages",
+      "description": "This rule captures placeholders for percentages that appear as blanks or special characters like underscores.",
+      "format": "regex",
+      "content": "(\\_+%|\\s*%)",
+      "priority": 6,
+      "confidence": 0.5,
+      "times_applied": 0,
+      "successes": 0,
+      "failures": 0,
+      "created_at": "2026-01-12T16:26:32.723344"
+    },
+    {
+      "id": "68c43351",
+      "name": "Extract Comma-Separated Values",
+      "description": "This rule extracts values that are written in lists or sequences with commas, including a percentage sign if present.",
+      "format": "regex",
+      "content": "(\\d{1,3}(?:[,.]\\d{1,3})*\\s*(%|\\$)?(,\\s*\\d{1,3}(?:[,.]\\d{1,3})*\\s*(%|\\$)?)+)",
+      "priority": 7,
+      "confidence": 0.5,
+      "times_applied": 0,
+      "successes": 0,
+      "failures": 0,
+      "created_at": "2026-01-12T16:26:32.723344"
+    },
+    {
+      "id": "bee904c4",
+      "name": "Include Percent Sign Following Numeric Ranges",
+      "description": "Extracts values that are percentages immediately following any numeric ranges.",
+      "format": "regex",
+      "content": "(\\d+\\s*-\\s*\\d+\\s*%)",
+      "priority": 8,
+      "confidence": 0.5,
+      "times_applied": 0,
+      "successes": 0,
+      "failures": 0,
+      "created_at": "2026-01-12T16:26:32.725348"
+    },
+    {
+      "id": "2cf96bdf",
+      "name": "Extract Currency with Percentage",
+      "description": "This captures values formatted with currencies followed by a percentage potentially indicating a tax rate.",
+      "format": "regex",
+      "content": "(\\w+\\s*\\d+(?:[.,]\\d{1,3})*\\s*%)",
+      "priority": 9,
+      "confidence": 0.5,
+      "times_applied": 0,
+      "successes": 0,
+      "failures": 0,
+      "created_at": "2026-01-12T16:26:32.725348"
+    },
+    {
+      "id": "486affe1",
+      "name": "General Monetary Value Capture",
+      "description": "A catch-all rule to collect any potential monetary value strings not captured by tighter rules.",
+      "format": "regex",
+      "content": "(\\d+(?:[.,]\\d{1,3})?\\s*(EUR|USD|GBP|\\%)?)",
+      "priority": 10,
+      "confidence": 0.5,
+      "times_applied": 0,
+      "successes": 0,
+      "failures": 0,
+      "created_at": "2026-01-12T16:26:32.725348"
+    }
+  ],
+  "version": 1
+}

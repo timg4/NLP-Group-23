@@ -1,0 +1,295 @@
+{
+  "name": "smoke_LEG",
+  "task": {
+    "name": "LEG span extraction",
+    "description": "Extract LEG entity spans from the input context. Return character-based spans with start/end offsets into the original context.",
+    "input_schema": {
+      "context": "string"
+    },
+    "output_schema": {
+      "spans": "List[Span]"
+    },
+    "type": "extraction"
+  },
+  "description": "",
+  "examples": [
+    {
+      "id": "b231a667",
+      "input": {
+        "context": "Die Kursentwicklung des jeweiligen Korbbestandteilsi entspricht dem Quotienten aus Ki (final) (wie in C.19 definiert) und Ki (initial)."
+      },
+      "expected_output": {
+        "spans": [
+          {
+            "text": "C.19",
+            "start": 102,
+            "end": 106
+          }
+        ]
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "419e85cd",
+      "input": {
+        "context": "Kennzahlen gem\u00e4\u00df CRR/CRD IV (mit \u00dcbergangsvorschriften) 30.06.2017 31.12.2016 Risikogewichtete Aktiva (in Mrd. EUR) 75,9"
+      },
+      "expected_output": {
+        "spans": [
+          {
+            "text": "CRR/CRD IV",
+            "start": 17,
+            "end": 27
+          }
+        ]
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "f0169bcb",
+      "input": {
+        "context": "Diese Endg\u00fcltigen Bedingungen wurden f\u00fcr die Zwecke des Artikels 5 Absatz 4 der EU-Prospektrichtlinie (Richtlinie 2003/71/EG), in ihrer jeweils g\u00fcltigen Fassung, \u201eProspektrichtlinie\u201c) abgefasst und sind in Verbindung mit dem Basisprospekt unter dem Debt Issuance Programme der DekaBank Deutsche Girozentrale von dem 11."
+      },
+      "expected_output": {
+        "spans": [
+          {
+            "text": "Artikels 5 Absatz 4",
+            "start": 56,
+            "end": 75
+          },
+          {
+            "text": "Richtlinie 2003/71/EG",
+            "start": 103,
+            "end": 124
+          }
+        ]
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "b88ff16a",
+      "input": {
+        "context": "Artikel 157 Zusammenarbeit bei der Aufsicht Artikel 154 Sicherungsma\u00dfnahmen"
+      },
+      "expected_output": {
+        "spans": [
+          {
+            "text": "Artikel 157",
+            "start": 0,
+            "end": 11
+          },
+          {
+            "text": "Artikel 154",
+            "start": 44,
+            "end": 55
+          }
+        ]
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "5dcdb476",
+      "input": {
+        "context": "Die Mitteilung an die Gl\u00e4ubiger erfolgt gem\u00e4\u00df \u00a7 12. (6) Verbindlichkeit der Festsetzungen."
+      },
+      "expected_output": {
+        "spans": [
+          {
+            "text": "\u00a7 12. (6)",
+            "start": 46,
+            "end": 55
+          }
+        ]
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "efce65a6",
+      "input": {
+        "context": "Die Emittentin wird Informationen nach der Emission au\u00dfer in dem Falle von Bekanntmachungen gem\u00e4\u00df \u00a7 8 der Allgemeinen Emissionsbedingungen nicht liefern."
+      },
+      "expected_output": {
+        "spans": [
+          {
+            "text": "\u00a7 8",
+            "start": 98,
+            "end": 101
+          }
+        ]
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "665b1bf4",
+      "input": {
+        "context": "Die Emittentin beh\u00e4lt sich ferner das Recht vor, das Angebotsvolumen sowie den m\u00f6glichen Gesamtnennbetrag w\u00e4hrend der Laufzeit gem\u00e4\u00df \u00a7 11 der Emissionsbedingungen durch Aufstockungen zu erh\u00f6hen oder durch eine R\u00fccknahme zu reduzieren."
+      },
+      "expected_output": {
+        "spans": [
+          {
+            "text": "\u00a7 11",
+            "start": 133,
+            "end": 137
+          }
+        ]
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "7278bf2a",
+      "input": {
+        "context": "\u00a7 11 Anwendbares Recht, Gerichtsstand und Erf\u00fcllungsort (a) Anwendbares Recht Form und Inhalt der Pfandbriefe sowie alle sich daraus ergebenden Rechte und Pflichten bestimmen sich ausschlie\u00dflich nach dem Recht der Bundesrepublik Deutschland."
+      },
+      "expected_output": {
+        "spans": [
+          {
+            "text": "\u00a7 11",
+            "start": 0,
+            "end": 4
+          }
+        ]
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "91ba208f",
+      "input": {
+        "context": "Summaries are made up of disclosure requirements known as \"Elements\"."
+      },
+      "expected_output": {
+        "spans": []
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "77b1c4f5",
+      "input": {
+        "context": "Mai 2023 0,20 % 31."
+      },
+      "expected_output": {
+        "spans": []
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "ccdda408",
+      "input": {
+        "context": "B.2 Sitz / Rechtsform / geltendes Recht / Land der Die Bank hat ihre Sitze in Frankfurt an dem Main und Erfurt."
+      },
+      "expected_output": {
+        "spans": []
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "0bd66a01",
+      "input": {
+        "context": "November 2017 in Bezug auf die Zulassung von unter dem Emissionsprogramm f\u00fcr Inhaberschuldverschreibungen II begebenen Schuldverschreibungen."
+      },
+      "expected_output": {
+        "spans": []
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "221944cf",
+      "input": {
+        "context": "9"
+      },
+      "expected_output": {
+        "spans": []
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "f0a7571a",
+      "input": {
+        "context": "Diese enthalten besondere Beschreibungen der Regelungen, die zu einer vorzeitigen Beendigung der Laufzeit der Schuldverschreibungen f\u00fchren k\u00f6nnen."
+      },
+      "expected_output": {
+        "spans": []
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "68dd3164",
+      "input": {
+        "context": "Nicht anwendbar Berechnungsstelle: UniCredit Bank AG, Apianstr."
+      },
+      "expected_output": {
+        "spans": []
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "16161c81",
+      "input": {
+        "context": "solche Sicherheiten oder Garantien werden auch zu keinem sp\u00e4teren Zeitpunkt gestellt werden."
+      },
+      "expected_output": {
+        "spans": []
+      },
+      "source": "human",
+      "confidence": 0.8
+    }
+  ],
+  "corrections": [],
+  "feedback": [],
+  "rules": [
+    {
+      "id": "c3bca916",
+      "name": "Extract Articles",
+      "description": "Extract phrases that denote legal articles typically formatted as 'Artikel X' or similar.",
+      "format": "regex",
+      "content": "(Artikel \\d{1,3})",
+      "priority": 9,
+      "confidence": 0.5,
+      "times_applied": 0,
+      "successes": 0,
+      "failures": 0,
+      "created_at": "2026-01-12T16:28:27.771303"
+    },
+    {
+      "id": "48cc8fa2",
+      "name": "Extract Paragraphs",
+      "description": "Extract references to legal paragraphs denoted by '\u00a7' or similar symbols followed by a number.",
+      "format": "regex",
+      "content": "(\u00a7 ?\\d{1,2}(\\. ?\\d{1,2})?( \\(\\d{1,2}\\))?)",
+      "priority": 10,
+      "confidence": 0.5,
+      "times_applied": 0,
+      "successes": 0,
+      "failures": 0,
+      "created_at": "2026-01-12T16:28:27.771303"
+    },
+    {
+      "id": "e1e56da7",
+      "name": "Extract Legal References",
+      "description": "Extract references to laws and regulations that follow a standard pattern.",
+      "format": "regex",
+      "content": "(Richtlinie \\d{4}/\\d{2})",
+      "priority": 8,
+      "confidence": 0.5,
+      "times_applied": 0,
+      "successes": 0,
+      "failures": 0,
+      "created_at": "2026-01-12T16:28:27.771303"
+    }
+  ],
+  "version": 1
+}
