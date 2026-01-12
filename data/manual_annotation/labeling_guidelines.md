@@ -65,6 +65,8 @@ EUR 500.000 → B-MON I-MON
 - Absatz (paragraph): "Abs. 1", "Abs. 2"
 - Number references in legal context: "Nr. 11", "Nr. 397"
 - Combined: "§ 15 Abs. 2"
+- Guidlines
+- Policies
 
 **What to exclude:**
 - Page numbers: "Seite 5"
