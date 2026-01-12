@@ -3,6 +3,7 @@ from openai import OpenAI
 from rulechef import Task, RuleChef
 
 from src.data.gold_dataset import load_gold
+from src.models.rulechef_ner import _task_for
 
 SEED = 1337
 LABELS = ["MON", "ORG", "LEG"]
@@ -43,15 +44,7 @@ def train_one_label(gold, label: str):
     if len(pos) < 3:
         raise RuntimeError(f"Not enough positive examples for {label} (need >= 3). Got {len(pos)}.")
 
-    task = Task(
-        name=f"{label} span extraction",
-        description=(
-            f"Extract {label} entity spans from the input context. "
-            "Return character-based spans with start/end offsets into the original context."
-        ),
-        input_schema={"context": "string"},
-        output_schema={"spans": "List[Span]"},
-    )
+    task = task = _task_for(label)
 
     chef = RuleChef(
         task=task,

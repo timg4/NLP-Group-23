@@ -1,8 +1,8 @@
 {
   "name": "smoke_ORG",
   "task": {
-    "name": "ORG span extraction",
-    "description": "Extract ORG entity spans from the input context. Return character-based spans with start/end offsets into the original context.",
+    "name": "extract_ORG",
+    "description": "Extract ONLY ORG (organizations: companies, banks, authorities, institutions).\nHARD RULES:\n- Do NOT extract generic capitalized noun phrases (German capitalizes nouns).\n- Prefer organizations with legal forms/keywords: GmbH, AG, SE, KG, OHG, KGaA, e.V., Stiftung,\n  Bank, Sparkasse, Versicherung, Holding, Gruppe, Ministerium, Amt, Beh\u00f6rde.\n- Abbreviations (2\u20135 caps) are ORG ONLY if they are known organizations or occur with an org keyword nearby.\n- Never return a span that starts at character 0 unless it is clearly the org name.\nReturn character offsets into the ORIGINAL context.\n",
     "input_schema": {
       "context": "string"
     },
@@ -14,7 +14,7 @@
   "description": "",
   "examples": [
     {
-      "id": "72c7fbc5",
+      "id": "8aeb2a4e",
       "input": {
         "context": "Nicht anwendbar Berechnungsstelle: UniCredit Bank AG, Apianstr."
       },
@@ -31,7 +31,7 @@
       "confidence": 0.8
     },
     {
-      "id": "0ddee51f",
+      "id": "dd87a907",
       "input": {
         "context": "Euro MTF (der b\u00f6rsenregulierte Markt der Luxemburger Wertpapierb\u00f6rse)"
       },
@@ -48,7 +48,7 @@
       "confidence": 0.8
     },
     {
-      "id": "cfc28715",
+      "id": "f6d3fdad",
       "input": {
         "context": "Gesch\u00e4ftstag nach dem ersten Tag dieser Ver\u00f6ffentlichung des Nichtstattfindens einer Auktion, oder (iii) falls ISDA-Kreditereignis-Informationen ver\u00f6ffentlicht worden sind und ISDA auf der Internetseite http://dc.isda.org/credit-default-swaps-management/ (oder eine diese ersetzende Seite) ank\u00fcndigt, in dem Hinblick auf das in der Kreditereignis-Mitteilung genannte Kreditereignis eine Auktion durchzuf\u00fchren, dann jedoch auf dieser Seite ver\u00f6ffentlicht, dass diese Auktion abgesagt wird, den 10."
       },
@@ -65,7 +65,7 @@
       "confidence": 0.8
     },
     {
-      "id": "fea81efa",
+      "id": "a37df26e",
       "input": {
         "context": "Diese Endg\u00fcltigen Bedingungen wurden f\u00fcr die Zwecke des Artikels 5 Absatz 4 der EU-Prospektrichtlinie (Richtlinie 2003/71/EG), in ihrer jeweils g\u00fcltigen Fassung, \u201eProspektrichtlinie\u201c) abgefasst und sind in Verbindung mit dem Basisprospekt unter dem Debt Issuance Programme der DekaBank Deutsche Girozentrale von dem 11."
       },
@@ -82,7 +82,7 @@
       "confidence": 0.8
     },
     {
-      "id": "b1b53ca8",
+      "id": "50f51205",
       "input": {
         "context": "Dezember 2013 endende Gesch\u00e4ftsjahr der DZ BANK entnommen wurden."
       },
@@ -99,7 +99,7 @@
       "confidence": 0.8
     },
     {
-      "id": "9e79824c",
+      "id": "7fa815c4",
       "input": {
         "context": "Die Deka-Gruppe ist das Wertpapierhaus der Sparkassen."
       },
@@ -116,7 +116,7 @@
       "confidence": 0.8
     },
     {
-      "id": "8f3f65a3",
+      "id": "9e47a335",
       "input": {
         "context": "In the Bank sector of the DZ BANK Group, equity investment risk arises primarily at DZ BANK, BSH and DVB. - Market risk comprises market risk in the narrow sense of the term, and market liquidity risk."
       },
@@ -148,7 +148,7 @@
       "confidence": 0.8
     },
     {
-      "id": "80fdb62d",
+      "id": "2372f56d",
       "input": {
         "context": "Anlagen in Anteilen von OGA oder OGAW .................................................................................. 144 16."
       },
@@ -170,7 +170,7 @@
       "confidence": 0.8
     },
     {
-      "id": "aac54a47",
+      "id": "c28cbd7b",
       "input": {
         "context": "Summaries are made up of disclosure requirements known as \"Elements\"."
       },
@@ -181,7 +181,7 @@
       "confidence": 0.8
     },
     {
-      "id": "9777a17d",
+      "id": "0ba34eae",
       "input": {
         "context": "Die Kursentwicklung des jeweiligen Korbbestandteilsi entspricht dem Quotienten aus Ki (final) (wie in C.19 definiert) und Ki (initial)."
       },
@@ -192,7 +192,7 @@
       "confidence": 0.8
     },
     {
-      "id": "39793ccd",
+      "id": "5d1fe264",
       "input": {
         "context": "Mai 2023 0,20 % 31."
       },
@@ -203,7 +203,7 @@
       "confidence": 0.8
     },
     {
-      "id": "5077d807",
+      "id": "6cb3ebee",
       "input": {
         "context": "B.2 Sitz / Rechtsform / geltendes Recht / Land der Die Bank hat ihre Sitze in Frankfurt an dem Main und Erfurt."
       },
@@ -214,7 +214,7 @@
       "confidence": 0.8
     },
     {
-      "id": "bfb91334",
+      "id": "3e3ab9c0",
       "input": {
         "context": "November 2017 in Bezug auf die Zulassung von unter dem Emissionsprogramm f\u00fcr Inhaberschuldverschreibungen II begebenen Schuldverschreibungen."
       },
@@ -225,7 +225,7 @@
       "confidence": 0.8
     },
     {
-      "id": "5c2716a3",
+      "id": "9707d5b4",
       "input": {
         "context": "9"
       },
@@ -236,7 +236,7 @@
       "confidence": 0.8
     },
     {
-      "id": "d1030499",
+      "id": "bfbce5b4",
       "input": {
         "context": "Diese enthalten besondere Beschreibungen der Regelungen, die zu einer vorzeitigen Beendigung der Laufzeit der Schuldverschreibungen f\u00fchren k\u00f6nnen."
       },
@@ -247,7 +247,7 @@
       "confidence": 0.8
     },
     {
-      "id": "8702b82d",
+      "id": "9479f39a",
       "input": {
         "context": "solche Sicherheiten oder Garantien werden auch zu keinem sp\u00e4teren Zeitpunkt gestellt werden."
       },
@@ -262,134 +262,121 @@
   "feedback": [],
   "rules": [
     {
-      "id": "c7a38b85",
-      "name": "Extract Organization Names with Specific Keywords",
-      "description": "This rule captures organization names that have specific common keywords associated with companies like 'AG', 'Bank', 'Group'.",
+      "id": "70bd7ef7",
+      "name": "Extract organizations with legal forms",
+      "description": "This rule extracts organizations that include specific legal forms or keywords indicating they are organizations.",
       "format": "regex",
-      "content": "(?:\\b[A-Z][a-zA-Z0-9 \\-]* (?:AG|Bank|Group|GmbH|Inc\\.|LLC|PLC)\\b)",
+      "content": "(?<!\\w)([A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+(?:\\s[A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+)*\\s(?:GmbH|AG|SE|KG|OHG|KGaA|e.V.|Stiftung|Bank|Sparkasse|Versicherung|Holding|Gruppe|Ministerium|Amt|Beh\u00f6rde))(?!\\w)",
       "priority": 10,
       "confidence": 0.5,
       "times_applied": 0,
       "successes": 0,
       "failures": 0,
-      "created_at": "2026-01-12T16:27:36.852184"
+      "created_at": "2026-01-13T00:32:47.029955"
     },
     {
-      "id": "0460fca3",
-      "name": "Capture Multi-Word Organizations",
-      "description": "This rule identifies organizations that might consist of multiple words together, ensuring a group of words that typically form a name are captured together.",
+      "id": "4c77f1b8",
+      "name": "Extract known abbreviations as organizations",
+      "description": "This rule extracts known abbreviations that are recognized as organizations, especially when they are near legal form keywords.",
       "format": "regex",
-      "content": "((?:[A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+(?: [a-z\u00e4\u00f6\u00fc\u00df]+)*))",
+      "content": "(?<!\\w)([A-Z]{2,5})(?=\\s(?:GmbH|AG|SE|KG|OHG|KGaA|e.V.|Stiftung|Bank|Sparkasse|Versicherung|Holding|Gruppe|Ministerium|Amt|Beh\u00f6rde))(?!\\w)",
       "priority": 9,
       "confidence": 0.5,
       "times_applied": 0,
       "successes": 0,
       "failures": 0,
-      "created_at": "2026-01-12T16:27:36.852184"
+      "created_at": "2026-01-13T00:32:47.029955"
     },
     {
-      "id": "84c37a2a",
-      "name": "Incorporate Variations in Entity Reference",
-      "description": "This handles literal variations in how organizations may reference themselves in texts, such as shortening or acronyms.",
+      "id": "afb1b24d",
+      "name": "Avoid generic capitalized nouns",
+      "description": "This rule ensures that generic capitalized nouns are not extracted as organizations.",
       "format": "regex",
-      "content": "\\b(?:[A-Z]{2,})\\b",
+      "content": "(?<!\\w)([A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+)(?!\\s(?:GmbH|AG|SE|KG|OHG|KGaA|e.V.|Stiftung|Bank|Sparkasse|Versicherung|Holding|Gruppe|Ministerium|Amt|Beh\u00f6rde|\\w))",
       "priority": 8,
       "confidence": 0.5,
       "times_applied": 0,
       "successes": 0,
       "failures": 0,
-      "created_at": "2026-01-12T16:27:36.852184"
+      "created_at": "2026-01-13T00:32:47.029955"
     },
     {
-      "id": "2c0fab56",
-      "name": "Exclude Non-Organization Context",
-      "description": "This rule avoids capturing spans when the identified text does not form a meaningful organization context.",
+      "id": "457361cd",
+      "name": "Extract organizations with specific context",
+      "description": "This rule captures organizations that may not have legal forms but are mentioned in a context that indicates they are organizations.",
       "format": "code",
-      "content": "def extract(input_data):\n    import re\n    spans = []\n    context = input_data['context']\n    # Regex to find potential organizations\n    pattern = re.compile(r'((?:[A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+(?: [a-z\u00e4\u00f6\u00fc\u00df]+)*) (?:AG|Bank|Group|GmbH|Inc\\.|LLC|PLC))|(?:\\b[A-Z]{2,}\\b)')\n    matches = pattern.finditer(context)\n    for match in matches:\n        start, end = match.span()  # Get start and end indices\n        spans.append({'text': match.group(), 'start': start, 'end': end})\n    return spans\n",
+      "content": "def extract(input_data):\n    import re\n    spans = []\n    context = input_data['context']\n    pattern = r'(?<!\\w)([A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+(?:\\s[A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+)*)(?=\\s(?:Gruppe|Bank|Versicherung|Stiftung|Ministerium|Amt|Beh\u00f6rde))(?!\\w)'\n    matches = re.finditer(pattern, context)\n    for match in matches:\n        spans.append({'text': match.group(0), 'start': match.start(), 'end': match.end()})\n    return spans",
       "priority": 7,
       "confidence": 0.5,
       "times_applied": 0,
       "successes": 0,
       "failures": 0,
-      "created_at": "2026-01-12T16:27:36.852184"
+      "created_at": "2026-01-13T00:32:47.029955"
     },
     {
-      "id": "4d15327e",
-      "name": "Handle Non-Organization Texts Gracefully",
-      "description": "This rule is to ensure that if no organizations are present, an empty list is returned, minimizing errors in output.",
+      "id": "83693d10",
+      "name": "Ensure spans do not start at character 0 unless valid",
+      "description": "This rule checks that spans do not start at character 0 unless they are clearly the organization name.",
       "format": "code",
-      "content": "def extract(input_data):\n    import re\n    spans = []\n    context = input_data['context']\n    pattern = re.compile(r'((?:[A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+(?: [a-z\u00e4\u00f6\u00fc\u00df]+)*) (?:AG|Bank|Group|GmbH|Inc\\.|LLC|PLC))|(?:\\b[A-Z]{2,}\\b)')\n    matches = pattern.findall(context)\n    if matches:\n        for match in matches:\n            start = context.find(match)\n            end = start + len(match)\n            spans.append({'text': match.strip(), 'start': start, 'end': end})\n    return spans\n",
+      "content": "def extract(input_data):\n    import re\n    spans = []\n    context = input_data['context']\n    pattern = r'(?<!\\w)([A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+(?:\\s[A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+)*\\s(?:GmbH|AG|SE|KG|OHG|KGaA|e.V.|Stiftung|Bank|Sparkasse|Versicherung|Holding|Gruppe|Ministerium|Amt|Beh\u00f6rde))(?!\\w)'\n    matches = re.finditer(pattern, context)\n    for match in matches:\n        if match.start() > 0:\n            spans.append({'text': match.group(0), 'start': match.start(), 'end': match.end()})\n    return spans",
       "priority": 6,
       "confidence": 0.5,
       "times_applied": 0,
       "successes": 0,
       "failures": 0,
-      "created_at": "2026-01-12T16:27:36.852184"
+      "created_at": "2026-01-13T00:32:47.031241"
     },
     {
-      "id": "68401620",
-      "name": "Detect Organizations with Local Context",
-      "description": "This rule helps in identifying organizations that may have local or geographic identifiers that are often appended.",
-      "format": "regex",
-      "content": "(\\b[A-Z][a-zA-Z]\\b(?: [A-Z][a-zA-Z0-9]*(?: [A-Z][a-zA-Z0-9]*)*)*(?: (?:in|of|at) [A-Z][a-zA-Z]*)?)(?=\\s*(?:AG|Bank|Group|GmbH|Inc\\.|LLC|PLC))",
+      "id": "cc23067b",
+      "name": "Handle multiple organizations in context",
+      "description": "This rule ensures that multiple organizations can be extracted from a single context.",
+      "format": "code",
+      "content": "def extract(input_data):\n    import re\n    spans = []\n    context = input_data['context']\n    pattern = r'(?<!\\w)([A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+(?:\\s[A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+)*\\s(?:GmbH|AG|SE|KG|OHG|KGaA|e.V.|Stiftung|Bank|Sparkasse|Versicherung|Holding|Gruppe|Ministerium|Amt|Beh\u00f6rde))(?!\\w)'\n    matches = re.finditer(pattern, context)\n    for match in matches:\n        spans.append({'text': match.group(0), 'start': match.start(), 'end': match.end()})\n    return spans",
       "priority": 5,
       "confidence": 0.5,
       "times_applied": 0,
       "successes": 0,
       "failures": 0,
-      "created_at": "2026-01-12T16:27:36.854191"
+      "created_at": "2026-01-13T00:32:47.031241"
     },
     {
-      "id": "93b76652",
-      "name": "Filter Out Generic Terms",
-      "description": "This relates to ignoring generic terms that might be confused for organizations.",
+      "id": "5b5f5c56",
+      "name": "Extract organizations with specific keywords",
+      "description": "This rule captures organizations that are mentioned with specific keywords indicating their nature.",
       "format": "regex",
-      "content": "\\b(?:Sitz|Rechtsform|Land|Bank|Institut)\\b",
+      "content": "(?<!\\w)([A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+(?:\\s[A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+)*)(?=\\s(?:Gruppe|Bank|Versicherung|Stiftung|Ministerium|Amt|Beh\u00f6rde))(?!\\w)",
       "priority": 4,
       "confidence": 0.5,
       "times_applied": 0,
       "successes": 0,
       "failures": 0,
-      "created_at": "2026-01-12T16:27:36.854191"
+      "created_at": "2026-01-13T00:32:47.031241"
     },
     {
-      "id": "07c0b2c5",
-      "name": "Utilize Contextual Analysis",
-      "description": "This rule allows examining the surrounding texts of potential organization matches to validate their relevance and context.",
-      "format": "code",
-      "content": "def extract(input_data):\n    import re\n    spans = []\n    context = input_data['context']\n    if not context.strip():\n        return spans  # Early return for empty contexts\n    pattern = re.compile(r'((?:[A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+(?: [a-z\u00e4\u00f6\u00fc\u00df]+)*) (?:AG|Bank|Group|GmbH|Inc\\.|LLC|PLC))')\n    matches = pattern.finditer(context)\n    for match in matches:\n        if 'Bank' in match.group() or 'AG' in match.group():\n            start, end = match.span()\n            spans.append({'text': match.group(), 'start': start, 'end': end})\n    return spans\n",
+      "id": "92803f81",
+      "name": "Exclude non-organization capitalized terms",
+      "description": "This rule ensures that capitalized terms that do not represent organizations are excluded.",
+      "format": "regex",
+      "content": "(?<!\\w)([A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+)(?!\\s(?:GmbH|AG|SE|KG|OHG|KGaA|e.V.|Stiftung|Bank|Sparkasse|Versicherung|Holding|Gruppe|Ministerium|Amt|Beh\u00f6rde|\\w))",
       "priority": 3,
       "confidence": 0.5,
       "times_applied": 0,
       "successes": 0,
       "failures": 0,
-      "created_at": "2026-01-12T16:27:36.854191"
+      "created_at": "2026-01-13T00:32:47.031241"
     },
     {
-      "id": "e73f5e3f",
-      "name": "Minimal Capture Pattern for Organizations",
-      "description": "A fallback regex that captures very basic organization structures in case other rules fail.",
-      "format": "regex",
-      "content": "\\b[A-Za-z0-9 &\\.\\-]+\\b",
+      "id": "434b7286",
+      "name": "Final validation of extracted spans",
+      "description": "This rule validates the extracted spans to ensure they meet the criteria for organizations.",
+      "format": "code",
+      "content": "def extract(input_data):\n    import re\n    spans = []\n    context = input_data['context']\n    pattern = r'(?<!\\w)([A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+(?:\\s[A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+)*\\s(?:GmbH|AG|SE|KG|OHG|KGaA|e.V.|Stiftung|Bank|Sparkasse|Versicherung|Holding|Gruppe|Ministerium|Amt|Beh\u00f6rde))(?!\\w)'\n    matches = re.finditer(pattern, context)\n    for match in matches:\n        if match.group(0) not in spans:\n            spans.append({'text': match.group(0), 'start': match.start(), 'end': match.end()})\n    return spans",
       "priority": 2,
       "confidence": 0.5,
       "times_applied": 0,
       "successes": 0,
       "failures": 0,
-      "created_at": "2026-01-12T16:27:36.854191"
-    },
-    {
-      "id": "940c2d2b",
-      "name": "Adapt to Regional Language Variants",
-      "description": "This handles cases where organization names may include language specific characters or structures.",
-      "format": "regex",
-      "content": "[A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+(?: [A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+)*",
-      "priority": 1,
-      "confidence": 0.5,
-      "times_applied": 0,
-      "successes": 0,
-      "failures": 0,
-      "created_at": "2026-01-12T16:27:36.854191"
+      "created_at": "2026-01-13T00:32:47.031241"
     }
   ],
   "version": 1
