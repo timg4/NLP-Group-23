@@ -4,7 +4,7 @@
     "name": "extract_ORG",
     "description": "Extract ONLY ORG (organizations: companies, banks, authorities, institutions).\nHARD RULES:\n- Do NOT extract generic capitalized noun phrases (German capitalizes nouns).\n- Prefer organizations with legal forms/keywords: GmbH, AG, SE, KG, OHG, KGaA, e.V., Stiftung,\n  Bank, Sparkasse, Versicherung, Holding, Gruppe, Ministerium, Amt, Beh\u00f6rde.\n- Abbreviations (2\u20135 caps) are ORG ONLY if they are known organizations or occur with an org keyword nearby.\n- Never return a span that starts at character 0 unless it is clearly the org name.\nReturn character offsets into the ORIGINAL context.\n",
     "input_schema": {
-      "context": "string"
+      "text": "string"
     },
     "output_schema": {
       "spans": "List[Span]"
@@ -14,7 +14,7 @@
   "description": "",
   "examples": [
     {
-      "id": "8aeb2a4e",
+      "id": "5ddfa8a1",
       "input": {
         "context": "Nicht anwendbar Berechnungsstelle: UniCredit Bank AG, Apianstr."
       },
@@ -31,7 +31,7 @@
       "confidence": 0.8
     },
     {
-      "id": "dd87a907",
+      "id": "57409ab7",
       "input": {
         "context": "Euro MTF (der b\u00f6rsenregulierte Markt der Luxemburger Wertpapierb\u00f6rse)"
       },
@@ -48,7 +48,7 @@
       "confidence": 0.8
     },
     {
-      "id": "f6d3fdad",
+      "id": "b50df4d0",
       "input": {
         "context": "Gesch\u00e4ftstag nach dem ersten Tag dieser Ver\u00f6ffentlichung des Nichtstattfindens einer Auktion, oder (iii) falls ISDA-Kreditereignis-Informationen ver\u00f6ffentlicht worden sind und ISDA auf der Internetseite http://dc.isda.org/credit-default-swaps-management/ (oder eine diese ersetzende Seite) ank\u00fcndigt, in dem Hinblick auf das in der Kreditereignis-Mitteilung genannte Kreditereignis eine Auktion durchzuf\u00fchren, dann jedoch auf dieser Seite ver\u00f6ffentlicht, dass diese Auktion abgesagt wird, den 10."
       },
@@ -65,7 +65,7 @@
       "confidence": 0.8
     },
     {
-      "id": "a37df26e",
+      "id": "7c4432e7",
       "input": {
         "context": "Diese Endg\u00fcltigen Bedingungen wurden f\u00fcr die Zwecke des Artikels 5 Absatz 4 der EU-Prospektrichtlinie (Richtlinie 2003/71/EG), in ihrer jeweils g\u00fcltigen Fassung, \u201eProspektrichtlinie\u201c) abgefasst und sind in Verbindung mit dem Basisprospekt unter dem Debt Issuance Programme der DekaBank Deutsche Girozentrale von dem 11."
       },
@@ -82,7 +82,7 @@
       "confidence": 0.8
     },
     {
-      "id": "50f51205",
+      "id": "90adc7ea",
       "input": {
         "context": "Dezember 2013 endende Gesch\u00e4ftsjahr der DZ BANK entnommen wurden."
       },
@@ -99,7 +99,7 @@
       "confidence": 0.8
     },
     {
-      "id": "7fa815c4",
+      "id": "96977845",
       "input": {
         "context": "Die Deka-Gruppe ist das Wertpapierhaus der Sparkassen."
       },
@@ -116,7 +116,7 @@
       "confidence": 0.8
     },
     {
-      "id": "9e47a335",
+      "id": "e186f502",
       "input": {
         "context": "In the Bank sector of the DZ BANK Group, equity investment risk arises primarily at DZ BANK, BSH and DVB. - Market risk comprises market risk in the narrow sense of the term, and market liquidity risk."
       },
@@ -148,7 +148,7 @@
       "confidence": 0.8
     },
     {
-      "id": "2372f56d",
+      "id": "dd98c141",
       "input": {
         "context": "Anlagen in Anteilen von OGA oder OGAW .................................................................................. 144 16."
       },
@@ -170,7 +170,7 @@
       "confidence": 0.8
     },
     {
-      "id": "c28cbd7b",
+      "id": "3c848f48",
       "input": {
         "context": "Summaries are made up of disclosure requirements known as \"Elements\"."
       },
@@ -181,7 +181,7 @@
       "confidence": 0.8
     },
     {
-      "id": "0ba34eae",
+      "id": "f492b735",
       "input": {
         "context": "Die Kursentwicklung des jeweiligen Korbbestandteilsi entspricht dem Quotienten aus Ki (final) (wie in C.19 definiert) und Ki (initial)."
       },
@@ -192,7 +192,7 @@
       "confidence": 0.8
     },
     {
-      "id": "5d1fe264",
+      "id": "d3fbc25e",
       "input": {
         "context": "Mai 2023 0,20 % 31."
       },
@@ -203,7 +203,7 @@
       "confidence": 0.8
     },
     {
-      "id": "6cb3ebee",
+      "id": "ea62b800",
       "input": {
         "context": "B.2 Sitz / Rechtsform / geltendes Recht / Land der Die Bank hat ihre Sitze in Frankfurt an dem Main und Erfurt."
       },
@@ -214,7 +214,7 @@
       "confidence": 0.8
     },
     {
-      "id": "3e3ab9c0",
+      "id": "aa713836",
       "input": {
         "context": "November 2017 in Bezug auf die Zulassung von unter dem Emissionsprogramm f\u00fcr Inhaberschuldverschreibungen II begebenen Schuldverschreibungen."
       },
@@ -225,7 +225,7 @@
       "confidence": 0.8
     },
     {
-      "id": "9707d5b4",
+      "id": "371b7bbe",
       "input": {
         "context": "9"
       },
@@ -236,7 +236,7 @@
       "confidence": 0.8
     },
     {
-      "id": "bfbce5b4",
+      "id": "6e722b88",
       "input": {
         "context": "Diese enthalten besondere Beschreibungen der Regelungen, die zu einer vorzeitigen Beendigung der Laufzeit der Schuldverschreibungen f\u00fchren k\u00f6nnen."
       },
@@ -247,7 +247,7 @@
       "confidence": 0.8
     },
     {
-      "id": "9479f39a",
+      "id": "c4ba928c",
       "input": {
         "context": "solche Sicherheiten oder Garantien werden auch zu keinem sp\u00e4teren Zeitpunkt gestellt werden."
       },
@@ -262,121 +262,121 @@
   "feedback": [],
   "rules": [
     {
-      "id": "70bd7ef7",
+      "id": "edf89bd9",
       "name": "Extract organizations with legal forms",
       "description": "This rule extracts organizations that include specific legal forms or keywords indicating they are organizations.",
       "format": "regex",
-      "content": "(?<!\\w)([A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+(?:\\s[A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+)*\\s(?:GmbH|AG|SE|KG|OHG|KGaA|e.V.|Stiftung|Bank|Sparkasse|Versicherung|Holding|Gruppe|Ministerium|Amt|Beh\u00f6rde))(?!\\w)",
+      "content": "(?<!\\w)([A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+(?:\\s[A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+)*(?:\\s(?:GmbH|AG|SE|KG|OHG|KGaA|e.V.|Stiftung|Bank|Sparkasse|Versicherung|Holding|Gruppe|Ministerium|Amt|Beh\u00f6rde))(?!\\w))",
       "priority": 10,
       "confidence": 0.5,
       "times_applied": 0,
       "successes": 0,
       "failures": 0,
-      "created_at": "2026-01-13T00:32:47.029955"
+      "created_at": "2026-01-13T01:19:41.509080"
     },
     {
-      "id": "4c77f1b8",
+      "id": "12356ea8",
       "name": "Extract known abbreviations as organizations",
-      "description": "This rule extracts known abbreviations that are recognized as organizations, especially when they are near legal form keywords.",
+      "description": "This rule extracts known abbreviations as organizations when they are accompanied by relevant keywords.",
       "format": "regex",
-      "content": "(?<!\\w)([A-Z]{2,5})(?=\\s(?:GmbH|AG|SE|KG|OHG|KGaA|e.V.|Stiftung|Bank|Sparkasse|Versicherung|Holding|Gruppe|Ministerium|Amt|Beh\u00f6rde))(?!\\w)",
+      "content": "(?<!\\w)([A-Z]{2,5})(?=\\s(?:GmbH|AG|SE|KG|OHG|KGaA|e.V.|Stiftung|Bank|Sparkasse|Versicherung|Holding|Gruppe|Ministerium|Amt|Beh\u00f6rde))",
       "priority": 9,
       "confidence": 0.5,
       "times_applied": 0,
       "successes": 0,
       "failures": 0,
-      "created_at": "2026-01-13T00:32:47.029955"
+      "created_at": "2026-01-13T01:19:41.509080"
     },
     {
-      "id": "afb1b24d",
+      "id": "da73d26c",
       "name": "Avoid generic capitalized nouns",
-      "description": "This rule ensures that generic capitalized nouns are not extracted as organizations.",
+      "description": "This rule prevents the extraction of generic capitalized nouns that are not organizations.",
       "format": "regex",
-      "content": "(?<!\\w)([A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+)(?!\\s(?:GmbH|AG|SE|KG|OHG|KGaA|e.V.|Stiftung|Bank|Sparkasse|Versicherung|Holding|Gruppe|Ministerium|Amt|Beh\u00f6rde|\\w))",
+      "content": "(?<!\\w)([A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+)(?!\\s(?:GmbH|AG|SE|KG|OHG|KGaA|e.V.|Stiftung|Bank|Sparkasse|Versicherung|Holding|Gruppe|Ministerium|Amt|Beh\u00f6rde))",
       "priority": 8,
       "confidence": 0.5,
       "times_applied": 0,
       "successes": 0,
       "failures": 0,
-      "created_at": "2026-01-13T00:32:47.029955"
+      "created_at": "2026-01-13T01:19:41.509080"
     },
     {
-      "id": "457361cd",
-      "name": "Extract organizations with specific context",
-      "description": "This rule captures organizations that may not have legal forms but are mentioned in a context that indicates they are organizations.",
+      "id": "28b2a35e",
+      "name": "Extract organizations not starting at character 0",
+      "description": "This rule ensures that spans do not start at character 0 unless they are clearly the organization name.",
       "format": "code",
-      "content": "def extract(input_data):\n    import re\n    spans = []\n    context = input_data['context']\n    pattern = r'(?<!\\w)([A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+(?:\\s[A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+)*)(?=\\s(?:Gruppe|Bank|Versicherung|Stiftung|Ministerium|Amt|Beh\u00f6rde))(?!\\w)'\n    matches = re.finditer(pattern, context)\n    for match in matches:\n        spans.append({'text': match.group(0), 'start': match.start(), 'end': match.end()})\n    return spans",
+      "content": "def extract(input_data):\n    import re\n    spans = []\n    text = input_data['text']\n    pattern = r'(?<!\\w)([A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+(?:\\s[A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+)*(?:\\s(?:GmbH|AG|SE|KG|OHG|KGaA|e.V.|Stiftung|Bank|Sparkasse|Versicherung|Holding|Gruppe|Ministerium|Amt|Beh\u00f6rde))(?!\\w))'\n    for match in re.finditer(pattern, text):\n        if match.start() > 0:\n            spans.append({'text': match.group(0), 'start': match.start(), 'end': match.end()})\n    return spans",
       "priority": 7,
       "confidence": 0.5,
       "times_applied": 0,
       "successes": 0,
       "failures": 0,
-      "created_at": "2026-01-13T00:32:47.029955"
+      "created_at": "2026-01-13T01:19:41.509080"
     },
     {
-      "id": "83693d10",
-      "name": "Ensure spans do not start at character 0 unless valid",
-      "description": "This rule checks that spans do not start at character 0 unless they are clearly the organization name.",
-      "format": "code",
-      "content": "def extract(input_data):\n    import re\n    spans = []\n    context = input_data['context']\n    pattern = r'(?<!\\w)([A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+(?:\\s[A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+)*\\s(?:GmbH|AG|SE|KG|OHG|KGaA|e.V.|Stiftung|Bank|Sparkasse|Versicherung|Holding|Gruppe|Ministerium|Amt|Beh\u00f6rde))(?!\\w)'\n    matches = re.finditer(pattern, context)\n    for match in matches:\n        if match.start() > 0:\n            spans.append({'text': match.group(0), 'start': match.start(), 'end': match.end()})\n    return spans",
+      "id": "a3f8c580",
+      "name": "Extract organizations with abbreviations nearby",
+      "description": "This rule captures organizations that may have abbreviations nearby, ensuring they are recognized as part of the organization.",
+      "format": "regex",
+      "content": "(?<!\\w)([A-Z]{2,5})\\s+([A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+(?:\\s[A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+)*(?:\\s(?:GmbH|AG|SE|KG|OHG|KGaA|e.V.|Stiftung|Bank|Sparkasse|Versicherung|Holding|Gruppe|Ministerium|Amt|Beh\u00f6rde))(?!\\w))",
       "priority": 6,
       "confidence": 0.5,
       "times_applied": 0,
       "successes": 0,
       "failures": 0,
-      "created_at": "2026-01-13T00:32:47.031241"
+      "created_at": "2026-01-13T01:19:41.509080"
     },
     {
-      "id": "cc23067b",
-      "name": "Handle multiple organizations in context",
-      "description": "This rule ensures that multiple organizations can be extracted from a single context.",
+      "id": "24b721df",
+      "name": "Handle multiple organizations in a single context",
+      "description": "This rule ensures that multiple organizations within a single context are extracted correctly.",
       "format": "code",
-      "content": "def extract(input_data):\n    import re\n    spans = []\n    context = input_data['context']\n    pattern = r'(?<!\\w)([A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+(?:\\s[A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+)*\\s(?:GmbH|AG|SE|KG|OHG|KGaA|e.V.|Stiftung|Bank|Sparkasse|Versicherung|Holding|Gruppe|Ministerium|Amt|Beh\u00f6rde))(?!\\w)'\n    matches = re.finditer(pattern, context)\n    for match in matches:\n        spans.append({'text': match.group(0), 'start': match.start(), 'end': match.end()})\n    return spans",
+      "content": "def extract(input_data):\n    import re\n    spans = []\n    text = input_data['text']\n    pattern = r'(?<!\\w)([A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+(?:\\s[A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+)*(?:\\s(?:GmbH|AG|SE|KG|OHG|KGaA|e.V.|Stiftung|Bank|Sparkasse|Versicherung|Holding|Gruppe|Ministerium|Amt|Beh\u00f6rde))(?!\\w))'\n    for match in re.finditer(pattern, text):\n        if match.start() > 0:\n            spans.append({'text': match.group(0), 'start': match.start(), 'end': match.end()})\n    return spans",
       "priority": 5,
       "confidence": 0.5,
       "times_applied": 0,
       "successes": 0,
       "failures": 0,
-      "created_at": "2026-01-13T00:32:47.031241"
+      "created_at": "2026-01-13T01:19:41.509080"
     },
     {
-      "id": "5b5f5c56",
-      "name": "Extract organizations with specific keywords",
-      "description": "This rule captures organizations that are mentioned with specific keywords indicating their nature.",
+      "id": "7f1e0c76",
+      "name": "Extract organizations with common abbreviations",
+      "description": "This rule captures organizations that are commonly known by their abbreviations.",
       "format": "regex",
-      "content": "(?<!\\w)([A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+(?:\\s[A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+)*)(?=\\s(?:Gruppe|Bank|Versicherung|Stiftung|Ministerium|Amt|Beh\u00f6rde))(?!\\w)",
-      "priority": 4,
-      "confidence": 0.5,
-      "times_applied": 0,
-      "successes": 0,
-      "failures": 0,
-      "created_at": "2026-01-13T00:32:47.031241"
-    },
-    {
-      "id": "92803f81",
-      "name": "Exclude non-organization capitalized terms",
-      "description": "This rule ensures that capitalized terms that do not represent organizations are excluded.",
-      "format": "regex",
-      "content": "(?<!\\w)([A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+)(?!\\s(?:GmbH|AG|SE|KG|OHG|KGaA|e.V.|Stiftung|Bank|Sparkasse|Versicherung|Holding|Gruppe|Ministerium|Amt|Beh\u00f6rde|\\w))",
+      "content": "(?<!\\w)([A-Z]{2,5})(?=\\s(?:Bank|Sparkasse|Versicherung|Holding|Gruppe|Ministerium|Amt|Beh\u00f6rde))",
       "priority": 3,
       "confidence": 0.5,
       "times_applied": 0,
       "successes": 0,
       "failures": 0,
-      "created_at": "2026-01-13T00:32:47.031241"
+      "created_at": "2026-01-13T01:19:41.524908"
     },
     {
-      "id": "434b7286",
-      "name": "Final validation of extracted spans",
-      "description": "This rule validates the extracted spans to ensure they meet the criteria for organizations.",
-      "format": "code",
-      "content": "def extract(input_data):\n    import re\n    spans = []\n    context = input_data['context']\n    pattern = r'(?<!\\w)([A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+(?:\\s[A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+)*\\s(?:GmbH|AG|SE|KG|OHG|KGaA|e.V.|Stiftung|Bank|Sparkasse|Versicherung|Holding|Gruppe|Ministerium|Amt|Beh\u00f6rde))(?!\\w)'\n    matches = re.finditer(pattern, context)\n    for match in matches:\n        if match.group(0) not in spans:\n            spans.append({'text': match.group(0), 'start': match.start(), 'end': match.end()})\n    return spans",
+      "id": "5de240a1",
+      "name": "Filter out non-organization capitalized nouns",
+      "description": "This rule filters out capitalized nouns that do not represent organizations.",
+      "format": "regex",
+      "content": "(?<!\\w)([A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+)(?!\\s(?:GmbH|AG|SE|KG|OHG|KGaA|e.V.|Stiftung|Bank|Sparkasse|Versicherung|Holding|Gruppe|Ministerium|Amt|Beh\u00f6rde))",
       "priority": 2,
       "confidence": 0.5,
       "times_applied": 0,
       "successes": 0,
       "failures": 0,
-      "created_at": "2026-01-13T00:32:47.031241"
+      "created_at": "2026-01-13T01:19:41.524908"
+    },
+    {
+      "id": "29172177",
+      "name": "Ensure valid organization extraction",
+      "description": "This rule ensures that only valid organizations are extracted based on the defined criteria.",
+      "format": "code",
+      "content": "def extract(input_data):\n    import re\n    spans = []\n    text = input_data['text']\n    pattern = r'(?<!\\w)([A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+(?:\\s[A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+)*(?:\\s(?:GmbH|AG|SE|KG|OHG|KGaA|e.V.|Stiftung|Bank|Sparkasse|Versicherung|Holding|Gruppe|Ministerium|Amt|Beh\u00f6rde))(?!\\w))'\n    for match in re.finditer(pattern, text):\n        if match.start() > 0:\n            spans.append({'text': match.group(0), 'start': match.start(), 'end': match.end()})\n    return spans",
+      "priority": 1,
+      "confidence": 0.5,
+      "times_applied": 0,
+      "successes": 0,
+      "failures": 0,
+      "created_at": "2026-01-13T01:19:41.524908"
     }
   ],
   "version": 1

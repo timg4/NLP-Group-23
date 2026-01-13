@@ -4,7 +4,7 @@
     "name": "extract_MON",
     "description": "Extract ONLY MON (monetary/financial amount) spans from German financial text.\nHARD RULES:\n- A MON span MUST contain at least one digit.\n- A MON span MUST contain a currency/amount marker OR be a percentage.\n  Acceptable markers: \u20ac, EUR, Euro, USD, CHF, GBP, JPY, Mio., Mrd., Tsd., Prozent, %.\n- DO NOT extract section numbers, list indices, headings like 'E.3', 'B.2', or plain integers without any marker.\n- Include the marker in the span (e.g. '100,00 %', '2,5 %', '35 %', '10 Mio. EUR').\nReturn character offsets into the ORIGINAL context.\n",
     "input_schema": {
-      "context": "string"
+      "text": "string"
     },
     "output_schema": {
       "spans": "List[Span]"
@@ -14,7 +14,7 @@
   "description": "",
   "examples": [
     {
-      "id": "b61f82c8",
+      "id": "a7a1ae76",
       "input": {
         "context": "Mai 2023 0,20 % 31."
       },
@@ -31,7 +31,7 @@
       "confidence": 0.8
     },
     {
-      "id": "fdee0196",
+      "id": "16211929",
       "input": {
         "context": "Gesch\u00e4tzter Netto-Emissionserl\u00f6s EUR 15.253.500"
       },
@@ -48,7 +48,7 @@
       "confidence": 0.8
     },
     {
-      "id": "8b7dc6a8",
+      "id": "ad274c46",
       "input": {
         "context": "Kennzahlen gem\u00e4\u00df CRR/CRD IV (mit \u00dcbergangsvorschriften) 30.06.2017 31.12.2016 Risikogewichtete Aktiva (in Mrd. EUR) 75,9"
       },
@@ -70,7 +70,7 @@
       "confidence": 0.8
     },
     {
-      "id": "c3e6f494",
+      "id": "50303999",
       "input": {
         "context": "3,00% Max. 1,00 % 0% n. z. 2,0 %2 11."
       },
@@ -97,7 +97,7 @@
       "confidence": 0.8
     },
     {
-      "id": "358b5a89",
+      "id": "a5020441",
       "input": {
         "context": "Bei Eintritt eines Referenzzinssatz-Ersetzungsereignisses in Bezug auf den \u20acSTR oder einen weiteren Nachfolgesatz ist die Emittentin berechtigt, den Referenzzinssatz ab dem Referenzzinssatz-Ersetzungsereignis-Stichtag in Bezug auf den \u20acSTR oder einen weiteren Nachfolgesatz nach Ma\u00dfgabe der nachfolgenden Bestimmungen anzupassen: (1)"
       },
@@ -119,7 +119,7 @@
       "confidence": 0.8
     },
     {
-      "id": "a9ac1956",
+      "id": "3973af4b",
       "input": {
         "context": "E.2b. Gr\u00fcnde f\u00fcr das Angebot, Zweckbestimmung der Erl\u00f6se E.3. Angebotskonditionen Beschreibung der Angebotskonditionen: Ausgabepreis: 100,00 % je Festgelegte St\u00fcckelung (Anf\u00e4nglicher Ausgabepreis, danach freibleibend)."
       },
@@ -136,7 +136,7 @@
       "confidence": 0.8
     },
     {
-      "id": "a274d78f",
+      "id": "4af5fc50",
       "input": {
         "context": "2,50% Max. 0,90% 0% n. z. 2.0 %1 6. Buy and Watch High Income Bond 11/2025 Max."
       },
@@ -163,7 +163,7 @@
       "confidence": 0.8
     },
     {
-      "id": "9b03018a",
+      "id": "181efdf3",
       "input": {
         "context": "Es wird damit ein Mindestanteil an nachhaltigen Investitionen mit einem sozialen Ziel get\u00e4tigt:___% - Es werden damit \u00f6kologische/soziale Merkmale beworben, aber keine nachhaltigen Investitionen get\u00e4tigt."
       },
@@ -180,7 +180,7 @@
       "confidence": 0.8
     },
     {
-      "id": "2089973d",
+      "id": "667e1b5d",
       "input": {
         "context": "Summaries are made up of disclosure requirements known as \"Elements\"."
       },
@@ -191,7 +191,7 @@
       "confidence": 0.8
     },
     {
-      "id": "96312ac9",
+      "id": "1f63c6bf",
       "input": {
         "context": "Die Kursentwicklung des jeweiligen Korbbestandteilsi entspricht dem Quotienten aus Ki (final) (wie in C.19 definiert) und Ki (initial)."
       },
@@ -202,7 +202,7 @@
       "confidence": 0.8
     },
     {
-      "id": "953bcc78",
+      "id": "056394d7",
       "input": {
         "context": "B.2 Sitz / Rechtsform / geltendes Recht / Land der Die Bank hat ihre Sitze in Frankfurt an dem Main und Erfurt."
       },
@@ -213,7 +213,7 @@
       "confidence": 0.8
     },
     {
-      "id": "395bc789",
+      "id": "60eb67c3",
       "input": {
         "context": "November 2017 in Bezug auf die Zulassung von unter dem Emissionsprogramm f\u00fcr Inhaberschuldverschreibungen II begebenen Schuldverschreibungen."
       },
@@ -224,7 +224,7 @@
       "confidence": 0.8
     },
     {
-      "id": "d4c2279d",
+      "id": "b14f6817",
       "input": {
         "context": "9"
       },
@@ -235,7 +235,7 @@
       "confidence": 0.8
     },
     {
-      "id": "ad6f6a02",
+      "id": "c6327cc0",
       "input": {
         "context": "Diese enthalten besondere Beschreibungen der Regelungen, die zu einer vorzeitigen Beendigung der Laufzeit der Schuldverschreibungen f\u00fchren k\u00f6nnen."
       },
@@ -246,7 +246,7 @@
       "confidence": 0.8
     },
     {
-      "id": "a942cf79",
+      "id": "1f4c8fea",
       "input": {
         "context": "Nicht anwendbar Berechnungsstelle: UniCredit Bank AG, Apianstr."
       },
@@ -257,7 +257,7 @@
       "confidence": 0.8
     },
     {
-      "id": "b19d3683",
+      "id": "7ef0ee7f",
       "input": {
         "context": "solche Sicherheiten oder Garantien werden auch zu keinem sp\u00e4teren Zeitpunkt gestellt werden."
       },
@@ -270,6 +270,137 @@
   ],
   "corrections": [],
   "feedback": [],
-  "rules": [],
+  "rules": [
+    {
+      "id": "550786ae",
+      "name": "Extract monetary amounts with currency markers",
+      "description": "This rule extracts spans that contain monetary amounts followed by a currency marker.",
+      "format": "regex",
+      "content": "(\\d{1,3}(?:\\.\\d{3})*(?:,\\d{2})?\\s*(\u20ac|EUR|Euro|USD|CHF|GBP|JPY|Mio\\.|Mrd\\.|Tsd\\.))",
+      "priority": 10,
+      "confidence": 0.5,
+      "times_applied": 0,
+      "successes": 0,
+      "failures": 0,
+      "created_at": "2026-01-13T01:18:44.292090"
+    },
+    {
+      "id": "a6400d43",
+      "name": "Extract percentages",
+      "description": "This rule extracts spans that contain percentage values.",
+      "format": "regex",
+      "content": "(\\d{1,3}(?:,\\d{1,2})?\\s*%)",
+      "priority": 9,
+      "confidence": 0.5,
+      "times_applied": 0,
+      "successes": 0,
+      "failures": 0,
+      "created_at": "2026-01-13T01:18:44.292090"
+    },
+    {
+      "id": "0137c2eb",
+      "name": "Exclude plain integers",
+      "description": "This rule ensures that plain integers without currency markers are not extracted.",
+      "format": "regex",
+      "content": "(?<!\\d)(\\d{1,3}(?:\\.\\d{3})*(?:,\\d{2})?)(?!\\s*(\u20ac|EUR|Euro|USD|CHF|GBP|JPY|Mio\\.|Mrd\\.|Tsd\\.))",
+      "priority": 8,
+      "confidence": 0.5,
+      "times_applied": 0,
+      "successes": 0,
+      "failures": 0,
+      "created_at": "2026-01-13T01:18:44.293094"
+    },
+    {
+      "id": "02d80f04",
+      "name": "Handle edge cases for currency formats",
+      "description": "This rule captures various formats of monetary amounts, including those with different spacing and punctuation.",
+      "format": "regex",
+      "content": "(\\d{1,3}(?:\\.\\d{3})*(?:,\\d{2})?\\s*(\u20ac|EUR|Euro|USD|CHF|GBP|JPY|Mio\\.|Mrd\\.|Tsd\\.))|\\d{1,3}(?:,\\d{1,2})?\\s*%",
+      "priority": 7,
+      "confidence": 0.5,
+      "times_applied": 0,
+      "successes": 0,
+      "failures": 0,
+      "created_at": "2026-01-13T01:18:44.293094"
+    },
+    {
+      "id": "6fcfe906",
+      "name": "Extract monetary amounts with decimals",
+      "description": "This rule captures monetary amounts that include decimal values.",
+      "format": "regex",
+      "content": "(\\d{1,3}(?:\\.\\d{3})*(?:,\\d{1,2})?\\s*(\u20ac|EUR|Euro|USD|CHF|GBP|JPY|Mio\\.|Mrd\\.|Tsd\\.))",
+      "priority": 6,
+      "confidence": 0.5,
+      "times_applied": 0,
+      "successes": 0,
+      "failures": 0,
+      "created_at": "2026-01-13T01:18:44.293094"
+    },
+    {
+      "id": "143f2411",
+      "name": "Extract monetary amounts with thousands separators",
+      "description": "This rule captures monetary amounts that use thousands separators.",
+      "format": "regex",
+      "content": "(\\d{1,3}(?:\\.\\d{3})*(?:,\\d{2})?\\s*(\u20ac|EUR|Euro|USD|CHF|GBP|JPY|Mio\\.|Mrd\\.|Tsd\\.))",
+      "priority": 5,
+      "confidence": 0.5,
+      "times_applied": 0,
+      "successes": 0,
+      "failures": 0,
+      "created_at": "2026-01-13T01:18:44.293094"
+    },
+    {
+      "id": "d39784ec",
+      "name": "Exclude section numbers and headings",
+      "description": "This rule ensures that section numbers and headings are not extracted as monetary amounts.",
+      "format": "regex",
+      "content": "(?<!\\d)(\\d{1,3}(?:\\.\\d{3})*(?:,\\d{2})?)(?!\\s*(\u20ac|EUR|Euro|USD|CHF|GBP|JPY|Mio\\.|Mrd\\.|Tsd\\.))",
+      "priority": 4,
+      "confidence": 0.5,
+      "times_applied": 0,
+      "successes": 0,
+      "failures": 0,
+      "created_at": "2026-01-13T01:18:44.293094"
+    },
+    {
+      "id": "a04bafc0",
+      "name": "Extract monetary amounts with varying spacing",
+      "description": "This rule captures monetary amounts that may have varying amounts of whitespace.",
+      "format": "regex",
+      "content": "(\\d{1,3}(?:\\.\\d{3})*(?:,\\d{2})?\\s*(\u20ac|EUR|Euro|USD|CHF|GBP|JPY|Mio\\.|Mrd\\.|Tsd\\.))",
+      "priority": 3,
+      "confidence": 0.5,
+      "times_applied": 0,
+      "successes": 0,
+      "failures": 0,
+      "created_at": "2026-01-13T01:18:44.293094"
+    },
+    {
+      "id": "ebec3166",
+      "name": "Extract monetary amounts with commas",
+      "description": "This rule captures monetary amounts that use commas as decimal separators.",
+      "format": "regex",
+      "content": "(\\d{1,3}(?:\\.\\d{3})*(?:,\\d{2})?\\s*(\u20ac|EUR|Euro|USD|CHF|GBP|JPY|Mio\\.|Mrd\\.|Tsd\\.))",
+      "priority": 2,
+      "confidence": 0.5,
+      "times_applied": 0,
+      "successes": 0,
+      "failures": 0,
+      "created_at": "2026-01-13T01:18:44.293094"
+    },
+    {
+      "id": "3229c184",
+      "name": "Extract monetary amounts with mixed formats",
+      "description": "This rule captures monetary amounts that may have mixed formats.",
+      "format": "regex",
+      "content": "(\\d{1,3}(?:\\.\\d{3})*(?:,\\d{2})?\\s*(\u20ac|EUR|Euro|USD|CHF|GBP|JPY|Mio\\.|Mrd\\.|Tsd\\.))|\\d{1,3}(?:,\\d{1,2})?\\s*%",
+      "priority": 1,
+      "confidence": 0.5,
+      "times_applied": 0,
+      "successes": 0,
+      "failures": 0,
+      "created_at": "2026-01-13T01:18:44.293094"
+    }
+  ],
   "version": 1
 }

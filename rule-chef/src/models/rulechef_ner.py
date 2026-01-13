@@ -49,7 +49,7 @@ def _task_for(label: str) -> Task:
     return Task(
         name=f"extract_{label}",
         description=desc,
-        input_schema={"context": "string"},
+        input_schema={"text": "string"},
         output_schema={"spans": "List[Span]"},
     )
 
@@ -81,7 +81,7 @@ class MultiRuleChefNER:
                 client=client,
                 dataset_name=f"{fold_name}_{lab}",
                 storage_path=self.storage_path,
-                allowed_formats=[RuleFormat.REGEX, RuleFormat.CODE],  
+                allowed_formats=([RuleFormat.REGEX, RuleFormat.CODE] if lab == "MON" else [RuleFormat.CODE]),  
                 auto_trigger=False,
                 model=self.model_name,
                 sampling_strategy="balanced",
@@ -100,13 +100,17 @@ class MultiRuleChefNER:
                         for sp in lab_spans
                     ]
                 }
-                chef.add_example({"context": text}, out)
+                chef.add_example({"text": text}, out)
 
         
             chef.add_feedback(f"Only output {lab}. Never output ORG/MON/LEG other than {lab}.")
             chef.add_feedback("Output must be valid JSON. Spans must be character offsets. No markdown.")
-            chef.add_feedback("Hard constraint: NEVER propose a generic capitalization-based ORG rule.")
-            chef.add_feedback("Hard constraint: For MON, require at least one digit OR a currency symbol like €.")
+            if lab == "ORG":
+                chef.add_feedback("Hard constraint: NEVER propose a generic capitalization-based ORG rule.")
+            if lab == "MON":
+                chef.add_feedback("Hard constraint: MON must include a digit AND (% or currency/amount marker like €, EUR, Euro, USD, CHF, GBP, JPY, Mio., Mrd., Tsd.).")
+            if lab == "LEG":
+                chef.add_feedback("Hard constraint: LEG must include legal markers like §, Art., Abs., Nr., Satz, lit. or a law abbreviation used as a reference (BGB, HGB, AktG, DSGVO). Plain numbers are never LEG.")
             chef.add_feedback("Hard constraint: Output strictly valid JSON. No markdown.")
             if lab == "MON":
                 chef.add_feedback("Reject any rule that matches plain numbers without % or a currency/amount marker.")
@@ -144,19 +148,24 @@ class MultiRuleChefNER:
         preds: List[Dict] = []
 
         for lab, chef in self.chefs.items():
-            out = chef.learner._apply_rules(chef.dataset.rules, {"context": text})  # must return {"spans":[...]}
+            out = chef.learner._apply_rules(chef.dataset.rules, {"text": text})  # must return {"spans":[...]}
             spans = out.get("spans", []) if isinstance(out, dict) else []
 
             for sp in spans:
-                s = int(sp["start"])
-                e = int(sp["end"])
+                try:
+                    s = int(sp["start"]); e = int(sp["end"])
+                except Exception:
+                    continue
+                if not (0 <= s < e <= len(text)):
+                    continue
+                if e - s < 2:   # avoid garbage 1-char spans like "9"
+                    continue
                 preds.append({
                     "label": lab,
                     "start": s,
                     "end": e,
                     "text": text[s:e],
                 })
-
         # de-dupe exact duplicates
         seen = set()
         uniq = []
