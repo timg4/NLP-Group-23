@@ -26,8 +26,8 @@ TASK_DESCRIPTIONS = {
 # ONE critical feedback per label - only the most important constraint
 FEEDBACKS = {
     "ORG": "Don't match generic capitalized nouns - German capitalizes all nouns.",
-    "MON": "Must contain a digit AND a currency marker (EUR, USD, Mio., Mrd., etc.). No percentages.",
-    "LEG": "Must include legal markers (e.g. Abs., Nr.) or law abbreviations (BGB, HGB, AktG).",
+    "MON": "Should contain a digit AND a currency marker (EUR, USD, Mio., Mrd., €, $, etc.).",
+    "LEG": "Should include legal markers (e.g. Abs., Nr.) or law abbreviations (BGB, HGB, AktG).",
 }
 
 

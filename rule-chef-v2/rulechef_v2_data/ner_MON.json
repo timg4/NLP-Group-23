@@ -14,7 +14,7 @@
   "description": "",
   "examples": [
     {
-      "id": "7bcc8e41",
+      "id": "49b1c74c",
       "input": {
         "text": "Das Ziel dieses Teilfonds ist es, Ertrag und als zweites Ziel einen objektiven Kapitalzuwachs \u00fcber den empfohlenen Haltezeitraum hinweg zu erzielen, indem er vor allem in ein diversifiziertes Portfolio mit 35"
       },
@@ -25,7 +25,7 @@
       "confidence": 0.8
     },
     {
-      "id": "0e320c51",
+      "id": "d67218ae",
       "input": {
         "text": "2.3 Bedingungen f\u00fcr das Angebot Die Schuldverschreibungen werden von dem 10.04.2013 bis zu dem 08.05.2013 (16 Uhr) Anlegern in Deutschland zu der Zeichnung \u00f6ffentlich angeboten."
       },
@@ -36,7 +36,7 @@
       "confidence": 0.8
     },
     {
-      "id": "f62cf3d2",
+      "id": "9295e6bd",
       "input": {
         "text": "Der Vorstand der NORD/LB und Vertreter der Tr\u00e4ger sowie Vertreter des DSGV haben sich an dem 3."
       },
@@ -47,7 +47,7 @@
       "confidence": 0.8
     },
     {
-      "id": "5fd92665",
+      "id": "fce23dc1",
       "input": {
         "text": "Die jeweilige Beteiligungsquote (in Prozent) des Aktion\u00e4rs bezieht sich auf das gezeichnete Kapital der DZ BANK in H\u00f6he von EUR 4.899.938.940,00 abz\u00fcglich der von der DZ BANK gehaltenen 93.247.143 eigenen St\u00fcckaktien mit einem rechnerischen Gesamtbetrag von EUR"
       },
@@ -74,7 +74,7 @@
       "confidence": 0.8
     },
     {
-      "id": "ab8b7ded",
+      "id": "942929b1",
       "input": {
         "text": "Der Gesch\u00e4ftserfolg der Berlin Hyp ist von dem wirtschaftlichen Umfeld und von den wirtschaftlichen Rahmenbedingungen, insbesondere des Immobilienmarkts, abh\u00e4ngig."
       },
@@ -85,7 +85,7 @@
       "confidence": 0.8
     },
     {
-      "id": "ab60fb6c",
+      "id": "bdb97da5",
       "input": {
         "text": "2 Die auf Basis einer vollst\u00e4ndigen Umsetzung von CRR/CRD 4 berechnete harte Kernkapitalquote belief sich zu dem 31."
       },
@@ -96,7 +96,7 @@
       "confidence": 0.8
     },
     {
-      "id": "42d7b8e7",
+      "id": "b854c30a",
       "input": {
         "text": "Die EBA legt der Kommission die Entw\u00fcrfe technischer Standards nach den Abs\u00e4tzen 5 und 6 bis zu dem 1."
       },
@@ -107,7 +107,7 @@
       "confidence": 0.8
     },
     {
-      "id": "81419305",
+      "id": "7d39ed00",
       "input": {
         "text": "S&P defines: S&P definiert: A: An obligation rated 'A' is somewhat more susceptible to the adverse effects of changes in circumstances and economic conditions than obligations in higher-rated categories."
       },
@@ -118,7 +118,7 @@
       "confidence": 0.8
     },
     {
-      "id": "80c0419e",
+      "id": "7f54b206",
       "input": {
         "text": "Beschreibung wesentlicher Ver\u00e4nderungen bei der Finanzlage oder Handelsposition der Emittentin Entf\u00e4llt."
       },
@@ -129,7 +129,7 @@
       "confidence": 0.8
     },
     {
-      "id": "2e537ef9",
+      "id": "4335e502",
       "input": {
         "text": "18 Welches sind die zentralen Risiken, die f\u00fcr die Emittentin spezifisch sind?"
       },
@@ -140,7 +140,7 @@
       "confidence": 0.8
     },
     {
-      "id": "05e88dbf",
+      "id": "1996c7d2",
       "input": {
         "text": "dies gilt auch dann, wenn die Leistung nach \u00a7 193 BGB bewirkt wird."
       },
@@ -151,7 +151,7 @@
       "confidence": 0.8
     },
     {
-      "id": "939c3828",
+      "id": "3c79109a",
       "input": {
         "text": "Als Teil des US-amerikanischen Dodd-Frank Wall Street and Consumer Pro- tection Act wurde die sogenannte \u201eVolcker Rule\u201c eingef\u00fchrt."
       },
@@ -162,7 +162,7 @@
       "confidence": 0.8
     },
     {
-      "id": "80939581",
+      "id": "707f2ff4",
       "input": {
         "text": "Die Gesch\u00e4fte der Teilfonds werden so gef\u00fchrt, dass dieser Status erhalten bleibt."
       },
@@ -173,7 +173,7 @@
       "confidence": 0.8
     },
     {
-      "id": "3bc9f805",
+      "id": "592745f1",
       "input": {
         "text": "Besonderer Beendigungsgrund: Liegt vor wenn die Berechnungsstelle infolge eines Ersetzungsereignisses gem\u00e4\u00df \u00a7 8(3)(a)(iv) berechtigt ist, die Schuldverschreibungen zu k\u00fcndigen."
       },
@@ -184,7 +184,7 @@
       "confidence": 0.8
     },
     {
-      "id": "fcc471d4",
+      "id": "6fde8884",
       "input": {
         "text": "(b) Gerichtsstand und Erf\u00fcllungsort Nicht-ausschlie\u00dflicher Gerichtsstand f\u00fcr alle sich aus den in den Bedingungen geregelten Rechtsverh\u00e4ltnissen ergebenden Rechtsstreitigkeiten mit der Emittentin ist nach Wahl des Kl\u00e4gers Stuttgart."
       },
@@ -195,7 +195,7 @@
       "confidence": 0.8
     },
     {
-      "id": "02ca1524",
+      "id": "04d9f83f",
       "input": {
         "text": "Ein solches Angebot sowie die berichtigten Bestimmungen werden den Schuldverschreibungsgl\u00e4ubigern zusammen mit 6"
       },
@@ -206,7 +206,7 @@
       "confidence": 0.8
     },
     {
-      "id": "dc9a4aa0",
+      "id": "a2d394d1",
       "input": {
         "text": "Das F\u00e4lligkeitsdatum des Teilfonds ist der 20."
       },
@@ -217,7 +217,7 @@
       "confidence": 0.8
     },
     {
-      "id": "fa32c914",
+      "id": "6cc04720",
       "input": {
         "text": "Dieser Artikel gilt unbeschadet der Bestimmungen \u00fcber die Vertretung von Arbeitnehmern in dem Leitungsorgan nach Ma\u00df\u00ad gabe des nationalen Rechts."
       },
@@ -228,7 +228,7 @@
       "confidence": 0.8
     },
     {
-      "id": "1c09e64e",
+      "id": "b0e7f0a5",
       "input": {
         "text": "Die Ver\u00ad g\u00fctungsregelungen dieser Richtlinie sollten den Unter\u00ad schieden zwischen den verschiedenen Arten von Institu\u00ad ten Rechnung tragen und ihre Gr\u00f6\u00dfe und interne Orga\u00ad nisation sowie Art, Umfang und Komplexit\u00e4t ihrer Ge\u00ad sch\u00e4fte in angemessener Weise ber\u00fccksichtigen."
       },
@@ -239,7 +239,7 @@
       "confidence": 0.8
     },
     {
-      "id": "49bfa6e9",
+      "id": "d75e2706",
       "input": {
         "text": "Die Emittentin hat das Recht, vorbehaltlich der Zustimmung der zust\u00e4ndigen Aufsichtsbeh\u00f6rde, soweit erforderlich, die Schuldverschreibungen insgesamt, jedoch nicht teilweise, jeweils mit Wirkung zu dem 4."
       },
@@ -250,7 +250,7 @@
       "confidence": 0.8
     },
     {
-      "id": "4ddcef33",
+      "id": "e01aa57a",
       "input": {
         "text": "in diesem Fall wird der Nettoerl\u00f6s f\u00fcr allgemeine Gesch\u00e4ftszwecke der Emittentin verwendet."
       },
@@ -261,7 +261,7 @@
       "confidence": 0.8
     },
     {
-      "id": "ccfbb344",
+      "id": "849b0a5a",
       "input": {
         "text": "Die Schuldverschreibungen haben eine Laufzeit bis zu dem 30."
       },
@@ -272,24 +272,18 @@
       "confidence": 0.8
     },
     {
-      "id": "e1def27b",
+      "id": "d25072c6",
       "input": {
         "text": "In dem Verkaufskurs sind bis zu 0,60 % Vertriebsprovisi- on enthalten."
       },
       "expected_output": {
-        "spans": [
-          {
-            "start": 32,
-            "end": 59,
-            "text": "0,60 % Vertriebsprovisi- on"
-          }
-        ]
+        "spans": []
       },
       "source": "human",
       "confidence": 0.8
     },
     {
-      "id": "5cdad765",
+      "id": "e8365f14",
       "input": {
         "text": "Bei dem Kauf und Verkauf von Schuldverschreibungen k\u00f6nnen verschiedene Nebenkosten anfallen, die das Gewinnpotenzial der Schuldverschreibungen erheblich verringern oder sogar ausschlie\u00dfen k\u00f6nnen."
       },
@@ -300,7 +294,7 @@
       "confidence": 0.8
     },
     {
-      "id": "0f251805",
+      "id": "84595275",
       "input": {
         "text": "Das f\u00fcnfte Gesch\u00e4ftsfeld Asset Management Services fokussiert sich auf die Bereitstellung von Bankdienstleistungen f\u00fcr das Asset Management."
       },
@@ -311,7 +305,7 @@
       "confidence": 0.8
     },
     {
-      "id": "423e4332",
+      "id": "09369520",
       "input": {
         "text": "183 \u2022 Wie werden die Verfahrensweisen einer guten Unternehmensf\u00fchrung der Unternehmen, in die investiert wird, bewertet?"
       },
@@ -322,7 +316,7 @@
       "confidence": 0.8
     },
     {
-      "id": "b6ba5a4e",
+      "id": "df333000",
       "input": {
         "text": "Das Gesch\u00e4ftsfeld Asset Management Services wird in Fortf\u00fchrung der eingeschlagenen Multikanalstrategie das Angebot an Funktionalit\u00e4ten und Tools f\u00fcr die Wertpapierinvestments von Selbstentscheidern sowie die digitale Verm\u00f6gensverwaltung in der Internetfiliale der Sparkassen weiter ausbauen."
       },
@@ -333,7 +327,7 @@
       "confidence": 0.8
     },
     {
-      "id": "696d71df",
+      "id": "5112d8be",
       "input": {
         "text": "(Die Einstufung als EZB-f\u00e4hige Gedeckte Schuldverschreibungen kann sich nach dem Valutierungstag \u00e4ndern.) \uf071 Not intended to be held in a manner which would allow Eurosystem eligibility Soll nicht in EZB-f\u00e4higer Weise gehalten werden"
       },
@@ -344,7 +338,7 @@
       "confidence": 0.8
     },
     {
-      "id": "1c192b10",
+      "id": "d50dce99",
       "input": {
         "text": "Diese Quellensteuer kann ausgel\u00f6st werden, wenn (i) die Emittentin ein ausl\u00e4ndisches Finanzinstitut (foreign"
       },
@@ -355,7 +349,7 @@
       "confidence": 0.8
     },
     {
-      "id": "767595a9",
+      "id": "1bc07f14",
       "input": {
         "text": "An die Stelle der unwirksamen oder undurchf\u00fchrbaren Bestimmung und zu der Schlie\u00dfung der Regelungsl\u00fccke soll eine dem Sinn und Zweck dieser Schuldverschreibungsbedingungen und den wirtschaftlichen Interessen der Beteiligten entsprechende Regelung treten."
       },
@@ -366,7 +360,7 @@
       "confidence": 0.8
     },
     {
-      "id": "554a08cb",
+      "id": "dbd78219",
       "input": {
         "text": "F\u00fcr die Emission/das Angebot wesentliche Interessen: Die seitens der Emittentin eingeschalteten Vertriebsstellen erhalten f\u00fcr die Vermittlung der Schuldverschreibungen eine Provision sowie gegebenenfalls weitere Provisionen, Geb\u00fchren, sonstige Geldleistungen oder geldwerte Vorteile."
       },
@@ -377,7 +371,7 @@
       "confidence": 0.8
     },
     {
-      "id": "758034fa",
+      "id": "1b18eb97",
       "input": {
         "text": "Die Kommission \u00fcbermittelt dem Europ\u00e4ischen Parlament und dem Rat bis 1."
       },
@@ -388,7 +382,7 @@
       "confidence": 0.8
     },
     {
-      "id": "25bf01eb",
+      "id": "efe13d3a",
       "input": {
         "text": "Auf Grundlage von IAS 8.42 wurden die Vorjahresvergleichszahlen angepasst."
       },
@@ -399,7 +393,7 @@
       "confidence": 0.8
     },
     {
-      "id": "8ad09dcf",
+      "id": "7843b61a",
       "input": {
         "text": "3. Wenn der F\u00e4lligkeitstag oder ein Zinszahltag kein Bankgesch\u00e4ftstag gem\u00e4\u00df \u00a7 2 ist, so besteht der Anspruch der Schuldverschreibungsgl\u00e4ubiger auf Zahlung erst an dem n\u00e4chstfolgenden Bankgesch\u00e4ftstag."
       },
@@ -410,7 +404,7 @@
       "confidence": 0.8
     },
     {
-      "id": "6752af99",
+      "id": "91ff7c04",
       "input": {
         "text": "Die Beschwerde kann daher auch \u00fcber die OS-Plattform der EU (http://ec.europa.eu/odr) eingereicht werden."
       },
@@ -421,7 +415,7 @@
       "confidence": 0.8
     },
     {
-      "id": "a227003d",
+      "id": "8d7dacfd",
       "input": {
         "text": "Eine solche Anerkennung h\u00e4ngt von der Erf\u00fcllung der Kriterien der Eignung des Eurosystems ab (EZB-F\u00e4higkeit)."
       },
@@ -432,7 +426,7 @@
       "confidence": 0.8
     },
     {
-      "id": "d0deb0c6",
+      "id": "27738492",
       "input": {
         "text": "F\u00fcr die Schuldverschreibungen wird ein Zinssatz ermittelt."
       },
@@ -443,7 +437,7 @@
       "confidence": 0.8
     },
     {
-      "id": "2ac24f1a",
+      "id": "b62811e0",
       "input": {
         "text": "Nach deutschen handelsrechtlichen Vorschriften ist f\u00fcr die NORD/LB A\u00f6R in dem Einzelabschluss ein Jahresverlust in H\u00f6he von ca\u27c2 EUR 2,4 Mrd. nach Steuern entstanden."
       },
@@ -460,7 +454,7 @@
       "confidence": 0.8
     },
     {
-      "id": "feec89b1",
+      "id": "f562a1ee",
       "input": {
         "text": "Sofern das Versicherungsunternehmen \u00fcber einen Aufsichtsrat verf\u00fcgt, wird der Sachverst\u00e4ndige von diesem bestellt und abberufen."
       },
@@ -471,7 +465,7 @@
       "confidence": 0.8
     },
     {
-      "id": "8c121db9",
+      "id": "342c2013",
       "input": {
         "text": "Die folgenden zentralen Risiken auf Konzernebene k\u00f6nnen sich nachteilig auf die F\u00e4higkeit der Emittentin zu der Erf\u00fcllung der Verpflichtungen aus den Pfandbriefen auswirken: Adressenausfallrisiken."
       },
@@ -482,7 +476,7 @@
       "confidence": 0.8
     },
     {
-      "id": "be73f1c5",
+      "id": "62466900",
       "input": {
         "text": "Die folgenden Finanzzahlen wurden dem gepr\u00fcften Konzernabschluss sowie dem gepr\u00fcften Konzernlagebericht f\u00fcr das Gesch\u00e4ftsjahr 2018 der Emittentin entnommen."
       },
@@ -493,7 +487,7 @@
       "confidence": 0.8
     },
     {
-      "id": "6c668abe",
+      "id": "5424e429",
       "input": {
         "text": "Das Gesch\u00e4ftsfeld Finanzierungen strebt f\u00fcr das Jahr 2018 eine Ausweitung des Neugesch\u00e4fts in den definierten Core-Segmenten an."
       },
@@ -504,7 +498,7 @@
       "confidence": 0.8
     },
     {
-      "id": "a9d546f7",
+      "id": "5f4df671",
       "input": {
         "text": "Mit Emittenten, die eine geringe Bonit\u00e4t aufweisen, ist typischerweise ein erh\u00f6htes Insolvenzrisiko verbunden."
       },
@@ -515,7 +509,7 @@
       "confidence": 0.8
     },
     {
-      "id": "f75630b0",
+      "id": "9c3f9010",
       "input": {
         "text": "Referenzsatz: Bezeichnung: EURIBOR\u00ae Kurzbeschreibung: Euro Interbank Offered Rate (EURIBOR\u00ae) ist der Zinssatz f\u00fcr Einlagen in Euro f\u00fcr einen bestimmten Zeitraum."
       },
@@ -526,7 +520,7 @@
       "confidence": 0.8
     },
     {
-      "id": "5ad31c8b",
+      "id": "4bbce2a4",
       "input": {
         "text": "Das Gesch\u00e4ftsfeld Asset Management Immobilien hat sich zu dem Ziel gesetzt, die Marktposition in dem Retail- und in dem institutionellen Gesch\u00e4ft unter strenger Beachtung der Qualit\u00e4ts- und Stabilit\u00e4tsanspr\u00fcche weiter auszubauen."
       },
@@ -537,7 +531,7 @@
       "confidence": 0.8
     },
     {
-      "id": "f4a0eae9",
+      "id": "e4f25dd8",
       "input": {
         "text": "Mit Wirkung von dem 7. M\u00e4rz 2018 wurde der Squeeze-out erfolgreich abgeschlossen."
       },
@@ -548,7 +542,7 @@
       "confidence": 0.8
     },
     {
-      "id": "ed76f0ac",
+      "id": "f9194e49",
       "input": {
         "text": "Die zust\u00e4ndigen Beh\u00f6rden geben dem EU-Mutterinstitut, der EU-Mutterfinanzholdinggesellschaft, der gemischten EU- Mutterfinanzholdinggesellschaft bzw\u27c2 dem Institut mit der h\u00f6chsten Bilanzsumme vor einer solchen Entscheidung Gelegen\u00ad heit zu der Stellungnahme."
       },
@@ -559,7 +553,7 @@
       "confidence": 0.8
     },
     {
-      "id": "5d0d4886",
+      "id": "873c98fa",
       "input": {
         "text": "Schuldverschreibungen der Emittentin oder einem mit ihr verbundenen Unternehmen (\u00a7 271 Absatz 2 HGB) zustehen oder f\u00fcr Rechnung der Emittentin oder eines mit ihr verbundenen Unternehmens gehalten werden."
       },
@@ -570,7 +564,7 @@
       "confidence": 0.8
     },
     {
-      "id": "abf461f6",
+      "id": "c26c094a",
       "input": {
         "text": "Juni 2021 dem Halbjahresfinanzbericht des LBBW-Konzerns zu dem 30. Juni 2021 entnommen."
       },
@@ -581,7 +575,7 @@
       "confidence": 0.8
     },
     {
-      "id": "445537a4",
+      "id": "13a377b2",
       "input": {
         "text": "Kopien dieser oben genannten Dokumente sind bei der DekaBank, Mainzer Landstra\u00dfe 16, 60325 Frankfurt an dem Main, Deutschland erh\u00e4ltlich."
       },
@@ -592,7 +586,7 @@
       "confidence": 0.8
     },
     {
-      "id": "448f1c2f",
+      "id": "786746fe",
       "input": {
         "text": "OGAW-Fonds d\u00fcrfen zwar f\u00fcr die Finanzierung von Investitionen keine Kredite aufnehmen, k\u00f6nnen jedoch Finanzderivate einsetzen, um ihr Marktengagement \u00fcber ihren Nettoinventarwert hinaus zu erweitern."
       },
@@ -603,7 +597,7 @@
       "confidence": 0.8
     },
     {
-      "id": "08ab6e25",
+      "id": "125a7176",
       "input": {
         "text": "Seit 2021 ist PricewaterhouseCoopers GmbH Wirt- schaftspr\u00fcfungsgesellschaft, Fuhrberger Stra\u00dfe 5, 30625 Hannover, Deutschland der Abschlusspr\u00fcfer der Emittentin."
       },
@@ -614,7 +608,7 @@
       "confidence": 0.8
     },
     {
-      "id": "f427256d",
+      "id": "bbcce59d",
       "input": {
         "text": "Wertpapier-Depotgesch\u00e4ft verf\u00fcgt und bei dem der Gl\u00e4ubiger Schuldverschreibungen in dem Depot verwahren l\u00e4sst."
       },
@@ -625,7 +619,7 @@
       "confidence": 0.8
     },
     {
-      "id": "935d42b1",
+      "id": "040e0e58",
       "input": {
         "text": "Welches sind die wesentlichen Finanzinformationen \u00fcber die Emittentin?"
       },
@@ -636,7 +630,7 @@
       "confidence": 0.8
     },
     {
-      "id": "170cbb14",
+      "id": "fa51530e",
       "input": {
         "text": "Moody\u2019s ist in der \u201cList of registered and certified CRA\u2019s\u201d aufgef\u00fchrt, die von der European Securities and Markets Authority auf ihrer Internetseite (www.esma.europa.eu) gem\u00e4\u00df der Ratingagenturen-Verordnung ver\u00f6ffentlicht wird."
       },
@@ -647,7 +641,7 @@
       "confidence": 0.8
     },
     {
-      "id": "1d6d64ec",
+      "id": "2acafa35",
       "input": {
         "text": "Wenn ein Mitgliedstaat die \u00f6ffentliche Bekanntmachung an\u00ad fechtbarer Sanktionen zul\u00e4sst, ver\u00f6ffentlichen die zust\u00e4ndigen Beh\u00f6rden auf ihrer offiziellen Website umgehend auch Informa\u00ad tionen \u00fcber den Stand der jeweiligen Widerspr\u00fcche und deren Ergebnisse."
       },
@@ -658,7 +652,7 @@
       "confidence": 0.8
     },
     {
-      "id": "1fcd072c",
+      "id": "32a47d07",
       "input": {
         "text": "Die Liquidit\u00e4ts- und Funding- planung der NORD/LB basiert insofern auf Verhaltensannahmen der Kunden insbesondere hinsichtlich der Entwicklung der kurzfristigen Einlagen."
       },
@@ -669,7 +663,7 @@
       "confidence": 0.8
     },
     {
-      "id": "adbe56bb",
+      "id": "7a288432",
       "input": {
         "text": "An dem Billigungsdatum des Prospekts sind die B.16 Beherrschungsverh\u00e4ltnisse"
       },
@@ -680,7 +674,7 @@
       "confidence": 0.8
     },
     {
-      "id": "3c14915c",
+      "id": "7937726e",
       "input": {
         "text": "Die Schuldverschreibungen werden an dem 05.08.2025 (der F\u00e4lligkeitstag) zu dem Nennbetrag zur\u00fcckgezahlt."
       },
@@ -691,7 +685,7 @@
       "confidence": 0.8
     },
     {
-      "id": "b14f6815",
+      "id": "7b13cae3",
       "input": {
         "text": "die T\u00e4tigkeiten des betreffenden Finanzinstituts in dem Aufnahmemitgliedstaat unterliegen ab dann dessen Rechtsvor\u00ad schriften."
       },
@@ -702,7 +696,7 @@
       "confidence": 0.8
     },
     {
-      "id": "e460edc0",
+      "id": "50a50c73",
       "input": {
         "text": "\uf0b7 \u00c4nderungen des aufsichtsrechtlichen Rahmens in Italien und Europa k\u00f6nnten sich nachteilig auf die Gesch\u00e4ftst\u00e4tigkeit der Gruppe auswirken;"
       },
@@ -713,7 +707,7 @@
       "confidence": 0.8
     },
     {
-      "id": "e935771e",
+      "id": "a1149209",
       "input": {
         "text": "Unternehmen, denen dieses Rating zugeordnet ist, wird eine hohe F\u00e4higkeit bescheinigt, ihren finanziellen Verpflichtun- gen nachkommen zu k\u00f6nnen."
       },
@@ -724,7 +718,7 @@
       "confidence": 0.8
     },
     {
-      "id": "1eae20dc",
+      "id": "224c637e",
       "input": {
         "text": "\"Verz\u00f6gerter R\u00fcckzahlungstermin\" bezeichnet den Tag, der ein Jahr und f\u00fcnf Gesch\u00e4ftstage nach einem Antragstag auf Entscheidung \u00fcber ein Kreditereignis (wie in dem Anhang zu den Besonderen Emissionsbedingungen definiert) liegt."
       },
@@ -735,7 +729,7 @@
       "confidence": 0.8
     },
     {
-      "id": "25c615d1",
+      "id": "7ccc5e11",
       "input": {
         "text": "Dies entspricht dem Grundsatz, dass der Einf\u00fchrung gemeinsamer Interventionsmechanis\u00ad men f\u00fcr den Krisenfall gemeinsame Kontrollen voraus\u00ad gehen sollten, um die Wahrscheinlichkeit ihrer Anwen\u00ad dung zu verringern."
       },
@@ -746,7 +740,7 @@
       "confidence": 0.8
     },
     {
-      "id": "f98f532f",
+      "id": "7dbd3e58",
       "input": {
         "text": "Bezugnahmen in diesen Anleihebedingungen auf Kapital der Schuld- verschreibungen schlie\u00dfen, soweit anwendbar, die folgenden Betr\u00e4ge ein: den R\u00fcckzahlungsbetrag der Schuldverschreibun- gen;"
       },
@@ -757,7 +751,7 @@
       "confidence": 0.8
     },
     {
-      "id": "7d573fd2",
+      "id": "0123a9e7",
       "input": {
         "text": "or ber\u00fccksichtigungsf\u00e4higer Verbindlichkeiten zumindest gleicher Qualit\u00e4t zu Bedingungen, die in dem Hinblick auf die Ertragsm\u00f6glichkeiten der Emittentin nachhaltig sind;"
       },
@@ -768,7 +762,7 @@
       "confidence": 0.8
     },
     {
-      "id": "4e888b22",
+      "id": "124742a5",
       "input": {
         "text": "Eine weitere Abwertung des Ratings der Emittentin oder einer ihrer Tochter- gesellschaften kann die Refinanzierungsm\u00f6glichkeiten der NORD/LB \u00fcber den Kapitalmarkt fundamental einschr\u00e4nken, Abfl\u00fcsse kurzfristiger Mittel ausl\u00f6sen und die Finanzierungskosten signifikant erh\u00f6hen."
       },
@@ -779,7 +773,7 @@
       "confidence": 0.8
     },
     {
-      "id": "4e2a9f11",
+      "id": "ef5c3b8e",
       "input": {
         "text": "E.3 Beschreibung der Angebotskondi- tionen Zeichnungsfrist: Die Schuldverschreibungen werden von dem 16.07.2018 bis zu dem 10.08.2018 (16 Uhr) Anlegern in Deutschland zu der Zeichnung \u00f6ffentlich angeboten."
       },
@@ -790,7 +784,7 @@
       "confidence": 0.8
     },
     {
-      "id": "cff0c0db",
+      "id": "afb34f7b",
       "input": {
         "text": "Es gibt keine Ereignisse aus der j\u00fcngsten Zeit der Gesch\u00e4ftst\u00e4tigkeit der UniCredit Bank, die f\u00fcr die Bewertung ihrer 12 Zahlungsf\u00e4higkeit in hohem Ma\u00dfe relevant sind."
       },
@@ -801,7 +795,7 @@
       "confidence": 0.8
     },
     {
-      "id": "49525c14",
+      "id": "9506dbff",
       "input": {
         "text": "Die Berechnungsstelle wird den entsprechenden Angebotssatz von den Hauptniederlassungen der Referenzbanken einholen."
       },
@@ -812,7 +806,7 @@
       "confidence": 0.8
     },
     {
-      "id": "cbd2dd04",
+      "id": "9eedd2ef",
       "input": {
         "text": "Ausf\u00fchrlichere Informationen zu den wesentlichen nachteiligen Auswirkungen finden Sie in dem ESG Regulatory Statement von Amundi, das unter www.amundi.lu verf\u00fcgbar ist."
       },
@@ -823,7 +817,7 @@
       "confidence": 0.8
     },
     {
-      "id": "521c0e5b",
+      "id": "f679581b",
       "input": {
         "text": "Die Klassen und die f\u00fcr sie geltenden Geb\u00fchren werden nach Marktusancen festgelegt, die von Vertriebskanal zu Vertriebskanal und von Land zu Land variieren."
       },
@@ -834,7 +828,7 @@
       "confidence": 0.8
     },
     {
-      "id": "b90c2ebd",
+      "id": "291e193a",
       "input": {
         "text": "Ausfallrisiken aus klassischen Kreditgesch\u00e4ften entstehen vor allem in der DZ BANK, der BSH, der DG HYP, der DVB, der TeamBank und der VR-LEASING Aktiengesellschaft."
       },
@@ -845,7 +839,7 @@
       "confidence": 0.8
     },
     {
-      "id": "93c60603",
+      "id": "7300f820",
       "input": {
         "text": "Zu der Organisationsstruktur siehe unter B.5 B.14 Ist der Emittent Teil einer Gruppe, Beschreibung der Gruppe und der Stellung des Emittenten innerhalb dieser Gruppe 13 Nicht anwendbar in dem Hinblick auf die Abh\u00e4ngigkeit von anderen Unternehmen der Gruppe."
       },
@@ -856,7 +850,7 @@
       "confidence": 0.8
     },
     {
-      "id": "ce1829f8",
+      "id": "8e63c853",
       "input": {
         "text": "Vollst\u00e4ndige Informationen \u00fcber die Emittentin und das Angebot der Pfandbriefe sind ausschlie\u00dflich auf der Grundlage dieser Endg\u00fcltigen Bedingungen in dem Zusammenlesen mit dem Basisprospekt von dem 22."
       },
@@ -867,7 +861,7 @@
       "confidence": 0.8
     },
     {
-      "id": "839346ef",
+      "id": "f8c43415",
       "input": {
         "text": "August 2018 werden in elektronischer Form auf der Website der Luxemburger Wertpapierb\u00f6rse (www.bourse.lu) und auf der Website der DZ HYP (www.dzhyp.de) ver\u00f6ffentlicht."
       },
@@ -878,7 +872,7 @@
       "confidence": 0.8
     },
     {
-      "id": "11cd49e1",
+      "id": "7e8dc68e",
       "input": {
         "text": "VSNA is a privately held Delaware company."
       },
@@ -889,7 +883,7 @@
       "confidence": 0.8
     },
     {
-      "id": "d948f0a5",
+      "id": "474b2013",
       "input": {
         "text": "F\u00fcr eine Vielzahl der Anforderungen aus den EBA Leitlinien bestanden bereits"
       },
@@ -900,7 +894,7 @@
       "confidence": 0.8
     },
     {
-      "id": "1325bb0f",
+      "id": "1f6b903c",
       "input": {
         "text": "Nettogewinn 872 1.700 (Nettogewinn entspricht dem dem \"Konzernergebnis\" (Betrag angepasst) untergeordneten Posten \"davon entfallen auf Anteilseigner der DZ BANK\", wie in der IFRS GuV ausgewiesen.)"
       },
@@ -917,7 +911,7 @@
       "confidence": 0.8
     },
     {
-      "id": "1475517d",
+      "id": "ef25fc5f",
       "input": {
         "text": "Amundi ber\u00fccksichtigt bereits bestimmte wesentliche nachteilige Auswirkungen in dem Rahmen seiner Ausschlusspolitik als Teil der Responsible Investment Policy von Amundi."
       },
@@ -928,7 +922,7 @@
       "confidence": 0.8
     },
     {
-      "id": "9fc0a4db",
+      "id": "b2747ff7",
       "input": {
         "text": "Punkt Geforderte Angaben wesentlicher Bedeutung sind, kaufen und zu verkaufen und weitere Schuldverschreibungen zu begeben."
       },
@@ -939,7 +933,7 @@
       "confidence": 0.8
     },
     {
-      "id": "727fa9fa",
+      "id": "76924363",
       "input": {
         "text": "Den Endg\u00fcltigen Bedingungen ist eine Zusammenfassung f\u00fcr die einzelne Emission beigef\u00fcgt."
       },
@@ -950,7 +944,7 @@
       "confidence": 0.8
     },
     {
-      "id": "ca239d23",
+      "id": "4267a9c2",
       "input": {
         "text": "Der so errechnete Zinsbetrag wird auf die n\u00e4chste Untereinheit der festgelegten W\u00e4hrung gerundet, wobei jeweils ab einer halben solchen Untereinheit nach oben aufgerundet wird."
       },
@@ -961,7 +955,7 @@
       "confidence": 0.8
     },
     {
-      "id": "b826ac10",
+      "id": "212d8148",
       "input": {
         "text": "\u2022 Die sp\u00e4tere Weiterver\u00e4u\u00dferung und endg\u00fcltigen Platzierung der Wertpapiere durch Finanzintermedi\u00e4re kann w\u00e4hrend der Dauer der G\u00fcltigkeit des Prospekts gem\u00e4\u00df Artikel 9 der Prospektrichtlinie erfolgen."
       },
@@ -972,7 +966,7 @@
       "confidence": 0.8
     },
     {
-      "id": "eab589ef",
+      "id": "6dfb9d7a",
       "input": {
         "text": "LBBW-Konzern bezeichnet die Landesbank Baden-W\u00fcrttemberg und ihre konsolidierten Beteiligungen."
       },
@@ -983,7 +977,7 @@
       "confidence": 0.8
     },
     {
-      "id": "179d120e",
+      "id": "35b83141",
       "input": {
         "text": "Die Vereinbarungen mit den Sparkassen in Nordrhein-Westfalen und Brandenburg erg\u00e4nzen das Verbundkonzept der Sparkassen-Finanzgruppe Hessen-Th\u00fcringen, das unver\u00e4ndert fortbesteht."
       },
@@ -994,7 +988,7 @@
       "confidence": 0.8
     },
     {
-      "id": "9846d29a",
+      "id": "0579538e",
       "input": {
         "text": "10.12.2030 (einschlie\u00dflich) bis zu dem 10.12.2031 (ausschlie\u00dflich) R\u00fcckzahlung Soweit die Schuldverschreibungen nicht bereits zuvor vorzeitig zur\u00fcckgekauft oder zur\u00fcckgezahlt wurden, werden die Schuldverschreibungen an dem F\u00e4lligkeitstag zu dem Nennbetrag zur\u00fcckgezahlt."
       },
@@ -1005,7 +999,7 @@
       "confidence": 0.8
     },
     {
-      "id": "023a330f",
+      "id": "976b870f",
       "input": {
         "text": "Gem\u00e4\u00df dem Gesetz \u00fcber die Bayerische Landesbank und der Satzung der Bayerischen Landesbank kontrollieren der Freistaat Bayern und der Sparkassenverband Bayern die Bayerische Landesbank direkt \u00fcber die Generalversammlung und den Aufsichtsrat."
       },
@@ -1016,7 +1010,7 @@
       "confidence": 0.8
     },
     {
-      "id": "d72540dd",
+      "id": "66a1f5c8",
       "input": {
         "text": "Ein wesentlicher Faktor f\u00fcr die Entstehung eines liquiden Marktes ist die H\u00f6he des Emissionsvolumens."
       },
@@ -1027,7 +1021,7 @@
       "confidence": 0.8
     },
     {
-      "id": "b4f45b54",
+      "id": "d894e01d",
       "input": {
         "text": "Tag nach dem Tag der Mitteilung an das Clearing System als den Pfandbriefgl\u00e4ubigern mitgeteilt."
       },
@@ -1038,7 +1032,7 @@
       "confidence": 0.8
     },
     {
-      "id": "027631ee",
+      "id": "37943ced",
       "input": {
         "text": "In dem Bereich Sparkassenkreditgesch\u00e4ft und Verbundservice unterst\u00fctzt die Bank Sparkassen und ihre Kunden mit bonit\u00e4tsgetriebenen und cash-flow getriebe- nen Finanzierungen."
       },
@@ -1049,7 +1043,7 @@
       "confidence": 0.8
     },
     {
-      "id": "9cf91847",
+      "id": "8790a58c",
       "input": {
         "text": "Issue Yield at Final Maturity Erwartete Rendite bei Endf\u00e4lligkeit (Die erwartete Rendite wird zu dem Tag der Begebung und auf der Basis des Ausgabepreises berechnet."
       },
@@ -1060,7 +1054,7 @@
       "confidence": 0.8
     },
     {
-      "id": "5f1dd75f",
+      "id": "c6588fc2",
       "input": {
         "text": "Die Fristen nach Absatz 2 gelten als Fristen f\u00fcr die Beile\u00ad gung von Meinungsverschiedenheiten in dem Sinne jener Verord\u00ad nung."
       },
@@ -1071,7 +1065,7 @@
       "confidence": 0.8
     },
     {
-      "id": "264e3630",
+      "id": "211d0827",
       "input": {
         "text": "notiert werden Notes listed on the regulated market of a stock exchange \uf0a8 Schweiz (Internetseite der SIX Swiss Exchange (www.six-swiss-"
       },
@@ -1082,7 +1076,7 @@
       "confidence": 0.8
     },
     {
-      "id": "fbe0e483",
+      "id": "326fbe61",
       "input": {
         "text": "In dem Antrag werden die Gr\u00fcnde daf\u00fcr genannt, warum die Zweigstelle als bedeutend angesehen werden soll, wobei ins\u00ad besondere ber\u00fccksichtigt wird, (4)"
       },
@@ -1093,7 +1087,7 @@
       "confidence": 0.8
     },
     {
-      "id": "2c828b7f",
+      "id": "6f54b911",
       "input": {
         "text": "Corporate Purpose The purpose of the Guarantor is the acquisition of participations of domestic and foreign companies as well as management and further selling of such participations."
       },
@@ -1104,7 +1098,7 @@
       "confidence": 0.8
     },
     {
-      "id": "b72e9540",
+      "id": "93949bf7",
       "input": {
         "text": "C.19 Aus\u00fcbungspreis oder endg\u00fcltiger Referenzpreis des Basiswerts Nicht anwendbar, die Wertpapiere sind keine derivativen Wertpapiere."
       },
@@ -1115,7 +1109,7 @@
       "confidence": 0.8
     },
     {
-      "id": "d91512d0",
+      "id": "d9e8af9f",
       "input": {
         "text": "\uf0a8 Schuldverschreibungen, die nicht an einem geregelten Markt einer Wertpapierb\u00f6rse notiert werden Notes not listed on the regulated market of a stock exchange SPRACHE DER BEDINGUNGEN (\u00a7 14)"
       },
@@ -1126,7 +1120,7 @@
       "confidence": 0.8
     },
     {
-      "id": "449d045b",
+      "id": "7589b2c6",
       "input": {
         "text": "Entspre\u00ad chend dem in demselben Artikel genannten Grundsatz der Verh\u00e4ltnism\u00e4\u00dfigkeit geht diese Richtlinie nicht \u00fcber das zu der Erreichung dieser Ziele erforderliche Ma\u00df hinaus."
       },
@@ -1137,7 +1131,7 @@
       "confidence": 0.8
     },
     {
-      "id": "5bf70193",
+      "id": "cf718be6",
       "input": {
         "text": "Die letzte Zinsperiode endet an dem Verzinsungsende (ausschlie\u00dflich)."
       },
@@ -1148,7 +1142,7 @@
       "confidence": 0.8
     },
     {
-      "id": "69f2ad73",
+      "id": "f161a401",
       "input": {
         "text": "Acorn Holdings Acorn Holdings B.V. (\"Acorn Holdings\") is a private company majority-owned by JAB Forest."
       },
@@ -1159,7 +1153,7 @@
       "confidence": 0.8
     },
     {
-      "id": "aec47c54",
+      "id": "53ee17b5",
       "input": {
         "text": "Anleihegl\u00e4ubiger sollten sich mit ihren eigenen Steuerberatern bez\u00fcglich der Anwen- dung von FATCA auf eine Investition in Pfandbriefe und die M\u00f6glichkeit eine R\u00fcckzahlung f\u00fcr etwaige Betr\u00e4ge zu erhalten, die unter FATCA einbehalten wurden, beraten."
       },
@@ -1170,7 +1164,7 @@
       "confidence": 0.8
     },
     {
-      "id": "2994e3e9",
+      "id": "b2acde56",
       "input": {
         "text": "Diese Reformen k\u00f6nnen bewirken, dass sich solche Benchmarks anders als in der Vergangenheit entwickeln, ganz wegfallen oder auch zu anderen nicht vorhersehbaren Auswirkungen f\u00fchren."
       },
@@ -1181,7 +1175,7 @@
       "confidence": 0.8
     },
     {
-      "id": "2bd3f13c",
+      "id": "a068c0e2",
       "input": {
         "text": "The presentation period provided in \u00a7 801 paragraph 1, sentence 1 German Civil Code (BGB) is reduced to ten years for the Notes."
       },
@@ -1192,7 +1186,7 @@
       "confidence": 0.8
     },
     {
-      "id": "9a7438ef",
+      "id": "885e3c4f",
       "input": {
         "text": "Das Dokument mit der Angabe der Geb\u00fchr muss klar und kurzgefasst sein, um den Kunden das Verst\u00e4ndnis der zu erbringenden Dienstleistungen und der Kosten und des Wertes der Beratung zu erleichtern."
       },
@@ -1203,7 +1197,7 @@
       "confidence": 0.8
     },
     {
-      "id": "82799bb2",
+      "id": "b72e4e18",
       "input": {
         "text": "Die Emittentin wird durch Zahlung an das Clearing System oder dessen Order von ihrer Zahlungspflicht gegen\u00fcber den Gl\u00e4ubi- gern befreit."
       },
@@ -1214,7 +1208,7 @@
       "confidence": 0.8
     },
     {
-      "id": "20ef5a73",
+      "id": "d1ca780e",
       "input": {
         "text": "Der Teilfonds strebt die Absicherung des W\u00e4hrungsrisikos aus Anlagen in nicht auf USD lautende Instrumente in USD an."
       },
@@ -1225,7 +1219,7 @@
       "confidence": 0.8
     },
     {
-      "id": "771f590a",
+      "id": "b6281cd6",
       "input": {
         "text": "Risiken aufgrund der Einschaltung von Clearing-Systemen in Transfers, Zahlungen und Kommunikation Durch die Einschaltung von Clearing-Systemen in Transfers, Zahlungen und Kommunikation sind Anleger von diesen abh\u00e4ngig und deren Regeln unterworfen."
       },
@@ -1236,7 +1230,7 @@
       "confidence": 0.8
     },
     {
-      "id": "5de1561b",
+      "id": "0cae27e0",
       "input": {
         "text": "Mit der Zahlung des Erwerbspreises erl\u00f6schen alle Rechte aus den \u00fcbertragenen Schuld- verschreibungen."
       },
@@ -1247,7 +1241,7 @@
       "confidence": 0.8
     },
     {
-      "id": "c883670f",
+      "id": "afd41991",
       "input": {
         "text": "um ein vollst\u00e4ndiges Bild der bilanziellen und au\u00dferbilanziellen Gesch\u00e4ftsaktivit\u00e4ten der LBBW zu vermitteln."
       },
@@ -1258,7 +1252,7 @@
       "confidence": 0.8
     },
     {
-      "id": "e604265f",
+      "id": "2d5f5754",
       "input": {
         "text": "Die zust\u00e4ndigen Beh\u00f6rden des Herkunftsmitgliedstaats bringen den zust\u00e4ndigen Beh\u00f6rden des Aufnahmemitgliedstaats die in Absatz 1 genannte Anzeige innerhalb eines Monats nach deren Eingang zu der Kenntnis."
       },
@@ -1269,7 +1263,7 @@
       "confidence": 0.8
     },
     {
-      "id": "6d3aefc4",
+      "id": "040f104c",
       "input": {
         "text": "Das bauspartechnische Risiko ist eng mit dem Gesch\u00e4ftsmodell der BSH verkn\u00fcpft und kann daher nicht vermieden werden."
       },
@@ -1280,29 +1274,18 @@
       "confidence": 0.8
     },
     {
-      "id": "5da09d4c",
+      "id": "25795144",
       "input": {
         "text": "Verkaufskurs: 100,00 % In dem Verkaufskurs sind bis zu 0,60 % Vertriebsprovisi- on enthalten."
       },
       "expected_output": {
-        "spans": [
-          {
-            "start": 14,
-            "end": 22,
-            "text": "100,00 %"
-          },
-          {
-            "start": 55,
-            "end": 82,
-            "text": "0,60 % Vertriebsprovisi- on"
-          }
-        ]
+        "spans": []
       },
       "source": "human",
       "confidence": 0.8
     },
     {
-      "id": "8e50cd6d",
+      "id": "bc38a9e0",
       "input": {
         "text": "Die Online-Streitbeilegungsplattform k\u00f6nnen Verbraucher f\u00fcr die au\u00dfergerichtliche Beilegung von Streitigkeiten aus online abgeschlossenen Kauf- oder Dienstleistungsvertr\u00e4gen nutzen."
       },
@@ -1313,7 +1296,7 @@
       "confidence": 0.8
     },
     {
-      "id": "862388d0",
+      "id": "cc66b48e",
       "input": {
         "text": "Angabe der Angebotsfrist Eine Platzierung der Schuldverschreibungen darf in dem Zeitraum von dem 14."
       },
@@ -1324,7 +1307,7 @@
       "confidence": 0.8
     },
     {
-      "id": "36975a59",
+      "id": "7adee847",
       "input": {
         "text": "Sofern der Privatanleger der Auszahlenden Stelle einen Freistellungsauftrag erteilt hat, wird die Auszahlende Stelle den Sparer-Pauschbetrag in entsprechender H\u00f6he bei der Ermittlung der einzubehaltenden Kapitalertragsteuer ber\u00fccksichtigen."
       },
@@ -1335,24 +1318,18 @@
       "confidence": 0.8
     },
     {
-      "id": "278b4f06",
+      "id": "5180b992",
       "input": {
         "text": "3 Die R\u00fccknahmegeb\u00fchr in H\u00f6he von 1 % entf\u00e4llt w\u00e4hrend des Zeitraums von zwei (2) Monaten vor dem jeweiligen F\u00e4lligkeitsdatum des Teilfonds."
       },
       "expected_output": {
-        "spans": [
-          {
-            "start": 34,
-            "end": 37,
-            "text": "1 %"
-          }
-        ]
+        "spans": []
       },
       "source": "human",
       "confidence": 0.8
     },
     {
-      "id": "67059099",
+      "id": "122b52ab",
       "input": {
         "text": "September 2026 oder, wenn dieser Tag kein Gesch\u00e4ftstag ist, wird dieser Zinstermin auf den n\u00e4chsten Tag verschoben, der ein Gesch\u00e4ftstag ist."
       },
@@ -1363,7 +1340,7 @@
       "confidence": 0.8
     },
     {
-      "id": "6ffb6591",
+      "id": "75bfb9d3",
       "input": {
         "text": "Solche Berichtigungen oder Erg\u00e4nzungen werden den Schuldverschreibungsgl\u00e4ubigern gem\u00e4\u00df \u00a7 7 mitgeteilt."
       },
@@ -1374,7 +1351,7 @@
       "confidence": 0.8
     },
     {
-      "id": "90385f8b",
+      "id": "26c5583e",
       "input": {
         "text": "In dem Allgemeinen wird der Nettoinventarwert bei starker Nachfrage nach dem Ankauf von Teilfondsanteilen nach oben und bei starker Nachfrage nach R\u00fcckgabe von Teilfondsanteilen nach unten hin angepasst."
       },
@@ -1385,7 +1362,7 @@
       "confidence": 0.8
     },
     {
-      "id": "49711a95",
+      "id": "4f4b11fe",
       "input": {
         "text": "Die Bank wird sich in dem Rahmen der weiteren Optimierung ihrer Gesch\u00e4ftsportfolios und ihrer Margenanforderungen fr\u00fchzeitig auf die entsprechenden Marktver\u00e4nderungen einstellen."
       },
@@ -1396,7 +1373,7 @@
       "confidence": 0.8
     },
     {
-      "id": "c02dfc45",
+      "id": "79cb8c56",
       "input": {
         "text": "Die statistische Wahrscheinlichkeit f\u00fcr die Verwirklichung von Kreditrisiken h\u00e4ngt auch von der Entwicklung des gesamtwirtschaftlichen oder unternehmensspezifischen Umfelds ab, in dem die Emittentin t\u00e4tig ist."
       },
@@ -1407,7 +1384,7 @@
       "confidence": 0.8
     },
     {
-      "id": "8a7453bc",
+      "id": "817c4a61",
       "input": {
         "text": "Jedem Teilfonds k\u00f6nnen in dem Zusammenhang mit Total Return Swaps oder anderen Finanzderivaten mit \u00e4hnlichen Eigenschaften bei dem Abschluss von Total Return Swaps und/oder bei der Erh\u00f6hung oder Verringerung ihres Nominalwerts Kosten und Geb\u00fchren entstehen."
       },
@@ -1418,7 +1395,7 @@
       "confidence": 0.8
     },
     {
-      "id": "185b404d",
+      "id": "11d33955",
       "input": {
         "text": "Dieser Verlust f\u00fcr das Ge- sch\u00e4ftsjahr 2018 f\u00fchrt zu dem Stichtag 31."
       },
@@ -1429,7 +1406,7 @@
       "confidence": 0.8
     },
     {
-      "id": "76d6ee76",
+      "id": "aec78c6f",
       "input": {
         "text": "In einer solchen Situation und f\u00fcr den Fall, dass die EU-Kommission bei der Pr\u00fcfung der Ma\u00dfnahmen zu dem Schluss kommt, dass eine Beihilfe vorliegt, k\u00f6nnen die Abwicklungsbeh\u00f6rden Abwicklungs- ma\u00dfnahmen einleiten."
       },
@@ -1440,7 +1417,7 @@
       "confidence": 0.8
     },
     {
-      "id": "5b154222",
+      "id": "c916eff0",
       "input": {
         "text": "4.2 Nicht-ausschlie\u00dflicher Gerichtsstand f\u00fcr alle Rechtsstreitigkeiten mit der Garantin, die sich aus in dieser Garantie ergeben, ist Frankfurt an dem Main."
       },
@@ -1451,7 +1428,7 @@
       "confidence": 0.8
     },
     {
-      "id": "6e4dcbdc",
+      "id": "5b1318a0",
       "input": {
         "text": "Interessen von Seiten nat\u00fcrlicher und juristischer Personen, die an der Emis- sion / dem Angebot beteiligt sind:"
       },
@@ -1462,7 +1439,7 @@
       "confidence": 0.8
     },
     {
-      "id": "5158d4f4",
+      "id": "536fa002",
       "input": {
         "text": "Vorbehaltlich geltender steuerlicher und sonstiger gesetzlicher Regelungen und Vorschriften erfolgen zu leistende Zahlungen auf die Pfandbriefe in der frei handelbaren und konvertierbaren W\u00e4hrung, die an dem entsprechenden F\u00e4lligkeitstag die W\u00e4hrung des Staates der festgelegten W\u00e4hrung ist."
       },
@@ -1473,7 +1450,7 @@
       "confidence": 0.8
     },
     {
-      "id": "c37152fa",
+      "id": "717096f1",
       "input": {
         "text": "6 Emissionsspezifische Zusammenfassung Zusammenfassungen bestehen aus bestimmten Offenlegungspflichten, den sogenannten \u201ePunkten\u201c."
       },
@@ -1484,7 +1461,7 @@
       "confidence": 0.8
     },
     {
-      "id": "7ebae762",
+      "id": "844b9c0f",
       "input": {
         "text": "Diesbez\u00fcglich hat die EBA das Recht, \u00fcber Zusammenk\u00fcnfte \u00fcber die Entwicklung und Abstimmung von Sanierungs- und Abwicklungspl\u00e4nen informiert zu werden und daran teilzuneh\u00ad men."
       },
@@ -1495,7 +1472,7 @@
       "confidence": 0.8
     },
     {
-      "id": "be01535b",
+      "id": "c2bcd9d7",
       "input": {
         "text": "Dar- \u00fcber hinaus k\u00f6nnten sich die zu der Bewertung des Verm\u00f6gens der NORD/LB und ihrer Tochtergesellschaften verwendeten Annahmen, Beurteilungen und Sch\u00e4tzungen als unzuverl\u00e4ssig erweisen."
       },
@@ -1506,7 +1483,7 @@
       "confidence": 0.8
     },
     {
-      "id": "262f3ea4",
+      "id": "65497305",
       "input": {
         "text": "Eine solche vorzeitige R\u00fcckzahlung kann dazu f\u00fchren, dass die Rendite f\u00fcr die Anleger auf das investierte Kapital niedriger als erwartet ausf\u00e4llt."
       },
@@ -1517,7 +1494,7 @@
       "confidence": 0.8
     },
     {
-      "id": "5f2a15d7",
+      "id": "335b6d76",
       "input": {
         "text": "Anteilsinhaber k\u00f6nnen aktuelle Informationen \u00fcber Interessenkonflikte bei der Verwaltungsgesellschaft oder bei der Depotbank anfordern."
       },
@@ -1528,24 +1505,18 @@
       "confidence": 0.8
     },
     {
-      "id": "b866e070",
+      "id": "421b591b",
       "input": {
         "text": "4. Rendite 1,85 % p.a. Berechnet anhand der ICMA Methode an dem Emissionstag."
       },
       "expected_output": {
-        "spans": [
-          {
-            "start": 3,
-            "end": 22,
-            "text": "Rendite 1,85 % p.a."
-          }
-        ]
+        "spans": []
       },
       "source": "human",
       "confidence": 0.8
     },
     {
-      "id": "c57d4b2f",
+      "id": "a80dbde0",
       "input": {
         "text": "Ein Credit Default Swap ist ein bilateraler Finanzkontrakt, bei dem eine Gegenpartei (der Absicherungsk\u00e4ufer) als Gegenleistung f\u00fcr eine Ausfallzahlung durch den Absicherungsverk\u00e4ufer bei Eintritt eines Kreditereignisses eines Referenzemittenten eine regelm\u00e4\u00dfige Geb\u00fchr zahlt."
       },
@@ -1556,7 +1527,7 @@
       "confidence": 0.8
     },
     {
-      "id": "50c433ac",
+      "id": "c7791823",
       "input": {
         "text": "In der DZ BANK Gruppe entstehen Beteiligungsrisiken vor allem bei der DZ BANK und in geringerem Umfang bei der BSH und der R+V."
       },
@@ -1567,7 +1538,7 @@
       "confidence": 0.8
     },
     {
-      "id": "c73924cf",
+      "id": "f357d1d3",
       "input": {
         "text": "B.17 Ratings, die f\u00fcr die Emittentin und die Schuldverschreibungen erstellt wurden"
       },
@@ -1578,7 +1549,7 @@
       "confidence": 0.8
     },
     {
-      "id": "7bfdf84c",
+      "id": "3a4e1651",
       "input": {
         "text": "4\ufffd Emittenten,\ufffddie\ufffdmit\ufffdPrime-1\ufffdbewertet\ufffdwerden,\ufffdverf\u00fcgen\ufffdin\ufffdherausragender\ufffdWeise\ufffd\u00fcber\ufffddie\ufffdF\u00e4higkeit,\ufffdihre\ufffdkurzfristigen\ufffdSchuld- verschreibungen\ufffdzur\u00fcckzuzahlen\ufffd(Quelle:\ufffdMoody\u2019s\ufffdInvestors\ufffdService\ufffdLtd.).\ufffd"
       },
@@ -1589,7 +1560,7 @@
       "confidence": 0.8
     },
     {
-      "id": "874daee7",
+      "id": "fba3795c",
       "input": {
         "text": "Der in diesem Prospekt abgedruckte Jahresabschluss der PCC SE 2017 (HGB) sowie die Konzernabschl\u00fcsse der Gesch\u00e4ftsjahre 2017 und 2016 (IFRS) wurden von der Wirtschaftspr\u00fcfungsgesellschaft Warth & Klein Grant Thornton AG, D\u00fcsseldorf, gepr\u00fcft."
       },
@@ -1600,7 +1571,7 @@
       "confidence": 0.8
     },
     {
-      "id": "bc9ef1aa",
+      "id": "d5b86c08",
       "input": {
         "text": "Die Frankfurter Sparkasse, eine hundertprozentige und vollkonsolidierte Tochtergesellschaft der Helaba in \u00f6ffentlicher Rechtsform, ist eine bedeutende Retailbank in der Region Frankfurt/Main."
       },
@@ -1611,7 +1582,7 @@
       "confidence": 0.8
     },
     {
-      "id": "332efcd5",
+      "id": "a6fb37dc",
       "input": {
         "text": "Die Verj\u00e4hrungsfrist f\u00fcr innerhalb der Vorlegungsfrist zu der Zahlung vorgelegte Pfandbriefe betr\u00e4gt zwei Jahre von dem Ende der betreffenden Vorlegungsfrist an."
       },
@@ -1622,29 +1593,18 @@
       "confidence": 0.8
     },
     {
-      "id": "b7b118aa",
+      "id": "65825cba",
       "input": {
         "text": "Anf\u00e4nglicher Emissionspreis: 100,00 % des Nennbetrages Ausgabeaufschlag: bis zu 0,85 % des Nennbetrages \u00dcbernahme/Platzierung: Es findet keine \u00dcbernahme oder Platzierung statt."
       },
       "expected_output": {
-        "spans": [
-          {
-            "start": 29,
-            "end": 54,
-            "text": "100,00 % des Nennbetrages"
-          },
-          {
-            "start": 80,
-            "end": 103,
-            "text": "0,85 % des Nennbetrages"
-          }
-        ]
+        "spans": []
       },
       "source": "human",
       "confidence": 0.8
     },
     {
-      "id": "781b7625",
+      "id": "925b9086",
       "input": {
         "text": "- Risiken, die sich aus mit dieser Einrichtung get\u00e4tigten OTC-Derivatgesch\u00e4ften ergeben, investieren."
       },
@@ -1655,7 +1615,7 @@
       "confidence": 0.8
     },
     {
-      "id": "824ba0cf",
+      "id": "f85e4b36",
       "input": {
         "text": "Wenn an einem Referenzsatz-Festlegungstag eine Marktst\u00f6rung in dem Hinblick auf einen Referenzsatz auftritt, kann die Berechnungsstelle in Bezug auf die unter den Schuldverschreibungen vorzunehmenden Feststellungen und Berechnungen nach billigem Ermessen die nachstehend beschriebenen Ma\u00dfnahmen ergreifen."
       },
@@ -1666,7 +1626,7 @@
       "confidence": 0.8
     },
     {
-      "id": "914abcec",
+      "id": "bd43ebd9",
       "input": {
         "text": "Das Gesch\u00e4ftsmodell der Deka-Gruppe ist durch das Zusammenwirken von Asset Management und Bankgesch\u00e4ft gepr\u00e4gt."
       },
@@ -1677,7 +1637,7 @@
       "confidence": 0.8
     },
     {
-      "id": "6d970f80",
+      "id": "afb64f71",
       "input": {
         "text": "Liquidit\u00e4tsrisiken erwachsen aus dem zeitlichen und betragsm\u00e4\u00dfigen Auseinanderfallen der Zahlungsfl\u00fcsse."
       },
@@ -1688,7 +1648,7 @@
       "confidence": 0.8
     },
     {
-      "id": "087f4d88",
+      "id": "71c4b735",
       "input": {
         "text": "Bei Begebung handelt es sich bei den Schuldverschreibungen um nicht- bevorrechtigte (non-preferred) Schuldtitel in dem Sinne von \u00a7 46f Absatz 6 Satz 1 des Kreditwesengesetzes."
       },
@@ -1699,7 +1659,7 @@
       "confidence": 0.8
     },
     {
-      "id": "08632eaa",
+      "id": "8834f33b",
       "input": {
         "text": "Ist die gemischte Holdinggesellschaft oder eines ihrer Tochterunternehmen ein Versicherungsunter\u00ad nehmen, so kann auch auf das Verfahren des Artikels 125 zur\u00fcckgegriffen werden."
       },
@@ -1710,7 +1670,7 @@
       "confidence": 0.8
     },
     {
-      "id": "db4565a4",
+      "id": "939d05aa",
       "input": {
         "text": "Besondere Emissionsbedingungen \u00a7 1 Definitionen \"Feststellungszeitraum\" bezeichnet jeden Zeitraum ab einem 29.03. (einschlie\u00dflich), der in ein beliebiges Jahr f\u00e4llt, bis zu dem n\u00e4chsten 29.03. (ausschlie\u00dflich)."
       },
@@ -1721,7 +1681,7 @@
       "confidence": 0.8
     },
     {
-      "id": "b37b8dd1",
+      "id": "a5398c4b",
       "input": {
         "text": "1. Bonit\u00e4tsrisiko Es besteht grunds\u00e4tzlich das Risiko, dass die Emittentin ihren Verpflichtungen aus den Wertpapieren nicht, nicht termingerecht oder nur teilweise nachkommen kann (sog. Bonit\u00e4tsrisiko)."
       },
@@ -1734,21 +1694,21 @@
   ],
   "corrections": [],
   "feedback": [
-    "Must contain a digit AND a currency marker (EUR, USD, Mio., Mrd., etc.). No percentages."
+    "Should contain a digit AND a currency marker (EUR, USD, Mio., Mrd., \u20ac, $, etc.)."
   ],
   "rules": [
     {
-      "id": "4c7b9c5f",
-      "name": "Extract currency+amount (both orders) with German formatting",
-      "description": "Find spans where a currency marker (EUR, USD, CHF, GBP, \u20ac etc.) and a numeric amount appear together. Handle both 'EUR 2,4 Mrd.' and '2,4 Mrd. EUR' styles, German thousands and decimals, optional magnitude multipliers (Mio., Mrd., Tsd.). Exclude percentages and ensure matched span contains both a digit and a currency marker.",
+      "id": "0bd42f0e",
+      "name": "Comprehensive currency+number extractor",
+      "description": "Find currency amounts where the span includes both a currency marker (code or symbol) and a numeric token. Supports currency codes (EUR, USD, GBP, CHF, JPY, CAD, AUD), symbols (\u20ac, $, \u00a3, \u00a5), German number formats (thousands with dots or spaces, decimal comma/dot), and multipliers (Mrd., Mio., Tsd.). Deduplicates and prefers longer non-overlapping matches.",
       "format": "code",
-      "content": "def extract(input_data):\n    # input_data is dict with keys from input_schema\n    # return list of dicts: [{\"text\": \"...\", \"start\": 0, \"end\": 10}, ...]\n    import re\n    text = input_data.get('text', '') or ''\n    spans = []\n\n    # Patterns:\n    # 1) Currency before number: e.g. EUR 4.899.938.940,00 or EUR2,4Mrd. or \u20ac 1.000\n    # 2) Number before currency (with optional multiplier): e.g. 2,4 Mrd. EUR\n    # Number pattern supports German format: groups of 3 digits separated by '.' and optional decimal part with ','\n    number_part = r\"[0-9]{1,3}(?:[.\\s][0-9]{3})*(?:,[0-9]+)?\"\n    multiplier = r\"(?:Mrd\\.?|Mio\\.?|Tsd\\.?)?\"\n    curr = r\"(?:EUR|EURO|\u20ac|USD|US\\$|CHF|GBP)\"\n\n    pattern_before = r\"\\b\" + curr + r\"\\s*\" + number_part + r\"\\s*\" + multiplier + r\"\\b\"\n    pattern_after = r\"\\b\" + number_part + r\"\\s*\" + multiplier + r\"\\s*\" + curr + r\"\\b\"\n\n    combined = re.compile('(?:' + pattern_before + ')|(?:' + pattern_after + ')', re.IGNORECASE)\n\n    for m in combined.finditer(text):\n        s = m.group(0)\n        # Exclude percentage-like matches\n        if '%' in s:\n            continue\n        # Require at least one digit\n        if not re.search(r'\\d', s):\n            continue\n        # Require presence of a currency marker inside the span\n        if not re.search(r'\\b(?:EUR|EURO|\u20ac|USD|US\\$|CHF|GBP)\\b', s, re.IGNORECASE):\n            continue\n        spans.append({'text': s, 'start': m.start(), 'end': m.end()})\n\n    # Remove overlapping matches: keep earliest non-overlapping; prefer longer match if same start\n    if not spans:\n        return []\n    spans_sorted = sorted(spans, key=lambda x: (x['start'], -(x['end'] - x['start'])))\n    filtered = []\n    last_end = -1\n    for sp in spans_sorted:\n        if sp['start'] >= last_end:\n            filtered.append(sp)\n            last_end = sp['end']\n    return filtered\n",
+      "content": "def extract(input_data):\n    # input_data: dict with key 'text'\n    # returns list of dicts: [{\"text\": ..., \"start\": int, \"end\": int}, ...]\n    import re\n\n    text = input_data.get(\"text\", \"\")\n    spans = []\n\n    # Common currency codes and symbols\n    codes = r\"EUR|USD|GBP|CHF|JPY|CAD|AUD\"\n    symbols = r\"\u20ac|\\$|\u00a3|\u00a5\"\n\n    # German multiplier abbreviations (with optional dot)\n    multipliers = r\"(?:Mrd\\.?|Mio\\.?|Tsd\\.?)\"\n\n    # Number pattern: 1 or more digits, optional groups of (. or space)ddd, optional decimal part (, or . and digits)\n    number = r\"\\d{1,3}(?:[\\.\\s]\\d{3})*(?:[\\.,]\\d+)?\"\n\n    # Patterns that require both a currency marker and a digit in the same match\n    patterns = [\n        # Currency code before number: e.g. 'EUR 1.234.567,89' or 'EUR1.234'\n        re.compile(r\"\\b(?:\" + codes + r\")\\b[\\s\\u00A0]*\" + number + r\"(?:[\\s\\u00A0]*\" + multipliers + r\")?\",\n                   flags=re.IGNORECASE),\n        # Symbol before number: e.g. '\u20ac 1.000,00' or '$1,000.00'\n        re.compile(r\"(?:\" + symbols + r\")[\\s\\u00A0]*\" + number + r\"(?:[\\s\\u00A0]*\" + multipliers + r\")?\"),\n        # Number before currency code or symbol: e.g. '1.000,00 EUR' or '1.000 \u20ac'\n        re.compile(number + r\"(?:[\\s\\u00A0]*\" + multipliers + r\")?[\\s\\u00A0]*(?:\" + codes + r\"|\" + symbols + r\")(?:\\b|(?=\\s))\",\n                   flags=re.IGNORECASE)\n    ]\n\n    # Collect matches\n    matches = []\n    for pat in patterns:\n        for m in pat.finditer(text):\n            s = m.start()\n            e = m.end()\n            matched_text = text[s:e]\n            # Safety check: ensure the match contains at least one digit and at least one currency marker/symbol\n            if re.search(r\"\\d\", matched_text) and re.search(r\"(?:\" + codes + r\"|\" + symbols + r\")\", matched_text, flags=re.IGNORECASE):\n                matches.append((s, e, matched_text))\n\n    # Deduplicate and resolve overlaps: prefer longer spans\n    if not matches:\n        return []\n\n    # Sort by start, then by -length (so longer spans at same start come first)\n    matches.sort(key=lambda x: (x[0], -(x[1] - x[0])))\n\n    final = []\n    occupied = [False] * (len(text) + 1)\n\n    for s, e, mt in matches:\n        # check if this span overlaps any already chosen span\n        overlap = False\n        for i in range(s, e):\n            if occupied[i]:\n                overlap = True\n                break\n        if not overlap:\n            final.append({\"text\": mt, \"start\": s, \"end\": e})\n            for i in range(s, e):\n                occupied[i] = True\n\n    # As a final sanity filter, ensure each returned span contains a digit and a currency marker\n    cleaned = []\n    for item in final:\n        if re.search(r\"\\d\", item[\"text\"]) and re.search(r\"(?:\" + codes + r\"|\" + symbols + r\")\", item[\"text\"], flags=re.IGNORECASE):\n            cleaned.append(item)\n\n    return cleaned\n",
       "priority": 10,
       "confidence": 0.5,
       "times_applied": 0,
       "successes": 0,
       "failures": 0,
-      "created_at": "2026-01-13T16:15:03.182388"
+      "created_at": "2026-01-13T20:44:52.701384"
     }
   ],
   "version": 1

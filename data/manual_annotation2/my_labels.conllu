@@ -584,10 +584,10 @@
 4	sind	sein	AUX	VAFIN	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	3	_	_	start_char=27042|end_char=27046	O
 5	bis	bis	ADP	ADV	_	4	_	_	start_char=27047|end_char=27050	O
 6	zu	zu	ADP	ADV	_	5	_	_	start_char=27051|end_char=27053	O
-7	0,60	0,60	NUM	CARD	NumType=Card	6	_	_	start_char=27054|end_char=27058	B-MON
-8	%	%	NOUN	NN	Case=Acc|Gender=Neut|Number=Plur	7	_	_	start_char=27059|end_char=27060	I-MON
-9	Vertriebsprovisi-	Vertriebsprovisi-	NOUN	NN	Case=Acc|Gender=Fem|Number=Sing	8	_	_	SpacesAfter=\n|start_char=27061|end_char=27078	I-MON
-10	on	on	NOUN	NN	Foreign=Yes	9	_	_	start_char=27079|end_char=27081	I-MON
+7	0,60	0,60	NUM	CARD	NumType=Card	6	_	_	start_char=27054|end_char=27058	
+8	%	%	NOUN	NN	Case=Acc|Gender=Neut|Number=Plur	7	_	_	start_char=27059|end_char=27060	0
+9	Vertriebsprovisi-	Vertriebsprovisi-	NOUN	NN	Case=Acc|Gender=Fem|Number=Sing	8	_	_	SpacesAfter=\n|start_char=27061|end_char=27078	0
+10	on	on	NOUN	NN	Foreign=Yes	9	_	_	start_char=27079|end_char=27081	0
 11	enthalten	enthalten	VERB	VVINF	VerbForm=Inf	10	_	_	SpaceAfter=No|start_char=27082|end_char=27091	O
 12	.	.	PUNCT	$.	_	11	_	_	start_char=27091|end_char=27092	O
 
@@ -3031,18 +3031,18 @@
 # text = Verkaufskurs: 100,00 % In dem Verkaufskurs sind bis zu 0,60 % Vertriebsprovisi- on enthalten.
 1	Verkaufskurs	Verkaufskur	NOUN	NN	Case=Nom|Gender=Masc|Number=Sing	0	_	_	SpaceAfter=No|start_char=30201|end_char=30213	O
 2	:	:	PUNCT	$.	_	1	_	_	SpacesAfter=\n|start_char=30213|end_char=30214	O
-3	100,00	100,00	NUM	CARD	NumType=Card	2	_	_	start_char=30215|end_char=30221	B-MON
-4	%	%	NOUN	NN	Case=Nom|Gender=Neut|Number=Plur	3	_	_	SpacesAfter=\n|start_char=30222|end_char=30223	I-MON
+3	100,00	100,00	NUM	CARD	NumType=Card	2	_	_	start_char=30215|end_char=30221	0
+4	%	%	NOUN	NN	Case=Nom|Gender=Neut|Number=Plur	3	_	_	SpacesAfter=\n|start_char=30222|end_char=30223	0
 5	In	in	ADP	APPR	_	4	_	_	_	O
 6	dem	der	DET	ART	Case=Dat|Definite=Def|Gender=Masc|Number=Sing|PronType=Art	5	_	_	_	O
 7	Verkaufskurs	Verkaufskur	NOUN	NN	Case=Dat|Gender=Masc|Number=Sing	6	_	_	start_char=30227|end_char=30239	O
 8	sind	sein	AUX	VAFIN	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin	7	_	_	start_char=30240|end_char=30244	O
 9	bis	bis	ADP	ADV	_	8	_	_	start_char=30245|end_char=30248	O
 10	zu	zu	ADP	ADV	_	9	_	_	start_char=30249|end_char=30251	O
-11	0,60	0,60	NUM	CARD	NumType=Card	10	_	_	start_char=30252|end_char=30256	B-MON
-12	%	%	NOUN	NN	Case=Acc|Gender=Neut|Number=Plur	11	_	_	start_char=30257|end_char=30258	I-MON
-13	Vertriebsprovisi-	Vertriebsprovisi-	NOUN	NN	Case=Acc|Gender=Fem|Number=Sing	12	_	_	SpacesAfter=\n|start_char=30259|end_char=30276	I-MON
-14	on	on	NOUN	NN	Foreign=Yes	13	_	_	start_char=30277|end_char=30279	I-MON
+11	0,60	0,60	NUM	CARD	NumType=Card	10	_	_	start_char=30252|end_char=30256	0
+12	%	%	NOUN	NN	Case=Acc|Gender=Neut|Number=Plur	11	_	_	start_char=30257|end_char=30258	0
+13	Vertriebsprovisi-	Vertriebsprovisi-	NOUN	NN	Case=Acc|Gender=Fem|Number=Sing	12	_	_	SpacesAfter=\n|start_char=30259|end_char=30276	0
+14	on	on	NOUN	NN	Foreign=Yes	13	_	_	start_char=30277|end_char=30279	0
 15	enthalten	enthalten	VERB	VVINF	VerbForm=Inf	14	_	_	SpaceAfter=No|start_char=30280|end_char=30289	O
 16	.	.	PUNCT	$.	_	15	_	_	start_char=30289|end_char=30290	O
 
@@ -3133,8 +3133,8 @@
 4	in	in	ADP	APPR	_	3	_	_	start_char=400383|end_char=400385	O
 5	Höhe	Höhe	NOUN	NN	Case=Dat|Gender=Fem|Number=Sing	4	_	_	start_char=400386|end_char=400390	O
 6	von	von	ADP	APPR	_	5	_	_	start_char=400391|end_char=400394	O
-7	1	1	NUM	CARD	NumType=Card	6	_	_	start_char=400395|end_char=400396	B-MON
-8	%	%	NOUN	NN	Case=Dat|Gender=Neut|Number=Plur	7	_	_	start_char=400397|end_char=400398	I-MON
+7	1	1	NUM	CARD	NumType=Card	6	_	_	start_char=400395|end_char=400396	0
+8	%	%	NOUN	NN	Case=Dat|Gender=Neut|Number=Plur	7	_	_	start_char=400397|end_char=400398	0
 9	entfällt	entfallen	VERB	VVFIN	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	8	_	_	start_char=400399|end_char=400407	O
 10	während	während	ADP	APPR	_	9	_	_	start_char=400408|end_char=400415	O
 11	des	der	DET	ART	Case=Gen|Definite=Def|Gender=Neut|Number=Sing|PronType=Art	10	_	_	start_char=400416|end_char=400419	O
@@ -3612,10 +3612,10 @@
 # doc_id = 8415
 # text = 4. Rendite 1,85 % p.a. Berechnet anhand der ICMA Methode an dem Emissionstag.
 1	4.	4.	ADJ	ADJA	Degree=Pos|NumType=Ord	0	_	_	SpacesAfter=\s\n|start_char=5616|end_char=5618	O
-2	Rendite	Rendite	NOUN	NN	Case=Nom|Gender=Fem|Number=Sing	1	_	_	SpacesAfter=\s\n|start_char=5620|end_char=5627	B-MON
-3	1,85	1,85	NUM	CARD	NumType=Card	2	_	_	start_char=5629|end_char=5633	I-MON
-4	%	%	NOUN	NN	Case=Nom|Gender=Neut|Number=Plur	3	_	_	start_char=5634|end_char=5635	I-MON
-5	p.a.	p.a.	NOUN	NN	_	4	_	_	SpacesAfter=\s\n|start_char=5636|end_char=5640	I-MON
+2	Rendite	Rendite	NOUN	NN	Case=Nom|Gender=Fem|Number=Sing	1	_	_	SpacesAfter=\s\n|start_char=5620|end_char=5627	0
+3	1,85	1,85	NUM	CARD	NumType=Card	2	_	_	start_char=5629|end_char=5633	0
+4	%	%	NOUN	NN	Case=Nom|Gender=Neut|Number=Plur	3	_	_	start_char=5634|end_char=5635	0
+5	p.a.	p.a.	NOUN	NN	_	4	_	_	SpacesAfter=\s\n|start_char=5636|end_char=5640	0
 6	Berechnet	berechnen	VERB	VVPP	VerbForm=Part	5	_	_	start_char=5642|end_char=5651	O
 7	anhand	anhand	ADP	APPR	_	6	_	_	start_char=5652|end_char=5658	O
 8	der	der	DET	ART	Case=Dat|Definite=Def|Gender=Fem|Number=Sing|PronType=Art	7	_	_	start_char=5659|end_char=5662	O
@@ -3760,7 +3760,7 @@
 9	SE	SE	PROPN	NE	Case=Gen|Gender=Fem|Number=Sing	8	_	_	start_char=10090|end_char=10092	I-ORG
 10	2017	2017	PROPN	CARD	NumType=Card	9	_	_	start_char=10093|end_char=10097	O
 11	(	(	PUNCT	$(	_	10	_	_	SpaceAfter=No|start_char=10098|end_char=10099	O
-12	HGB	HGB	PROPN	NE	Case=Nom|Gender=Fem|Number=Sing	11	_	_	SpaceAfter=No|start_char=10099|end_char=10102	B-LEG
+12	HGB	HGB	PROPN	NE	Case=Nom|Gender=Fem|Number=Sing	11	_	_	SpaceAfter=No|start_char=10099|end_char=10102	B-ORG
 13	)	)	PUNCT	$(	_	12	_	_	start_char=10102|end_char=10103	O
 14	sowie	sowie	CCONJ	KON	_	13	_	_	start_char=10104|end_char=10109	O
 15	die	der	DET	ART	Case=Nom|Definite=Def|Number=Plur|PronType=Art	14	_	_	start_char=10110|end_char=10113	O
@@ -3771,7 +3771,7 @@
 20	und	und	CCONJ	KON	_	19	_	_	start_char=10157|end_char=10160	O
 21	2016	2016	NUM	CARD	NumType=Card	20	_	_	start_char=10161|end_char=10165	O
 22	(	(	PUNCT	$(	_	21	_	_	SpaceAfter=No|start_char=10166|end_char=10167	O
-23	IFRS	IFRS	PROPN	NE	Case=Nom|Gender=Fem|Number=Sing	22	_	_	SpaceAfter=No|start_char=10167|end_char=10171	B-LEG
+23	IFRS	IFRS	PROPN	NE	Case=Nom|Gender=Fem|Number=Sing	22	_	_	SpaceAfter=No|start_char=10167|end_char=10171	B-ORG
 24	)	)	PUNCT	$(	_	23	_	_	start_char=10171|end_char=10172	O
 25	wurden	werden	AUX	VAFIN	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin|Voice=Pass	24	_	_	start_char=10173|end_char=10179	O
 26	von	von	ADP	APPR	_	25	_	_	start_char=10180|end_char=10183	O
@@ -3849,18 +3849,18 @@
 1	Anfänglicher	anfänglich	ADJ	ADJA	Case=Nom|Degree=Pos|Gender=Masc|Number=Sing	0	_	_	start_char=67369|end_char=67381	O
 2	Emissionspreis	Emissionspreis	NOUN	NN	Case=Nom|Gender=Masc|Number=Sing	1	_	_	SpaceAfter=No|start_char=67382|end_char=67396	O
 3	:	:	PUNCT	$.	_	2	_	_	start_char=67396|end_char=67397	O
-4	100,00	100,00	NUM	CARD	NumType=Card	3	_	_	start_char=67398|end_char=67404	B-MON
-5	%	%	NOUN	NN	Case=Nom|Gender=Neut|Number=Plur	4	_	_	start_char=67405|end_char=67406	I-MON
-6	des	der	DET	ART	Case=Gen|Definite=Def|Gender=Masc|Number=Sing|PronType=Art	5	_	_	start_char=67407|end_char=67410	I-MON
-7	Nennbetrages	Nennbetrag	NOUN	NN	Case=Gen|Gender=Masc|Number=Sing	6	_	_	SpacesAfter=\s\n|start_char=67411|end_char=67423	I-MON
+4	100,00	100,00	NUM	CARD	NumType=Card	3	_	_	start_char=67398|end_char=67404	0
+5	%	%	NOUN	NN	Case=Nom|Gender=Neut|Number=Plur	4	_	_	start_char=67405|end_char=67406	0
+6	des	der	DET	ART	Case=Gen|Definite=Def|Gender=Masc|Number=Sing|PronType=Art	5	_	_	start_char=67407|end_char=67410	0
+7	Nennbetrages	Nennbetrag	NOUN	NN	Case=Gen|Gender=Masc|Number=Sing	6	_	_	SpacesAfter=\s\n|start_char=67411|end_char=67423	0
 8	Ausgabeaufschlag	Ausgabeaufschlag	NOUN	NN	Case=Gen|Gender=Masc|Number=Sing	7	_	_	SpaceAfter=No|start_char=67425|end_char=67441	O
 9	:	:	PUNCT	$.	_	8	_	_	start_char=67441|end_char=67442	O
 10	bis	bis	ADP	ADV	_	9	_	_	start_char=67443|end_char=67446	O
 11	zu	zu	ADP	ADV	_	10	_	_	start_char=67447|end_char=67449	O
-12	0,85	0,85	NUM	CARD	NumType=Card	11	_	_	start_char=67450|end_char=67454	B-MON
-13	%	%	NOUN	NN	Case=Acc|Gender=Neut|Number=Plur	12	_	_	start_char=67455|end_char=67456	I-MON
-14	des	der	DET	ART	Case=Gen|Definite=Def|Gender=Masc|Number=Sing|PronType=Art	13	_	_	start_char=67457|end_char=67460	I-MON
-15	Nennbetrages	Nennbetrag	NOUN	NN	Case=Gen|Gender=Masc|Number=Sing	14	_	_	SpacesAfter=\s\n|start_char=67461|end_char=67473	I-MON
+12	0,85	0,85	NUM	CARD	NumType=Card	11	_	_	start_char=67450|end_char=67454	0
+13	%	%	NOUN	NN	Case=Acc|Gender=Neut|Number=Plur	12	_	_	start_char=67455|end_char=67456	0
+14	des	der	DET	ART	Case=Gen|Definite=Def|Gender=Masc|Number=Sing|PronType=Art	13	_	_	start_char=67457|end_char=67460	0
+15	Nennbetrages	Nennbetrag	NOUN	NN	Case=Gen|Gender=Masc|Number=Sing	14	_	_	SpacesAfter=\s\n|start_char=67461|end_char=67473	0
 16	Übernahme/Platzierung	Übernahme/Platzierung	NOUN	NN	Case=Gen|Gender=Fem|Number=Sing	15	_	_	SpaceAfter=No|start_char=67475|end_char=67496	O
 17	:	:	PUNCT	$.	_	16	_	_	start_char=67496|end_char=67497	O
 18	Es	es	PRON	PPER	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	17	_	_	start_char=67498|end_char=67500	O

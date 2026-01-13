@@ -9,9 +9,10 @@ PROJECT_ROOT = os.path.dirname(THIS_DIR)
 sys.path.insert(0, THIS_DIR)
 sys.path.insert(0, os.path.join(PROJECT_ROOT, "rule-chef", "rulechef"))
 
-from data_loader import load_data_by_label
+from data_loader import load_data_by_label, load_data
 from trainer import train_all, LABELS
 from inference import predict
+from evaluate import evaluate, print_results
 
 # Paths
 DATA_PATH = os.path.join(PROJECT_ROOT, "data", "manual_annotation2", "my_labels.conllu")
@@ -53,6 +54,12 @@ def main():
                 print(f"  {sp['label']}: '{sp['text']}' [{sp['start']}:{sp['end']}]")
         else:
             print("  (no entities found)")
+
+    # 4. Evaluate with F1 scores
+    print("\n[4] Evaluating on full dataset...")
+    full_data = load_data(DATA_PATH)
+    results = evaluate(full_data, chefs, match_mode="exact")
+    print_results(results, "F1 Scores (Exact Match)")
 
     print("\n" + "=" * 60)
     print("Done! Models saved to:", STORAGE_PATH)
