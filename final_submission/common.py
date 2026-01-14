@@ -161,6 +161,109 @@ def evaluate_predictions(
     return report_text, report_dict
 
 
+def labels_to_spans(labels: List[str], tokens: List[str], text: str) -> List[Dict]:
+    aligned = _align_tokens([(t, "O") for t in tokens], text)
+    if len(aligned) != len(tokens):
+        text = " ".join(tokens)
+        aligned = _align_tokens([(t, "O") for t in tokens], text)
+    if len(aligned) != len(tokens):
+        return []
+
+    spans = []
+    cur_label = None
+    cur_start = None
+    cur_end = None
+
+    def _flush():
+        if cur_label is not None and cur_start is not None and cur_end is not None:
+            spans.append(
+                {
+                    "label": cur_label,
+                    "start": cur_start,
+                    "end": cur_end,
+                    "text": text[cur_start:cur_end],
+                }
+            )
+
+    for (_, start, end, _), lab in zip(aligned, labels):
+        if lab.startswith("B-") or lab.startswith("I-"):
+            lab_norm = lab.split("-", 1)[1]
+        else:
+            lab_norm = lab
+
+        if lab_norm == "O":
+            _flush()
+            cur_label = cur_start = cur_end = None
+            continue
+
+        if cur_label is None or cur_label != lab_norm:
+            _flush()
+            cur_label = lab_norm
+            cur_start = start
+            cur_end = end
+        else:
+            cur_end = end
+
+    _flush()
+    return spans
+
+
+def evaluate_overlap(
+    gold_spans_all: List[List[Dict]],
+    pred_spans_all: List[List[Dict]],
+) -> Dict[str, Dict[str, float]]:
+    tp = {lab: 0 for lab in LABELS}
+    fp = {lab: 0 for lab in LABELS}
+    fn = {lab: 0 for lab in LABELS}
+
+    for gold_spans, pred_spans in zip(gold_spans_all, pred_spans_all):
+        gold_by_label = {lab: [] for lab in LABELS}
+        pred_by_label = {lab: [] for lab in LABELS}
+
+        for sp in gold_spans:
+            if sp["label"] in gold_by_label:
+                gold_by_label[sp["label"]].append(sp)
+        for sp in pred_spans:
+            if sp["label"] in pred_by_label:
+                pred_by_label[sp["label"]].append(sp)
+
+        for lab in LABELS:
+            golds = gold_by_label[lab]
+            preds = pred_by_label[lab]
+            matched = set()
+
+            for pred in preds:
+                hit = False
+                for i, gold in enumerate(golds):
+                    if i in matched:
+                        continue
+                    if not (pred["end"] <= gold["start"] or pred["start"] >= gold["end"]):
+                        tp[lab] += 1
+                        matched.add(i)
+                        hit = True
+                        break
+                if not hit:
+                    fp[lab] += 1
+            fn[lab] += len(golds) - len(matched)
+
+    results = {}
+    for lab in LABELS:
+        p = tp[lab] / (tp[lab] + fp[lab]) if (tp[lab] + fp[lab]) else 0.0
+        r = tp[lab] / (tp[lab] + fn[lab]) if (tp[lab] + fn[lab]) else 0.0
+        f1 = (2 * p * r) / (p + r) if (p + r) else 0.0
+        results[lab] = {"precision": p, "recall": r, "f1": f1}
+
+    total_tp = sum(tp.values())
+    total_fp = sum(fp.values())
+    total_fn = sum(fn.values())
+    p = total_tp / (total_tp + total_fp) if (total_tp + total_fp) else 0.0
+    r = total_tp / (total_tp + total_fn) if (total_tp + total_fn) else 0.0
+    f1 = (2 * p * r) / (p + r) if (p + r) else 0.0
+    results["micro"] = {"precision": p, "recall": r, "f1": f1}
+
+    return results
+
+
 def save_predictions_conllu(sentence_predictions: List[Dict], output_path: Path):
     with open(output_path, "w", encoding="utf-8") as f:
         for i, sent_pred in enumerate(sentence_predictions):
@@ -193,6 +296,7 @@ def write_metrics(
     report_text: str,
     report_dict: Dict,
     elapsed_s: float,
+    overlap_metrics: Dict[str, Dict[str, float]] = None,
 ):
     out_dir.mkdir(parents=True, exist_ok=True)
     metrics_path = out_dir / "metrics_summary.txt"
@@ -204,6 +308,16 @@ def write_metrics(
         f.write("-" * 80 + "\n")
         f.write(f"{method_name}: {elapsed_s:.2f}\n\n")
         f.write(report_text + "\n")
+        if overlap_metrics:
+            f.write("\nOverlap metrics (span-level)\n")
+            f.write("-" * 80 + "\n")
+            for lab in LABELS + ["micro"]:
+                m = overlap_metrics.get(lab, {})
+                f.write(
+                    f"{lab}: P={m.get('precision', 0.0):.3f} "
+                    f"R={m.get('recall', 0.0):.3f} "
+                    f"F1={m.get('f1', 0.0):.3f}\n"
+                )
     json_path = out_dir / "metrics.json"
     with open(json_path, "w", encoding="utf-8") as f:
         f.write("{\n")
@@ -211,6 +325,10 @@ def write_metrics(
         f.write(f'  "seconds": {elapsed_s:.6f},\n')
         f.write('  "report": ')
         f.write(_dict_to_json(report_dict, indent=2))
+        if overlap_metrics:
+            f.write(",\n")
+            f.write('  "overlap": ')
+            f.write(_dict_to_json(overlap_metrics, indent=2))
         f.write("\n}\n")
 
 

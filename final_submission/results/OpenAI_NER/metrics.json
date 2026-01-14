@@ -1,0 +1,65 @@
+{
+  "method": "OpenAI_NER",
+  "seconds": 167.952791,
+  "report": {
+  "LEG": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 11.0
+  },
+  "MON": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 16.0
+  },
+  "ORG": {
+    "precision": 0.6,
+    "recall": 0.5769230769230769,
+    "f1-score": 0.5882352941176471,
+    "support": 26.0
+  },
+  "O": {
+    "precision": 0.985897435897436,
+    "recall": 0.9871630295250321,
+    "f1-score": 0.9865298268120591,
+    "support": 779.0
+  },
+  "accuracy": 0.9747596153846154,
+  "macro avg": {
+    "precision": 0.896474358974359,
+    "recall": 0.8910215266120272,
+    "f1-score": 0.8936912802324266,
+    "support": 832.0
+  },
+  "weighted avg": {
+    "precision": 0.9742957963510849,
+    "recall": 0.9747596153846154,
+    "f1-score": 0.9745202556894866,
+    "support": 832.0
+  }
+},
+  "overlap": {
+  "ORG": {
+    "precision": 0.75,
+    "recall": 0.8571428571428571,
+    "f1": 0.7999999999999999
+  },
+  "MON": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0
+  },
+  "LEG": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0
+  },
+  "micro": {
+    "precision": 0.8888888888888888,
+    "recall": 0.9411764705882353,
+    "f1": 0.9142857142857143
+  }
+}
+}

@@ -12,11 +12,16 @@ if RULECHEF_PATH not in sys.path:
 from typing import Dict, List, Optional
 from openai import OpenAI
 from rulechef import RuleChef
+from rulechef.core import RuleFormat
 
 try:
     from .trainer import create_task, LABELS, LABEL_CONFIG
-except ImportError:
-    from trainer import create_task, LABELS, LABEL_CONFIG
+except Exception:
+    try:
+        from trainer import create_task, LABELS, LABEL_CONFIG
+    except Exception:
+        from trainer import create_task, LABELS
+        LABEL_CONFIG = {label: {"allowed_formats": [RuleFormat.CODE]} for label in LABELS}
 
 
 def load_models(storage_path: str = "./rulechef_v2_data") -> Dict[str, RuleChef]:
@@ -64,7 +69,7 @@ def predict(text: str, chefs: Dict[str, RuleChef]) -> List[Dict]:
             continue
 
         # Use public extract API
-        result = chef.extract({"text": text})
+        result = chef.extract({"text": text, "context": text})
         spans = result.get("spans", [])
 
         for span in spans:

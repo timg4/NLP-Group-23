@@ -4,7 +4,7 @@ FutureWork_RuleBasedNER METRICS SUMMARY
 
 Timing (seconds)
 --------------------------------------------------------------------------------
-FutureWork_RuleBasedNER: 0.00
+FutureWork_RuleBasedNER: 0.01
 
               precision    recall  f1-score   support
 
@@ -17,3 +17,10 @@ FutureWork_RuleBasedNER: 0.00
    macro avg      0.663     0.576     0.605       832
 weighted avg      0.930     0.933     0.931       832
 
+
+Overlap metrics (span-level)
+--------------------------------------------------------------------------------
+ORG: P=0.217 R=0.714 F1=0.333
+MON: P=0.667 R=1.000 F1=0.800
+LEG: P=1.000 R=0.500 F1=0.667
+micro: P=0.382 R=0.765 F1=0.510

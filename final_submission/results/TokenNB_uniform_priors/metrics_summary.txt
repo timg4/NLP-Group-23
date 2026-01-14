@@ -4,7 +4,7 @@ TokenNB_uniform_priors METRICS SUMMARY
 
 Timing (seconds)
 --------------------------------------------------------------------------------
-TokenNB_uniform_priors: 0.02
+TokenNB_uniform_priors: 0.01
 
               precision    recall  f1-score   support
 
@@ -17,3 +17,10 @@ TokenNB_uniform_priors: 0.02
    macro avg      0.685     0.553     0.513       832
 weighted avg      0.938     0.803     0.857       832
 
+
+Overlap metrics (span-level)
+--------------------------------------------------------------------------------
+ORG: P=0.750 R=0.429 F1=0.545
+MON: P=0.667 R=1.000 F1=0.800
+LEG: P=0.018 R=0.500 F1=0.035
+micro: P=0.090 R=0.647 F1=0.158

@@ -21,6 +21,8 @@ from common import (
     print_split_counts,
     save_predictions_conllu,
     evaluate_predictions,
+    evaluate_overlap,
+    labels_to_spans,
     write_metrics,
 )
 
@@ -51,6 +53,8 @@ def main():
     gold_labels = []
     pred_labels = []
     sentence_predictions = []
+    gold_spans_all = []
+    pred_spans_all = []
 
     for sent in dev_set:
         pred = model.predict(sent["tokens"])
@@ -61,12 +65,15 @@ def main():
         sentence_predictions.append(
             {"tokens": sent["token_forms"], "gold": collapsed_gold, "pred": collapsed_pred}
         )
+        gold_spans_all.append(labels_to_spans(collapsed_gold, sent["token_forms"], sent["text"]))
+        pred_spans_all.append(labels_to_spans(collapsed_pred, sent["token_forms"], sent["text"]))
 
     elapsed = time.perf_counter() - start
     report_text, report_dict = evaluate_predictions(gold_labels, pred_labels)
+    overlap_metrics = evaluate_overlap(gold_spans_all, pred_spans_all)
 
     out_dir = Path(args.results_dir)
-    write_metrics(out_dir, "FutureWork_RuleBasedNER", report_text, report_dict, elapsed)
+    write_metrics(out_dir, "FutureWork_RuleBasedNER", report_text, report_dict, elapsed, overlap_metrics)
     save_predictions_conllu(sentence_predictions, out_dir / "predictions.conllu")
 
     print(f"Saved: {out_dir}")

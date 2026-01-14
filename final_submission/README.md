@@ -3,6 +3,7 @@
 This folder contains per-model evaluation scripts that all use the same
 stratified 80/20 split (seed 2323) and write comparable metrics and predictions.
 Metrics are token-level and collapsed to entity labels (LEG, MON, ORG, O).
+Each run also reports span-level overlap metrics (per label + micro).
 
 ## What it compares
 - RuleChef (rule-chef-v2)
