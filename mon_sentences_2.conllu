@@ -1,0 +1,289 @@
+# sent_id = 1
+# doc_id = 6917
+# text = Februar 2013 besteht das Risiko, dass die Bank möglicherweise nicht in der Lage sein könnte, den noch offenen Restbetrag von EUR 1,0 Mrd.
+1	Februar	Februar	PROPN	NN	Case=Nom|Gender=Masc|Number=Sing	0	_	_	start_char=31302|end_char=31309	O
+2	2013	2013	NUM	CARD	NumType=Card	1	_	_	start_char=31310|end_char=31314	O
+3	besteht	bestehen	VERB	VVFIN	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	2	_	_	start_char=31315|end_char=31322	O
+4	das	der	DET	ART	Case=Nom|Definite=Def|Gender=Neut|Number=Sing|PronType=Art	3	_	_	start_char=31323|end_char=31326	O
+5	Risiko	Risiko	NOUN	NN	Case=Nom|Gender=Neut|Number=Sing	4	_	_	SpaceAfter=No|start_char=31327|end_char=31333	O
+6	,	,	PUNCT	$,	_	5	_	_	start_char=31333|end_char=31334	O
+7	dass	dass	SCONJ	KOUS	_	6	_	_	start_char=31335|end_char=31339	O
+8	die	der	DET	ART	Case=Nom|Definite=Def|Gender=Fem|Number=Sing|PronType=Art	7	_	_	start_char=31340|end_char=31343	O
+9	Bank	Bank	NOUN	NN	Case=Nom|Gender=Fem|Number=Sing	8	_	_	SpacesAfter=\s\n|start_char=31344|end_char=31348	O
+10	möglicherweise	möglicherweise	ADV	ADV	_	9	_	_	start_char=31350|end_char=31364	O
+11	nicht	nicht	PART	PTKNEG	Polarity=Neg	10	_	_	start_char=31365|end_char=31370	O
+12	in	in	ADP	APPR	_	11	_	_	start_char=31371|end_char=31373	O
+13	der	der	DET	ART	Case=Dat|Definite=Def|Gender=Fem|Number=Sing|PronType=Art	12	_	_	start_char=31374|end_char=31377	O
+14	Lage	Lage	NOUN	NN	Case=Dat|Gender=Fem|Number=Sing	13	_	_	start_char=31378|end_char=31382	O
+15	sein	sein	AUX	VAINF	VerbForm=Inf	14	_	_	start_char=31383|end_char=31387	O
+16	könnte	können	AUX	VMFIN	Mood=Sub|Number=Sing|Person=3|Tense=Past|VerbForm=Fin	15	_	_	SpaceAfter=No|start_char=31388|end_char=31394	O
+17	,	,	PUNCT	$,	_	16	_	_	start_char=31394|end_char=31395	O
+18	den	der	DET	ART	Case=Acc|Definite=Def|Gender=Masc|Number=Sing|PronType=Art	17	_	_	start_char=31396|end_char=31399	O
+19	noch	noch	ADV	ADV	_	18	_	_	start_char=31400|end_char=31404	O
+20	offenen	offen	ADJ	ADJA	Case=Acc|Degree=Pos|Gender=Masc|Number=Sing	19	_	_	start_char=31405|end_char=31412	O
+21	Restbetrag	Restbetrag	NOUN	NN	Case=Acc|Gender=Masc|Number=Sing	20	_	_	SpacesAfter=\s\n|start_char=31413|end_char=31423	O
+22	von	von	ADP	APPR	_	21	_	_	start_char=31425|end_char=31428	O
+23	EUR	EUR	PROPN	NE	Case=Dat|Gender=Masc|Number=Sing	22	_	_	start_char=31429|end_char=31432	B-MON
+24	1,0	1,0	NUM	CARD	NumType=Card	23	_	_	start_char=31433|end_char=31436	I-MON
+25	Mrd	Milliarde	NOUN	NN	Case=Acc|Gender=Masc|Number=Plur	24	_	_	SpaceAfter=No|start_char=31437|end_char=31440	I-MON
+26	.	.	PUNCT	$.	_	25	_	_	start_char=31440|end_char=31441	I-MON
+
+# sent_id = 2
+# doc_id = 8876
+# text = In dem Zuge einer Redimensionierung wird die Bilanzsumme perspektivisch bis 2024 auf ca⟂ EUR 95 Mrd. zurückgeführt wer- den.
+1	In	in	ADP	APPR	_	0	_	_	_	O
+2	dem	der	DET	ART	Case=Dat|Definite=Def|Gender=Masc|Number=Sing|PronType=Art	1	_	_	_	O
+3	Zuge	Zug	NOUN	NN	Case=Dat|Gender=Masc|Number=Sing	2	_	_	start_char=64048|end_char=64052	O
+4	einer	ein	DET	ART	Case=Gen|Definite=Ind|Gender=Fem|NumType=Card|Number=Sing|PronType=Art	3	_	_	start_char=64053|end_char=64058	O
+5	Redimensionierung	Redimensionierung	NOUN	NN	Case=Gen|Gender=Fem|Number=Sing	4	_	_	start_char=64059|end_char=64076	O
+6	wird	werden	AUX	VAFIN	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Pass	5	_	_	start_char=64077|end_char=64081	O
+7	die	der	DET	ART	Case=Nom|Definite=Def|Gender=Fem|Number=Sing|PronType=Art	6	_	_	SpacesAfter=\s\n|start_char=64082|end_char=64085	O
+8	Bilanzsumme	Bilanzsumme	NOUN	NN	Case=Nom|Gender=Fem|Number=Sing	7	_	_	start_char=64087|end_char=64098	O
+9	perspektivisch	perspektivisch	ADJ	ADJD	Degree=Pos	8	_	_	start_char=64099|end_char=64113	O
+10	bis	bis	ADP	APPR	_	9	_	_	start_char=64114|end_char=64117	O
+11	2024	2024	NUM	CARD	NumType=Card	10	_	_	start_char=64118|end_char=64122	O
+12	auf	auf	ADP	APPR	_	11	_	_	start_char=64123|end_char=64126	O
+13	ca⟂	ca⟂	PROPN	NE	Case=Dat|Gender=Masc|Number=Sing	12	_	_	start_char=64127|end_char=64130	O
+14	EUR	EUR	PROPN	NN	Case=Dat|Gender=Masc|Number=Sing	13	_	_	start_char=64131|end_char=64134	B-MON
+15	95	95	NUM	CARD	NumType=Card	14	_	_	start_char=64135|end_char=64137	I-MON
+16	Mrd.	Mrd.	NOUN	NN	Case=Acc|Gender=Masc|Number=Plur	15	_	_	start_char=64138|end_char=64142	I-MON
+17	zurückgeführt	zurückführen	VERB	VVPP	VerbForm=Part	16	_	_	start_char=64143|end_char=64156	O
+18	wer-	wer-	PUNCT	$(	_	17	_	_	SpacesAfter=\n|start_char=64157|end_char=64161	O
+19	den	der	PRON	PDS	Case=Acc|Gender=Masc|Number=Sing|PronType=Dem,Rel	18	_	_	SpaceAfter=No|start_char=64162|end_char=64165	O
+20	.	.	PUNCT	$.	_	19	_	_	SpacesAfter=\s\n\s\n|start_char=64165|end_char=64166	O
+
+# sent_id = 3
+# doc_id = 10243
+# text = Die Basiswährung der Teilfonds ist der Euro, mit Ausnahme des Teilfonds Buy and Watch Global Income 10/2025, dessen Basiswährung der USD ist.
+1	Die	der	DET	ART	Case=Nom|Definite=Def|Gender=Fem|Number=Sing|PronType=Art	0	_	_	start_char=69869|end_char=69872	O
+2	Basiswährung	Basiswährung	NOUN	NN	Case=Nom|Gender=Fem|Number=Sing	1	_	_	start_char=69873|end_char=69885	O
+3	der	der	DET	ART	Case=Gen|Definite=Def|Number=Plur|PronType=Art	2	_	_	start_char=69886|end_char=69889	O
+4	Teilfonds	Teilfond	NOUN	NN	Case=Gen|Gender=Masc|Number=Plur	3	_	_	start_char=69890|end_char=69899	O
+5	ist	sein	AUX	VAFIN	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	4	_	_	start_char=69900|end_char=69903	O
+6	der	der	DET	ART	Case=Nom|Definite=Def|Gender=Masc|Number=Sing|PronType=Art	5	_	_	start_char=69904|end_char=69907	O
+7	Euro	Euro	PROPN	NN	Case=Nom|Gender=Masc|Number=Sing	6	_	_	SpaceAfter=No|start_char=69908|end_char=69912	O
+8	,	,	PUNCT	$,	_	7	_	_	start_char=69912|end_char=69913	O
+9	mit	mit	ADP	APPR	_	8	_	_	start_char=69914|end_char=69917	O
+10	Ausnahme	Ausnahme	NOUN	NN	Case=Dat|Gender=Fem|Number=Sing	9	_	_	start_char=69918|end_char=69926	O
+11	des	der	DET	ART	Case=Gen|Definite=Def|Gender=Masc|Number=Sing|PronType=Art	10	_	_	start_char=69927|end_char=69930	O
+12	Teilfonds	Teilfond	NOUN	NN	Case=Gen|Gender=Masc|Number=Sing	11	_	_	start_char=69931|end_char=69940	O
+13	Buy	Buy	PROPN	NE	Foreign=Yes	12	_	_	start_char=69941|end_char=69944	O
+14	and	and	CCONJ	FM	Foreign=Yes	13	_	_	start_char=69945|end_char=69948	O
+15	Watch	Watch	PROPN	NE	Foreign=Yes	14	_	_	start_char=69949|end_char=69954	O
+16	Global	Global	PROPN	NE	Foreign=Yes	15	_	_	start_char=69955|end_char=69961	O
+17	Income	Income	PROPN	NE	Foreign=Yes	16	_	_	SpacesAfter=\s\n|start_char=69962|end_char=69968	O
+18	10/2025	10/2025	PROPN	CARD	_	17	_	_	SpaceAfter=No|start_char=69970|end_char=69977	O
+19	,	,	PUNCT	$,	_	18	_	_	start_char=69977|end_char=69978	O
+20	dessen	der	PRON	PRELAT	Case=Gen|Gender=Masc|Number=Sing|PronType=Dem,Rel	19	_	_	start_char=69979|end_char=69985	O
+21	Basiswährung	Basiswährung	NOUN	NN	Case=Nom|Gender=Fem|Number=Sing	20	_	_	start_char=69986|end_char=69998	O
+22	der	der	DET	ART	Case=Gen|Definite=Def|Number=Plur|PronType=Art	21	_	_	start_char=69999|end_char=70002	O
+23	USD	USD	PROPN	NN	Case=Gen|Gender=Fem|Number=Plur	22	_	_	start_char=70003|end_char=70006	O
+24	ist	sein	AUX	VAFIN	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	23	_	_	SpaceAfter=No|start_char=70007|end_char=70010	O
+25	.	.	PUNCT	$.	_	24	_	_	SpacesAfter=\s\n\s\n|start_char=70010|end_char=70011	O
+
+# sent_id = 4
+# doc_id = 623
+# text = Die geschätzten Gesamtkosten aus der Begebung der Schuldverschreibungen (einschließlich der Kosten für die Zulassung zu dem Handel an dem regulierten Markt der Frankfurter Wertpapierbörse) in Höhe von EUR 1.300 werden von der Emittentin getragen.
+1	Die	der	DET	ART	Case=Nom|Definite=Def|Number=Plur|PronType=Art	0	_	_	start_char=115300|end_char=115303	O
+2	geschätzten	geschätzt	ADJ	ADJA	Case=Nom|Degree=Pos|Gender=Fem|Number=Plur	1	_	_	start_char=115304|end_char=115315	O
+3	Gesamtkosten	Gesamtkosten	NOUN	NN	Case=Nom|Gender=Fem|Number=Plur	2	_	_	start_char=115316|end_char=115328	O
+4	aus	aus	ADP	APPR	_	3	_	_	start_char=115329|end_char=115332	O
+5	der	der	DET	ART	Case=Dat|Definite=Def|Gender=Fem|Number=Sing|PronType=Art	4	_	_	start_char=115333|end_char=115336	O
+6	Begebung	Begebung	NOUN	NN	Case=Dat|Gender=Fem|Number=Sing	5	_	_	SpacesAfter=\s\n|start_char=115337|end_char=115345	O
+7	der	der	DET	ART	Case=Gen|Definite=Def|Number=Plur|PronType=Art	6	_	_	start_char=115347|end_char=115350	O
+8	Schuldverschreibungen	Schuldverschreibung	NOUN	NN	Case=Gen|Gender=Fem|Number=Plur	7	_	_	start_char=115351|end_char=115372	O
+9	(	(	PUNCT	$(	_	8	_	_	SpaceAfter=No|start_char=115373|end_char=115374	O
+10	einschließlich	einschließlich	ADP	APPR	_	9	_	_	start_char=115374|end_char=115388	O
+11	der	der	DET	ART	Case=Gen|Definite=Def|Number=Plur|PronType=Art	10	_	_	start_char=115389|end_char=115392	O
+12	Kosten	Kosten	NOUN	NN	Case=Gen|Number=Plur	11	_	_	start_char=115393|end_char=115399	O
+13	für	für	ADP	APPR	_	12	_	_	SpacesAfter=\s\n|start_char=115400|end_char=115403	O
+14	die	der	DET	ART	Case=Acc|Definite=Def|Gender=Fem|Number=Sing|PronType=Art	13	_	_	start_char=115405|end_char=115408	O
+15	Zulassung	Zulassung	NOUN	NN	Case=Acc|Gender=Fem|Number=Sing	14	_	_	start_char=115409|end_char=115418	O
+16	zu	zu	ADP	APPR	_	15	_	_	_	O
+17	dem	der	DET	ART	Case=Dat|Definite=Def|Gender=Masc|Number=Sing|PronType=Art	16	_	_	_	O
+18	Handel	Handel	NOUN	NN	Case=Dat|Gender=Masc|Number=Sing	17	_	_	start_char=115423|end_char=115429	O
+19	an	an	ADP	APPR	_	18	_	_	_	O
+20	dem	der	DET	ART	Case=Dat|Definite=Def|Gender=Masc|Number=Sing|PronType=Art	19	_	_	_	O
+21	regulierten	reguliert	ADJ	ADJA	Case=Dat|Degree=Pos|Gender=Masc|Number=Sing	20	_	_	start_char=115433|end_char=115444	O
+22	Markt	Markt	NOUN	NN	Case=Dat|Gender=Masc|Number=Sing	21	_	_	start_char=115445|end_char=115450	O
+23	der	der	DET	ART	Case=Gen|Definite=Def|Gender=Fem|Number=Sing|PronType=Art	22	_	_	SpacesAfter=\s\n|start_char=115451|end_char=115454	O
+24	Frankfurter	Frankfurter	PROPN	ADJA	_	23	_	_	start_char=115456|end_char=115467	B-ORG
+25	Wertpapierbörse	Wertpapierbörse	NOUN	NN	Case=Gen|Gender=Fem|Number=Sing	24	_	_	SpaceAfter=No|start_char=115468|end_char=115483	I-ORG
+26	)	)	PUNCT	$(	_	25	_	_	start_char=115483|end_char=115484	O
+27	in	in	ADP	APPR	_	26	_	_	start_char=115485|end_char=115487	O
+28	Höhe	Höhe	NOUN	NN	Case=Dat|Gender=Fem|Number=Sing	27	_	_	start_char=115488|end_char=115492	O
+29	von	von	ADP	APPR	_	28	_	_	start_char=115493|end_char=115496	O
+30	EUR	EUR	PROPN	NN	Case=Dat|Gender=Masc|Number=Sing	29	_	_	start_char=115497|end_char=115500	B-MON
+31	1.300	1.300	NUM	CARD	NumType=Card	30	_	_	SpacesAfter=\s\n|start_char=115501|end_char=115506	I-MON
+32	werden	werden	AUX	VAFIN	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Pass	31	_	_	start_char=115508|end_char=115514	O
+33	von	von	ADP	APPR	_	32	_	_	start_char=115515|end_char=115518	O
+34	der	der	DET	ART	Case=Dat|Definite=Def|Gender=Fem|Number=Sing|PronType=Art	33	_	_	start_char=115519|end_char=115522	O
+35	Emittentin	Emittentin	NOUN	NN	Case=Dat|Gender=Fem|Number=Sing	34	_	_	start_char=115523|end_char=115533	O
+36	getragen	tragen	VERB	VVPP	VerbForm=Part	35	_	_	SpaceAfter=No|start_char=115534|end_char=115542	O
+37	.	.	PUNCT	$.	_	36	_	_	SpacesAfter=\s\n\s\n|start_char=115542|end_char=115543	O
+
+# sent_id = 5
+# doc_id = 9270
+# text = Die kleinste handelbare Einheit beträgt EUR 1.000,00.
+1	Die	der	DET	ART	Case=Nom|Definite=Def|Gender=Fem|Number=Sing|PronType=Art	0	_	_	start_char=5010|end_char=5013	O
+2	kleinste	klein	ADJ	ADJA	Case=Nom|Degree=Sup|Gender=Fem|Number=Sing	1	_	_	start_char=5014|end_char=5022	O
+3	handelbare	handelbar	ADJ	ADJA	Case=Nom|Degree=Pos|Gender=Fem|Number=Sing	2	_	_	start_char=5023|end_char=5033	O
+4	Einheit	Einheit	NOUN	NN	Case=Nom|Gender=Fem|Number=Sing	3	_	_	start_char=5034|end_char=5041	O
+5	beträgt	betragen	VERB	VVFIN	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	4	_	_	start_char=5042|end_char=5049	O
+6	EUR	EUR	PROPN	NN	Case=Acc|Gender=Masc|Number=Sing	5	_	_	start_char=5050|end_char=5053	B-MON
+7	1.000,00	1.000,00	NUM	CARD	NumType=Card	6	_	_	SpaceAfter=No|start_char=5054|end_char=5062	I-MON
+8	.	.	PUNCT	$.	_	7	_	_	SpacesAfter=\s\n|start_char=5062|end_char=5063	O
+
+# sent_id = 6
+# doc_id = 4192
+# text = Ausgabe- preis E.3 Beschreibung der Angebotskonditionen WKN / ISIN Gesamtnennbetrag Nennbetrag bzw<UNK>n de<UNK> Stückelung BLB76A / DE000BLB76A8 EUR 50.000.000,00 EUR 1.000,00 100,00 % des Nennbe- 25 trags
+1	Ausgabe-	Ausgabe-	PROPN	NN	Case=Nom|Gender=Fem|Number=Sing	0	_	_	SpacesAfter=\n|start_char=56843|end_char=56851	O
+2	preis	preis	PROPN	NN	Case=Nom|Gender=Masc|Number=Sing	1	_	_	SpacesAfter=\n|start_char=56852|end_char=56857	O
+3	E.3	E.3	PROPN	NE	Case=Nom|Gender=Fem|Number=Sing	2	_	_	SpacesAfter=\n|start_char=56858|end_char=56861	O
+4	Beschreibung	Beschreibung	PROPN	NN	Case=Nom|Gender=Fem|Number=Sing	3	_	_	start_char=56862|end_char=56874	O
+5	der	der	DET	ART	Case=Gen|Definite=Def|Number=Plur|PronType=Art	4	_	_	SpacesAfter=\s\n|start_char=56875|end_char=56878	O
+6	Angebotskonditionen	Angebotskondition	NOUN	NN	Case=Gen|Gender=Fem|Number=Plur	5	_	_	SpacesAfter=\n|start_char=56880|end_char=56899	O
+7	WKN	WKN	PROPN	NE	Case=Gen|Gender=Fem|Number=Sing	6	_	_	start_char=56900|end_char=56903	O
+8	/	/	PUNCT	$(	_	7	_	_	start_char=56904|end_char=56905	O
+9	ISIN	ISIN	PROPN	NE	Case=Nom|Gender=Fem|Number=Sing	8	_	_	SpacesAfter=\n|start_char=56906|end_char=56910	O
+10	Gesamtnennbetrag	Gesamtnennbetrag	PROPN	NE	Case=Nom|Gender=Masc|Number=Sing	9	_	_	SpacesAfter=\n|start_char=56911|end_char=56927	O
+11	Nennbetrag	Nennbetrag	PROPN	NN	Case=Nom|Gender=Masc|Number=Sing	10	_	_	SpacesAfter=\s\n|start_char=56928|end_char=56938	O
+12	bzw	bzw	CCONJ	KON	Foreign=Yes	11	_	_	SpaceAfter=No|start_char=56940|end_char=56943	O
+13	<UNK>n	<UNK>n	PROPN	NE	Case=Nom|Gender=Fem|Number=Sing	12	_	_	_	O
+14	de<UNK>	de<UNK>	PROPN	NE	Case=Nom|Gender=Fem|Number=Sing	13	_	_	_	O
+15	Stückelung	Stückelung	PROPN	NN	Case=Nom|Gender=Fem|Number=Sing	14	_	_	SpacesAfter=\n|start_char=56946|end_char=56956	O
+16	BLB76A	BLB76A	PROPN	NE	Case=Nom|Gender=Fem|Number=Sing	15	_	_	SpacesAfter=\s\n|start_char=56957|end_char=56963	O
+17	/	/	PUNCT	$(	_	16	_	_	SpacesAfter=\s\n|start_char=56965|end_char=56966	O
+18	DE000BLB76A8	DE000BLB76A8	PROPN	NE	Case=Nom|Gender=Neut|Number=Sing	17	_	_	SpacesAfter=\n|start_char=56968|end_char=56980	O
+19	EUR	EUR	PROPN	NE	Case=Nom|Gender=Masc|Number=Sing	18	_	_	start_char=56981|end_char=56984	B-MON
+20	50.000.000,00	50.000.000,00	NUM	CARD	NumType=Card	19	_	_	SpacesAfter=\n|start_char=56985|end_char=56998	I-MON
+21	EUR	EUR	PROPN	NN	Case=Nom|Gender=Masc|Number=Sing	20	_	_	start_char=56999|end_char=57002	B-MON
+22	1.000,00	1.000,00	NUM	CARD	NumType=Card	21	_	_	SpacesAfter=\n|start_char=57003|end_char=57011	I-MON
+23	100,00	100,00	NUM	CARD	NumType=Card	22	_	_	start_char=57012|end_char=57018	O
+24	%	%	NOUN	NN	Case=Nom|Gender=Neut|Number=Plur	23	_	_	SpacesAfter=\s\n|start_char=57019|end_char=57020	O
+25	des	der	DET	ART	Case=Gen|Definite=Def|Gender=Masc|Number=Sing|PronType=Art	24	_	_	SpacesAfter=\s\n|start_char=57022|end_char=57025	O
+26	Nennbe-	Nennbe-	PROPN	NN	Case=Gen|Gender=Masc|Number=Sing	25	_	_	SpacesAfter=\n|start_char=57027|end_char=57034	O
+27	25	25	PROPN	CARD	NumType=Card	26	_	_	SpacesAfter=\n|start_char=57035|end_char=57037	O
+28	trags	tragsen	VERB	ADJD	_	27	_	_	SpacesAfter=\n|start_char=57038|end_char=57043	O
+
+# sent_id = 7
+# doc_id = 8876
+# text = In dem April 2019 wurde in dem Rahmen einer Portfoliotransaktion ein signifikanter Teil des NPL- Schiffsfinanzierungsportfolios der Bank in einem Volumen von ca⟂ EUR 2,6 Mrd. auf einen externen Investor übertragen.
+1	In	in	ADP	APPR	_	0	_	_	_	O
+2	dem	der	DET	ART	Case=Dat|Definite=Def|Gender=Masc|Number=Sing|PronType=Art	1	_	_	_	O
+3	April	April	PROPN	NN	Case=Dat|Gender=Masc|Number=Sing	2	_	_	start_char=85057|end_char=85062	O
+4	2019	2019	NUM	CARD	NumType=Card	3	_	_	start_char=85063|end_char=85067	O
+5	wurde	werden	AUX	VAFIN	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin|Voice=Pass	4	_	_	start_char=85068|end_char=85073	O
+6	in	in	ADP	APPR	_	5	_	_	_	O
+7	dem	der	DET	ART	Case=Dat|Definite=Def|Gender=Masc|Number=Sing|PronType=Art	6	_	_	_	O
+8	Rahmen	Rahmen	NOUN	NN	Case=Dat|Gender=Masc|Number=Sing	7	_	_	SpacesAfter=\s\n|start_char=85077|end_char=85083	O
+9	einer	ein	DET	ART	Case=Gen|Definite=Ind|Gender=Fem|NumType=Card|Number=Sing|PronType=Art	8	_	_	SpacesAfter=\s\n|start_char=85085|end_char=85090	O
+10	Portfoliotransaktion	Portfoliotransaktion	NOUN	NN	Case=Gen|Gender=Fem|Number=Sing	9	_	_	SpacesAfter=\s\n|start_char=85092|end_char=85112	O
+11	ein	ein	DET	ART	Case=Nom|Definite=Ind|Gender=Masc|NumType=Card|Number=Sing|PronType=Art	10	_	_	SpacesAfter=\s\n|start_char=85114|end_char=85117	O
+12	signifikanter	signifikant	ADJ	ADJA	Case=Nom|Degree=Pos|Gender=Masc|Number=Sing	11	_	_	SpacesAfter=\s\n|start_char=85119|end_char=85132	O
+13	Teil	Teil	NOUN	NN	Case=Nom|Gender=Masc|Number=Sing	12	_	_	SpacesAfter=\s\n|start_char=85134|end_char=85138	O
+14	des	der	DET	ART	Case=Gen|Definite=Def|Gender=Masc|Number=Sing|PronType=Art	13	_	_	SpacesAfter=\s\n|start_char=85140|end_char=85143	O
+15	NPL	NPL	PROPN	NN	Case=Gen|Gender=Neut|Number=Sing	14	_	_	SpaceAfter=No|start_char=85145|end_char=85148	O
+16	-	-	PUNCT	$(	_	15	_	_	SpacesAfter=\n|start_char=85148|end_char=85149	O
+17	Schiffsfinanzierungsportfolios	Schiffsfinanzierungsportfolios	NOUN	NN	Case=Gen|Gender=Neut|Number=Sing	16	_	_	start_char=85150|end_char=85180	O
+18	der	der	DET	ART	Case=Gen|Definite=Def|Gender=Fem|Number=Sing|PronType=Art	17	_	_	start_char=85181|end_char=85184	O
+19	Bank	Bank	NOUN	NN	Case=Gen|Gender=Fem|Number=Sing	18	_	_	start_char=85185|end_char=85189	O
+20	in	in	ADP	APPR	_	19	_	_	start_char=85190|end_char=85192	O
+21	einem	ein	DET	ART	Case=Dat|Definite=Ind|Gender=Neut|NumType=Card|Number=Sing|PronType=Art	20	_	_	start_char=85193|end_char=85198	O
+22	Volumen	Volume	NOUN	NN	Case=Dat|Gender=Neut|Number=Sing	21	_	_	start_char=85199|end_char=85206	O
+23	von	von	ADP	APPR	_	22	_	_	start_char=85207|end_char=85210	O
+24	ca⟂	ca⟂	PROPN	NE	Case=Dat	23	_	_	start_char=85211|end_char=85214	O
+25	EUR	EUR	PROPN	NE	Case=Dat|Gender=Masc|Number=Sing	24	_	_	start_char=85215|end_char=85218	B-MON
+26	2,6	2,6	NUM	CARD	NumType=Card	25	_	_	SpacesAfter=\s\n|start_char=85219|end_char=85222	I-MON
+27	Mrd.	Mrd.	NOUN	NN	Case=Acc|Gender=Masc|Number=Plur	26	_	_	start_char=85224|end_char=85228	I-MON
+28	auf	auf	ADP	APPR	_	27	_	_	start_char=85229|end_char=85232	O
+29	einen	ein	DET	ART	Case=Acc|Definite=Ind|Gender=Masc|NumType=Card|Number=Sing|PronType=Art	28	_	_	start_char=85233|end_char=85238	O
+30	externen	extern	ADJ	ADJA	Case=Acc|Degree=Pos|Gender=Masc|Number=Sing	29	_	_	start_char=85239|end_char=85247	O
+31	Investor	Investor	NOUN	NN	Case=Acc|Gender=Masc|Number=Sing	30	_	_	start_char=85248|end_char=85256	O
+32	übertragen	übertragen	VERB	VVPP	VerbForm=Part	31	_	_	SpaceAfter=No|start_char=85257|end_char=85267	O
+33	.	.	PUNCT	$.	_	32	_	_	start_char=85267|end_char=85268	O
+
+# sent_id = 8
+# doc_id = 6660
+# text = Februar 2016 wurden ca⟂ 73,0 % des Geschäftsguthabens in Höhe von ca⟂ EUR 698,7 Mio der MünchenerHyp durch Primärbanken sowie genossenschaftliche Zentralbanken und ca⟂ 27,0 % durch Kunden und andere Genossenschaftsmitglieder gehalten.
+1	Februar	Februar	PROPN	NN	Case=Nom|Gender=Masc|Number=Sing	0	_	_	start_char=54878|end_char=54885	O
+2	2016	2016	NUM	CARD	NumType=Card	1	_	_	start_char=54886|end_char=54890	O
+3	wurden	werden	AUX	VAFIN	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin|Voice=Pass	2	_	_	start_char=54891|end_char=54897	O
+4	ca⟂	ca⟂	ADV	ADV	_	3	_	_	start_char=54898|end_char=54901	O
+5	73,0	73,0	NUM	CARD	NumType=Card	4	_	_	start_char=54902|end_char=54906	O
+6	%	%	NOUN	NN	Case=Nom|Gender=Neut|Number=Plur	5	_	_	start_char=54907|end_char=54908	O
+7	des	der	DET	ART	Case=Gen|Definite=Def|Gender=Neut|Number=Sing|PronType=Art	6	_	_	SpacesAfter=\s\n|start_char=54909|end_char=54912	O
+8	Geschäftsguthabens	Geschäftsguthabens	NOUN	NN	Case=Gen|Gender=Masc|Number=Sing	7	_	_	start_char=54914|end_char=54932	O
+9	in	in	ADP	APPR	_	8	_	_	start_char=54933|end_char=54935	O
+10	Höhe	Höhe	NOUN	NN	Case=Dat|Gender=Fem|Number=Sing	9	_	_	start_char=54936|end_char=54940	O
+11	von	von	ADP	APPR	_	10	_	_	start_char=54941|end_char=54944	O
+12	ca⟂	ca⟂	PROPN	NE	Case=Dat|Number=Sing	11	_	_	start_char=54945|end_char=54948	O
+13	EUR	EUR	PROPN	NE	Case=Dat|Gender=Masc|Number=Sing	12	_	_	start_char=54949|end_char=54952	B-MON
+14	698,7	698,7	NUM	CARD	NumType=Card	13	_	_	start_char=54953|end_char=54958	I-MON
+15	Mio	Mio	NOUN	NN	Case=Nom|Gender=Masc|Number=Plur	14	_	_	start_char=54959|end_char=54962	I-MON
+16	der	der	DET	ART	Case=Gen|Definite=Def|Gender=Masc|Number=Sing|PronType=Art	15	_	_	SpacesAfter=\s\n|start_char=54963|end_char=54966	O
+17	MünchenerHyp	MünchenerHyp	PROPN	NN	Case=Nom|Gender=Masc|Number=Sing	16	_	_	SpacesAfter=\s\n|start_char=54968|end_char=54980	B-ORG
+18	durch	durch	ADP	APPR	_	17	_	_	SpacesAfter=\s\n|start_char=54982|end_char=54987	O
+19	Primärbanken	Primärbank	NOUN	NN	Case=Acc|Gender=Fem|Number=Plur	18	_	_	SpacesAfter=\s\n|start_char=54989|end_char=55001	O
+20	sowie	sowie	CCONJ	KON	_	19	_	_	SpacesAfter=\s\n|start_char=55003|end_char=55008	O
+21	genossenschaftliche	genossenschaftlich	ADJ	ADJA	Case=Nom|Degree=Pos|Gender=Fem|Number=Plur	20	_	_	start_char=55010|end_char=55029	O
+22	Zentralbanken	Zentralbank	NOUN	NN	Case=Acc|Gender=Fem|Number=Plur	21	_	_	start_char=55030|end_char=55043	O
+23	und	und	CCONJ	KON	_	22	_	_	start_char=55044|end_char=55047	O
+24	ca⟂	ca⟂	ADV	ADV	_	23	_	_	start_char=55048|end_char=55051	O
+25	27,0	27,0	NUM	CARD	NumType=Card	24	_	_	start_char=55052|end_char=55056	O
+26	%	%	NOUN	NN	Case=Acc|Gender=Neut|Number=Plur	25	_	_	start_char=55057|end_char=55058	O
+27	durch	durch	ADP	APPR	_	26	_	_	SpacesAfter=\s\n|start_char=55059|end_char=55064	O
+28	Kunden	Kunde	NOUN	NN	Case=Acc|Gender=Masc|Number=Plur	27	_	_	start_char=55066|end_char=55072	O
+29	und	und	CCONJ	KON	_	28	_	_	start_char=55073|end_char=55076	O
+30	andere	anderer	DET	ADJA	Case=Acc|Gender=Masc|Number=Plur|PronType=Ind	29	_	_	start_char=55077|end_char=55083	O
+31	Genossenschaftsmitglieder	Genossenschaftsmitglied	NOUN	NN	Case=Acc|Gender=Masc|Number=Plur	30	_	_	start_char=55084|end_char=55109	O
+32	gehalten	halten	VERB	VVPP	VerbForm=Part	31	_	_	SpaceAfter=No|start_char=55110|end_char=55118	O
+33	.	.	PUNCT	$.	_	32	_	_	SpacesAfter=\s\n|start_char=55118|end_char=55119	O
+
+# sent_id = 9
+# doc_id = 8876
+# text = Dezember 2018 auf EUR 4,8 Mrd., was einer Abdeckungsquote für das NPL-Portfolio von 64 Pro- zent entspricht.
+1	Dezember	Dezember	PROPN	NN	Case=Nom|Gender=Masc|Number=Sing	0	_	_	start_char=59546|end_char=59554	O
+2	2018	2018	NUM	CARD	NumType=Card	1	_	_	start_char=59555|end_char=59559	O
+3	auf	auf	ADP	APPR	_	2	_	_	SpacesAfter=\s\n|start_char=59560|end_char=59563	O
+4	EUR	EUR	PROPN	NN	Case=Dat|Gender=Masc|Number=Sing	3	_	_	start_char=59565|end_char=59568	B-MON
+5	4,8	4,8	NUM	CARD	NumType=Card	4	_	_	start_char=59569|end_char=59572	I-MON
+6	Mrd.	Mrd.	NOUN	NN	Case=Nom|Gender=Masc|Number=Plur	5	_	_	SpaceAfter=No|start_char=59573|end_char=59577	I-MON
+7	,	,	PUNCT	$,	_	6	_	_	start_char=59577|end_char=59578	O
+8	was	was	PRON	PRELS	Case=Nom|Gender=Neut|Number=Sing|PronType=Int,Rel	7	_	_	start_char=59579|end_char=59582	O
+9	einer	ein	DET	ART	Case=Dat|Definite=Ind|Gender=Fem|NumType=Card|Number=Sing|PronType=Art	8	_	_	start_char=59583|end_char=59588	O
+10	Abdeckungsquote	Abdeckungsquote	NOUN	NN	Case=Dat|Gender=Fem|Number=Sing	9	_	_	start_char=59589|end_char=59604	O
+11	für	für	ADP	APPR	_	10	_	_	start_char=59605|end_char=59608	O
+12	das	der	DET	ART	Case=Acc|Definite=Def|Gender=Neut|Number=Sing|PronType=Art	11	_	_	start_char=59609|end_char=59612	O
+13	NPL	NPL	PROPN	NN	Case=Acc|Gender=Neut|Number=Sing	12	_	_	SpaceAfter=No|start_char=59613|end_char=59616	O
+14	-	-	PUNCT	$(	_	13	_	_	SpaceAfter=No|start_char=59616|end_char=59617	O
+15	Portfolio	Portfolio	NOUN	NN	Case=Acc|Gender=Neut|Number=Sing	14	_	_	start_char=59617|end_char=59626	O
+16	von	von	ADP	APPR	_	15	_	_	start_char=59627|end_char=59630	O
+17	64	64	NUM	CARD	NumType=Card	16	_	_	start_char=59631|end_char=59633	O
+18	Pro-	Pro-	NOUN	NN	Case=Dat|Number=Plur	17	_	_	SpacesAfter=\n|start_char=59634|end_char=59638	O
+19	zent	zent	NOUN	NN	_	18	_	_	start_char=59639|end_char=59643	O
+20	entspricht	entsprechen	VERB	VVFIN	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	19	_	_	SpaceAfter=No|start_char=59644|end_char=59654	O
+21	.	.	PUNCT	$.	_	20	_	_	start_char=59654|end_char=59655	O
+
+# sent_id = 10
+# doc_id = 5136
+# text = Die Emittentin verpflichtet sich, Kapital und Zinsen auf die Schuldverschreibungen bei Fälligkeit in EUR zu zahlen.
+1	Die	der	DET	ART	Case=Nom|Definite=Def|Gender=Fem|Number=Sing|PronType=Art	0	_	_	start_char=9501|end_char=9504	O
+2	Emittentin	Emittentin	NOUN	NN	Case=Nom|Gender=Fem|Number=Sing	1	_	_	start_char=9505|end_char=9515	O
+3	verpflichtet	verpflichten	VERB	VVFIN	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin	2	_	_	start_char=9516|end_char=9528	O
+4	sich	sich	PRON	PRF	Case=Acc|Person=3|PronType=Prs|Reflex=Yes	3	_	_	SpaceAfter=No|start_char=9529|end_char=9533	O
+5	,	,	PUNCT	$,	_	4	_	_	start_char=9533|end_char=9534	O
+6	Kapital	Kapital	NOUN	NN	Case=Acc|Gender=Neut|Number=Sing	5	_	_	start_char=9535|end_char=9542	O
+7	und	und	CCONJ	KON	_	6	_	_	start_char=9543|end_char=9546	O
+8	Zinsen	Zinse	NOUN	NN	Case=Acc|Gender=Fem|Number=Plur	7	_	_	start_char=9547|end_char=9553	O
+9	auf	auf	ADP	APPR	_	8	_	_	start_char=9554|end_char=9557	O
+10	die	der	DET	ART	Case=Acc|Definite=Def|Number=Plur|PronType=Art	9	_	_	start_char=9558|end_char=9561	O
+11	Schuldverschreibungen	Schuldverschreibung	NOUN	NN	Case=Acc|Gender=Fem|Number=Plur	10	_	_	start_char=9562|end_char=9583	O
+12	bei	bei	ADP	APPR	_	11	_	_	start_char=9584|end_char=9587	O
+13	Fälligkeit	Fälligkeit	NOUN	NN	Case=Dat|Gender=Fem|Number=Sing	12	_	_	SpacesAfter=\s\n|start_char=9588|end_char=9598	O
+14	in	in	ADP	APPR	_	13	_	_	start_char=9600|end_char=9602	O
+15	EUR	EUR	PROPN	NE	Case=Dat|Gender=Neut|Number=Sing	14	_	_	start_char=9603|end_char=9606	O
+16	zu	zu	PART	PTKZU	_	15	_	_	start_char=9607|end_char=9609	O
+17	zahlen	zahlen	VERB	VVINF	VerbForm=Inf	16	_	_	SpaceAfter=No|start_char=9610|end_char=9616	O
+18	.	.	PUNCT	$.	_	17	_	_	start_char=9616|end_char=9617	O
+
