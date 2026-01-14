@@ -1,8 +1,8 @@
 {
-  "name": "ner_ORG",
+  "name": "ner_LEG",
   "task": {
-    "name": "extract_ORG",
-    "description": "Extract organization names from German financial text.",
+    "name": "extract_LEG",
+    "description": "Extract legal references from German financial text.",
     "input_schema": {
       "text": "string",
       "context": "string"
@@ -15,7 +15,7 @@
   "description": "",
   "examples": [
     {
-      "id": "c36b8b06",
+      "id": "9d12908f",
       "input": {
         "text": "Referenzsatz: Bezeichnung: EURIBOR\u00ae Kurzbeschreibung: Euro Interbank Offered Rate (EURIBOR\u00ae) ist der Zinssatz f\u00fcr Einlagen in Euro f\u00fcr einen bestimmten Zeitraum.",
         "context": "Referenzsatz: Bezeichnung: EURIBOR\u00ae Kurzbeschreibung: Euro Interbank Offered Rate (EURIBOR\u00ae) ist der Zinssatz f\u00fcr Einlagen in Euro f\u00fcr einen bestimmten Zeitraum."
@@ -27,10 +27,28 @@
       "confidence": 0.8
     },
     {
-      "id": "edd88bdd",
+      "id": "a415f9fe",
       "input": {
         "text": "Bei Begebung handelt es sich bei den Schuldverschreibungen um nicht- bevorrechtigte (non-preferred) Schuldtitel in dem Sinne von \u00a7 46f Absatz 6 Satz 1 des Kreditwesengesetzes.",
         "context": "Bei Begebung handelt es sich bei den Schuldverschreibungen um nicht- bevorrechtigte (non-preferred) Schuldtitel in dem Sinne von \u00a7 46f Absatz 6 Satz 1 des Kreditwesengesetzes."
+      },
+      "expected_output": {
+        "spans": [
+          {
+            "start": 129,
+            "end": 174,
+            "text": "\u00a7 46f Absatz 6 Satz 1 des Kreditwesengesetzes"
+          }
+        ]
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "eac8088f",
+      "input": {
+        "text": "Ausfallrisiken aus klassischen Kreditgesch\u00e4ften entstehen vor allem in der DZ BANK, der BSH, der DG HYP, der DVB, der TeamBank und der VR-LEASING Aktiengesellschaft.",
+        "context": "Ausfallrisiken aus klassischen Kreditgesch\u00e4ften entstehen vor allem in der DZ BANK, der BSH, der DG HYP, der DVB, der TeamBank und der VR-LEASING Aktiengesellschaft."
       },
       "expected_output": {
         "spans": []
@@ -39,86 +57,31 @@
       "confidence": 0.8
     },
     {
-      "id": "ad6fb85f",
-      "input": {
-        "text": "Ausfallrisiken aus klassischen Kreditgesch\u00e4ften entstehen vor allem in der DZ BANK, der BSH, der DG HYP, der DVB, der TeamBank und der VR-LEASING Aktiengesellschaft.",
-        "context": "Ausfallrisiken aus klassischen Kreditgesch\u00e4ften entstehen vor allem in der DZ BANK, der BSH, der DG HYP, der DVB, der TeamBank und der VR-LEASING Aktiengesellschaft."
-      },
-      "expected_output": {
-        "spans": [
-          {
-            "start": 75,
-            "end": 82,
-            "text": "DZ BANK"
-          },
-          {
-            "start": 88,
-            "end": 91,
-            "text": "BSH"
-          },
-          {
-            "start": 97,
-            "end": 103,
-            "text": "DG HYP"
-          },
-          {
-            "start": 109,
-            "end": 112,
-            "text": "DVB"
-          },
-          {
-            "start": 118,
-            "end": 126,
-            "text": "TeamBank"
-          },
-          {
-            "start": 135,
-            "end": 164,
-            "text": "VR-LEASING Aktiengesellschaft"
-          }
-        ]
-      },
-      "source": "human",
-      "confidence": 0.8
-    },
-    {
-      "id": "cc5c4bc6",
+      "id": "b3df0430",
       "input": {
         "text": "Der Gesch\u00e4ftserfolg der Berlin Hyp ist von dem wirtschaftlichen Umfeld und von den wirtschaftlichen Rahmenbedingungen, insbesondere des Immobilienmarkts, abh\u00e4ngig.",
         "context": "Der Gesch\u00e4ftserfolg der Berlin Hyp ist von dem wirtschaftlichen Umfeld und von den wirtschaftlichen Rahmenbedingungen, insbesondere des Immobilienmarkts, abh\u00e4ngig."
       },
       "expected_output": {
-        "spans": [
-          {
-            "start": 24,
-            "end": 34,
-            "text": "Berlin Hyp"
-          }
-        ]
+        "spans": []
       },
       "source": "human",
       "confidence": 0.8
     },
     {
-      "id": "32bc8412",
+      "id": "f23ee9d5",
       "input": {
         "text": "Diesbez\u00fcglich hat die EBA das Recht, \u00fcber Zusammenk\u00fcnfte \u00fcber die Entwicklung und Abstimmung von Sanierungs- und Abwicklungspl\u00e4nen informiert zu werden und daran teilzuneh\u00ad men.",
         "context": "Diesbez\u00fcglich hat die EBA das Recht, \u00fcber Zusammenk\u00fcnfte \u00fcber die Entwicklung und Abstimmung von Sanierungs- und Abwicklungspl\u00e4nen informiert zu werden und daran teilzuneh\u00ad men."
       },
       "expected_output": {
-        "spans": [
-          {
-            "start": 22,
-            "end": 25,
-            "text": "EBA"
-          }
-        ]
+        "spans": []
       },
       "source": "human",
       "confidence": 0.8
     },
     {
-      "id": "8e788d4d",
+      "id": "664d9222",
       "input": {
         "text": "OGAW-Fonds d\u00fcrfen zwar f\u00fcr die Finanzierung von Investitionen keine Kredite aufnehmen, k\u00f6nnen jedoch Finanzderivate einsetzen, um ihr Marktengagement \u00fcber ihren Nettoinventarwert hinaus zu erweitern.",
         "context": "OGAW-Fonds d\u00fcrfen zwar f\u00fcr die Finanzierung von Investitionen keine Kredite aufnehmen, k\u00f6nnen jedoch Finanzderivate einsetzen, um ihr Marktengagement \u00fcber ihren Nettoinventarwert hinaus zu erweitern."
@@ -130,7 +93,7 @@
       "confidence": 0.8
     },
     {
-      "id": "5880c24c",
+      "id": "bfd5e40a",
       "input": {
         "text": "Die Emittentin wird durch Zahlung an das Clearing System oder dessen Order von ihrer Zahlungspflicht gegen\u00fcber den Gl\u00e4ubi- gern befreit.",
         "context": "Die Emittentin wird durch Zahlung an das Clearing System oder dessen Order von ihrer Zahlungspflicht gegen\u00fcber den Gl\u00e4ubi- gern befreit."
@@ -142,67 +105,67 @@
       "confidence": 0.8
     },
     {
-      "id": "9eba41be",
+      "id": "e6895fcd",
       "input": {
         "text": "Als Teil des US-amerikanischen Dodd-Frank Wall Street and Consumer Pro- tection Act wurde die sogenannte \u201eVolcker Rule\u201c eingef\u00fchrt.",
         "context": "Als Teil des US-amerikanischen Dodd-Frank Wall Street and Consumer Pro- tection Act wurde die sogenannte \u201eVolcker Rule\u201c eingef\u00fchrt."
       },
       "expected_output": {
-        "spans": []
+        "spans": [
+          {
+            "start": 31,
+            "end": 83,
+            "text": "Dodd-Frank Wall Street and Consumer Pro- tection Act"
+          }
+        ]
       },
       "source": "human",
       "confidence": 0.8
     },
     {
-      "id": "b5d6a429",
+      "id": "cfac7272",
       "input": {
         "text": "\u2022 Die sp\u00e4tere Weiterver\u00e4u\u00dferung und endg\u00fcltigen Platzierung der Wertpapiere durch Finanzintermedi\u00e4re kann w\u00e4hrend der Dauer der G\u00fcltigkeit des Prospekts gem\u00e4\u00df Artikel 9 der Prospektrichtlinie erfolgen.",
         "context": "\u2022 Die sp\u00e4tere Weiterver\u00e4u\u00dferung und endg\u00fcltigen Platzierung der Wertpapiere durch Finanzintermedi\u00e4re kann w\u00e4hrend der Dauer der G\u00fcltigkeit des Prospekts gem\u00e4\u00df Artikel 9 der Prospektrichtlinie erfolgen."
       },
       "expected_output": {
+        "spans": [
+          {
+            "start": 159,
+            "end": 191,
+            "text": "Artikel 9 der Prospektrichtlinie"
+          }
+        ]
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "5f19c6cc",
+      "input": {
+        "text": "Die gesch\u00e4tzten Gesamtkosten aus der Begebung der Schuldverschreibungen (einschlie\u00dflich der Kosten f\u00fcr die Zulassung zu dem Handel an dem regulierten Markt der Frankfurter Wertpapierb\u00f6rse) in H\u00f6he von EUR 1.300 werden von der Emittentin getragen.",
+        "context": "Die gesch\u00e4tzten Gesamtkosten aus der Begebung der Schuldverschreibungen (einschlie\u00dflich der Kosten f\u00fcr die Zulassung zu dem Handel an dem regulierten Markt der Frankfurter Wertpapierb\u00f6rse) in H\u00f6he von EUR 1.300 werden von der Emittentin getragen."
+      },
+      "expected_output": {
         "spans": []
       },
       "source": "human",
       "confidence": 0.8
     },
     {
-      "id": "3d6aa058",
-      "input": {
-        "text": "Die gesch\u00e4tzten Gesamtkosten aus der Begebung der Schuldverschreibungen (einschlie\u00dflich der Kosten f\u00fcr die Zulassung zu dem Handel an dem regulierten Markt der Frankfurter Wertpapierb\u00f6rse) in H\u00f6he von EUR 1.300 werden von der Emittentin getragen.",
-        "context": "Die gesch\u00e4tzten Gesamtkosten aus der Begebung der Schuldverschreibungen (einschlie\u00dflich der Kosten f\u00fcr die Zulassung zu dem Handel an dem regulierten Markt der Frankfurter Wertpapierb\u00f6rse) in H\u00f6he von EUR 1.300 werden von der Emittentin getragen."
-      },
-      "expected_output": {
-        "spans": [
-          {
-            "start": 160,
-            "end": 187,
-            "text": "Frankfurter Wertpapierb\u00f6rse"
-          }
-        ]
-      },
-      "source": "human",
-      "confidence": 0.8
-    },
-    {
-      "id": "6aa40b27",
+      "id": "8aba49ba",
       "input": {
         "text": "Nach deutschen handelsrechtlichen Vorschriften ist f\u00fcr die NORD/LB A\u00f6R in dem Einzelabschluss ein Jahresverlust in H\u00f6he von ca\u27c2 EUR 2,4 Mrd. nach Steuern entstanden.",
         "context": "Nach deutschen handelsrechtlichen Vorschriften ist f\u00fcr die NORD/LB A\u00f6R in dem Einzelabschluss ein Jahresverlust in H\u00f6he von ca\u27c2 EUR 2,4 Mrd. nach Steuern entstanden."
       },
       "expected_output": {
-        "spans": [
-          {
-            "start": 59,
-            "end": 70,
-            "text": "NORD/LB A\u00f6R"
-          }
-        ]
+        "spans": []
       },
       "source": "human",
       "confidence": 0.8
     },
     {
-      "id": "1f0f1d6f",
+      "id": "f34d2fb0",
       "input": {
         "text": "Dieser Artikel gilt unbeschadet der Bestimmungen \u00fcber die Vertretung von Arbeitnehmern in dem Leitungsorgan nach Ma\u00df\u00ad gabe des nationalen Rechts.",
         "context": "Dieser Artikel gilt unbeschadet der Bestimmungen \u00fcber die Vertretung von Arbeitnehmern in dem Leitungsorgan nach Ma\u00df\u00ad gabe des nationalen Rechts."
@@ -214,7 +177,7 @@
       "confidence": 0.8
     },
     {
-      "id": "328ef451",
+      "id": "23e22a6b",
       "input": {
         "text": "Bei dem Kauf und Verkauf von Schuldverschreibungen k\u00f6nnen verschiedene Nebenkosten anfallen, die das Gewinnpotenzial der Schuldverschreibungen erheblich verringern oder sogar ausschlie\u00dfen k\u00f6nnen.",
         "context": "Bei dem Kauf und Verkauf von Schuldverschreibungen k\u00f6nnen verschiedene Nebenkosten anfallen, die das Gewinnpotenzial der Schuldverschreibungen erheblich verringern oder sogar ausschlie\u00dfen k\u00f6nnen."
@@ -226,19 +189,25 @@
       "confidence": 0.8
     },
     {
-      "id": "9cb87af8",
+      "id": "71903a17",
       "input": {
         "text": "The presentation period provided in \u00a7 801 paragraph 1, sentence 1 German Civil Code (BGB) is reduced to ten years for the Notes.",
         "context": "The presentation period provided in \u00a7 801 paragraph 1, sentence 1 German Civil Code (BGB) is reduced to ten years for the Notes."
       },
       "expected_output": {
-        "spans": []
+        "spans": [
+          {
+            "start": 36,
+            "end": 89,
+            "text": "\u00a7 801 paragraph 1, sentence 1 German Civil Code (BGB)"
+          }
+        ]
       },
       "source": "human",
       "confidence": 0.8
     },
     {
-      "id": "c8e30659",
+      "id": "ca502fc1",
       "input": {
         "text": "In dem April 2019 wurde in dem Rahmen einer Portfoliotransaktion ein signifikanter Teil des NPL- Schiffsfinanzierungsportfolios der Bank in einem Volumen von ca\u27c2 EUR 2,6 Mrd. auf einen externen Investor \u00fcbertragen.",
         "context": "In dem April 2019 wurde in dem Rahmen einer Portfoliotransaktion ein signifikanter Teil des NPL- Schiffsfinanzierungsportfolios der Bank in einem Volumen von ca\u27c2 EUR 2,6 Mrd. auf einen externen Investor \u00fcbertragen."
@@ -250,7 +219,7 @@
       "confidence": 0.8
     },
     {
-      "id": "93f2d890",
+      "id": "9045d8e7",
       "input": {
         "text": "Amundi ber\u00fccksichtigt bereits bestimmte wesentliche nachteilige Auswirkungen in dem Rahmen seiner Ausschlusspolitik als Teil der Responsible Investment Policy von Amundi.",
         "context": "Amundi ber\u00fccksichtigt bereits bestimmte wesentliche nachteilige Auswirkungen in dem Rahmen seiner Ausschlusspolitik als Teil der Responsible Investment Policy von Amundi."
@@ -258,14 +227,9 @@
       "expected_output": {
         "spans": [
           {
-            "start": 0,
-            "end": 6,
-            "text": "Amundi"
-          },
-          {
-            "start": 163,
-            "end": 169,
-            "text": "Amundi"
+            "start": 129,
+            "end": 158,
+            "text": "Responsible Investment Policy"
           }
         ]
       },
@@ -273,10 +237,28 @@
       "confidence": 0.8
     },
     {
-      "id": "633dccdd",
+      "id": "9d2b1b75",
       "input": {
         "text": "\uf0a8 Schuldverschreibungen, die nicht an einem geregelten Markt einer Wertpapierb\u00f6rse notiert werden Notes not listed on the regulated market of a stock exchange SPRACHE DER BEDINGUNGEN (\u00a7 14)",
         "context": "\uf0a8 Schuldverschreibungen, die nicht an einem geregelten Markt einer Wertpapierb\u00f6rse notiert werden Notes not listed on the regulated market of a stock exchange SPRACHE DER BEDINGUNGEN (\u00a7 14)"
+      },
+      "expected_output": {
+        "spans": [
+          {
+            "start": 184,
+            "end": 188,
+            "text": "\u00a7 14"
+          }
+        ]
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "24884139",
+      "input": {
+        "text": "Notes due 14th October 2027 (the Notes) begeben aufgrund des issued pursuant to the Debt Issuance Programme von of NRW.BANK Rechtstr\u00e4gerkennung: 52990002O5KK6XOGJ020 Legal Entity Identifier: 52990002O5KK6XOGJ020 Gesamtnennbetrag: EUR 25.000.000",
+        "context": "Notes due 14th October 2027 (the Notes) begeben aufgrund des issued pursuant to the Debt Issuance Programme von of NRW.BANK Rechtstr\u00e4gerkennung: 52990002O5KK6XOGJ020 Legal Entity Identifier: 52990002O5KK6XOGJ020 Gesamtnennbetrag: EUR 25.000.000"
       },
       "expected_output": {
         "spans": []
@@ -285,25 +267,7 @@
       "confidence": 0.8
     },
     {
-      "id": "605cdcf9",
-      "input": {
-        "text": "Notes due 14th October 2027 (the Notes) begeben aufgrund des issued pursuant to the Debt Issuance Programme von of NRW.BANK Rechtstr\u00e4gerkennung: 52990002O5KK6XOGJ020 Legal Entity Identifier: 52990002O5KK6XOGJ020 Gesamtnennbetrag: EUR 25.000.000",
-        "context": "Notes due 14th October 2027 (the Notes) begeben aufgrund des issued pursuant to the Debt Issuance Programme von of NRW.BANK Rechtstr\u00e4gerkennung: 52990002O5KK6XOGJ020 Legal Entity Identifier: 52990002O5KK6XOGJ020 Gesamtnennbetrag: EUR 25.000.000"
-      },
-      "expected_output": {
-        "spans": [
-          {
-            "start": 115,
-            "end": 123,
-            "text": "NRW.BANK"
-          }
-        ]
-      },
-      "source": "human",
-      "confidence": 0.8
-    },
-    {
-      "id": "1cd293a5",
+      "id": "1cf099f5",
       "input": {
         "text": "die T\u00e4tigkeiten des betreffenden Finanzinstituts in dem Aufnahmemitgliedstaat unterliegen ab dann dessen Rechtsvor\u00ad schriften.",
         "context": "die T\u00e4tigkeiten des betreffenden Finanzinstituts in dem Aufnahmemitgliedstaat unterliegen ab dann dessen Rechtsvor\u00ad schriften."
@@ -315,43 +279,31 @@
       "confidence": 0.8
     },
     {
-      "id": "1b52ba72",
+      "id": "4b1d6bdd",
       "input": {
         "text": "VSNA is a privately held Delaware company.",
         "context": "VSNA is a privately held Delaware company."
       },
       "expected_output": {
-        "spans": [
-          {
-            "start": 0,
-            "end": 4,
-            "text": "VSNA"
-          }
-        ]
+        "spans": []
       },
       "source": "human",
       "confidence": 0.8
     },
     {
-      "id": "18eb0eac",
+      "id": "eefe5108",
       "input": {
         "text": "Eine solche Anerkennung h\u00e4ngt von der Erf\u00fcllung der Kriterien der Eignung des Eurosystems ab (EZB-F\u00e4higkeit).",
         "context": "Eine solche Anerkennung h\u00e4ngt von der Erf\u00fcllung der Kriterien der Eignung des Eurosystems ab (EZB-F\u00e4higkeit)."
       },
       "expected_output": {
-        "spans": [
-          {
-            "start": 94,
-            "end": 97,
-            "text": "EZB"
-          }
-        ]
+        "spans": []
       },
       "source": "human",
       "confidence": 0.8
     },
     {
-      "id": "64feb7c4",
+      "id": "a8c900ea",
       "input": {
         "text": "Die zust\u00e4ndigen Beh\u00f6rden geben dem EU-Mutterinstitut, der EU-Mutterfinanzholdinggesellschaft, der gemischten EU- Mutterfinanzholdinggesellschaft bzw\u27c2 dem Institut mit der h\u00f6chsten Bilanzsumme vor einer solchen Entscheidung Gelegen\u00ad heit zu der Stellungnahme.",
         "context": "Die zust\u00e4ndigen Beh\u00f6rden geben dem EU-Mutterinstitut, der EU-Mutterfinanzholdinggesellschaft, der gemischten EU- Mutterfinanzholdinggesellschaft bzw\u27c2 dem Institut mit der h\u00f6chsten Bilanzsumme vor einer solchen Entscheidung Gelegen\u00ad heit zu der Stellungnahme."
@@ -363,7 +315,7 @@
       "confidence": 0.8
     },
     {
-      "id": "c70372b1",
+      "id": "acd4a805",
       "input": {
         "text": "Die kleinste handelbare Einheit betr\u00e4gt EUR 1.000,00.",
         "context": "Die kleinste handelbare Einheit betr\u00e4gt EUR 1.000,00."
@@ -375,7 +327,7 @@
       "confidence": 0.8
     },
     {
-      "id": "804558f2",
+      "id": "82f700bb",
       "input": {
         "text": "Gem\u00e4\u00df dem Gesetz \u00fcber die Bayerische Landesbank und der Satzung der Bayerischen Landesbank kontrollieren der Freistaat Bayern und der Sparkassenverband Bayern die Bayerische Landesbank direkt \u00fcber die Generalversammlung und den Aufsichtsrat.",
         "context": "Gem\u00e4\u00df dem Gesetz \u00fcber die Bayerische Landesbank und der Satzung der Bayerischen Landesbank kontrollieren der Freistaat Bayern und der Sparkassenverband Bayern die Bayerische Landesbank direkt \u00fcber die Generalversammlung und den Aufsichtsrat."
@@ -383,14 +335,14 @@
       "expected_output": {
         "spans": [
           {
-            "start": 134,
-            "end": 158,
-            "text": "Sparkassenverband Bayern"
+            "start": 10,
+            "end": 47,
+            "text": "Gesetz \u00fcber die Bayerische Landesbank"
           },
           {
-            "start": 163,
-            "end": 184,
-            "text": "Bayerische Landesbank"
+            "start": 56,
+            "end": 90,
+            "text": "Satzung der Bayerischen Landesbank"
           }
         ]
       },
@@ -398,7 +350,7 @@
       "confidence": 0.8
     },
     {
-      "id": "1ba5d408",
+      "id": "01cdf457",
       "input": {
         "text": "183 \u2022 Wie werden die Verfahrensweisen einer guten Unternehmensf\u00fchrung der Unternehmen, in die investiert wird, bewertet?",
         "context": "183 \u2022 Wie werden die Verfahrensweisen einer guten Unternehmensf\u00fchrung der Unternehmen, in die investiert wird, bewertet?"
@@ -410,7 +362,7 @@
       "confidence": 0.8
     },
     {
-      "id": "a98db87e",
+      "id": "fc6d962d",
       "input": {
         "text": "Interessen von Seiten nat\u00fcrlicher und juristischer Personen, die an der Emis- sion / dem Angebot beteiligt sind:",
         "context": "Interessen von Seiten nat\u00fcrlicher und juristischer Personen, die an der Emis- sion / dem Angebot beteiligt sind:"
@@ -422,31 +374,48 @@
       "confidence": 0.8
     },
     {
-      "id": "c9e93eaa",
+      "id": "cbe4ec92",
       "input": {
         "text": "Auf Grundlage von IAS 8.42 wurden die Vorjahresvergleichszahlen angepasst.",
         "context": "Auf Grundlage von IAS 8.42 wurden die Vorjahresvergleichszahlen angepasst."
       },
       "expected_output": {
-        "spans": []
+        "spans": [
+          {
+            "start": 18,
+            "end": 26,
+            "text": "IAS 8.42"
+          }
+        ]
       },
       "source": "human",
       "confidence": 0.8
     },
     {
-      "id": "70ebe548",
+      "id": "5a99c179",
       "input": {
         "text": "Anleihegl\u00e4ubiger sollten sich mit ihren eigenen Steuerberatern bez\u00fcglich der Anwen- dung von FATCA auf eine Investition in Pfandbriefe und die M\u00f6glichkeit eine R\u00fcckzahlung f\u00fcr etwaige Betr\u00e4ge zu erhalten, die unter FATCA einbehalten wurden, beraten.",
         "context": "Anleihegl\u00e4ubiger sollten sich mit ihren eigenen Steuerberatern bez\u00fcglich der Anwen- dung von FATCA auf eine Investition in Pfandbriefe und die M\u00f6glichkeit eine R\u00fcckzahlung f\u00fcr etwaige Betr\u00e4ge zu erhalten, die unter FATCA einbehalten wurden, beraten."
       },
       "expected_output": {
-        "spans": []
+        "spans": [
+          {
+            "start": 93,
+            "end": 98,
+            "text": "FATCA"
+          },
+          {
+            "start": 215,
+            "end": 220,
+            "text": "FATCA"
+          }
+        ]
       },
       "source": "human",
       "confidence": 0.8
     },
     {
-      "id": "aa18c27f",
+      "id": "793d72a0",
       "input": {
         "text": "Die kleinste handelbare Einheit ist USD 1.000,-.",
         "context": "Die kleinste handelbare Einheit ist USD 1.000,-."
@@ -458,7 +427,7 @@
       "confidence": 0.8
     },
     {
-      "id": "749cc9e5",
+      "id": "5f1e42d3",
       "input": {
         "text": "Sofern der Privatanleger der Auszahlenden Stelle einen Freistellungsauftrag erteilt hat, wird die Auszahlende Stelle den Sparer-Pauschbetrag in entsprechender H\u00f6he bei der Ermittlung der einzubehaltenden Kapitalertragsteuer ber\u00fccksichtigen.",
         "context": "Sofern der Privatanleger der Auszahlenden Stelle einen Freistellungsauftrag erteilt hat, wird die Auszahlende Stelle den Sparer-Pauschbetrag in entsprechender H\u00f6he bei der Ermittlung der einzubehaltenden Kapitalertragsteuer ber\u00fccksichtigen."
@@ -470,7 +439,7 @@
       "confidence": 0.8
     },
     {
-      "id": "a59f2027",
+      "id": "c27860df",
       "input": {
         "text": "- Risiken, die sich aus mit dieser Einrichtung get\u00e4tigten OTC-Derivatgesch\u00e4ften ergeben, investieren.",
         "context": "- Risiken, die sich aus mit dieser Einrichtung get\u00e4tigten OTC-Derivatgesch\u00e4ften ergeben, investieren."
@@ -482,7 +451,7 @@
       "confidence": 0.8
     },
     {
-      "id": "7a82f252",
+      "id": "2f167db6",
       "input": {
         "text": "notiert werden Notes listed on the regulated market of a stock exchange \uf0a8 Schweiz (Internetseite der SIX Swiss Exchange (www.six-swiss-",
         "context": "notiert werden Notes listed on the regulated market of a stock exchange \uf0a8 Schweiz (Internetseite der SIX Swiss Exchange (www.six-swiss-"
@@ -494,7 +463,7 @@
       "confidence": 0.8
     },
     {
-      "id": "8c123243",
+      "id": "d730a5ed",
       "input": {
         "text": "18 Welches sind die zentralen Risiken, die f\u00fcr die Emittentin spezifisch sind?",
         "context": "18 Welches sind die zentralen Risiken, die f\u00fcr die Emittentin spezifisch sind?"
@@ -506,7 +475,7 @@
       "confidence": 0.8
     },
     {
-      "id": "4965239a",
+      "id": "e6f81f25",
       "input": {
         "text": "An dem Billigungsdatum des Prospekts sind die B.16 Beherrschungsverh\u00e4ltnisse",
         "context": "An dem Billigungsdatum des Prospekts sind die B.16 Beherrschungsverh\u00e4ltnisse"
@@ -518,30 +487,19 @@
       "confidence": 0.8
     },
     {
-      "id": "9057ad76",
+      "id": "ba9c6f38",
       "input": {
         "text": "Die Frankfurter Sparkasse, eine hundertprozentige und vollkonsolidierte Tochtergesellschaft der Helaba in \u00f6ffentlicher Rechtsform, ist eine bedeutende Retailbank in der Region Frankfurt/Main.",
         "context": "Die Frankfurter Sparkasse, eine hundertprozentige und vollkonsolidierte Tochtergesellschaft der Helaba in \u00f6ffentlicher Rechtsform, ist eine bedeutende Retailbank in der Region Frankfurt/Main."
       },
       "expected_output": {
-        "spans": [
-          {
-            "start": 4,
-            "end": 25,
-            "text": "Frankfurter Sparkasse"
-          },
-          {
-            "start": 96,
-            "end": 129,
-            "text": "Helaba in \u00f6ffentlicher Rechtsform"
-          }
-        ]
+        "spans": []
       },
       "source": "human",
       "confidence": 0.8
     },
     {
-      "id": "d14229a6",
+      "id": "8f785ef9",
       "input": {
         "text": "Eine solche vorzeitige R\u00fcckzahlung kann dazu f\u00fchren, dass die Rendite f\u00fcr die Anleger auf das investierte Kapital niedriger als erwartet ausf\u00e4llt.",
         "context": "Eine solche vorzeitige R\u00fcckzahlung kann dazu f\u00fchren, dass die Rendite f\u00fcr die Anleger auf das investierte Kapital niedriger als erwartet ausf\u00e4llt."
@@ -553,7 +511,7 @@
       "confidence": 0.8
     },
     {
-      "id": "87c86439",
+      "id": "55aabba2",
       "input": {
         "text": "Risiken aufgrund der Einschaltung von Clearing-Systemen in Transfers, Zahlungen und Kommunikation Durch die Einschaltung von Clearing-Systemen in Transfers, Zahlungen und Kommunikation sind Anleger von diesen abh\u00e4ngig und deren Regeln unterworfen.",
         "context": "Risiken aufgrund der Einschaltung von Clearing-Systemen in Transfers, Zahlungen und Kommunikation Durch die Einschaltung von Clearing-Systemen in Transfers, Zahlungen und Kommunikation sind Anleger von diesen abh\u00e4ngig und deren Regeln unterworfen."
@@ -565,7 +523,7 @@
       "confidence": 0.8
     },
     {
-      "id": "381e4e76",
+      "id": "d741b8f1",
       "input": {
         "text": "Die Schuldverschreibungen haben eine Laufzeit bis zu dem 30.",
         "context": "Die Schuldverschreibungen haben eine Laufzeit bis zu dem 30."
@@ -577,7 +535,7 @@
       "confidence": 0.8
     },
     {
-      "id": "b0b09f12",
+      "id": "c9a3c7d5",
       "input": {
         "text": "Beschreibung wesentlicher Ver\u00e4nderungen bei der Finanzlage oder Handelsposition der Emittentin Entf\u00e4llt.",
         "context": "Beschreibung wesentlicher Ver\u00e4nderungen bei der Finanzlage oder Handelsposition der Emittentin Entf\u00e4llt."
@@ -589,7 +547,7 @@
       "confidence": 0.8
     },
     {
-      "id": "c19a93f7",
+      "id": "a6ad37e1",
       "input": {
         "text": "Corporate Purpose The purpose of the Guarantor is the acquisition of participations of domestic and foreign companies as well as management and further selling of such participations.",
         "context": "Corporate Purpose The purpose of the Guarantor is the acquisition of participations of domestic and foreign companies as well as management and further selling of such participations."
@@ -601,7 +559,7 @@
       "confidence": 0.8
     },
     {
-      "id": "b05381a5",
+      "id": "0289a5e8",
       "input": {
         "text": "Die Kommission \u00fcbermittelt dem Europ\u00e4ischen Parlament und dem Rat bis 1.",
         "context": "Die Kommission \u00fcbermittelt dem Europ\u00e4ischen Parlament und dem Rat bis 1."
@@ -613,7 +571,7 @@
       "confidence": 0.8
     },
     {
-      "id": "f4e6e7ad",
+      "id": "714b8986",
       "input": {
         "text": "Die zust\u00e4ndigen Beh\u00f6rden des Herkunftsmitgliedstaats bringen den zust\u00e4ndigen Beh\u00f6rden des Aufnahmemitgliedstaats die in Absatz 1 genannte Anzeige innerhalb eines Monats nach deren Eingang zu der Kenntnis.",
         "context": "Die zust\u00e4ndigen Beh\u00f6rden des Herkunftsmitgliedstaats bringen den zust\u00e4ndigen Beh\u00f6rden des Aufnahmemitgliedstaats die in Absatz 1 genannte Anzeige innerhalb eines Monats nach deren Eingang zu der Kenntnis."
@@ -625,7 +583,7 @@
       "confidence": 0.8
     },
     {
-      "id": "42ddd74e",
+      "id": "c70d139b",
       "input": {
         "text": "In dem Zuge einer Redimensionierung wird die Bilanzsumme perspektivisch bis 2024 auf ca\u27c2 EUR 95 Mrd. zur\u00fcckgef\u00fchrt wer- den.",
         "context": "In dem Zuge einer Redimensionierung wird die Bilanzsumme perspektivisch bis 2024 auf ca\u27c2 EUR 95 Mrd. zur\u00fcckgef\u00fchrt wer- den."
@@ -637,30 +595,19 @@
       "confidence": 0.8
     },
     {
-      "id": "fefafd4b",
+      "id": "f11acfff",
       "input": {
         "text": "Nettogewinn 872 1.700 (Nettogewinn entspricht dem dem \"Konzernergebnis\" (Betrag angepasst) untergeordneten Posten \"davon entfallen auf Anteilseigner der DZ BANK\", wie in der IFRS GuV ausgewiesen.)",
         "context": "Nettogewinn 872 1.700 (Nettogewinn entspricht dem dem \"Konzernergebnis\" (Betrag angepasst) untergeordneten Posten \"davon entfallen auf Anteilseigner der DZ BANK\", wie in der IFRS GuV ausgewiesen.)"
       },
       "expected_output": {
-        "spans": [
-          {
-            "start": 153,
-            "end": 160,
-            "text": "DZ BANK"
-          },
-          {
-            "start": 174,
-            "end": 178,
-            "text": "IFRS"
-          }
-        ]
+        "spans": []
       },
       "source": "human",
       "confidence": 0.8
     },
     {
-      "id": "0a01e9da",
+      "id": "44e4d5aa",
       "input": {
         "text": "Die Schuldverschreibungen k\u00f6nnen bei Banken und Sparkassen ab einer Mindestabnahme von einer Schuldverschreibung in dem Nennbetrag von 1.000 Euro gegebenenfalls gegen Zahlung von \u00fcblichen Bankgeb\u00fchren bezogen werden.",
         "context": "Die Schuldverschreibungen k\u00f6nnen bei Banken und Sparkassen ab einer Mindestabnahme von einer Schuldverschreibung in dem Nennbetrag von 1.000 Euro gegebenenfalls gegen Zahlung von \u00fcblichen Bankgeb\u00fchren bezogen werden."
@@ -672,40 +619,19 @@
       "confidence": 0.8
     },
     {
-      "id": "c48865b6",
+      "id": "a9353418",
       "input": {
         "text": "In der DZ BANK Gruppe entstehen Beteiligungsrisiken vor allem bei der DZ BANK und in geringerem Umfang bei der BSH und der R+V.",
         "context": "In der DZ BANK Gruppe entstehen Beteiligungsrisiken vor allem bei der DZ BANK und in geringerem Umfang bei der BSH und der R+V."
       },
       "expected_output": {
-        "spans": [
-          {
-            "start": 7,
-            "end": 21,
-            "text": "DZ BANK Gruppe"
-          },
-          {
-            "start": 70,
-            "end": 77,
-            "text": "DZ BANK"
-          },
-          {
-            "start": 111,
-            "end": 114,
-            "text": "BSH"
-          },
-          {
-            "start": 123,
-            "end": 126,
-            "text": "R+V"
-          }
-        ]
+        "spans": []
       },
       "source": "human",
       "confidence": 0.8
     },
     {
-      "id": "bf25e793",
+      "id": "3f57f2f5",
       "input": {
         "text": "Ein solches Angebot sowie die berichtigten Bestimmungen werden den Schuldverschreibungsgl\u00e4ubigern zusammen mit 6",
         "context": "Ein solches Angebot sowie die berichtigten Bestimmungen werden den Schuldverschreibungsgl\u00e4ubigern zusammen mit 6"
@@ -717,7 +643,7 @@
       "confidence": 0.8
     },
     {
-      "id": "3212aafa",
+      "id": "2746ea2b",
       "input": {
         "text": "Vollst\u00e4ndige Informationen \u00fcber die Emittentin und das Angebot der Pfandbriefe sind ausschlie\u00dflich auf der Grundlage dieser Endg\u00fcltigen Bedingungen in dem Zusammenlesen mit dem Basisprospekt von dem 22.",
         "context": "Vollst\u00e4ndige Informationen \u00fcber die Emittentin und das Angebot der Pfandbriefe sind ausschlie\u00dflich auf der Grundlage dieser Endg\u00fcltigen Bedingungen in dem Zusammenlesen mit dem Basisprospekt von dem 22."
@@ -729,30 +655,19 @@
       "confidence": 0.8
     },
     {
-      "id": "086bf377",
+      "id": "3bcf42e1",
       "input": {
         "text": "S&P defines: S&P definiert: A: An obligation rated 'A' is somewhat more susceptible to the adverse effects of changes in circumstances and economic conditions than obligations in higher-rated categories.",
         "context": "S&P defines: S&P definiert: A: An obligation rated 'A' is somewhat more susceptible to the adverse effects of changes in circumstances and economic conditions than obligations in higher-rated categories."
       },
       "expected_output": {
-        "spans": [
-          {
-            "start": 0,
-            "end": 3,
-            "text": "S&P"
-          },
-          {
-            "start": 13,
-            "end": 16,
-            "text": "S&P"
-          }
-        ]
+        "spans": []
       },
       "source": "human",
       "confidence": 0.8
     },
     {
-      "id": "562c794c",
+      "id": "27e0aa0f",
       "input": {
         "text": "Die letzte Zinsperiode endet an dem Verzinsungsende (ausschlie\u00dflich).",
         "context": "Die letzte Zinsperiode endet an dem Verzinsungsende (ausschlie\u00dflich)."
@@ -764,7 +679,7 @@
       "confidence": 0.8
     },
     {
-      "id": "2a79fa90",
+      "id": "87da36b2",
       "input": {
         "text": "Anteilsinhaber k\u00f6nnen aktuelle Informationen \u00fcber Interessenkonflikte bei der Verwaltungsgesellschaft oder bei der Depotbank anfordern.",
         "context": "Anteilsinhaber k\u00f6nnen aktuelle Informationen \u00fcber Interessenkonflikte bei der Verwaltungsgesellschaft oder bei der Depotbank anfordern."
@@ -776,7 +691,7 @@
       "confidence": 0.8
     },
     {
-      "id": "ef41e8f7",
+      "id": "45a06684",
       "input": {
         "text": "Die Verj\u00e4hrungsfrist f\u00fcr innerhalb der Vorlegungsfrist zu der Zahlung vorgelegte Pfandbriefe betr\u00e4gt zwei Jahre von dem Ende der betreffenden Vorlegungsfrist an.",
         "context": "Die Verj\u00e4hrungsfrist f\u00fcr innerhalb der Vorlegungsfrist zu der Zahlung vorgelegte Pfandbriefe betr\u00e4gt zwei Jahre von dem Ende der betreffenden Vorlegungsfrist an."
@@ -788,10 +703,28 @@
       "confidence": 0.8
     },
     {
-      "id": "87a59dd4",
+      "id": "641bc382",
       "input": {
         "text": "Besonderer Beendigungsgrund: Liegt vor wenn die Berechnungsstelle infolge eines Ersetzungsereignisses gem\u00e4\u00df \u00a7 8(3)(a)(iv) berechtigt ist, die Schuldverschreibungen zu k\u00fcndigen.",
         "context": "Besonderer Beendigungsgrund: Liegt vor wenn die Berechnungsstelle infolge eines Ersetzungsereignisses gem\u00e4\u00df \u00a7 8(3)(a)(iv) berechtigt ist, die Schuldverschreibungen zu k\u00fcndigen."
+      },
+      "expected_output": {
+        "spans": [
+          {
+            "start": 108,
+            "end": 121,
+            "text": "\u00a7 8(3)(a)(iv)"
+          }
+        ]
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "9b62d1ee",
+      "input": {
+        "text": "Der in diesem Prospekt abgedruckte Jahresabschluss der PCC SE 2017 (HGB) sowie die Konzernabschl\u00fcsse der Gesch\u00e4ftsjahre 2017 und 2016 (IFRS) wurden von der Wirtschaftspr\u00fcfungsgesellschaft Warth & Klein Grant Thornton AG, D\u00fcsseldorf, gepr\u00fcft.",
+        "context": "Der in diesem Prospekt abgedruckte Jahresabschluss der PCC SE 2017 (HGB) sowie die Konzernabschl\u00fcsse der Gesch\u00e4ftsjahre 2017 und 2016 (IFRS) wurden von der Wirtschaftspr\u00fcfungsgesellschaft Warth & Klein Grant Thornton AG, D\u00fcsseldorf, gepr\u00fcft."
       },
       "expected_output": {
         "spans": []
@@ -800,63 +733,19 @@
       "confidence": 0.8
     },
     {
-      "id": "87f11836",
-      "input": {
-        "text": "Der in diesem Prospekt abgedruckte Jahresabschluss der PCC SE 2017 (HGB) sowie die Konzernabschl\u00fcsse der Gesch\u00e4ftsjahre 2017 und 2016 (IFRS) wurden von der Wirtschaftspr\u00fcfungsgesellschaft Warth & Klein Grant Thornton AG, D\u00fcsseldorf, gepr\u00fcft.",
-        "context": "Der in diesem Prospekt abgedruckte Jahresabschluss der PCC SE 2017 (HGB) sowie die Konzernabschl\u00fcsse der Gesch\u00e4ftsjahre 2017 und 2016 (IFRS) wurden von der Wirtschaftspr\u00fcfungsgesellschaft Warth & Klein Grant Thornton AG, D\u00fcsseldorf, gepr\u00fcft."
-      },
-      "expected_output": {
-        "spans": [
-          {
-            "start": 55,
-            "end": 61,
-            "text": "PCC SE"
-          },
-          {
-            "start": 68,
-            "end": 71,
-            "text": "HGB"
-          },
-          {
-            "start": 135,
-            "end": 139,
-            "text": "IFRS"
-          },
-          {
-            "start": 156,
-            "end": 219,
-            "text": "Wirtschaftspr\u00fcfungsgesellschaft Warth & Klein Grant Thornton AG"
-          }
-        ]
-      },
-      "source": "human",
-      "confidence": 0.8
-    },
-    {
-      "id": "d7059592",
+      "id": "8ef1645f",
       "input": {
         "text": "Die jeweilige Beteiligungsquote (in Prozent) des Aktion\u00e4rs bezieht sich auf das gezeichnete Kapital der DZ BANK in H\u00f6he von EUR 4.899.938.940,00 abz\u00fcglich der von der DZ BANK gehaltenen 93.247.143 eigenen St\u00fcckaktien mit einem rechnerischen Gesamtbetrag von EUR",
         "context": "Die jeweilige Beteiligungsquote (in Prozent) des Aktion\u00e4rs bezieht sich auf das gezeichnete Kapital der DZ BANK in H\u00f6he von EUR 4.899.938.940,00 abz\u00fcglich der von der DZ BANK gehaltenen 93.247.143 eigenen St\u00fcckaktien mit einem rechnerischen Gesamtbetrag von EUR"
       },
       "expected_output": {
-        "spans": [
-          {
-            "start": 104,
-            "end": 111,
-            "text": "DZ BANK"
-          },
-          {
-            "start": 167,
-            "end": 174,
-            "text": "DZ BANK"
-          }
-        ]
+        "spans": []
       },
       "source": "human",
       "confidence": 0.8
     },
     {
-      "id": "4d3f4102",
+      "id": "fba5c93a",
       "input": {
         "text": "B.17 Ratings, die f\u00fcr die Emittentin und die Schuldverschreibungen erstellt wurden",
         "context": "B.17 Ratings, die f\u00fcr die Emittentin und die Schuldverschreibungen erstellt wurden"
@@ -868,7 +757,7 @@
       "confidence": 0.8
     },
     {
-      "id": "22c3f5b9",
+      "id": "72c67e25",
       "input": {
         "text": "Mit der Zahlung des Erwerbspreises erl\u00f6schen alle Rechte aus den \u00fcbertragenen Schuld- verschreibungen.",
         "context": "Mit der Zahlung des Erwerbspreises erl\u00f6schen alle Rechte aus den \u00fcbertragenen Schuld- verschreibungen."
@@ -880,25 +769,19 @@
       "confidence": 0.8
     },
     {
-      "id": "803f277a",
+      "id": "7b63f7a6",
       "input": {
         "text": "August 2018 werden in elektronischer Form auf der Website der Luxemburger Wertpapierb\u00f6rse (www.bourse.lu) und auf der Website der DZ HYP (www.dzhyp.de) ver\u00f6ffentlicht.",
         "context": "August 2018 werden in elektronischer Form auf der Website der Luxemburger Wertpapierb\u00f6rse (www.bourse.lu) und auf der Website der DZ HYP (www.dzhyp.de) ver\u00f6ffentlicht."
       },
       "expected_output": {
-        "spans": [
-          {
-            "start": 130,
-            "end": 136,
-            "text": "DZ HYP"
-          }
-        ]
+        "spans": []
       },
       "source": "human",
       "confidence": 0.8
     },
     {
-      "id": "eab4359f",
+      "id": "11669974",
       "input": {
         "text": "4. Rendite 1,85 % p.a. Berechnet anhand der ICMA Methode an dem Emissionstag.",
         "context": "4. Rendite 1,85 % p.a. Berechnet anhand der ICMA Methode an dem Emissionstag."
@@ -910,7 +793,7 @@
       "confidence": 0.8
     },
     {
-      "id": "8efb6bb3",
+      "id": "0e441909",
       "input": {
         "text": "Ein wesentlicher Faktor f\u00fcr die Entstehung eines liquiden Marktes ist die H\u00f6he des Emissionsvolumens.",
         "context": "Ein wesentlicher Faktor f\u00fcr die Entstehung eines liquiden Marktes ist die H\u00f6he des Emissionsvolumens."
@@ -922,7 +805,7 @@
       "confidence": 0.8
     },
     {
-      "id": "9fb0d55e",
+      "id": "d1be82b4",
       "input": {
         "text": "Das F\u00e4lligkeitsdatum des Teilfonds ist der 20.",
         "context": "Das F\u00e4lligkeitsdatum des Teilfonds ist der 20."
@@ -934,7 +817,7 @@
       "confidence": 0.8
     },
     {
-      "id": "1c7d70e1",
+      "id": "17596226",
       "input": {
         "text": "Die Beschwerde kann daher auch \u00fcber die OS-Plattform der EU (http://ec.europa.eu/odr) eingereicht werden.",
         "context": "Die Beschwerde kann daher auch \u00fcber die OS-Plattform der EU (http://ec.europa.eu/odr) eingereicht werden."
@@ -946,7 +829,7 @@
       "confidence": 0.8
     },
     {
-      "id": "f485422b",
+      "id": "e8a5fc31",
       "input": {
         "text": "Wenn an einem Referenzsatz-Festlegungstag eine Marktst\u00f6rung in dem Hinblick auf einen Referenzsatz auftritt, kann die Berechnungsstelle in Bezug auf die unter den Schuldverschreibungen vorzunehmenden Feststellungen und Berechnungen nach billigem Ermessen die nachstehend beschriebenen Ma\u00dfnahmen ergreifen.",
         "context": "Wenn an einem Referenzsatz-Festlegungstag eine Marktst\u00f6rung in dem Hinblick auf einen Referenzsatz auftritt, kann die Berechnungsstelle in Bezug auf die unter den Schuldverschreibungen vorzunehmenden Feststellungen und Berechnungen nach billigem Ermessen die nachstehend beschriebenen Ma\u00dfnahmen ergreifen."
@@ -958,7 +841,7 @@
       "confidence": 0.8
     },
     {
-      "id": "6f2ce19f",
+      "id": "b263ea38",
       "input": {
         "text": "Das Gesch\u00e4ftsfeld Asset Management Immobilien hat sich zu dem Ziel gesetzt, die Marktposition in dem Retail- und in dem institutionellen Gesch\u00e4ft unter strenger Beachtung der Qualit\u00e4ts- und Stabilit\u00e4tsanspr\u00fcche weiter auszubauen.",
         "context": "Das Gesch\u00e4ftsfeld Asset Management Immobilien hat sich zu dem Ziel gesetzt, die Marktposition in dem Retail- und in dem institutionellen Gesch\u00e4ft unter strenger Beachtung der Qualit\u00e4ts- und Stabilit\u00e4tsanspr\u00fcche weiter auszubauen."
@@ -970,7 +853,7 @@
       "confidence": 0.8
     },
     {
-      "id": "d8d78807",
+      "id": "4e8d953b",
       "input": {
         "text": "(b) Gerichtsstand und Erf\u00fcllungsort Nicht-ausschlie\u00dflicher Gerichtsstand f\u00fcr alle sich aus den in den Bedingungen geregelten Rechtsverh\u00e4ltnissen ergebenden Rechtsstreitigkeiten mit der Emittentin ist nach Wahl des Kl\u00e4gers Stuttgart.",
         "context": "(b) Gerichtsstand und Erf\u00fcllungsort Nicht-ausschlie\u00dflicher Gerichtsstand f\u00fcr alle sich aus den in den Bedingungen geregelten Rechtsverh\u00e4ltnissen ergebenden Rechtsstreitigkeiten mit der Emittentin ist nach Wahl des Kl\u00e4gers Stuttgart."
@@ -982,7 +865,7 @@
       "confidence": 0.8
     },
     {
-      "id": "a29ed848",
+      "id": "945bde61",
       "input": {
         "text": "Die Ver\u00ad g\u00fctungsregelungen dieser Richtlinie sollten den Unter\u00ad schieden zwischen den verschiedenen Arten von Institu\u00ad ten Rechnung tragen und ihre Gr\u00f6\u00dfe und interne Orga\u00ad nisation sowie Art, Umfang und Komplexit\u00e4t ihrer Ge\u00ad sch\u00e4fte in angemessener Weise ber\u00fccksichtigen.",
         "context": "Die Ver\u00ad g\u00fctungsregelungen dieser Richtlinie sollten den Unter\u00ad schieden zwischen den verschiedenen Arten von Institu\u00ad ten Rechnung tragen und ihre Gr\u00f6\u00dfe und interne Orga\u00ad nisation sowie Art, Umfang und Komplexit\u00e4t ihrer Ge\u00ad sch\u00e4fte in angemessener Weise ber\u00fccksichtigen."
@@ -994,7 +877,7 @@
       "confidence": 0.8
     },
     {
-      "id": "15850405",
+      "id": "e5342548",
       "input": {
         "text": "2.3 Bedingungen f\u00fcr das Angebot Die Schuldverschreibungen werden von dem 10.04.2013 bis zu dem 08.05.2013 (16 Uhr) Anlegern in Deutschland zu der Zeichnung \u00f6ffentlich angeboten.",
         "context": "2.3 Bedingungen f\u00fcr das Angebot Die Schuldverschreibungen werden von dem 10.04.2013 bis zu dem 08.05.2013 (16 Uhr) Anlegern in Deutschland zu der Zeichnung \u00f6ffentlich angeboten."
@@ -1006,7 +889,7 @@
       "confidence": 0.8
     },
     {
-      "id": "a9fa9edc",
+      "id": "96babb56",
       "input": {
         "text": "Jedem Teilfonds k\u00f6nnen in dem Zusammenhang mit Total Return Swaps oder anderen Finanzderivaten mit \u00e4hnlichen Eigenschaften bei dem Abschluss von Total Return Swaps und/oder bei der Erh\u00f6hung oder Verringerung ihres Nominalwerts Kosten und Geb\u00fchren entstehen.",
         "context": "Jedem Teilfonds k\u00f6nnen in dem Zusammenhang mit Total Return Swaps oder anderen Finanzderivaten mit \u00e4hnlichen Eigenschaften bei dem Abschluss von Total Return Swaps und/oder bei der Erh\u00f6hung oder Verringerung ihres Nominalwerts Kosten und Geb\u00fchren entstehen."
@@ -1018,7 +901,7 @@
       "confidence": 0.8
     },
     {
-      "id": "051b772b",
+      "id": "20c4efe5",
       "input": {
         "text": "Die Klassen und die f\u00fcr sie geltenden Geb\u00fchren werden nach Marktusancen festgelegt, die von Vertriebskanal zu Vertriebskanal und von Land zu Land variieren.",
         "context": "Die Klassen und die f\u00fcr sie geltenden Geb\u00fchren werden nach Marktusancen festgelegt, die von Vertriebskanal zu Vertriebskanal und von Land zu Land variieren."
@@ -1030,7 +913,7 @@
       "confidence": 0.8
     },
     {
-      "id": "90b11fbe",
+      "id": "6265b961",
       "input": {
         "text": "In dem Bereich Sparkassenkreditgesch\u00e4ft und Verbundservice unterst\u00fctzt die Bank Sparkassen und ihre Kunden mit bonit\u00e4tsgetriebenen und cash-flow getriebe- nen Finanzierungen.",
         "context": "In dem Bereich Sparkassenkreditgesch\u00e4ft und Verbundservice unterst\u00fctzt die Bank Sparkassen und ihre Kunden mit bonit\u00e4tsgetriebenen und cash-flow getriebe- nen Finanzierungen."
@@ -1042,25 +925,19 @@
       "confidence": 0.8
     },
     {
-      "id": "cf3de751",
+      "id": "2e9bd21f",
       "input": {
         "text": "Die Anleihe der Bayerischen Landesbodenkreditanstalt (die \u201eEmittentin\") in dem Gesamtnennbetrag von Euro 58.000.000 (in Worten: Euro achtundf\u00fcnfzig Millionen) ist eingeteilt in",
         "context": "Die Anleihe der Bayerischen Landesbodenkreditanstalt (die \u201eEmittentin\") in dem Gesamtnennbetrag von Euro 58.000.000 (in Worten: Euro achtundf\u00fcnfzig Millionen) ist eingeteilt in"
       },
       "expected_output": {
-        "spans": [
-          {
-            "start": 16,
-            "end": 52,
-            "text": "Bayerischen Landesbodenkreditanstalt"
-          }
-        ]
+        "spans": []
       },
       "source": "human",
       "confidence": 0.8
     },
     {
-      "id": "bf4dd070",
+      "id": "074cc9fe",
       "input": {
         "text": "F\u00fcr die Emission/das Angebot wesentliche Interessen: Die seitens der Emittentin eingeschalteten Vertriebsstellen erhalten f\u00fcr die Vermittlung der Schuldverschreibungen eine Provision sowie gegebenenfalls weitere Provisionen, Geb\u00fchren, sonstige Geldleistungen oder geldwerte Vorteile.",
         "context": "F\u00fcr die Emission/das Angebot wesentliche Interessen: Die seitens der Emittentin eingeschalteten Vertriebsstellen erhalten f\u00fcr die Vermittlung der Schuldverschreibungen eine Provision sowie gegebenenfalls weitere Provisionen, Geb\u00fchren, sonstige Geldleistungen oder geldwerte Vorteile."
@@ -1072,25 +949,19 @@
       "confidence": 0.8
     },
     {
-      "id": "72912ee4",
+      "id": "acd65ad2",
       "input": {
         "text": "Moody\u2019s ist in der \u201cList of registered and certified CRA\u2019s\u201d aufgef\u00fchrt, die von der European Securities and Markets Authority auf ihrer Internetseite (www.esma.europa.eu) gem\u00e4\u00df der Ratingagenturen-Verordnung ver\u00f6ffentlicht wird.",
         "context": "Moody\u2019s ist in der \u201cList of registered and certified CRA\u2019s\u201d aufgef\u00fchrt, die von der European Securities and Markets Authority auf ihrer Internetseite (www.esma.europa.eu) gem\u00e4\u00df der Ratingagenturen-Verordnung ver\u00f6ffentlicht wird."
       },
       "expected_output": {
-        "spans": [
-          {
-            "start": 84,
-            "end": 125,
-            "text": "European Securities and Markets Authority"
-          }
-        ]
+        "spans": []
       },
       "source": "human",
       "confidence": 0.8
     },
     {
-      "id": "f58927c0",
+      "id": "90f5a76e",
       "input": {
         "text": "Ein Credit Default Swap ist ein bilateraler Finanzkontrakt, bei dem eine Gegenpartei (der Absicherungsk\u00e4ufer) als Gegenleistung f\u00fcr eine Ausfallzahlung durch den Absicherungsverk\u00e4ufer bei Eintritt eines Kreditereignisses eines Referenzemittenten eine regelm\u00e4\u00dfige Geb\u00fchr zahlt.",
         "context": "Ein Credit Default Swap ist ein bilateraler Finanzkontrakt, bei dem eine Gegenpartei (der Absicherungsk\u00e4ufer) als Gegenleistung f\u00fcr eine Ausfallzahlung durch den Absicherungsverk\u00e4ufer bei Eintritt eines Kreditereignisses eines Referenzemittenten eine regelm\u00e4\u00dfige Geb\u00fchr zahlt."
@@ -1102,7 +973,7 @@
       "confidence": 0.8
     },
     {
-      "id": "d4eb831c",
+      "id": "76996a82",
       "input": {
         "text": "Dieser Verlust f\u00fcr das Ge- sch\u00e4ftsjahr 2018 f\u00fchrt zu dem Stichtag 31.",
         "context": "Dieser Verlust f\u00fcr das Ge- sch\u00e4ftsjahr 2018 f\u00fchrt zu dem Stichtag 31."
@@ -1114,7 +985,7 @@
       "confidence": 0.8
     },
     {
-      "id": "f8ec1518",
+      "id": "d7542720",
       "input": {
         "text": "Die Berechnungsstelle wird den entsprechenden Angebotssatz von den Hauptniederlassungen der Referenzbanken einholen.",
         "context": "Die Berechnungsstelle wird den entsprechenden Angebotssatz von den Hauptniederlassungen der Referenzbanken einholen."
@@ -1126,30 +997,19 @@
       "confidence": 0.8
     },
     {
-      "id": "ec05df8b",
+      "id": "e1cfa064",
       "input": {
         "text": "Die jeweilige Beteiligungsquote (in Prozent) des Aktion\u00e4rs bezieht sich auf das gezeichnete Kapital der DZ BANK in H\u00f6he von EUR 4.899.938.940,00 abz\u00fcglich der von der DZ BANK gehaltenen 93.247.143 eigenen St\u00fcckaktien mit einem rechnerischen Gesamtbetrag von EUR",
         "context": "Die jeweilige Beteiligungsquote (in Prozent) des Aktion\u00e4rs bezieht sich auf das gezeichnete Kapital der DZ BANK in H\u00f6he von EUR 4.899.938.940,00 abz\u00fcglich der von der DZ BANK gehaltenen 93.247.143 eigenen St\u00fcckaktien mit einem rechnerischen Gesamtbetrag von EUR"
       },
       "expected_output": {
-        "spans": [
-          {
-            "start": 104,
-            "end": 111,
-            "text": "DZ BANK"
-          },
-          {
-            "start": 167,
-            "end": 174,
-            "text": "DZ BANK"
-          }
-        ]
+        "spans": []
       },
       "source": "human",
       "confidence": 0.8
     },
     {
-      "id": "5d1cfe38",
+      "id": "ad269aa9",
       "input": {
         "text": "Sofern das Versicherungsunternehmen \u00fcber einen Aufsichtsrat verf\u00fcgt, wird der Sachverst\u00e4ndige von diesem bestellt und abberufen.",
         "context": "Sofern das Versicherungsunternehmen \u00fcber einen Aufsichtsrat verf\u00fcgt, wird der Sachverst\u00e4ndige von diesem bestellt und abberufen."
@@ -1161,25 +1021,19 @@
       "confidence": 0.8
     },
     {
-      "id": "258631d2",
+      "id": "3731064f",
       "input": {
         "text": "Eine weitere Abwertung des Ratings der Emittentin oder einer ihrer Tochter- gesellschaften kann die Refinanzierungsm\u00f6glichkeiten der NORD/LB \u00fcber den Kapitalmarkt fundamental einschr\u00e4nken, Abfl\u00fcsse kurzfristiger Mittel ausl\u00f6sen und die Finanzierungskosten signifikant erh\u00f6hen.",
         "context": "Eine weitere Abwertung des Ratings der Emittentin oder einer ihrer Tochter- gesellschaften kann die Refinanzierungsm\u00f6glichkeiten der NORD/LB \u00fcber den Kapitalmarkt fundamental einschr\u00e4nken, Abfl\u00fcsse kurzfristiger Mittel ausl\u00f6sen und die Finanzierungskosten signifikant erh\u00f6hen."
       },
       "expected_output": {
-        "spans": [
-          {
-            "start": 133,
-            "end": 140,
-            "text": "NORD/LB"
-          }
-        ]
+        "spans": []
       },
       "source": "human",
       "confidence": 0.8
     },
     {
-      "id": "f19f8feb",
+      "id": "57eedd77",
       "input": {
         "text": "C.19 Aus\u00fcbungspreis oder endg\u00fcltiger Referenzpreis des Basiswerts Nicht anwendbar, die Wertpapiere sind keine derivativen Wertpapiere.",
         "context": "C.19 Aus\u00fcbungspreis oder endg\u00fcltiger Referenzpreis des Basiswerts Nicht anwendbar, die Wertpapiere sind keine derivativen Wertpapiere."
@@ -1191,7 +1045,7 @@
       "confidence": 0.8
     },
     {
-      "id": "f61ca607",
+      "id": "77fa16d1",
       "input": {
         "text": "Diese Reformen k\u00f6nnen bewirken, dass sich solche Benchmarks anders als in der Vergangenheit entwickeln, ganz wegfallen oder auch zu anderen nicht vorhersehbaren Auswirkungen f\u00fchren.",
         "context": "Diese Reformen k\u00f6nnen bewirken, dass sich solche Benchmarks anders als in der Vergangenheit entwickeln, ganz wegfallen oder auch zu anderen nicht vorhersehbaren Auswirkungen f\u00fchren."
@@ -1203,7 +1057,7 @@
       "confidence": 0.8
     },
     {
-      "id": "9ae9006d",
+      "id": "23f9e9be",
       "input": {
         "text": "Entspre\u00ad chend dem in demselben Artikel genannten Grundsatz der Verh\u00e4ltnism\u00e4\u00dfigkeit geht diese Richtlinie nicht \u00fcber das zu der Erreichung dieser Ziele erforderliche Ma\u00df hinaus.",
         "context": "Entspre\u00ad chend dem in demselben Artikel genannten Grundsatz der Verh\u00e4ltnism\u00e4\u00dfigkeit geht diese Richtlinie nicht \u00fcber das zu der Erreichung dieser Ziele erforderliche Ma\u00df hinaus."
@@ -1215,19 +1069,25 @@
       "confidence": 0.8
     },
     {
-      "id": "9404e9f9",
+      "id": "5473c50b",
       "input": {
         "text": "Solche Berichtigungen oder Erg\u00e4nzungen werden den Schuldverschreibungsgl\u00e4ubigern gem\u00e4\u00df \u00a7 7 mitgeteilt.",
         "context": "Solche Berichtigungen oder Erg\u00e4nzungen werden den Schuldverschreibungsgl\u00e4ubigern gem\u00e4\u00df \u00a7 7 mitgeteilt."
       },
       "expected_output": {
-        "spans": []
+        "spans": [
+          {
+            "start": 87,
+            "end": 90,
+            "text": "\u00a7 7"
+          }
+        ]
       },
       "source": "human",
       "confidence": 0.8
     },
     {
-      "id": "4fdfe752",
+      "id": "5a6d187c",
       "input": {
         "text": "3 Die R\u00fccknahmegeb\u00fchr in H\u00f6he von 1 % entf\u00e4llt w\u00e4hrend des Zeitraums von zwei (2) Monaten vor dem jeweiligen F\u00e4lligkeitsdatum des Teilfonds.",
         "context": "3 Die R\u00fccknahmegeb\u00fchr in H\u00f6he von 1 % entf\u00e4llt w\u00e4hrend des Zeitraums von zwei (2) Monaten vor dem jeweiligen F\u00e4lligkeitsdatum des Teilfonds."
@@ -1239,7 +1099,7 @@
       "confidence": 0.8
     },
     {
-      "id": "6ce64efc",
+      "id": "762d8944",
       "input": {
         "text": "In dem Fall von Schuldverschreibungen, die (i) an Privatinvestoren angeboten werden und/oder die (ii) eine St\u00fcckelung von weniger als EUR 100.",
         "context": "In dem Fall von Schuldverschreibungen, die (i) an Privatinvestoren angeboten werden und/oder die (ii) eine St\u00fcckelung von weniger als EUR 100."
@@ -1251,7 +1111,7 @@
       "confidence": 0.8
     },
     {
-      "id": "0041dd68",
+      "id": "74595554",
       "input": {
         "text": "Die folgenden zentralen Risiken auf Konzernebene k\u00f6nnen sich nachteilig auf die F\u00e4higkeit der Emittentin zu der Erf\u00fcllung der Verpflichtungen aus den Pfandbriefen auswirken: Adressenausfallrisiken.",
         "context": "Die folgenden zentralen Risiken auf Konzernebene k\u00f6nnen sich nachteilig auf die F\u00e4higkeit der Emittentin zu der Erf\u00fcllung der Verpflichtungen aus den Pfandbriefen auswirken: Adressenausfallrisiken."
@@ -1263,7 +1123,7 @@
       "confidence": 0.8
     },
     {
-      "id": "e7dfa28c",
+      "id": "fa1d373b",
       "input": {
         "text": "Die Schuldverschreibungen werden an dem 05.08.2025 (der F\u00e4lligkeitstag) zu dem Nennbetrag zur\u00fcckgezahlt.",
         "context": "Die Schuldverschreibungen werden an dem 05.08.2025 (der F\u00e4lligkeitstag) zu dem Nennbetrag zur\u00fcckgezahlt."
@@ -1275,7 +1135,7 @@
       "confidence": 0.8
     },
     {
-      "id": "69517895",
+      "id": "6c9ee492",
       "input": {
         "text": "\uf0b7 \u00c4nderungen des aufsichtsrechtlichen Rahmens in Italien und Europa k\u00f6nnten sich nachteilig auf die Gesch\u00e4ftst\u00e4tigkeit der Gruppe auswirken;",
         "context": "\uf0b7 \u00c4nderungen des aufsichtsrechtlichen Rahmens in Italien und Europa k\u00f6nnten sich nachteilig auf die Gesch\u00e4ftst\u00e4tigkeit der Gruppe auswirken;"
@@ -1287,7 +1147,7 @@
       "confidence": 0.8
     },
     {
-      "id": "a8c0dc42",
+      "id": "4ee871a7",
       "input": {
         "text": "Issue Yield at Final Maturity Erwartete Rendite bei Endf\u00e4lligkeit (Die erwartete Rendite wird zu dem Tag der Begebung und auf der Basis des Ausgabepreises berechnet.",
         "context": "Issue Yield at Final Maturity Erwartete Rendite bei Endf\u00e4lligkeit (Die erwartete Rendite wird zu dem Tag der Begebung und auf der Basis des Ausgabepreises berechnet."
@@ -1299,7 +1159,7 @@
       "confidence": 0.8
     },
     {
-      "id": "d7e115b6",
+      "id": "bd806f42",
       "input": {
         "text": "Wenn ein Mitgliedstaat die \u00f6ffentliche Bekanntmachung an\u00ad fechtbarer Sanktionen zul\u00e4sst, ver\u00f6ffentlichen die zust\u00e4ndigen Beh\u00f6rden auf ihrer offiziellen Website umgehend auch Informa\u00ad tionen \u00fcber den Stand der jeweiligen Widerspr\u00fcche und deren Ergebnisse.",
         "context": "Wenn ein Mitgliedstaat die \u00f6ffentliche Bekanntmachung an\u00ad fechtbarer Sanktionen zul\u00e4sst, ver\u00f6ffentlichen die zust\u00e4ndigen Beh\u00f6rden auf ihrer offiziellen Website umgehend auch Informa\u00ad tionen \u00fcber den Stand der jeweiligen Widerspr\u00fcche und deren Ergebnisse."
@@ -1311,7 +1171,7 @@
       "confidence": 0.8
     },
     {
-      "id": "27f14cdd",
+      "id": "fc5fb500",
       "input": {
         "text": "Tag nach dem Tag der Mitteilung an das Clearing System als den Pfandbriefgl\u00e4ubigern mitgeteilt.",
         "context": "Tag nach dem Tag der Mitteilung an das Clearing System als den Pfandbriefgl\u00e4ubigern mitgeteilt."
@@ -1323,7 +1183,7 @@
       "confidence": 0.8
     },
     {
-      "id": "30b56f94",
+      "id": "0cb3e851",
       "input": {
         "text": "4.2 Nicht-ausschlie\u00dflicher Gerichtsstand f\u00fcr alle Rechtsstreitigkeiten mit der Garantin, die sich aus in dieser Garantie ergeben, ist Frankfurt an dem Main.",
         "context": "4.2 Nicht-ausschlie\u00dflicher Gerichtsstand f\u00fcr alle Rechtsstreitigkeiten mit der Garantin, die sich aus in dieser Garantie ergeben, ist Frankfurt an dem Main."
@@ -1335,19 +1195,25 @@
       "confidence": 0.8
     },
     {
-      "id": "92241e19",
+      "id": "d0877ed2",
       "input": {
         "text": "Die Fristen nach Absatz 2 gelten als Fristen f\u00fcr die Beile\u00ad gung von Meinungsverschiedenheiten in dem Sinne jener Verord\u00ad nung.",
         "context": "Die Fristen nach Absatz 2 gelten als Fristen f\u00fcr die Beile\u00ad gung von Meinungsverschiedenheiten in dem Sinne jener Verord\u00ad nung."
       },
       "expected_output": {
-        "spans": []
+        "spans": [
+          {
+            "start": 17,
+            "end": 25,
+            "text": "Absatz 2"
+          }
+        ]
       },
       "source": "human",
       "confidence": 0.8
     },
     {
-      "id": "fecf90f4",
+      "id": "e8ab2f42",
       "input": {
         "text": "Die statistische Wahrscheinlichkeit f\u00fcr die Verwirklichung von Kreditrisiken h\u00e4ngt auch von der Entwicklung des gesamtwirtschaftlichen oder unternehmensspezifischen Umfelds ab, in dem die Emittentin t\u00e4tig ist.",
         "context": "Die statistische Wahrscheinlichkeit f\u00fcr die Verwirklichung von Kreditrisiken h\u00e4ngt auch von der Entwicklung des gesamtwirtschaftlichen oder unternehmensspezifischen Umfelds ab, in dem die Emittentin t\u00e4tig ist."
@@ -1359,25 +1225,19 @@
       "confidence": 0.8
     },
     {
-      "id": "c190e8ab",
+      "id": "943e0453",
       "input": {
         "text": "F\u00fcr eine Vielzahl der Anforderungen aus den EBA Leitlinien bestanden bereits",
         "context": "F\u00fcr eine Vielzahl der Anforderungen aus den EBA Leitlinien bestanden bereits"
       },
       "expected_output": {
-        "spans": [
-          {
-            "start": 44,
-            "end": 47,
-            "text": "EBA"
-          }
-        ]
+        "spans": []
       },
       "source": "human",
       "confidence": 0.8
     },
     {
-      "id": "51ed80b8",
+      "id": "13a9a631",
       "input": {
         "text": "Dies hat ma\u00dfgeblich zu einem Jahresverlust f\u00fcr das Gesch\u00e4ftsjahr 2018 in H\u00f6he von ca\u27c2 2,4 Mrd.",
         "context": "Dies hat ma\u00dfgeblich zu einem Jahresverlust f\u00fcr das Gesch\u00e4ftsjahr 2018 in H\u00f6he von ca\u27c2 2,4 Mrd."
@@ -1389,7 +1249,7 @@
       "confidence": 0.8
     },
     {
-      "id": "52d10157",
+      "id": "f9377308",
       "input": {
         "text": "Diese Quellensteuer kann ausgel\u00f6st werden, wenn (i) die Emittentin ein ausl\u00e4ndisches Finanzinstitut (foreign",
         "context": "Diese Quellensteuer kann ausgel\u00f6st werden, wenn (i) die Emittentin ein ausl\u00e4ndisches Finanzinstitut (foreign"
@@ -1401,7 +1261,7 @@
       "confidence": 0.8
     },
     {
-      "id": "20974ef0",
+      "id": "a6a1add9",
       "input": {
         "text": "Mit Emittenten, die eine geringe Bonit\u00e4t aufweisen, ist typischerweise ein erh\u00f6htes Insolvenzrisiko verbunden.",
         "context": "Mit Emittenten, die eine geringe Bonit\u00e4t aufweisen, ist typischerweise ein erh\u00f6htes Insolvenzrisiko verbunden."
@@ -1413,30 +1273,19 @@
       "confidence": 0.8
     },
     {
-      "id": "1b9a8434",
+      "id": "6a744cd0",
       "input": {
         "text": "LBBW-Konzern bezeichnet die Landesbank Baden-W\u00fcrttemberg und ihre konsolidierten Beteiligungen.",
         "context": "LBBW-Konzern bezeichnet die Landesbank Baden-W\u00fcrttemberg und ihre konsolidierten Beteiligungen."
       },
       "expected_output": {
-        "spans": [
-          {
-            "start": 0,
-            "end": 12,
-            "text": "LBBW-Konzern"
-          },
-          {
-            "start": 28,
-            "end": 56,
-            "text": "Landesbank Baden-W\u00fcrttemberg"
-          }
-        ]
+        "spans": []
       },
       "source": "human",
       "confidence": 0.8
     },
     {
-      "id": "974accec",
+      "id": "4ab03472",
       "input": {
         "text": "Anf\u00e4nglicher Emissionspreis: 100,00 % des Nennbetrages Ausgabeaufschlag: bis zu 0,85 % des Nennbetrages \u00dcbernahme/Platzierung: Es findet keine \u00dcbernahme oder Platzierung statt.",
         "context": "Anf\u00e4nglicher Emissionspreis: 100,00 % des Nennbetrages Ausgabeaufschlag: bis zu 0,85 % des Nennbetrages \u00dcbernahme/Platzierung: Es findet keine \u00dcbernahme oder Platzierung statt."
@@ -1448,7 +1297,7 @@
       "confidence": 0.8
     },
     {
-      "id": "6fd666c9",
+      "id": "40ea7129",
       "input": {
         "text": "Das Dokument mit der Angabe der Geb\u00fchr muss klar und kurzgefasst sein, um den Kunden das Verst\u00e4ndnis der zu erbringenden Dienstleistungen und der Kosten und des Wertes der Beratung zu erleichtern.",
         "context": "Das Dokument mit der Angabe der Geb\u00fchr muss klar und kurzgefasst sein, um den Kunden das Verst\u00e4ndnis der zu erbringenden Dienstleistungen und der Kosten und des Wertes der Beratung zu erleichtern."
@@ -1460,7 +1309,7 @@
       "confidence": 0.8
     },
     {
-      "id": "21819558",
+      "id": "f5af8a28",
       "input": {
         "text": "In dem Allgemeinen wird der Nettoinventarwert bei starker Nachfrage nach dem Ankauf von Teilfondsanteilen nach oben und bei starker Nachfrage nach R\u00fcckgabe von Teilfondsanteilen nach unten hin angepasst.",
         "context": "In dem Allgemeinen wird der Nettoinventarwert bei starker Nachfrage nach dem Ankauf von Teilfondsanteilen nach oben und bei starker Nachfrage nach R\u00fcckgabe von Teilfondsanteilen nach unten hin angepasst."
@@ -1472,7 +1321,7 @@
       "confidence": 0.8
     },
     {
-      "id": "78a1efe0",
+      "id": "ececbc76",
       "input": {
         "text": "Die folgenden Finanzzahlen wurden dem gepr\u00fcften Konzernabschluss sowie dem gepr\u00fcften Konzernlagebericht f\u00fcr das Gesch\u00e4ftsjahr 2018 der Emittentin entnommen.",
         "context": "Die folgenden Finanzzahlen wurden dem gepr\u00fcften Konzernabschluss sowie dem gepr\u00fcften Konzernlagebericht f\u00fcr das Gesch\u00e4ftsjahr 2018 der Emittentin entnommen."
@@ -1484,25 +1333,19 @@
       "confidence": 0.8
     },
     {
-      "id": "288e7837",
+      "id": "be8ad142",
       "input": {
         "text": "Es gibt keine Ereignisse aus der j\u00fcngsten Zeit der Gesch\u00e4ftst\u00e4tigkeit der UniCredit Bank, die f\u00fcr die Bewertung ihrer 12 Zahlungsf\u00e4higkeit in hohem Ma\u00dfe relevant sind.",
         "context": "Es gibt keine Ereignisse aus der j\u00fcngsten Zeit der Gesch\u00e4ftst\u00e4tigkeit der UniCredit Bank, die f\u00fcr die Bewertung ihrer 12 Zahlungsf\u00e4higkeit in hohem Ma\u00dfe relevant sind."
       },
       "expected_output": {
-        "spans": [
-          {
-            "start": 74,
-            "end": 88,
-            "text": "UniCredit Bank"
-          }
-        ]
+        "spans": []
       },
       "source": "human",
       "confidence": 0.8
     },
     {
-      "id": "5ec6017a",
+      "id": "7f7b3a7b",
       "input": {
         "text": "Dies entspricht dem Grundsatz, dass der Einf\u00fchrung gemeinsamer Interventionsmechanis\u00ad men f\u00fcr den Krisenfall gemeinsame Kontrollen voraus\u00ad gehen sollten, um die Wahrscheinlichkeit ihrer Anwen\u00ad dung zu verringern.",
         "context": "Dies entspricht dem Grundsatz, dass der Einf\u00fchrung gemeinsamer Interventionsmechanis\u00ad men f\u00fcr den Krisenfall gemeinsame Kontrollen voraus\u00ad gehen sollten, um die Wahrscheinlichkeit ihrer Anwen\u00ad dung zu verringern."
@@ -1514,7 +1357,7 @@
       "confidence": 0.8
     },
     {
-      "id": "76355b77",
+      "id": "98fc8826",
       "input": {
         "text": "Der Teilfonds strebt die Absicherung des W\u00e4hrungsrisikos aus Anlagen in nicht auf USD lautende Instrumente in USD an.",
         "context": "Der Teilfonds strebt die Absicherung des W\u00e4hrungsrisikos aus Anlagen in nicht auf USD lautende Instrumente in USD an."
@@ -1526,7 +1369,7 @@
       "confidence": 0.8
     },
     {
-      "id": "55af2b51",
+      "id": "c1ac9960",
       "input": {
         "text": "Das Gesch\u00e4ftsfeld Asset Management Services wird in Fortf\u00fchrung der eingeschlagenen Multikanalstrategie das Angebot an Funktionalit\u00e4ten und Tools f\u00fcr die Wertpapierinvestments von Selbstentscheidern sowie die digitale Verm\u00f6gensverwaltung in der Internetfiliale der Sparkassen weiter ausbauen.",
         "context": "Das Gesch\u00e4ftsfeld Asset Management Services wird in Fortf\u00fchrung der eingeschlagenen Multikanalstrategie das Angebot an Funktionalit\u00e4ten und Tools f\u00fcr die Wertpapierinvestments von Selbstentscheidern sowie die digitale Verm\u00f6gensverwaltung in der Internetfiliale der Sparkassen weiter ausbauen."
@@ -1538,7 +1381,7 @@
       "confidence": 0.8
     },
     {
-      "id": "f6f79892",
+      "id": "a2a22a73",
       "input": {
         "text": "Die EBA legt der Kommission die Entw\u00fcrfe technischer Standards nach den Abs\u00e4tzen 5 und 6 bis zu dem 1.",
         "context": "Die EBA legt der Kommission die Entw\u00fcrfe technischer Standards nach den Abs\u00e4tzen 5 und 6 bis zu dem 1."
@@ -1546,9 +1389,9 @@
       "expected_output": {
         "spans": [
           {
-            "start": 4,
-            "end": 7,
-            "text": "EBA"
+            "start": 72,
+            "end": 88,
+            "text": "Abs\u00e4tzen 5 und 6"
           }
         ]
       },
@@ -1556,7 +1399,7 @@
       "confidence": 0.8
     },
     {
-      "id": "1d147f9e",
+      "id": "f6fe66fa",
       "input": {
         "text": "Die Bank wird sich in dem Rahmen der weiteren Optimierung ihrer Gesch\u00e4ftsportfolios und ihrer Margenanforderungen fr\u00fchzeitig auf die entsprechenden Marktver\u00e4nderungen einstellen.",
         "context": "Die Bank wird sich in dem Rahmen der weiteren Optimierung ihrer Gesch\u00e4ftsportfolios und ihrer Margenanforderungen fr\u00fchzeitig auf die entsprechenden Marktver\u00e4nderungen einstellen."
@@ -1568,33 +1411,10 @@
       "confidence": 0.8
     },
     {
-      "id": "e35dd1e1",
+      "id": "60edfdd4",
       "input": {
         "text": "(Die Einstufung als EZB-f\u00e4hige Gedeckte Schuldverschreibungen kann sich nach dem Valutierungstag \u00e4ndern.) \uf071 Not intended to be held in a manner which would allow Eurosystem eligibility Soll nicht in EZB-f\u00e4higer Weise gehalten werden",
         "context": "(Die Einstufung als EZB-f\u00e4hige Gedeckte Schuldverschreibungen kann sich nach dem Valutierungstag \u00e4ndern.) \uf071 Not intended to be held in a manner which would allow Eurosystem eligibility Soll nicht in EZB-f\u00e4higer Weise gehalten werden"
-      },
-      "expected_output": {
-        "spans": [
-          {
-            "start": 20,
-            "end": 23,
-            "text": "EZB"
-          },
-          {
-            "start": 199,
-            "end": 202,
-            "text": "EZB"
-          }
-        ]
-      },
-      "source": "human",
-      "confidence": 0.8
-    },
-    {
-      "id": "290d1422",
-      "input": {
-        "text": "dies gilt auch dann, wenn die Leistung nach \u00a7 193 BGB bewirkt wird.",
-        "context": "dies gilt auch dann, wenn die Leistung nach \u00a7 193 BGB bewirkt wird."
       },
       "expected_output": {
         "spans": []
@@ -1603,7 +1423,25 @@
       "confidence": 0.8
     },
     {
-      "id": "cc3f5faa",
+      "id": "bda63385",
+      "input": {
+        "text": "dies gilt auch dann, wenn die Leistung nach \u00a7 193 BGB bewirkt wird.",
+        "context": "dies gilt auch dann, wenn die Leistung nach \u00a7 193 BGB bewirkt wird."
+      },
+      "expected_output": {
+        "spans": [
+          {
+            "start": 44,
+            "end": 53,
+            "text": "\u00a7 193 BGB"
+          }
+        ]
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "fbd8906c",
       "input": {
         "text": "in diesem Fall wird der Nettoerl\u00f6s f\u00fcr allgemeine Gesch\u00e4ftszwecke der Emittentin verwendet.",
         "context": "in diesem Fall wird der Nettoerl\u00f6s f\u00fcr allgemeine Gesch\u00e4ftszwecke der Emittentin verwendet."
@@ -1615,7 +1453,7 @@
       "confidence": 0.8
     },
     {
-      "id": "731ddc0e",
+      "id": "d610771f",
       "input": {
         "text": "Mit Wirkung von dem 7. M\u00e4rz 2018 wurde der Squeeze-out erfolgreich abgeschlossen.",
         "context": "Mit Wirkung von dem 7. M\u00e4rz 2018 wurde der Squeeze-out erfolgreich abgeschlossen."
@@ -1627,25 +1465,19 @@
       "confidence": 0.8
     },
     {
-      "id": "06d8bc8a",
+      "id": "56939495",
       "input": {
         "text": "Die Liquidit\u00e4ts- und Funding- planung der NORD/LB basiert insofern auf Verhaltensannahmen der Kunden insbesondere hinsichtlich der Entwicklung der kurzfristigen Einlagen.",
         "context": "Die Liquidit\u00e4ts- und Funding- planung der NORD/LB basiert insofern auf Verhaltensannahmen der Kunden insbesondere hinsichtlich der Entwicklung der kurzfristigen Einlagen."
       },
       "expected_output": {
-        "spans": [
-          {
-            "start": 42,
-            "end": 49,
-            "text": "NORD/LB"
-          }
-        ]
+        "spans": []
       },
       "source": "human",
       "confidence": 0.8
     },
     {
-      "id": "7b48a2f2",
+      "id": "2ac3afc9",
       "input": {
         "text": "Unternehmen, denen dieses Rating zugeordnet ist, wird eine hohe F\u00e4higkeit bescheinigt, ihren finanziellen Verpflichtun- gen nachkommen zu k\u00f6nnen.",
         "context": "Unternehmen, denen dieses Rating zugeordnet ist, wird eine hohe F\u00e4higkeit bescheinigt, ihren finanziellen Verpflichtun- gen nachkommen zu k\u00f6nnen."
@@ -1657,25 +1489,19 @@
       "confidence": 0.8
     },
     {
-      "id": "81f5f1c3",
+      "id": "acb3be04",
       "input": {
         "text": "Die gesch\u00e4tzten Gesamtkosten aus der Begebung der Schuldverschreibungen (einschlie\u00dflich der Kosten f\u00fcr die Zulassung zu dem Handel an der Frankfurter Wertpapierb\u00f6rse) in H\u00f6he von EUR 1.100 werden von der Emittentin getragen.",
         "context": "Die gesch\u00e4tzten Gesamtkosten aus der Begebung der Schuldverschreibungen (einschlie\u00dflich der Kosten f\u00fcr die Zulassung zu dem Handel an der Frankfurter Wertpapierb\u00f6rse) in H\u00f6he von EUR 1.100 werden von der Emittentin getragen."
       },
       "expected_output": {
-        "spans": [
-          {
-            "start": 138,
-            "end": 165,
-            "text": "Frankfurter Wertpapierb\u00f6rse"
-          }
-        ]
+        "spans": []
       },
       "source": "human",
       "confidence": 0.8
     },
     {
-      "id": "c4d10e08",
+      "id": "62c72be1",
       "input": {
         "text": "Ausf\u00fchrlichere Informationen zu den wesentlichen nachteiligen Auswirkungen finden Sie in dem ESG Regulatory Statement von Amundi, das unter www.amundi.lu verf\u00fcgbar ist.",
         "context": "Ausf\u00fchrlichere Informationen zu den wesentlichen nachteiligen Auswirkungen finden Sie in dem ESG Regulatory Statement von Amundi, das unter www.amundi.lu verf\u00fcgbar ist."
@@ -1683,9 +1509,9 @@
       "expected_output": {
         "spans": [
           {
-            "start": 122,
-            "end": 128,
-            "text": "Amundi"
+            "start": 93,
+            "end": 117,
+            "text": "ESG Regulatory Statement"
           }
         ]
       },
@@ -1693,7 +1519,7 @@
       "confidence": 0.8
     },
     {
-      "id": "c4cba4f0",
+      "id": "7ce27357",
       "input": {
         "text": "Wertpapier-Depotgesch\u00e4ft verf\u00fcgt und bei dem der Gl\u00e4ubiger Schuldverschreibungen in dem Depot verwahren l\u00e4sst.",
         "context": "Wertpapier-Depotgesch\u00e4ft verf\u00fcgt und bei dem der Gl\u00e4ubiger Schuldverschreibungen in dem Depot verwahren l\u00e4sst."
@@ -1705,7 +1531,7 @@
       "confidence": 0.8
     },
     {
-      "id": "3aa98d94",
+      "id": "214f082b",
       "input": {
         "text": "\"Verz\u00f6gerter R\u00fcckzahlungstermin\" bezeichnet den Tag, der ein Jahr und f\u00fcnf Gesch\u00e4ftstage nach einem Antragstag auf Entscheidung \u00fcber ein Kreditereignis (wie in dem Anhang zu den Besonderen Emissionsbedingungen definiert) liegt.",
         "context": "\"Verz\u00f6gerter R\u00fcckzahlungstermin\" bezeichnet den Tag, der ein Jahr und f\u00fcnf Gesch\u00e4ftstage nach einem Antragstag auf Entscheidung \u00fcber ein Kreditereignis (wie in dem Anhang zu den Besonderen Emissionsbedingungen definiert) liegt."
@@ -1717,25 +1543,19 @@
       "confidence": 0.8
     },
     {
-      "id": "241a15cc",
+      "id": "a96d843e",
       "input": {
         "text": "um ein vollst\u00e4ndiges Bild der bilanziellen und au\u00dferbilanziellen Gesch\u00e4ftsaktivit\u00e4ten der LBBW zu vermitteln.",
         "context": "um ein vollst\u00e4ndiges Bild der bilanziellen und au\u00dferbilanziellen Gesch\u00e4ftsaktivit\u00e4ten der LBBW zu vermitteln."
       },
       "expected_output": {
-        "spans": [
-          {
-            "start": 90,
-            "end": 94,
-            "text": "LBBW"
-          }
-        ]
+        "spans": []
       },
       "source": "human",
       "confidence": 0.8
     },
     {
-      "id": "d8f425b6",
+      "id": "1e34ac0b",
       "input": {
         "text": "Februar 2013 besteht das Risiko, dass die Bank m\u00f6glicherweise nicht in der Lage sein k\u00f6nnte, den noch offenen Restbetrag von EUR 1,0 Mrd.",
         "context": "Februar 2013 besteht das Risiko, dass die Bank m\u00f6glicherweise nicht in der Lage sein k\u00f6nnte, den noch offenen Restbetrag von EUR 1,0 Mrd."
@@ -1747,7 +1567,7 @@
       "confidence": 0.8
     },
     {
-      "id": "d287694f",
+      "id": "8d3bb27b",
       "input": {
         "text": "Die Schuldverschreibungen werden in einem Gesamtnennbetrag von EUR 50.000.000 begeben.",
         "context": "Die Schuldverschreibungen werden in einem Gesamtnennbetrag von EUR 50.000.000 begeben."
@@ -1759,10 +1579,28 @@
       "confidence": 0.8
     },
     {
-      "id": "7aa86142",
+      "id": "02694c14",
       "input": {
         "text": "Besondere Emissionsbedingungen \u00a7 1 Definitionen \"Feststellungszeitraum\" bezeichnet jeden Zeitraum ab einem 29.03. (einschlie\u00dflich), der in ein beliebiges Jahr f\u00e4llt, bis zu dem n\u00e4chsten 29.03. (ausschlie\u00dflich).",
         "context": "Besondere Emissionsbedingungen \u00a7 1 Definitionen \"Feststellungszeitraum\" bezeichnet jeden Zeitraum ab einem 29.03. (einschlie\u00dflich), der in ein beliebiges Jahr f\u00e4llt, bis zu dem n\u00e4chsten 29.03. (ausschlie\u00dflich)."
+      },
+      "expected_output": {
+        "spans": [
+          {
+            "start": 0,
+            "end": 34,
+            "text": "Besondere Emissionsbedingungen \u00a7 1"
+          }
+        ]
+      },
+      "source": "human",
+      "confidence": 0.8
+    },
+    {
+      "id": "81e6657a",
+      "input": {
+        "text": "Dar- \u00fcber hinaus k\u00f6nnten sich die zu der Bewertung des Verm\u00f6gens der NORD/LB und ihrer Tochtergesellschaften verwendeten Annahmen, Beurteilungen und Sch\u00e4tzungen als unzuverl\u00e4ssig erweisen.",
+        "context": "Dar- \u00fcber hinaus k\u00f6nnten sich die zu der Bewertung des Verm\u00f6gens der NORD/LB und ihrer Tochtergesellschaften verwendeten Annahmen, Beurteilungen und Sch\u00e4tzungen als unzuverl\u00e4ssig erweisen."
       },
       "expected_output": {
         "spans": []
@@ -1771,25 +1609,7 @@
       "confidence": 0.8
     },
     {
-      "id": "3c5dee8c",
-      "input": {
-        "text": "Dar- \u00fcber hinaus k\u00f6nnten sich die zu der Bewertung des Verm\u00f6gens der NORD/LB und ihrer Tochtergesellschaften verwendeten Annahmen, Beurteilungen und Sch\u00e4tzungen als unzuverl\u00e4ssig erweisen.",
-        "context": "Dar- \u00fcber hinaus k\u00f6nnten sich die zu der Bewertung des Verm\u00f6gens der NORD/LB und ihrer Tochtergesellschaften verwendeten Annahmen, Beurteilungen und Sch\u00e4tzungen als unzuverl\u00e4ssig erweisen."
-      },
-      "expected_output": {
-        "spans": [
-          {
-            "start": 69,
-            "end": 76,
-            "text": "NORD/LB"
-          }
-        ]
-      },
-      "source": "human",
-      "confidence": 0.8
-    },
-    {
-      "id": "06432699",
+      "id": "fa644607",
       "input": {
         "text": "1. Bonit\u00e4tsrisiko Es besteht grunds\u00e4tzlich das Risiko, dass die Emittentin ihren Verpflichtungen aus den Wertpapieren nicht, nicht termingerecht oder nur teilweise nachkommen kann (sog. Bonit\u00e4tsrisiko).",
         "context": "1. Bonit\u00e4tsrisiko Es besteht grunds\u00e4tzlich das Risiko, dass die Emittentin ihren Verpflichtungen aus den Wertpapieren nicht, nicht termingerecht oder nur teilweise nachkommen kann (sog. Bonit\u00e4tsrisiko)."
@@ -1801,7 +1621,7 @@
       "confidence": 0.8
     },
     {
-      "id": "a013bf1a",
+      "id": "f659e823",
       "input": {
         "text": "Den Endg\u00fcltigen Bedingungen ist eine Zusammenfassung f\u00fcr die einzelne Emission beigef\u00fcgt.",
         "context": "Den Endg\u00fcltigen Bedingungen ist eine Zusammenfassung f\u00fcr die einzelne Emission beigef\u00fcgt."
@@ -1813,25 +1633,19 @@
       "confidence": 0.8
     },
     {
-      "id": "124d10dc",
+      "id": "bea10eca",
       "input": {
         "text": "Seit 2021 ist PricewaterhouseCoopers GmbH Wirt- schaftspr\u00fcfungsgesellschaft, Fuhrberger Stra\u00dfe 5, 30625 Hannover, Deutschland der Abschlusspr\u00fcfer der Emittentin.",
         "context": "Seit 2021 ist PricewaterhouseCoopers GmbH Wirt- schaftspr\u00fcfungsgesellschaft, Fuhrberger Stra\u00dfe 5, 30625 Hannover, Deutschland der Abschlusspr\u00fcfer der Emittentin."
       },
       "expected_output": {
-        "spans": [
-          {
-            "start": 14,
-            "end": 75,
-            "text": "PricewaterhouseCoopers GmbH Wirt- schaftspr\u00fcfungsgesellschaft"
-          }
-        ]
+        "spans": []
       },
       "source": "human",
       "confidence": 0.8
     },
     {
-      "id": "7823c365",
+      "id": "0e3a6891",
       "input": {
         "text": "Der so errechnete Zinsbetrag wird auf die n\u00e4chste Untereinheit der festgelegten W\u00e4hrung gerundet, wobei jeweils ab einer halben solchen Untereinheit nach oben aufgerundet wird.",
         "context": "Der so errechnete Zinsbetrag wird auf die n\u00e4chste Untereinheit der festgelegten W\u00e4hrung gerundet, wobei jeweils ab einer halben solchen Untereinheit nach oben aufgerundet wird."
@@ -1843,7 +1657,7 @@
       "confidence": 0.8
     },
     {
-      "id": "ae6c067a",
+      "id": "7855d566",
       "input": {
         "text": "Welches sind die wesentlichen Finanzinformationen \u00fcber die Emittentin?",
         "context": "Welches sind die wesentlichen Finanzinformationen \u00fcber die Emittentin?"
@@ -1855,7 +1669,7 @@
       "confidence": 0.8
     },
     {
-      "id": "70303725",
+      "id": "73d23df3",
       "input": {
         "text": "Zu der Organisationsstruktur siehe unter B.5 B.14 Ist der Emittent Teil einer Gruppe, Beschreibung der Gruppe und der Stellung des Emittenten innerhalb dieser Gruppe 13 Nicht anwendbar in dem Hinblick auf die Abh\u00e4ngigkeit von anderen Unternehmen der Gruppe.",
         "context": "Zu der Organisationsstruktur siehe unter B.5 B.14 Ist der Emittent Teil einer Gruppe, Beschreibung der Gruppe und der Stellung des Emittenten innerhalb dieser Gruppe 13 Nicht anwendbar in dem Hinblick auf die Abh\u00e4ngigkeit von anderen Unternehmen der Gruppe."
@@ -1867,71 +1681,43 @@
       "confidence": 0.8
     },
     {
-      "id": "661ace53",
+      "id": "4a40d96b",
       "input": {
         "text": "Der Vorstand der NORD/LB und Vertreter der Tr\u00e4ger sowie Vertreter des DSGV haben sich an dem 3.",
         "context": "Der Vorstand der NORD/LB und Vertreter der Tr\u00e4ger sowie Vertreter des DSGV haben sich an dem 3."
       },
       "expected_output": {
-        "spans": [
-          {
-            "start": 17,
-            "end": 24,
-            "text": "NORD/LB"
-          },
-          {
-            "start": 70,
-            "end": 74,
-            "text": "DSGV"
-          }
-        ]
+        "spans": []
       },
       "source": "human",
       "confidence": 0.8
     },
     {
-      "id": "e2d2dfcd",
+      "id": "7bbf0524",
       "input": {
         "text": "Februar 2016 wurden ca\u27c2 73,0 % des Gesch\u00e4ftsguthabens in H\u00f6he von ca\u27c2 EUR 698,7 Mio der M\u00fcnchenerHyp durch Prim\u00e4rbanken sowie genossenschaftliche Zentralbanken und ca\u27c2 27,0 % durch Kunden und andere Genossenschaftsmitglieder gehalten.",
         "context": "Februar 2016 wurden ca\u27c2 73,0 % des Gesch\u00e4ftsguthabens in H\u00f6he von ca\u27c2 EUR 698,7 Mio der M\u00fcnchenerHyp durch Prim\u00e4rbanken sowie genossenschaftliche Zentralbanken und ca\u27c2 27,0 % durch Kunden und andere Genossenschaftsmitglieder gehalten."
       },
       "expected_output": {
-        "spans": [
-          {
-            "start": 88,
-            "end": 100,
-            "text": "M\u00fcnchenerHyp"
-          }
-        ]
+        "spans": []
       },
       "source": "human",
       "confidence": 0.8
     },
     {
-      "id": "63bc425f",
+      "id": "981a2d82",
       "input": {
         "text": "Acorn Holdings Acorn Holdings B.V. (\"Acorn Holdings\") is a private company majority-owned by JAB Forest.",
         "context": "Acorn Holdings Acorn Holdings B.V. (\"Acorn Holdings\") is a private company majority-owned by JAB Forest."
       },
       "expected_output": {
-        "spans": [
-          {
-            "start": 0,
-            "end": 34,
-            "text": "Acorn Holdings Acorn Holdings B.V."
-          },
-          {
-            "start": 37,
-            "end": 51,
-            "text": "Acorn Holdings"
-          }
-        ]
+        "spans": []
       },
       "source": "human",
       "confidence": 0.8
     },
     {
-      "id": "904b7fa6",
+      "id": "990c809f",
       "input": {
         "text": "E.3 Beschreibung der Angebotskondi- tionen Zeichnungsfrist: Die Schuldverschreibungen werden von dem 16.07.2018 bis zu dem 10.08.2018 (16 Uhr) Anlegern in Deutschland zu der Zeichnung \u00f6ffentlich angeboten.",
         "context": "E.3 Beschreibung der Angebotskondi- tionen Zeichnungsfrist: Die Schuldverschreibungen werden von dem 16.07.2018 bis zu dem 10.08.2018 (16 Uhr) Anlegern in Deutschland zu der Zeichnung \u00f6ffentlich angeboten."
@@ -1943,7 +1729,7 @@
       "confidence": 0.8
     },
     {
-      "id": "760eb4d0",
+      "id": "183089e7",
       "input": {
         "text": "Verkaufskurs: 100,00 % In dem Verkaufskurs sind bis zu 0,60 % Vertriebsprovisi- on enthalten.",
         "context": "Verkaufskurs: 100,00 % In dem Verkaufskurs sind bis zu 0,60 % Vertriebsprovisi- on enthalten."
@@ -1957,74 +1743,126 @@
   ],
   "corrections": [],
   "feedback": [
-    "Don't match generic capitalized nouns - German capitalizes all nouns.",
-    "Organization names often include legal forms or suffixes (AG, GmbH, KG, SE, Bank, Sparkasse, e.V.)."
+    "Should include legal markers (e.g. Abs., Nr., Art., Section) or law abbreviations (BGB, HGB, AktG).",
+    "Capture full legal references like Section 433 BGB or Art. 15 DSGVO."
   ],
   "rules": [
     {
-      "id": "ed0fb6db",
-      "name": "Capture Organization Names with Legal Forms",
-      "description": "This rule matches organization names that may include specific suffixes indicating a legal form such as AG, GmbH, e.V., etc.",
+      "id": "35718504",
+      "name": "Extract Section References",
+      "description": "Captures legal references with section markers and their associated texts.",
       "format": "regex",
-      "content": "\\b[A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+(?:\\s+[A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+)*(?:\\s+(AG|GmbH|e.V.|SE|KG|Bank|Sparkasse|Aktiengesellschaft| GmbH & Co. KG|eG))?\\b",
+      "content": "\\\\u00a7\\s*\\d+",
       "priority": 10,
       "confidence": 0.5,
       "times_applied": 0,
       "successes": 0,
       "failures": 0,
-      "created_at": "2026-01-14T21:14:08.482733"
+      "created_at": "2026-01-14T21:16:53.871394"
     },
     {
-      "id": "81e4c622",
-      "name": "Exclusion of Generic Capitalized Nouns",
-      "description": "This rule excludes common nouns that are capitalized but do not represent organizations.",
+      "id": "420c7b24",
+      "name": "Extract Paragraph and Article References",
+      "description": "Identifies references to paragraphs (Abs.) and articles (Art.) along with their numbers.",
       "format": "regex",
-      "content": "\\b(?:Markt|Gesellschaft|Verein|Organ|System|Kredit|Bank|Wirtschaft|Finanz|Verband|Kapital|Agentur)\\b",
+      "content": "(Art\\.\\s*\\d+|Abs\\.?\\s*\\d+)",
       "priority": 9,
       "confidence": 0.5,
       "times_applied": 0,
       "successes": 0,
       "failures": 0,
-      "created_at": "2026-01-14T21:14:08.482733"
+      "created_at": "2026-01-14T21:16:53.871394"
     },
     {
-      "id": "343325d1",
-      "name": "Specific Name Patterns",
-      "description": "This rule ensures that names starting with specific patterns are captured correctly.",
+      "id": "43583527",
+      "name": "Extract Legal Code Abbreviations",
+      "description": "Extracts abbreviations of German laws such as BGB, HGB, and AktG.",
       "format": "regex",
-      "content": "\\b(?:DZ|BSH|DVB|TeamBank|Berlin|EBA|NRW|Amundi|Frankfurter|Moody's|S&P)\\b",
+      "content": "(BGB|HGB|AktG|KWG|WpHG|VVG)",
       "priority": 8,
       "confidence": 0.5,
       "times_applied": 0,
       "successes": 0,
       "failures": 0,
-      "created_at": "2026-01-14T21:14:08.484736"
+      "created_at": "2026-01-14T21:16:53.871394"
     },
     {
-      "id": "0d6c8e9e",
-      "name": "Multi-word Organization Names",
-      "description": "This rule captures organization names that span multiple words with necessary delimiters.",
-      "format": "regex",
-      "content": "\\b[A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]*(?:\\s+[A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]*)+\\b",
+      "id": "64cc0ec8",
+      "name": "Extract Full Legal References",
+      "description": "Captures complete legal references including terms, sections, and article definitions.",
+      "format": "code",
+      "content": "def extract(input_data):\n    import re\n    spans = []\n    text = input_data['text']\n    pattern = r'(\\u00a7\\s*\\d+(?:\\s*Abs\\.?\\s*\\d+)?|Art\\.\\s*\\d+|BGB|HGB|AktG|KWG|WpHG|VVG)'\n    matches = re.finditer(pattern, text)\n    for match in matches:\n        spans.append({'text': match.group(0), 'start': match.start(), 'end': match.end()})\n    return spans",
       "priority": 7,
       "confidence": 0.5,
       "times_applied": 0,
       "successes": 0,
       "failures": 0,
-      "created_at": "2026-01-14T21:14:08.484736"
+      "created_at": "2026-01-14T21:16:53.871394"
     },
     {
-      "id": "8f0c5beb",
-      "name": "Ensure Context Validity",
-      "description": "This code rule checks if an identified organization name is properly contextualized.",
-      "format": "code",
-      "content": "def extract(input_data):\n    import re\n    spans = []\n    text = input_data['text']\n    pattern = re.compile(r'\\b[A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+(?:\\s+[A-Z\u00c4\u00d6\u00dc][a-z\u00e4\u00f6\u00fc\u00df]+)*(?:\\s+(AG|GmbH|e.V.|SE|KG|Bank|Sparkasse|Aktiengesellschaft| GmbH & Co. KG|eG))?\\b')\n    for match in pattern.finditer(text):\n        start, end = match.span()\n        spans.append({'text': match.group(0), 'start': start, 'end': end})\n    return spans\n",
+      "id": "c8527524",
+      "name": "Capture Other Legal Terms",
+      "description": "Identifies other legal terms that often appear in legal documents.",
+      "format": "regex",
+      "content": "\\b(?:Regelung|Verordnung|Gesetz|Richtlinie)\\b",
       "priority": 6,
       "confidence": 0.5,
       "times_applied": 0,
       "successes": 0,
       "failures": 0,
-      "created_at": "2026-01-14T21:14:08.484736"
+      "created_at": "2026-01-14T21:16:53.871394"
+    },
+    {
+      "id": "b21853b8",
+      "name": "Capture Dates Associated with Legal Texts",
+      "description": "Extracts dates that might be associated with legal documents or references.",
+      "format": "regex",
+      "content": "\\b\\d{1,2}\\.\\s*\\D+\\s*\\d{4}\\b",
+      "priority": 5,
+      "confidence": 0.5,
+      "times_applied": 0,
+      "successes": 0,
+      "failures": 0,
+      "created_at": "2026-01-14T21:16:53.871394"
+    },
+    {
+      "id": "1b2b48b1",
+      "name": "Ensure Non-Redundant Extraction",
+      "description": "Ensures that multiple matches do not cause duplicates in the output.",
+      "format": "code",
+      "content": "def extract(input_data):\n    import re\n    spans = []\n    text = input_data['text']\n    seen = set()\n    pattern = r'(\\u00a7\\s*\\d+(?:\\s*Abs\\.?\\s*\\d+)?|Art\\.\\s*\\d+|BGB|HGB|AktG|KWG|WpHG|VVG)'\n    matches = re.finditer(pattern, text)\n    for match in matches:\n        if match.group(0) not in seen:\n            seen.add(match.group(0))\n            spans.append({'text': match.group(0), 'start': match.start(), 'end': match.end()})\n    return spans",
+      "priority": 4,
+      "confidence": 0.5,
+      "times_applied": 0,
+      "successes": 0,
+      "failures": 0,
+      "created_at": "2026-01-14T21:16:53.871394"
+    },
+    {
+      "id": "ffcee99b",
+      "name": "Combine Multiple Legal References",
+      "description": "Concatenates multiple legal references that may appear in succession.",
+      "format": "code",
+      "content": "def extract(input_data):\n    import re\n    spans = []\n    text = input_data['text']\n    pattern = r'(\\u00a7\\s*\\d+(?:\\s*Abs\\.?\\s*\\d+)?|Art\\.\\s*\\d+|BGB|HGB|AktG|KWG|WpHG|VVG)'\n    matches = re.finditer(pattern, text)\n    last_end = -1\n    for match in matches:\n        if match.start() > last_end:\n            spans.append({'text': match.group(0), 'start': match.start(), 'end': match.end()})\n            last_end = match.end()\n    return spans",
+      "priority": 2,
+      "confidence": 0.5,
+      "times_applied": 0,
+      "successes": 0,
+      "failures": 0,
+      "created_at": "2026-01-14T21:16:53.873396"
+    },
+    {
+      "id": "e637c7da",
+      "name": "Final Compliance Check",
+      "description": "Validates that all captured legal references comply with expected formats.",
+      "format": "code",
+      "content": "def extract(input_data):\n    import re\n    spans = []\n    text = input_data['text']\n    pattern = r'(?=\\\\u00a7\\\\s*\\\\d+|Art\\\\.\\\\s*\\\\d+|BGB|HGB|AktG|KWG|WpHG|VVG)'\n    matches = re.finditer(pattern, text)\n    for match in matches:\n        spans.append({'text': match.group(0), 'start': match.start(), 'end': match.end()})\n    return spans",
+      "priority": 1,
+      "confidence": 0.5,
+      "times_applied": 0,
+      "successes": 0,
+      "failures": 0,
+      "created_at": "2026-01-14T21:16:53.873396"
     }
   ],
   "version": 1
