@@ -7,7 +7,7 @@ from typing import Dict, List, Tuple
 
 from sklearn.metrics import classification_report
 
-from utils.stratified_split import SPLIT_SEED, stratified_split
+from .stratified_split import SPLIT_SEED, stratified_split
 from data_loader import _align_tokens, _tokens_to_spans
 
 LABELS = ["ORG", "MON", "LEG"]
@@ -336,3 +336,5 @@ def _dict_to_json(data, indent: int = 2) -> str:
     import json
 
     return json.dumps(data, indent=indent, ensure_ascii=True)
+
+

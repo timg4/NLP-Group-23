@@ -64,7 +64,7 @@ The preprocessing script (`data/perprocess.py`) performs:
 ### Usage
 
 ```bash
-python data/perprocess.py --output data/processed/fincorpus_processed.conllu --max_docs 1000
+python data/perprocess.py --output data/preprocessing/processed/fincorpus_processed.conllu --max_docs 1000
 ```
 
 **Current corpus**: 1,000 documents (randomly sampled from all collections)
@@ -77,7 +77,7 @@ Data stored in CoNLL-U format with standard 10-column structure. Includes token 
 Documents delimited with `# newdoc id = <doc_id>` headers.
 
 **Download**: File too large for GitHub. Available at: [Google Drive](https://drive.google.com/file/d/1bs7oI4dxBr2b7Hdp_BC9zWBHjSzHUCVl/view?usp=share_link)
-A glimpse into the first 2000 lines can be found at `data/processed/first2000.txt`.
+A glimpse into the first 2000 lines can be found at `data/preprocessing/processed/first2000.txt`.
 
 ### Issues Identified
 
@@ -174,7 +174,7 @@ NLP-Group-23/
 ├── .gitignore
 │
 ├── data/
-│   ├── fincorpus-de-10k.py            # Dataset loader
+│   ├── data/preprocessing/fincorpus-de-10k.py            # Dataset loader
 │   ├── perprocess.py                   # M1: Preprocessing script
 │   ├── preprocess.ipynb                # M1: Preprocessing experimentation
 │   ├── sample_for_manual_annotation.py # Sampling for annotation
@@ -216,3 +216,5 @@ NLP-Group-23/
 - See `future_work/` for advanced methods explored beyond baseline scope
 - All evaluation uses 150 manually-labeled sentences with 80/20 train/dev split
 - Results generated with: `python milestone2/milestone2.py --data data/manual_annotation/sample_sentences_labeled.conllu`
+
+

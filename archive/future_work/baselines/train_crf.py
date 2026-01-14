@@ -5,8 +5,8 @@ Train CRF-Based NER Baseline
 Train and evaluate CRF NER on train and dev sets
 
 Usage:  python baselines/train_crf.py \
-        --train data/processed/splits/train.conllu \
-        --dev data/processed/splits/dev.conllu \
+        --train data/preprocessing/processed/splits/train.conllu \
+        --dev data/preprocessing/processed/splits/dev.conllu \
         --output results/crf
 """
 

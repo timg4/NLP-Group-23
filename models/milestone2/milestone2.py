@@ -29,7 +29,7 @@ THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(THIS_DIR)
 sys.path.insert(0, PROJECT_ROOT)
 
-from utils.stratified_split import SPLIT_SEED, stratified_split
+from stratified_split import SPLIT_SEED, stratified_split
 
 
 #load data
@@ -80,7 +80,7 @@ def build_token_label_pairs(sentences: List[Dict[str, List[str]]]):
     return pairs
 
 
-from utils.stratified_split import SPLIT_SEED, stratified_split
+from stratified_split import SPLIT_SEED, stratified_split
 
 
 #baseline: Rule Based NER - simple rules for all different tokens 
@@ -610,3 +610,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

@@ -21,7 +21,7 @@ sys.path.insert(0, os.path.join(PROJECT_ROOT, "rule-chef", "rulechef"))
 from data_loader import _align_tokens, _tokens_to_spans
 from inference import predict
 from trainer import LABELS, train_all
-from utils.stratified_split import SPLIT_SEED, stratified_split
+from stratified_split import SPLIT_SEED, stratified_split
 
 
 LABEL_ORDER = ["B-LEG", "I-LEG", "B-MON", "I-MON", "B-ORG", "I-ORG", "O"]
@@ -214,3 +214,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

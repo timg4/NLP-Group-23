@@ -5,7 +5,7 @@ Train/Evaluate Rule-Based NER Baseline
 Evaluate rule-based NER on dev/test set
 
 Usage:  python baselines/train_rule_based.py \
-        --dev data/processed/splits/dev.conllu \
+        --dev data/preprocessing/processed/splits/dev.conllu \
         --output results/rule_based
 """
 

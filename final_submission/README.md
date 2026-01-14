@@ -30,6 +30,7 @@ python final_submission/run_openai_ner.py --data data/manual_annotation/hand_lab
 To build a combined summary after running individual models:
 
 ```
-python final_submission/summarize_results.py
+python final_submission/utilities/summarize_results.py
 ```
+
 

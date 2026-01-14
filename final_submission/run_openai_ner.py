@@ -16,7 +16,7 @@ sys.path.insert(0, os.path.join(PROJECT_ROOT, "models", "rule-chef-v2"))
 
 from openai import OpenAI
 from extractor import extract as openai_extract
-from common import (
+from utilities.common import (
     collapse_bio,
     prepare_split,
     print_split_counts,
@@ -89,3 +89,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

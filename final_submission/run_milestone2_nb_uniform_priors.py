@@ -15,7 +15,7 @@ sys.path.insert(0, os.path.join(PROJECT_ROOT, "models", "milestone2"))
 sys.path.insert(0, os.path.join(PROJECT_ROOT, "models", "rule-chef-v2"))
 
 from milestone2 import TokenNB, build_token_label_pairs
-from common import (
+from utilities.common import (
     collapse_bio,
     prepare_split,
     print_split_counts,
@@ -87,3 +87,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

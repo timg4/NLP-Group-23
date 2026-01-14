@@ -5,7 +5,7 @@ Sample Sentences for Manual Annotation
 Randomly sample sentences from corpus for manual labeling.
 Ensures diversity and likely entity presence.
 
-Usage:  python data/sample_for_manual_annotation.py --input data/processed/fincorpus_processed.conllu --output data/manual_annotation --num_sentences 150
+Usage:  python data/sample_for_manual_annotation.py --input data/preprocessing/processed/fincorpus_processed.conllu --output data/manual_annotation --num_sentences 150
 """
 
 import argparse

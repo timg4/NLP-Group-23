@@ -15,7 +15,7 @@ sys.path.insert(0, os.path.join(PROJECT_ROOT, "models", "rule-chef-v2"))
 
 from inference import predict as rulechef_predict
 from trainer import train_all
-from common import (
+from utilities.common import (
     build_data_by_label,
     collapse_bio,
     prepare_split,
@@ -87,3 +87,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

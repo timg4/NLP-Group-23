@@ -8,7 +8,7 @@ Preprocess FinCorpus-DE10k
  - limits amount of files processed via --max_docs argument due to computational reasons 
 
 Usage:  python src/preprocess_fincorpus.py \
-        --output data/processed/fincorpus_processed.conllu \
+        --output data/preprocessing/processed/fincorpus_processed.conllu \
         --max_docs 500
 """
 
@@ -52,7 +52,7 @@ def light_clean(text: str) -> str:
 
 def preprocess(output_path: Path, max_docs: int | None = None):
     print("Loading FinCorpus-DE10k dataset...")
-    dataset = load_dataset("data/fincorpus-de-10k.py", split="train", trust_remote_code=True)
+    dataset = load_dataset("data/preprocessing/fincorpus-de-10k.py", split="train", trust_remote_code=True)
     print(f"Dataset loaded: {len(dataset)} documents")
 
     print("Loading Stanza German pipeline")
@@ -113,3 +113,5 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     preprocess(Path(args.output), args.max_docs)
+
+
