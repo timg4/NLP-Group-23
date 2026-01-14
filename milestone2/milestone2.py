@@ -15,15 +15,21 @@ Usage examples:
 """
 
 import argparse
+import os
 import re
+import sys
 from collections import Counter, defaultdict
 from math import log
+from pathlib import Path
 from typing import List, Dict
 
 from sklearn.metrics import classification_report
-import os
-from pathlib import Path
-from collections import defaultdict
+
+THIS_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(THIS_DIR)
+sys.path.insert(0, PROJECT_ROOT)
+
+from utils.stratified_split import SPLIT_SEED, stratified_split
 
 
 #load data
@@ -72,6 +78,9 @@ def build_token_label_pairs(sentences: List[Dict[str, List[str]]]):
         for tok, lab in zip(sent["tokens"], sent["labels"]):
             pairs.append((tok, lab))
     return pairs
+
+
+from utils.stratified_split import SPLIT_SEED, stratified_split
 
 
 #baseline: Rule Based NER - simple rules for all different tokens 
@@ -456,13 +465,17 @@ def main():
 
     # always: one file, 80/20 split
     all_sents = load_conllu(args.data)
-    split_idx = int(0.8 * len(all_sents))
-    train_set = all_sents[:split_idx]
-    dev_set = all_sents[split_idx:]
+    train_set, dev_set, split_counts = stratified_split(
+        all_sents, train_ratio=0.8, seed=SPLIT_SEED
+    )
 
     print(f"Total sentences: {len(all_sents)}")
     print(f"Train sentences: {len(train_set)}")
     print(f"Dev sentences:   {len(dev_set)}")
+    print("Stratified split by sentence label:")
+    for key in sorted(split_counts.keys()):
+        c = split_counts[key]
+        print(f"  {key}: total={c['total']}, train={c['train']}, dev={c['dev']}")
 
     train_pairs = build_token_label_pairs(train_set)
 

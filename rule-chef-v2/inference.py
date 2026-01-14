@@ -12,12 +12,11 @@ if RULECHEF_PATH not in sys.path:
 from typing import Dict, List, Optional
 from openai import OpenAI
 from rulechef import RuleChef
-from rulechef.core import RuleFormat
 
 try:
-    from .trainer import create_task, LABELS
+    from .trainer import create_task, LABELS, LABEL_CONFIG
 except ImportError:
-    from trainer import create_task, LABELS
+    from trainer import create_task, LABELS, LABEL_CONFIG
 
 
 def load_models(storage_path: str = "./rulechef_v2_data") -> Dict[str, RuleChef]:
@@ -39,7 +38,7 @@ def load_models(storage_path: str = "./rulechef_v2_data") -> Dict[str, RuleChef]
             client=client,
             dataset_name=f"ner_{label}",
             storage_path=storage_path,
-            allowed_formats=[RuleFormat.CODE],
+            allowed_formats=LABEL_CONFIG[label]["allowed_formats"],
             auto_trigger=False,
         )
         chefs[label] = chef

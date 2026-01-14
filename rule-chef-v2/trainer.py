@@ -1,5 +1,6 @@
 """Train RuleChef models for NER - minimal configuration."""
 import os
+import random
 import sys
 
 # Ensure rulechef is importable
@@ -9,7 +10,7 @@ RULECHEF_PATH = os.path.join(PROJECT_ROOT, "rule-chef", "rulechef")
 if RULECHEF_PATH not in sys.path:
     sys.path.insert(0, RULECHEF_PATH)
 
-from typing import Dict, List, Tuple, Optional
+from typing import Dict, List, Tuple
 from openai import OpenAI
 from rulechef import RuleChef, Task
 from rulechef.core import RuleFormat, TaskType
@@ -23,11 +24,35 @@ TASK_DESCRIPTIONS = {
     "LEG": "Extract legal references from German financial text.",
 }
 
-# ONE critical feedback per label - only the most important constraint
-FEEDBACKS = {
-    "ORG": "Don't match generic capitalized nouns - German capitalizes all nouns.",
-    "MON": "Should contain a digit AND a currency marker (EUR, USD, Mio., Mrd., €, $, etc.).",
-    "LEG": "Should include legal markers (e.g. Abs., Nr.) or law abbreviations (BGB, HGB, AktG).",
+# Label-specific training configuration
+LABEL_CONFIG = {
+    "ORG": {
+        "allowed_formats": [RuleFormat.CODE, RuleFormat.REGEX],
+        "sampling_strategy": "varied",
+        "max_refinement_iterations": 3,
+        "feedbacks": [
+            "Don't match generic capitalized nouns - German capitalizes all nouns.",
+            "Organization names often include legal forms or suffixes (AG, GmbH, KG, SE, Bank, Sparkasse, e.V.).",
+        ],
+    },
+    "MON": {
+        "allowed_formats": [RuleFormat.REGEX, RuleFormat.CODE],
+        "sampling_strategy": "varied",
+        "max_refinement_iterations": 2,
+        "feedbacks": [
+            "Should contain a digit AND a currency marker (EUR, USD, Mio., Mrd., $, GBP).",
+            "Avoid law/section references without currency markers.",
+        ],
+    },
+    "LEG": {
+        "allowed_formats": [RuleFormat.REGEX, RuleFormat.CODE],
+        "sampling_strategy": "varied",
+        "max_refinement_iterations": 3,
+        "feedbacks": [
+            "Should include legal markers (e.g. Abs., Nr., Art., Section) or law abbreviations (BGB, HGB, AktG).",
+            "Capture full legal references like Section 433 BGB or Art. 15 DSGVO.",
+        ],
+    },
 }
 
 
@@ -60,6 +85,7 @@ def train_model(
     Returns:
         Trained RuleChef instance
     """
+    config = LABEL_CONFIG[label]
     client = OpenAI()
 
     chef = RuleChef(
@@ -67,26 +93,32 @@ def train_model(
         client=client,
         dataset_name=f"ner_{label}",
         storage_path=storage_path,
-        allowed_formats=[RuleFormat.CODE],  # CODE only - simpler
+        allowed_formats=config["allowed_formats"],
+        sampling_strategy=config["sampling_strategy"],
         model=model_name,
         auto_trigger=False,
     )
 
     # Add all training examples
-    for text, spans in data:
+    rng = random.Random(13)
+    shuffled_data = list(data)
+    rng.shuffle(shuffled_data)
+    for text, spans in shuffled_data:
         chef.add_example(
             input_data={"text": text},
             output_data={"spans": spans},
         )
 
-    # Add ONE critical feedback
-    chef.add_feedback(FEEDBACKS[label])
+    # Add label-specific feedback
+    for feedback in config["feedbacks"]:
+        chef.add_feedback(feedback)
 
     # Learn rules
     print(f"Learning rules for {label}...")
     chef.learn_rules(
         run_evaluation=True,
-        max_refinement_iterations=2,
+        max_refinement_iterations=config["max_refinement_iterations"],
+        sampling_strategy=config["sampling_strategy"],
     )
 
     # Print learned rules
