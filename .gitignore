@@ -2,3 +2,4 @@
 /data/fincorpus_clean.csv
 /data/processed/*
 !data/processed/first2000.txt
+/rule-chef
