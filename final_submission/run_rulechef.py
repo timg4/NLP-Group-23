@@ -11,7 +11,7 @@ from pathlib import Path
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(THIS_DIR)
 sys.path.insert(0, PROJECT_ROOT)
-sys.path.insert(0, os.path.join(PROJECT_ROOT, "rule-chef-v2"))
+sys.path.insert(0, os.path.join(PROJECT_ROOT, "models", "rule-chef-v2"))
 
 from inference import predict as rulechef_predict
 from trainer import train_all
@@ -33,7 +33,7 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--data",
-        default=os.path.join(PROJECT_ROOT, "data", "manual_annotation2", "my_labels.conllu"),
+        default=os.path.join(PROJECT_ROOT, "data", "manual_annotation", "hand_labelled.conllu"),
         help="Single CoNLL-U file, will be split 80/20 into train/dev.",
     )
     parser.add_argument(
@@ -50,7 +50,7 @@ def main():
     print_split_counts(split_counts)
 
     data_by_label = build_data_by_label(train_set)
-    storage_path = os.path.join(PROJECT_ROOT, "rule-chef-v2", "rulechef_v2_data")
+    storage_path = os.path.join(PROJECT_ROOT, "models", "rule-chef-v2", "rulechef_v2_data")
 
     start = time.perf_counter()
     chefs = train_all(data_by_label, storage_path=storage_path)

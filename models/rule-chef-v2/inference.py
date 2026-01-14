@@ -5,6 +5,8 @@ import sys
 # Ensure rulechef is importable
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(THIS_DIR)
+if os.path.basename(PROJECT_ROOT) == "models":
+    PROJECT_ROOT = os.path.dirname(PROJECT_ROOT)
 RULECHEF_PATH = os.path.join(PROJECT_ROOT, "rule-chef", "rulechef")
 if RULECHEF_PATH not in sys.path:
     sys.path.insert(0, RULECHEF_PATH)

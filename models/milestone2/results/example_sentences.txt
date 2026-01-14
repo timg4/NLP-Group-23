@@ -1,0 +1,183 @@
+================================================================================
+EXAMPLE SENTENCES FOR QUALITATIVE ANALYSIS
+================================================================================
+
+
+================================================================================
+METHOD: SimpleRuleNER
+================================================================================
+
+================================================================================
+EXAMPLE SENTENCES
+================================================================================
+
+[ERROR] Sentence: 112 Rechte der Anteilsinhaber ....................................................................................................................
+
+Token                Gold            Predicted      
+--------------------------------------------------
+112                  O               B-MON           ✗
+Rechte               O               O               ✓
+der                  O               O               ✓
+Anteilsinhaber       O               O               ✓
+.................................................................................................................... O               O               ✓
+
+================================================================================
+
+[ERROR] Sentence: In dem Fall von mehreren Veröffentlichungen einer Bekanntmachung nach Absatz ( 1 ) , ist für die Bestimmung der Wirksamkeit dieser Bekanntmachung die erste solche Veröffentlichung maß- geblich .
+
+Token                Gold            Predicted      
+--------------------------------------------------
+In                   O               O               ✓
+dem                  O               O               ✓
+Fall                 O               O               ✓
+von                  O               O               ✓
+mehreren             O               O               ✓
+Veröffentlichungen   O               O               ✓
+einer                O               O               ✓
+Bekanntmachung       O               O               ✓
+nach                 O               O               ✓
+Absatz               B-LEG           O               ✗
+(                    I-LEG           O               ✗
+1                    I-LEG           B-MON           ✗
+)                    I-LEG           O               ✗
+,                    O               O               ✓
+ist                  O               O               ✓
+für                  O               O               ✓
+die                  O               O               ✓
+Bestimmung           O               O               ✓
+der                  O               O               ✓
+Wirksamkeit          O               O               ✓
+dieser               O               O               ✓
+Bekanntmachung       O               O               ✓
+die                  O               O               ✓
+erste                O               O               ✓
+solche               O               O               ✓
+Veröffentlichung     O               O               ✓
+maß-                 O               O               ✓
+geblich              O               O               ✓
+.                    O               O               ✓
+
+================================================================================
+
+
+
+================================================================================
+METHOD: TokenNB_data_priors
+================================================================================
+
+================================================================================
+EXAMPLE SENTENCES
+================================================================================
+
+[ERROR] Sentence: In dem Fall von mehreren Veröffentlichungen einer Bekanntmachung nach Absatz ( 1 ) , ist für die Bestimmung der Wirksamkeit dieser Bekanntmachung die erste solche Veröffentlichung maß- geblich .
+
+Token                Gold            Predicted      
+--------------------------------------------------
+In                   O               O               ✓
+dem                  O               O               ✓
+Fall                 O               O               ✓
+von                  O               O               ✓
+mehreren             O               O               ✓
+Veröffentlichungen   O               O               ✓
+einer                O               O               ✓
+Bekanntmachung       O               O               ✓
+nach                 O               O               ✓
+Absatz               B-LEG           O               ✗
+(                    I-LEG           O               ✗
+1                    I-LEG           O               ✗
+)                    I-LEG           O               ✗
+,                    O               O               ✓
+ist                  O               O               ✓
+für                  O               O               ✓
+die                  O               O               ✓
+Bestimmung           O               O               ✓
+der                  O               O               ✓
+Wirksamkeit          O               O               ✓
+dieser               O               O               ✓
+Bekanntmachung       O               O               ✓
+die                  O               O               ✓
+erste                O               O               ✓
+solche               O               O               ✓
+Veröffentlichung     O               O               ✓
+maß-                 O               O               ✓
+geblich              O               O               ✓
+.                    O               O               ✓
+
+================================================================================
+
+[ERROR] Sentence: Nicht anwendbar Berechnungsstelle : UniCredit Bank AG , Apianstr .
+
+Token                Gold            Predicted      
+--------------------------------------------------
+Nicht                O               O               ✓
+anwendbar            O               O               ✓
+Berechnungsstelle    O               O               ✓
+:                    O               O               ✓
+UniCredit            B-ORG           O               ✗
+Bank                 I-ORG           O               ✗
+AG                   I-ORG           O               ✗
+,                    O               O               ✓
+Apianstr             O               O               ✓
+.                    O               O               ✓
+
+================================================================================
+
+
+
+================================================================================
+METHOD: TokenNB_uniform_priors
+================================================================================
+
+================================================================================
+EXAMPLE SENTENCES
+================================================================================
+
+[ERROR] Sentence: 112 Rechte der Anteilsinhaber ....................................................................................................................
+
+Token                Gold            Predicted      
+--------------------------------------------------
+112                  O               O               ✓
+Rechte               O               I-MON           ✗
+der                  O               O               ✓
+Anteilsinhaber       O               O               ✓
+.................................................................................................................... O               O               ✓
+
+================================================================================
+
+[ERROR] Sentence: In dem Fall von mehreren Veröffentlichungen einer Bekanntmachung nach Absatz ( 1 ) , ist für die Bestimmung der Wirksamkeit dieser Bekanntmachung die erste solche Veröffentlichung maß- geblich .
+
+Token                Gold            Predicted      
+--------------------------------------------------
+In                   O               I-MON           ✗
+dem                  O               O               ✓
+Fall                 O               O               ✓
+von                  O               O               ✓
+mehreren             O               O               ✓
+Veröffentlichungen   O               O               ✓
+einer                O               O               ✓
+Bekanntmachung       O               O               ✓
+nach                 O               O               ✓
+Absatz               B-LEG           I-LEG           ✗
+(                    I-LEG           O               ✗
+1                    I-LEG           I-LEG           ✓
+)                    I-LEG           O               ✗
+,                    O               O               ✓
+ist                  O               O               ✓
+für                  O               O               ✓
+die                  O               O               ✓
+Bestimmung           O               O               ✓
+der                  O               O               ✓
+Wirksamkeit          O               O               ✓
+dieser               O               O               ✓
+Bekanntmachung       O               O               ✓
+die                  O               O               ✓
+erste                O               I-MON           ✗
+solche               O               I-MON           ✗
+Veröffentlichung     O               I-MON           ✗
+maß-                 O               O               ✓
+geblich              O               O               ✓
+.                    O               O               ✓
+
+================================================================================
+
+

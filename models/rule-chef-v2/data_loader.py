@@ -179,7 +179,7 @@ def _make_span(label: str, start: int, end: int, text: str) -> Dict:
 if __name__ == "__main__":
     # Quick test
     import sys
-    path = sys.argv[1] if len(sys.argv) > 1 else "../data/manual_annotation2/my_labels.conllu"
+    path = sys.argv[1] if len(sys.argv) > 1 else "../data/manual_annotation/hand_labelled.conllu"
 
     data = load_data(path)
     print(f"Loaded {len(data)} sentences")

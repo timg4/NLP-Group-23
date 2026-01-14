@@ -11,8 +11,8 @@ from pathlib import Path
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(THIS_DIR)
 sys.path.insert(0, PROJECT_ROOT)
-sys.path.insert(0, os.path.join(PROJECT_ROOT, "milestone2"))
-sys.path.insert(0, os.path.join(PROJECT_ROOT, "rule-chef-v2"))
+sys.path.insert(0, os.path.join(PROJECT_ROOT, "models", "milestone2"))
+sys.path.insert(0, os.path.join(PROJECT_ROOT, "models", "rule-chef-v2"))
 
 from milestone2 import TokenNB, build_token_label_pairs
 from common import (
@@ -31,7 +31,7 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--data",
-        default=os.path.join(PROJECT_ROOT, "data", "manual_annotation2", "my_labels.conllu"),
+        default=os.path.join(PROJECT_ROOT, "data", "manual_annotation", "hand_labelled.conllu"),
         help="Single CoNLL-U file, will be split 80/20 into train/dev.",
     )
     parser.add_argument(

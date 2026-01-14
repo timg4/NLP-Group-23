@@ -6,6 +6,8 @@ import sys
 # Add this directory to path for local imports
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(THIS_DIR)
+if os.path.basename(PROJECT_ROOT) == "models":
+    PROJECT_ROOT = os.path.dirname(PROJECT_ROOT)
 sys.path.insert(0, THIS_DIR)
 sys.path.insert(0, os.path.join(PROJECT_ROOT, "rule-chef", "rulechef"))
 
@@ -15,7 +17,7 @@ from inference import predict
 from evaluate import evaluate, print_results
 
 # Paths
-DATA_PATH = os.path.join(PROJECT_ROOT, "data", "manual_annotation2", "my_labels.conllu")
+DATA_PATH = os.path.join(PROJECT_ROOT, "data", "manual_annotation", "hand_labelled.conllu")
 STORAGE_PATH = os.path.join(THIS_DIR, "rulechef_v2_data")
 
 

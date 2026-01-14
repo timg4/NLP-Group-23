@@ -4,12 +4,16 @@ import sys
 from collections import defaultdict
 from typing import Dict, List, Tuple
 
-# Add parent directory to path for imports
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(THIS_DIR)
-sys.path.insert(0, os.path.join(PROJECT_ROOT, "rule-chef-v2"))
+if os.path.basename(PROJECT_ROOT) == "models":
+    PROJECT_ROOT = os.path.dirname(PROJECT_ROOT)
+sys.path.insert(0, THIS_DIR)
+sys.path.insert(0, os.path.join(PROJECT_ROOT, "rule-chef", "rulechef"))
 
-from extractor import LABELS
+from data_loader import load_data
+from inference import load_models, predict
+from trainer import LABELS
 
 
 def span_match(pred: Dict, gold: Dict, mode: str = "exact") -> bool:
@@ -29,16 +33,11 @@ def span_match(pred: Dict, gold: Dict, mode: str = "exact") -> bool:
 
 def evaluate(
     data: List[Tuple[str, List[Dict]]],
-    predictions: List[List[Dict]],
+    chefs: Dict,
     match_mode: str = "exact"
 ) -> Dict[str, Dict[str, float]]:
     """
     Evaluate predictions against gold standard.
-
-    Args:
-        data: List of (text, gold_spans) tuples
-        predictions: List of predicted span lists (parallel to data)
-        match_mode: "exact" or "overlap"
 
     Returns: {
         "ORG": {"precision": 0.8, "recall": 0.7, "f1": 0.75, "support": 35},
@@ -53,7 +52,9 @@ def evaluate(
     fp = defaultdict(int)  # false positives
     fn = defaultdict(int)  # false negatives
 
-    for (text, gold_spans), pred_spans in zip(data, predictions):
+    for text, gold_spans in data:
+        pred_spans = predict(text, chefs)
+
         # Group by label
         gold_by_label = defaultdict(list)
         pred_by_label = defaultdict(list)
@@ -155,3 +156,31 @@ def print_results(results: Dict[str, Dict[str, float]], title: str = "Evaluation
     print(f"{'macro avg':<10} {r['precision']:>10.3f} {r['recall']:>10.3f} {r['f1']:>10.3f}")
 
     print()
+
+
+def main():
+    # Paths
+    DATA_PATH = os.path.join(PROJECT_ROOT, "data", "manual_annotation", "hand_labelled.conllu")
+    STORAGE_PATH = os.path.join(THIS_DIR, "rulechef_v2_data")
+
+    print("Loading data...")
+    data = load_data(DATA_PATH)
+    print(f"Loaded {len(data)} sentences")
+
+    print("Loading models...")
+    chefs = load_models(STORAGE_PATH)
+    print(f"Loaded models for: {list(chefs.keys())}")
+
+    # Evaluate with exact match
+    print("\nEvaluating (exact span match)...")
+    results_exact = evaluate(data, chefs, match_mode="exact")
+    print_results(results_exact, "Exact Match Evaluation")
+
+    # Evaluate with overlap match (more lenient)
+    print("Evaluating (overlap match)...")
+    results_overlap = evaluate(data, chefs, match_mode="overlap")
+    print_results(results_overlap, "Overlap Match Evaluation")
+
+
+if __name__ == "__main__":
+    main()

@@ -9,6 +9,8 @@ from typing import Dict, List, Tuple
 # Add this directory to path for local imports
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(THIS_DIR)
+if os.path.basename(PROJECT_ROOT) == "models":
+    PROJECT_ROOT = os.path.dirname(PROJECT_ROOT)
 sys.path.insert(0, THIS_DIR)
 sys.path.insert(0, os.path.join(PROJECT_ROOT, "rule-chef", "rulechef"))
 
@@ -16,7 +18,7 @@ from data_loader import load_data
 from trainer import train_all, LABELS
 from inference import predict
 
-DATA_PATH = os.path.join(PROJECT_ROOT, "data", "manual_annotation2", "my_labels.conllu")
+DATA_PATH = os.path.join(PROJECT_ROOT, "data", "manual_annotation", "hand_labelled.conllu")
 BASE_STORAGE = os.path.join(THIS_DIR, "rulechef_v2_data")
 
 

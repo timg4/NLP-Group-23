@@ -11,8 +11,8 @@ from pathlib import Path
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(THIS_DIR)
 sys.path.insert(0, PROJECT_ROOT)
-sys.path.insert(0, os.path.join(PROJECT_ROOT, "openai-ner"))
-sys.path.insert(0, os.path.join(PROJECT_ROOT, "rule-chef-v2"))
+sys.path.insert(0, os.path.join(PROJECT_ROOT, "models", "openai-ner"))
+sys.path.insert(0, os.path.join(PROJECT_ROOT, "models", "rule-chef-v2"))
 
 from openai import OpenAI
 from extractor import extract as openai_extract
@@ -33,7 +33,7 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--data",
-        default=os.path.join(PROJECT_ROOT, "data", "manual_annotation2", "my_labels.conllu"),
+        default=os.path.join(PROJECT_ROOT, "data", "manual_annotation", "hand_labelled.conllu"),
         help="Single CoNLL-U file, will be split 80/20 into train/dev.",
     )
     parser.add_argument(

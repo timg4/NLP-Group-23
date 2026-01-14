@@ -7,8 +7,10 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 # Add paths for imports
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(THIS_DIR)
+if os.path.basename(PROJECT_ROOT) == "models":
+    PROJECT_ROOT = os.path.dirname(PROJECT_ROOT)
 # Add rule-chef-v2 first (for data_loader), then THIS_DIR (takes priority for evaluate)
-sys.path.insert(0, os.path.join(PROJECT_ROOT, "rule-chef-v2"))
+sys.path.insert(0, os.path.join(PROJECT_ROOT, "models", "rule-chef-v2"))
 sys.path.insert(0, THIS_DIR)
 
 from openai import OpenAI
@@ -20,7 +22,7 @@ from evaluate import evaluate, print_results
 MAX_WORKERS = 10
 
 # Paths
-DATA_PATH = os.path.join(PROJECT_ROOT, "data", "manual_annotation2", "my_labels.conllu")
+DATA_PATH = os.path.join(PROJECT_ROOT, "data", "manual_annotation", "hand_labelled.conllu")
 
 
 def main():

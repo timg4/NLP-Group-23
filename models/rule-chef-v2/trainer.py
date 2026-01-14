@@ -6,6 +6,8 @@ import sys
 # Ensure rulechef is importable
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(THIS_DIR)
+if os.path.basename(PROJECT_ROOT) == "models":
+    PROJECT_ROOT = os.path.dirname(PROJECT_ROOT)
 RULECHEF_PATH = os.path.join(PROJECT_ROOT, "rule-chef", "rulechef")
 if RULECHEF_PATH not in sys.path:
     sys.path.insert(0, RULECHEF_PATH)
@@ -172,5 +174,5 @@ def train_all(
 if __name__ == "__main__":
     from .data_loader import load_data_by_label
 
-    data = load_data_by_label("../data/manual_annotation2/my_labels.conllu")
+    data = load_data_by_label("../data/manual_annotation/hand_labelled.conllu")
     chefs = train_all(data)

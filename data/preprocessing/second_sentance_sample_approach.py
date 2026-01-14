@@ -8,7 +8,7 @@ Adds quality filters to avoid fragments, table lines, numeric-only sentences, an
 Usage:
   python data/sample_for_manual_annotation.py \
     --input data/processed/fincorpus_processed.conllu \
-    --output data/manual_annotation2 \
+    --output data/manual_annotation \
     --num_sentences 150
 
 Recommended knobs (example):
@@ -544,3 +544,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
