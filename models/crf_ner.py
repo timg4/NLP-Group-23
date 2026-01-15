@@ -13,7 +13,7 @@ Features include:
 """
 
 import re
-from typing import List, Dict
+from typing import List, Dict, Tuple
 import sklearn_crfsuite
 from sklearn_crfsuite import metrics
 

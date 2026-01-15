@@ -263,6 +263,7 @@ def evaluate_overlap(
     r = total_tp / (total_tp + total_fn) if (total_tp + total_fn) else 0.0
     f1 = (2 * p * r) / (p + r) if (p + r) else 0.0
     results["micro"] = {"precision": p, "recall": r, "f1": f1}
+    results["macro_f1"] = sum(results[lab]["f1"] for lab in LABELS) / len(LABELS)
 
     return results
 

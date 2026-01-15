@@ -13,8 +13,10 @@ torchvision==0.17.2
 tqdm==4.66.5
 
 # NER libraries (Milestone 2)
-spacy==3.7.2
+# spaCy + pydantic (Python 3.12 compatible)
+spacy==3.8.2
 # Download German model: python -m spacy download de_core_news_lg
+pydantic==2.7.4
 sklearn-crfsuite==0.5.0
 seqeval==1.2.2
 openai>=1.0.0  # For ChatGPT labeling
