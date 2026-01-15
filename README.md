@@ -185,7 +185,7 @@ NLP-Group-23/
 │   ├── README_MILESTONES.md            # Detailed M1 & M2 documentation
 │   └── future_work/                    # Early experiments (beyond M2)
 │
-└── NLP_IE_2025WS_Exercise-2.pdf       # Assignment description
+└── NLP_Group23_Presentation.pdf       # Final Presentation
 ```
 
 ---
