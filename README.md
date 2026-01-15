@@ -165,6 +165,90 @@ Detailed outputs are available in `milestone2/results/` including full predictio
 
 ---
 
+## Final Submission
+
+After milestone 2 we reworked the manually labeled data to improve quality and extended it to 170 sentences. To make this process more efficient, we developed a GUI annotation tool (`data/manual_annotation/anotate_conllu_windows.py`) that allows token-by-token labeling with keyboard shortcuts, BIO validation, and autosave functionality.
+
+### Labeling Pipeline
+
+A major part of our final submission was investigating a pipeline for going from unlabeled data to a reliable labeled dataset. The pipeline we propose consists of:
+
+1. **Hand labeling** - Create a small gold standard dataset manually
+2. **LLM generation** - Use an LLM API to generate labels for additional data
+3. **Validation** - Check LLM-generated labels against the gold standard
+4. **Training** - Use the validated labeled data to train ML models
+
+### Main Approach: RuleChef
+
+Our main focus was on RuleChef, an approach that uses LLMs to learn explicit extraction rules iteratively. The idea is quite nice: train on gold examples, let the LLM synthesize rules, evaluate on false positives/negatives, and refine the rules until you have an interpretable ruleset.
+
+However, even after spending a lot of time tuning the task descriptions and feedback loops, we could not get RuleChef to perform well on our data. The main problems were:
+- Refinement often overgeneralized
+- Formatting issues with malformed rules or invalid JSON
+- Struggles with unstructured classes like ORG
+- Inconsistent results across different runs
+
+### Comparison Approaches
+
+Since RuleChef did not work as expected, we briefly tried some other approaches without too much tuning:
+
+| Method | Description |
+|--------|-------------|
+| **EnhancedRuleNER** | Hand-crafted regex patterns with POS-tag validation heuristics |
+| **TokenNB** | Token-level Naive Bayes with uniform priors to handle class imbalance |
+| **CRF** | Linear-chain CRF with rich token features (casing, prefixes, domain-specific features) |
+| **SpaCy + Heuristics** | Hybrid approach combining spaCy German NER with keyword-based rules |
+| **German BERT** | Fine-tuned bert-base-german-cased for token classification (trained on only 150 sentences) |
+| **OpenAI API** | Direct prompting of GPT models for NER (expensive but good results) |
+
+### Results
+
+Final results on the test set (30 sentences, stratified 80/20 split):
+
+| Method | LEG F1 | MON F1 | ORG F1 | Macro F1 | Accuracy | Time (s) |
+|--------|--------|--------|--------|----------|----------|----------|
+| OpenAI API | 1.000 | 1.000 | 0.588 | 0.894 | 0.975 | 167.95 |
+| SpaCy + Heuristics | 0.857 | 0.824 | 0.440 | 0.774 | 0.956 | 0.24 |
+| BERT | 0.429 | 0.692 | 0.615 | 0.679 | 0.963 | 99.52 |
+| CRF | 0.667 | 0.970 | 0.056 | 0.667 | 0.951 | 0.76 |
+| EnhancedRuleNER | 0.588 | 0.667 | 0.200 | 0.605 | 0.933 | 0.01 |
+| TokenNB | 0.067 | 0.897 | 0.200 | 0.513 | 0.803 | 0.01 |
+| RuleChef | 0.071 | 0.098 | 0.012 | 0.222 | 0.541 | 370.75 |
+
+**Note:** The F1 scores above are exact match metrics. Due to ambiguity in what exactly gets labeled (e.g., should "EUR" be part of the monetary value or not), overlap metrics usually give a better picture of actual performance. See `final_submission/results/` for detailed overlap metrics per method.
+
+### Insights
+
+- NER for German official documents is a trade-off problem - there is no free lunch
+- Entity structure matters a lot: ORG consistently underperforms across all methods because organization names are very variable
+- RuleChef was unstable and ineffective in our setup, though it might work better with different data or more tuning
+- The OpenAI API gives the best results but is expensive and slow
+- SpaCy combined with domain-specific heuristics offers a good balance between performance and cost
+
+### Running the Final Submission
+
+From the repo root, run each model separately:
+
+```bash
+python final_submission/run_rulechef.py --data data/manual_annotation/hand_labelled.conllu
+python final_submission/run_milestone2_nb_uniform_priors.py --data data/manual_annotation/hand_labelled.conllu
+python final_submission/run_enhanced_rule_based.py --data data/manual_annotation/hand_labelled.conllu
+python final_submission/run_crf.py --data data/manual_annotation/hand_labelled.conllu
+python final_submission/run_project_labeling.py --data data/manual_annotation/hand_labelled.conllu
+python final_submission/run_bert_ner.py --data data/manual_annotation/hand_labelled.conllu
+python final_submission/run_openai_ner.py --data data/manual_annotation/hand_labelled.conllu  # requires API key
+```
+
+To generate a combined summary:
+
+```bash
+python final_submission/utilities/summarize_results.py
+```
+
+Outputs are saved to `final_submission/results/<ModelName>/`.
+
+---
+
 ## Project Structure
 
 ```
@@ -174,7 +258,7 @@ NLP-Group-23/
 ├── .gitignore
 │
 ├── data/
-│   ├── data/preprocessing/fincorpus-de-10k.py            # Dataset loader
+│   ├── preprocessing/fincorpus-de-10k.py   # Dataset loader
 │   ├── perprocess.py                   # M1: Preprocessing script
 │   ├── preprocess.ipynb                # M1: Preprocessing experimentation
 │   ├── sample_for_manual_annotation.py # Sampling for annotation
@@ -183,9 +267,9 @@ NLP-Group-23/
 │   │   ├── fincorpus_processed.conllu.zip
 │   │   └── first2000.txt               # Preview
 │   └── manual_annotation/              # Gold standard annotations
+│       ├── hand_labelled.conllu        # Final labeled dataset (170 sentences)
 │       ├── sample_sentences.conllu
-│       ├── sample_sentences_labeled.conllu
-│       └── labeling_guidelines.md
+│       └── anotate_conllu_windows.py   # GUI labeling tool
 │
 ├── milestone2/
 │   ├── milestone2.py                   # M2: Main baseline script
@@ -197,6 +281,29 @@ NLP-Group-23/
 │       ├── error_analysis.txt
 │       ├── metrics_summary.txt
 │       └── example_sentences.txt
+│
+├── final_submission/                   # Final submission comparison
+│   ├── README.md                       # Final submission documentation
+│   ├── run_rulechef.py                 # RuleChef runner
+│   ├── run_bert_ner.py                 # German BERT runner
+│   ├── run_crf.py                      # CRF runner
+│   ├── run_openai_ner.py               # OpenAI API runner
+│   ├── run_project_labeling.py         # SpaCy + heuristics runner
+│   ├── run_enhanced_rule_based.py      # Enhanced rule-based runner
+│   ├── run_milestone2_nb_uniform_priors.py  # TokenNB runner
+│   ├── utilities/
+│   │   ├── common.py                   # Shared utilities
+│   │   ├── stratified_split.py         # Train/test split
+│   │   └── summarize_results.py        # Generate summary table
+│   └── results/                        # Per-model outputs
+│       ├── summary.txt                 # Combined results table
+│       ├── BERT/
+│       ├── CRF/
+│       ├── RuleChef/
+│       ├── OpenAI_NER/
+│       ├── SpacyLabeling/
+│       ├── EnhancedRuleBasedNER/
+│       └── TokenNB_uniform_priors/
 │
 ├── future_work/                        # Advanced methods (beyond M2)
 │   ├── README_FUTURE_WORK.md          # Documentation
@@ -213,8 +320,16 @@ NLP-Group-23/
 ## Notes
 
 - Milestone 1 & 2 represent the core project requirements
-- See `future_work/` for advanced methods explored beyond baseline scope
-- All evaluation uses 150 manually-labeled sentences with 80/20 train/dev split
-- Results generated with: `python milestone2/milestone2.py --data data/manual_annotation/sample_sentences_labeled.conllu`
+- Final submission extends the project with RuleChef experiments and multiple comparison approaches
+- Final evaluation uses 170 manually-labeled sentences with stratified 80/20 train/test split (seed 2323)
+- See `final_submission/results/summary.txt` for the combined results table
+- Due to labeling ambiguity (e.g. whether currency symbols belong to monetary values), overlap metrics are often more informative than exact match F1
 
+---
 
+## AI Usage Disclaimer
+
+We used AI assistance in the following parts of this project:
+- **Code completion**: VSCode inline suggestions (GitHub Copilot) for faster coding
+- **GUI labeling tool**: The annotation tool (`anotate_conllu_windows.py`) was partly developed with AI assistance
+- **Documentation**: AI helped write and structure parts of this README and code comments
