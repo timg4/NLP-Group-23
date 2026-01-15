@@ -1,10 +1,10 @@
 ================================================================================
-FutureWork_RuleBasedNER METRICS SUMMARY
+EnhancedRuleBasedNER METRICS SUMMARY
 ================================================================================
 
 Timing (seconds)
 --------------------------------------------------------------------------------
-FutureWork_RuleBasedNER: 0.01
+EnhancedRuleBasedNER: 0.01
 
               precision    recall  f1-score   support
 

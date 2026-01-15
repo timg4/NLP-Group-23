@@ -65,7 +65,10 @@ def load_conllu_full(path: str) -> List[Dict]:
 
             token = {
                 "form": fields[1],
+                "lemma": fields[2],
                 "upos": fields[3],
+                "xpos": fields[4],
+                "feats": fields[5],
                 "misc": fields[9],
             }
             tokens.append(token)

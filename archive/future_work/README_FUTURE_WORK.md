@@ -7,7 +7,7 @@ This folder contains NER methods and experiments that go beyond the Milestone 2 
 ### baselines/
 Advanced NER implementations:
 - `crf_ner.py` - Conditional Random Field (CRF) based NER
-- `rule_based_ner.py` - Advanced rule-based NER
+- `enhanced_rulebased_ner.py` - Advanced rule-based NER
 - `train_crf.py` - CRF model training script
 - `train_rule_based.py` - Rule-based method training
 

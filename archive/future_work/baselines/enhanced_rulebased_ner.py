@@ -241,7 +241,7 @@ if __name__ == "__main__":
     import sys
 
     if len(sys.argv) < 2:
-        print("Usage: python rule_based_ner.py <input.conllu>")
+        print("Usage: python enhanced_rulebased_ner.py <input.conllu>")
         sys.exit(1)
 
     input_file = sys.argv[1]

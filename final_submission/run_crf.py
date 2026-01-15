@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Run future_work rule-based NER on stratified 80/20 split.
+Run future_work CRF baseline on stratified 80/20 split.
 """
 import argparse
 import os
@@ -11,10 +11,10 @@ from pathlib import Path
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(THIS_DIR)
 sys.path.insert(0, PROJECT_ROOT)
-sys.path.insert(0, os.path.join(PROJECT_ROOT, "models", "enhanced_rulebased_NER"))
+sys.path.insert(0, os.path.join(PROJECT_ROOT, "models"))
 sys.path.insert(0, os.path.join(PROJECT_ROOT, "models", "rule-chef-v2"))
 
-from enhanced_rulebased_ner import RuleBasedNER
+from crf_ner import CRFNER
 from utilities.common import (
     collapse_bio,
     prepare_split,
@@ -36,7 +36,7 @@ def parse_args():
     )
     parser.add_argument(
         "--results-dir",
-        default=os.path.join(THIS_DIR, "results", "FutureWork_RuleBasedNER"),
+        default=os.path.join(THIS_DIR, "results", "CRF"),
         help="Directory for outputs.",
     )
     return parser.parse_args()
@@ -44,11 +44,18 @@ def parse_args():
 
 def main():
     args = parse_args()
-    _, dev_set, split_counts = prepare_split(args.data)
+    train_set, dev_set, split_counts = prepare_split(args.data)
     print_split_counts(split_counts)
 
-    model = RuleBasedNER()
+    model = CRFNER()
     start = time.perf_counter()
+
+    X_train = [model.sentence_features(s["tokens"]) for s in train_set]
+    y_train = [s["labels"] for s in train_set]
+    model.fit(X_train, y_train)
+
+    X_dev = [model.sentence_features(s["tokens"]) for s in dev_set]
+    y_pred_bio = model.predict(X_dev)
 
     gold_labels = []
     pred_labels = []
@@ -56,8 +63,7 @@ def main():
     gold_spans_all = []
     pred_spans_all = []
 
-    for sent in dev_set:
-        pred = model.predict(sent["tokens"])
+    for sent, pred in zip(dev_set, y_pred_bio):
         collapsed_gold = collapse_bio(sent["labels"])
         collapsed_pred = collapse_bio(pred)
         gold_labels.append(collapsed_gold)
@@ -73,7 +79,7 @@ def main():
     overlap_metrics = evaluate_overlap(gold_spans_all, pred_spans_all)
 
     out_dir = Path(args.results_dir)
-    write_metrics(out_dir, "FutureWork_RuleBasedNER", report_text, report_dict, elapsed, overlap_metrics)
+    write_metrics(out_dir, "CRF", report_text, report_dict, elapsed, overlap_metrics)
     save_predictions_conllu(sentence_predictions, out_dir / "predictions.conllu")
 
     print(f"Saved: {out_dir}")
@@ -81,4 +87,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

@@ -14,7 +14,7 @@ from pathlib import Path
 from tqdm import tqdm
 import json
 
-from rule_based_ner import RuleBasedNER, load_conllu
+from enhanced_rulebased_ner import RuleBasedNER, load_conllu
 
 
 def save_predictions(sentences, predictions, output_path: Path):
