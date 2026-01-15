@@ -4,3 +4,5 @@ data/preprocessing/processed/fincorpus_processed.conllu
 /data/processed/*
 !data/processed/first2000.txt
 /rule-chef
+/final_submission/results/BERT/checkpoints/
+

@@ -11,7 +11,7 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--results-dir",
-        default=Path(__file__).parent / "results",
+        default=Path(__file__).parent.parent / "results",
         help="Base results directory containing per-model folders.",
     )
     return parser.parse_args()

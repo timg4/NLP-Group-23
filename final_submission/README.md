@@ -11,17 +11,21 @@ Each run also reports span-level overlap metrics (per label + micro).
 - Enhanced rule-based NER (`models/enhanced_rulebased_NER`)
 - OpenAI NER (`models/openai-ner`, optional, requires API key)
 - Future work CRF baseline (`models/crf_ner.py`)
+- spaCy labeling (spaCy + regex) (`models/spacy_labeling.py`)
+- German BERT token classification (`bert-base-german-cased`, runner also copied to `models/bert_ner`)
 
 ## Usage
 From the repo root (run each model separately):
 
 ```
 python final_submission/run_rulechef.py --data data/manual_annotation/hand_labelled.conllu
-python final_submission/run_milestone2_simple_rule.py --data data/manual_annotation/hand_labelled.conllu
 python final_submission/run_milestone2_nb_uniform_priors.py --data data/manual_annotation/hand_labelled.conllu
 python final_submission/run_enhanced_rule_based.py --data data/manual_annotation/hand_labelled.conllu
+python final_submission/run_project_labeling.py --data data/manual_annotation/hand_labelled.conllu
 python final_submission/run_crf.py --data data/manual_annotation/hand_labelled.conllu
 python final_submission/run_openai_ner.py --data data/manual_annotation/hand_labelled.conllu
+python final_submission/run_bert_ner.py --data data/manual_annotation/hand_labelled.conllu
+python models/bert_ner/run_bert_ner.py --data data/manual_annotation/hand_labelled.conllu
 ```
 
 ## Outputs
