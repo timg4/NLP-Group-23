@@ -42,7 +42,7 @@ def parse_args():
     parser.add_argument(
         "--data",
         default=os.path.join(PROJECT_ROOT, "data", "manual_annotation", "hand_labelled.conllu"),
-        help="Single CoNLL-U file, will be split 80/20 into train/dev.",
+        help="Datafile that is used.",
     )
     parser.add_argument(
         "--results-dir",
@@ -102,7 +102,6 @@ def tokenize_and_align(sentences, tokenizer, label2id):
             elif word_id != prev_word_id:
                 label_ids.append(label2id[word_labels[word_id]])
             else:
-                # Same wordpiece, use I- tag if possible
                 lab = word_labels[word_id]
                 if lab.startswith("B-"):
                     lab = "I-" + lab[2:]

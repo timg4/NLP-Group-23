@@ -99,19 +99,19 @@ class CRFNER:
             'word.istitle': word.istitle(),
             'word.isdigit': word.isdigit(),
             'word.shape': self._word_shape(word),
-            'word.length': min(len(word), 20),  # Cap at 20 to avoid too many features
+            'word.length': min(len(word), 20), 
             'lemma': lemma,
             'upos': upos,
             'xpos': xpos,
             'upos[:2]': upos[:2] if len(upos) >= 2 else upos,
         }
 
-        # Parse morphological features
+        
         morph_feats = self._parse_feats(feats_str)
         for key, value in morph_feats.items():
             features[f'morph.{key}'] = value
 
-        # Domain-specific features
+        
         features['has_currency'] = any(c in word for c in ['€', '$', 'EUR', 'USD', 'CHF'])
         features['has_paragraph'] = '§' in word
         features['has_percent'] = '%' in word
@@ -119,30 +119,30 @@ class CRFNER:
         features['has_comma'] = ',' in word
         features['has_hyphen'] = '-' in word
 
-        # Company suffixes
+        
         features['ends_with_AG'] = word.endswith('AG')
         features['ends_with_GmbH'] = word.endswith('GmbH')
         features['ends_with_SE'] = word.endswith('SE')
 
-        # Legal abbreviations
+       
         legal_abbrevs = ['Art.', 'Abs.', 'Nr.', 'Kap.', 'Anm.']
         features['is_legal_abbrev'] = word in legal_abbrevs
 
-        # Bank/finance keywords
+       
         bank_keywords = ['Bank', 'Landesbank', 'Sparkasse', 'Bundesbank']
         features['is_bank_keyword'] = word in bank_keywords
 
-        # Number format patterns
+        
         features['german_number_format'] = bool(re.match(r'\d{1,3}(?:\.\d{3})+(?:,\d{2})?', word))
         features['has_multiple_dots'] = word.count('.') > 1
         features['digit_comma_digit'] = bool(re.search(r'\d,\d', word))
 
-        # Position features
+        
         features['position'] = i / len(sentence) if len(sentence) > 0 else 0
         features['is_first'] = (i == 0)
         features['is_last'] = (i == len(sentence) - 1)
 
-        # Context features: Previous token
+        
         if i > 0:
             prev_token = sentence[i - 1]
             features['prev_word.lower'] = prev_token['form'].lower()
@@ -151,9 +151,9 @@ class CRFNER:
             features['prev_word.shape'] = self._word_shape(prev_token['form'])
             features['prev_word.istitle'] = prev_token['form'].istitle()
         else:
-            features['BOS'] = True  # Beginning of sentence
+            features['BOS'] = True  
 
-        # Context features: Next token
+        
         if i < len(sentence) - 1:
             next_token = sentence[i + 1]
             features['next_word.lower'] = next_token['form'].lower()
@@ -162,16 +162,16 @@ class CRFNER:
             features['next_word.shape'] = self._word_shape(next_token['form'])
             features['next_word.istitle'] = next_token['form'].istitle()
         else:
-            features['EOS'] = True  # End of sentence
+            features['EOS'] = True  
 
-        # Context features: ±2 window
+        #Context features: ±2 window
         if i > 1:
             features['prev2_upos'] = sentence[i - 2]['upos']
 
         if i < len(sentence) - 2:
             features['next2_upos'] = sentence[i + 2]['upos']
 
-        # Bigram features
+        
         if i > 0:
             features['prev_word+word'] = f"{sentence[i-1]['form'].lower()}+{word.lower()}"
 
@@ -219,17 +219,17 @@ class CRFNER:
         try:
             from collections import Counter
 
-            # Get state (tag) features
+            
             weights = {}
             state_features = Counter(self.model.state_features_).most_common()
 
-            # Group by entity type
+            
             for (tag, feat), weight in state_features[:100]:
                 if tag not in weights:
                     weights[tag] = []
                 weights[tag].append((feat, weight))
 
-            # Keep top N for each tag
+            
             for tag in weights:
                 weights[tag] = weights[tag][:top_n]
 
@@ -248,7 +248,7 @@ def load_conllu(file_path: str) -> List[Tuple[List[Dict], List[str]]]:
         for line in f:
             line = line.rstrip('\n')
 
-            if not line:  # Empty line = sentence boundary
+            if not line:  
                 if current_tokens:
                     sentences.append((current_tokens, current_tags))
                 current_tokens = []
@@ -272,7 +272,7 @@ def load_conllu(file_path: str) -> List[Tuple[List[Dict], List[str]]]:
                     current_tokens.append(token)
                     current_tags.append(fields[10].strip())
 
-    # Don't forget last sentence
+   
     if current_tokens:
         sentences.append((current_tokens, current_tags))
 
@@ -280,7 +280,7 @@ def load_conllu(file_path: str) -> List[Tuple[List[Dict], List[str]]]:
 
 
 if __name__ == "__main__":
-    # Example usage
+    
     import sys
 
     if len(sys.argv) < 2:
@@ -305,7 +305,6 @@ if __name__ == "__main__":
 
     print("\nDone! Model trained.")
 
-    # Show example predictions
     X_test = [crf.sentence_features(tokens) for tokens, _ in sentences[:5]]
     y_pred = crf.predict(X_test)
 

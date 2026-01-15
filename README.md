@@ -26,7 +26,7 @@ pip install -r requirements.txt
 
 ## Dataset & Preprocessing (Milestone 1)
 
-**FinCorpus-DE10k**: German financial/legal corpus with 10,000 PDF documents from HuggingFace (`anhaltai/fincorpus-de-10k`). We sampled 1,000 documents and processed them with Stanza (tokenization, POS tagging, lemmatization) into CoNLL-U format.
+**FinCorpus-DE10k**: German financial/legal corpus with 10,000 PDF documents from HuggingFace ([anhaltai/fincorpus-de-10k](https://huggingface.co/datasets/anhaltai/fincorpus-de-10k)). We sampled 1,000 documents and processed them with Stanza (tokenization, POS tagging, lemmatization) into CoNLL-U format.
 
 **Processed corpus download**: [Google Drive](https://drive.google.com/file/d/1bs7oI4dxBr2b7Hdp_BC9zWBHjSzHUCVl/view?usp=share_link)
 
@@ -57,7 +57,7 @@ In addition to the main NER task, we investigated a pipeline for going from unla
 
 ### Main Approach: RuleChef
 
-Our main focus was on RuleChef, an approach that uses LLMs to learn explicit extraction rules iteratively. The idea is quite nice: train on gold examples, let the LLM synthesize rules, evaluate on false positives/negatives, and refine the rules until you have an interpretable ruleset.
+Our main focus was on RuleChef ([KRLabsOrg/rulechef](https://github.com/KRLabsOrg/rulechef)), an approach that uses LLMs to learn explicit extraction rules iteratively. The idea is quite nice: train on gold examples, let the LLM synthesize rules, evaluate on false positives/negatives, and refine the rules until you have an interpretable ruleset.
 
 However, even after spending a lot of time tuning the task descriptions and feedback loops, we could not get RuleChef to perform well on our data. The main problems were:
 - Refinement often overgeneralized
@@ -75,7 +75,7 @@ Since RuleChef did not work as expected, we briefly tried some other approaches 
 | **TokenNB** | Token-level Naive Bayes with uniform priors to handle class imbalance |
 | **CRF** | Linear-chain CRF with rich token features (casing, prefixes, domain-specific features) |
 | **SpaCy + Heuristics** | Hybrid approach combining spaCy German NER with keyword-based rules |
-| **German BERT** | Fine-tuned bert-base-german-cased for token classification (trained on only 150 sentences) |
+| **German BERT** | Fine-tuned [bert-base-german-cased](https://huggingface.co/google-bert/bert-base-german-cased) for token classification (trained on only 150 sentences) |
 | **OpenAI API** | Direct prompting of GPT models for NER (expensive but good results) |
 
 ### Results

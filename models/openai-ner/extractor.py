@@ -59,9 +59,9 @@ def extract(text: str, client: OpenAI, model: str = "gpt-5-mini") -> List[Dict]:
     if not isinstance(entities, list):
         return []
 
-    # Find each entity in the text and compute offsets ourselves
+    
     validated = []
-    used_positions = set()  # Track used positions to avoid duplicates
+    used_positions = set() 
 
     for entity in entities:
         try:
@@ -75,7 +75,7 @@ def extract(text: str, client: OpenAI, model: str = "gpt-5-mini") -> List[Dict]:
         if not entity_text or len(entity_text) < 2:
             continue
 
-        # Find all occurrences of this text in the input
+        
         start = 0
         while True:
             idx = text.find(entity_text, start)
@@ -84,7 +84,7 @@ def extract(text: str, client: OpenAI, model: str = "gpt-5-mini") -> List[Dict]:
 
             end = idx + len(entity_text)
 
-            # Check if this position is already used
+            
             if idx not in used_positions:
                 validated.append({
                     "label": label,
@@ -93,9 +93,9 @@ def extract(text: str, client: OpenAI, model: str = "gpt-5-mini") -> List[Dict]:
                     "text": entity_text
                 })
                 used_positions.add(idx)
-                break  # Use first occurrence
+                break  
 
-            start = idx + 1  # Try next occurrence
+            start = idx + 1  
 
     return validated
 
@@ -106,7 +106,6 @@ def extract_batch(texts: List[str], client: OpenAI, model: str = "gpt-5-mini") -
 
 
 if __name__ == "__main__":
-    # Quick test
     client = OpenAI()
     test_text = "Die DZ BANK erzielte EUR 2,4 Mrd. gemäß § 271 HGB."
     spans = extract(test_text, client)

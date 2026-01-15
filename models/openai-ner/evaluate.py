@@ -4,7 +4,7 @@ import sys
 from collections import defaultdict
 from typing import Dict, List, Tuple
 
-# Add parent directory to path for imports
+
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(THIS_DIR)
 if os.path.basename(PROJECT_ROOT) == "models":
@@ -50,13 +50,13 @@ def evaluate(
         "macro": {...}
     }
     """
-    # Counters per label
-    tp = defaultdict(int)  # true positives
-    fp = defaultdict(int)  # false positives
-    fn = defaultdict(int)  # false negatives
+
+    tp = defaultdict(int)  
+    fp = defaultdict(int)  
+    fn = defaultdict(int)  #
 
     for (text, gold_spans), pred_spans in zip(data, predictions):
-        # Group by label
+        
         gold_by_label = defaultdict(list)
         pred_by_label = defaultdict(list)
 
@@ -65,12 +65,12 @@ def evaluate(
         for sp in pred_spans:
             pred_by_label[sp["label"]].append(sp)
 
-        # Evaluate each label
+       
         for label in LABELS:
             golds = gold_by_label[label]
             preds = pred_by_label[label]
 
-            # Track which golds have been matched
+            
             matched_golds = set()
 
             for pred in preds:
@@ -84,10 +84,10 @@ def evaluate(
                 if not matched:
                     fp[label] += 1
 
-            # Unmatched golds are false negatives
+            
             fn[label] += len(golds) - len(matched_golds)
 
-    # Calculate metrics
+    
     results = {}
 
     for label in LABELS:
@@ -99,13 +99,13 @@ def evaluate(
             "precision": precision,
             "recall": recall,
             "f1": f1,
-            "support": tp[label] + fn[label],  # total gold spans
+            "support": tp[label] + fn[label],  
             "tp": tp[label],
             "fp": fp[label],
             "fn": fn[label],
         }
 
-    # Micro average (aggregate all spans)
+    
     total_tp = sum(tp.values())
     total_fp = sum(fp.values())
     total_fn = sum(fn.values())
@@ -121,7 +121,7 @@ def evaluate(
         "support": total_tp + total_fn,
     }
 
-    # Macro average (average of per-label metrics)
+    
     macro_precision = sum(results[l]["precision"] for l in LABELS) / len(LABELS)
     macro_recall = sum(results[l]["recall"] for l in LABELS) / len(LABELS)
     macro_f1 = sum(results[l]["f1"] for l in LABELS) / len(LABELS)

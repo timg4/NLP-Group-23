@@ -32,7 +32,7 @@ def parse_args():
     parser.add_argument(
         "--data",
         default=os.path.join(PROJECT_ROOT, "data", "manual_annotation", "hand_labelled.conllu"),
-        help="Single CoNLL-U file, will be split 80/20 into train/dev.",
+        help="Datafile that is used..",
     )
     parser.add_argument(
         "--results-dir",
