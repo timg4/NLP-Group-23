@@ -15,8 +15,8 @@
 4	sind	_	_	_	_	_	_	_	_	O
 5	bis	_	_	_	_	_	_	_	_	O
 6	zu	_	_	_	_	_	_	_	_	O
-7	0,60	_	_	_	_	_	_	_	_	MON
-8	%	_	_	_	_	_	_	_	_	MON
+7	0,60	_	_	_	_	_	_	_	_	O
+8	%	_	_	_	_	_	_	_	_	O
 9	Vertriebsprovisi-	_	_	_	_	_	_	_	_	O
 10	on	_	_	_	_	_	_	_	_	O
 11	enthalten	_	_	_	_	_	_	_	_	O
@@ -26,9 +26,9 @@
 1	Das	_	_	_	_	_	_	_	_	O
 2	Geschäftsmodell	_	_	_	_	_	_	_	_	O
 3	der	_	_	_	_	_	_	_	_	O
-4	Deka	_	_	_	_	_	_	_	_	O
-5	-	_	_	_	_	_	_	_	_	O
-6	Gruppe	_	_	_	_	_	_	_	_	O
+4	Deka	_	_	_	_	_	_	_	_	ORG
+5	-	_	_	_	_	_	_	_	_	ORG
+6	Gruppe	_	_	_	_	_	_	_	_	ORG
 7	ist	_	_	_	_	_	_	_	_	O
 8	durch	_	_	_	_	_	_	_	_	O
 9	das	_	_	_	_	_	_	_	_	O
@@ -55,11 +55,11 @@
 11	Zeitraum	_	_	_	_	_	_	_	_	O
 12	von	_	_	_	_	_	_	_	_	O
 13	dem	_	_	_	_	_	_	_	_	O
-14	14	_	_	_	_	_	_	_	_	MON
+14	14	_	_	_	_	_	_	_	_	O
 15	.	_	_	_	_	_	_	_	_	O
 
 # sent_id = 5
-1	6	_	_	_	_	_	_	_	_	MON
+1	6	_	_	_	_	_	_	_	_	O
 2	Emissionsspezifische	_	_	_	_	_	_	_	_	O
 3	Zusammenfassung	_	_	_	_	_	_	_	_	O
 4	Zusammenfassungen	_	_	_	_	_	_	_	_	O
@@ -87,9 +87,9 @@
 9	in	_	_	_	_	_	_	_	_	O
 10	Höhe	_	_	_	_	_	_	_	_	O
 11	von	_	_	_	_	_	_	_	_	O
-12	EUR	_	_	_	_	_	_	_	_	O
+12	EUR	_	_	_	_	_	_	_	_	MON
 13	2,835	_	_	_	_	_	_	_	_	MON
-14	Mrd.	_	_	_	_	_	_	_	_	O
+14	Mrd.	_	_	_	_	_	_	_	_	MON
 15	,	_	_	_	_	_	_	_	_	O
 16	an	_	_	_	_	_	_	_	_	O
 17	der	_	_	_	_	_	_	_	_	O
@@ -97,7 +97,7 @@
 19	die	_	_	_	_	_	_	_	_	O
 20	Bundesländer	_	_	_	_	_	_	_	_	O
 21	Niedersach-	_	_	_	_	_	_	_	_	O
-22	sen	_	_	_	_	_	_	_	_	O
+22	sen	_	_	_	_	_	_	_	_	ORG
 23	und	_	_	_	_	_	_	_	_	O
 24	Sachsen	_	_	_	_	_	_	_	_	O
 25	-	_	_	_	_	_	_	_	_	O
@@ -105,9 +105,9 @@
 27	zusammen	_	_	_	_	_	_	_	_	O
 28	mit	_	_	_	_	_	_	_	_	O
 29	insgesamt	_	_	_	_	_	_	_	_	O
-30	EUR	_	_	_	_	_	_	_	_	O
+30	EUR	_	_	_	_	_	_	_	_	MON
 31	1,7	_	_	_	_	_	_	_	_	MON
-32	Mrd.	_	_	_	_	_	_	_	_	O
+32	Mrd.	_	_	_	_	_	_	_	_	MON
 33	be-	_	_	_	_	_	_	_	_	O
 34	teiligen	_	_	_	_	_	_	_	_	O
 35	sollen	_	_	_	_	_	_	_	_	O
@@ -162,7 +162,7 @@
 20	(	_	_	_	_	_	_	_	_	O
 21	anfänglich	_	_	_	_	_	_	_	_	O
 22	1.000	_	_	_	_	_	_	_	_	MON
-23	Euro	_	_	_	_	_	_	_	_	MON
+23	Euro	_	_	_	_	_	_	_	_	O
 24	)	_	_	_	_	_	_	_	_	O
 25	gegebenenfalls	_	_	_	_	_	_	_	_	O
 26	gegen	_	_	_	_	_	_	_	_	O
@@ -171,7 +171,7 @@
 29	üblichen	_	_	_	_	_	_	_	_	O
 30	Bankgebühren	_	_	_	_	_	_	_	_	O
 31	bezogen	_	_	_	_	_	_	_	_	O
-32	18	_	_	_	_	_	_	_	_	MON
+32	18	_	_	_	_	_	_	_	_	O
 33	werden	_	_	_	_	_	_	_	_	O
 34	.	_	_	_	_	_	_	_	_	O
 
@@ -208,7 +208,7 @@
 30	diversifiziertes	_	_	_	_	_	_	_	_	O
 31	Portfolio	_	_	_	_	_	_	_	_	O
 32	mit	_	_	_	_	_	_	_	_	O
-33	35	_	_	_	_	_	_	_	_	MON
+33	35	_	_	_	_	_	_	_	_	O
 
 # sent_id = 10
 1	Das	_	_	_	_	_	_	_	_	O
@@ -220,7 +220,7 @@
 7	dem	_	_	_	_	_	_	_	_	O
 8	Geschäftsmodell	_	_	_	_	_	_	_	_	O
 9	der	_	_	_	_	_	_	_	_	O
-10	BSH	_	_	_	_	_	_	_	_	O
+10	BSH	_	_	_	_	_	_	_	_	ORG
 11	verknüpft	_	_	_	_	_	_	_	_	O
 12	und	_	_	_	_	_	_	_	_	O
 13	kann	_	_	_	_	_	_	_	_	O
@@ -260,7 +260,7 @@
 27	Wirkung	_	_	_	_	_	_	_	_	O
 28	zu	_	_	_	_	_	_	_	_	O
 29	dem	_	_	_	_	_	_	_	_	O
-30	4	_	_	_	_	_	_	_	_	MON
+30	4	_	_	_	_	_	_	_	_	O
 31	.	_	_	_	_	_	_	_	_	O
 
 # sent_id = 12
@@ -312,7 +312,7 @@
 18	Verfahren	_	_	_	_	_	_	_	_	O
 19	des	_	_	_	_	_	_	_	_	O
 20	Artikels	_	_	_	_	_	_	_	_	O
-21	125	_	_	_	_	_	_	_	_	MON
+21	125	_	_	_	_	_	_	_	_	O
 22	zurückgegriffen	_	_	_	_	_	_	_	_	O
 23	werden	_	_	_	_	_	_	_	_	O
 24	.	_	_	_	_	_	_	_	_	O
@@ -381,14 +381,14 @@
 8	kein	_	_	_	_	_	_	_	_	O
 9	Bankgeschäftstag	_	_	_	_	_	_	_	_	O
 10	gemäß	_	_	_	_	_	_	_	_	O
-11	§	_	_	_	_	_	_	_	_	LEG
-12	2	_	_	_	_	_	_	_	_	LEG
-13	ist	_	_	_	_	_	_	_	_	LEG
-14	,	_	_	_	_	_	_	_	_	LEG
-15	so	_	_	_	_	_	_	_	_	LEG
-16	besteht	_	_	_	_	_	_	_	_	LEG
-17	der	_	_	_	_	_	_	_	_	LEG
-18	Anspruch	_	_	_	_	_	_	_	_	LEG
+11	§	_	_	_	_	_	_	_	_	O
+12	2	_	_	_	_	_	_	_	_	O
+13	ist	_	_	_	_	_	_	_	_	O
+14	,	_	_	_	_	_	_	_	_	O
+15	so	_	_	_	_	_	_	_	_	O
+16	besteht	_	_	_	_	_	_	_	_	O
+17	der	_	_	_	_	_	_	_	_	O
+18	Anspruch	_	_	_	_	_	_	_	_	O
 19	der	_	_	_	_	_	_	_	_	O
 20	Schuldverschreibungsgläubiger	_	_	_	_	_	_	_	_	O
 21	auf	_	_	_	_	_	_	_	_	O
@@ -413,8 +413,8 @@
 10	dem	_	_	_	_	_	_	_	_	O
 11	Nennbetrag	_	_	_	_	_	_	_	_	O
 12	von	_	_	_	_	_	_	_	_	O
-13	1.000	_	_	_	_	_	_	_	_	MON
-14	Euro	_	_	_	_	_	_	_	_	MON
+13	1.000	_	_	_	_	_	_	_	_	O
+14	Euro	_	_	_	_	_	_	_	_	O
 15	.	_	_	_	_	_	_	_	_	O
 
 # sent_id = 18
@@ -501,7 +501,7 @@
 23	wird	_	_	_	_	_	_	_	_	O
 24	,	_	_	_	_	_	_	_	_	O
 25	(	_	_	_	_	_	_	_	_	O
-26	4	_	_	_	_	_	_	_	_	MON
+26	4	_	_	_	_	_	_	_	_	O
 27	)	_	_	_	_	_	_	_	_	O
 
 # sent_id = 21
@@ -603,14 +603,14 @@
 9	einer	_	_	_	_	_	_	_	_	O
 10	Mindestabnahme	_	_	_	_	_	_	_	_	O
 11	von	_	_	_	_	_	_	_	_	O
-12	1	_	_	_	_	_	_	_	_	MON
+12	1	_	_	_	_	_	_	_	_	O
 13	Schuldverschreibung	_	_	_	_	_	_	_	_	O
 14	in	_	_	_	_	_	_	_	_	O
 15	dem	_	_	_	_	_	_	_	_	O
 16	Nennbetrag	_	_	_	_	_	_	_	_	O
 17	von	_	_	_	_	_	_	_	_	O
-18	1.000	_	_	_	_	_	_	_	_	MON
-19	Euro	_	_	_	_	_	_	_	_	MON
+18	1.000	_	_	_	_	_	_	_	_	O
+19	Euro	_	_	_	_	_	_	_	_	O
 20	gegebenenfalls	_	_	_	_	_	_	_	_	O
 21	gegen	_	_	_	_	_	_	_	_	O
 22	Zahlung	_	_	_	_	_	_	_	_	O
@@ -639,16 +639,16 @@
 15	Stückelung	_	_	_	_	_	_	_	_	O
 16	BLB76A	_	_	_	_	_	_	_	_	O
 17	/	_	_	_	_	_	_	_	_	O
-18	DE000BLB76A8	_	_	_	_	_	_	_	_	MON
-19	EUR	_	_	_	_	_	_	_	_	MON
+18	DE000BLB76A8	_	_	_	_	_	_	_	_	O
+19	EUR	_	_	_	_	_	_	_	_	O
 20	50.000.000,00	_	_	_	_	_	_	_	_	MON
-21	EUR	_	_	_	_	_	_	_	_	MON
+21	EUR	_	_	_	_	_	_	_	_	O
 22	1.000,00	_	_	_	_	_	_	_	_	MON
 23	100,00	_	_	_	_	_	_	_	_	MON
-24	%	_	_	_	_	_	_	_	_	MON
+24	%	_	_	_	_	_	_	_	_	O
 25	des	_	_	_	_	_	_	_	_	O
 26	Nennbe-	_	_	_	_	_	_	_	_	O
-27	25	_	_	_	_	_	_	_	_	MON
+27	25	_	_	_	_	_	_	_	_	O
 28	trags	_	_	_	_	_	_	_	_	O
 
 # sent_id = 26
@@ -660,11 +660,11 @@
 6	sind	_	_	_	_	_	_	_	_	O
 7	bei	_	_	_	_	_	_	_	_	O
 8	der	_	_	_	_	_	_	_	_	O
-9	DekaBank	_	_	_	_	_	_	_	_	O
+9	DekaBank	_	_	_	_	_	_	_	_	ORG
 10	,	_	_	_	_	_	_	_	_	O
 11	Mainzer	_	_	_	_	_	_	_	_	O
 12	Landstraße	_	_	_	_	_	_	_	_	O
-13	16	_	_	_	_	_	_	_	_	MON
+13	16	_	_	_	_	_	_	_	_	O
 14	,	_	_	_	_	_	_	_	_	O
 15	60325	_	_	_	_	_	_	_	_	O
 16	Frankfurt	_	_	_	_	_	_	_	_	O
@@ -714,14 +714,14 @@
 8	verbundenen	_	_	_	_	_	_	_	_	O
 9	Unternehmen	_	_	_	_	_	_	_	_	O
 10	(	_	_	_	_	_	_	_	_	O
-11	§	_	_	_	_	_	_	_	_	LEG
+11	§	_	_	_	_	_	_	_	_	O
 12	271	_	_	_	_	_	_	_	_	LEG
 13	Absatz	_	_	_	_	_	_	_	_	LEG
 14	2	_	_	_	_	_	_	_	_	LEG
-15	HGB	_	_	_	_	_	_	_	_	LEG
-16	)	_	_	_	_	_	_	_	_	LEG
-17	zustehen	_	_	_	_	_	_	_	_	LEG
-18	oder	_	_	_	_	_	_	_	_	LEG
+15	HGB	_	_	_	_	_	_	_	_	O
+16	)	_	_	_	_	_	_	_	_	O
+17	zustehen	_	_	_	_	_	_	_	_	O
+18	oder	_	_	_	_	_	_	_	_	O
 19	für	_	_	_	_	_	_	_	_	O
 20	Rechnung	_	_	_	_	_	_	_	_	O
 21	der	_	_	_	_	_	_	_	_	O
@@ -828,11 +828,11 @@
 14	Verbundkonzept	_	_	_	_	_	_	_	_	O
 15	der	_	_	_	_	_	_	_	_	O
 16	Sparkassen	_	_	_	_	_	_	_	_	O
-17	-	_	_	_	_	_	_	_	_	O
-18	Finanzgruppe	_	_	_	_	_	_	_	_	O
-19	Hessen	_	_	_	_	_	_	_	_	O
-20	-	_	_	_	_	_	_	_	_	O
-21	Thüringen	_	_	_	_	_	_	_	_	O
+17	-	_	_	_	_	_	_	_	_	ORG
+18	Finanzgruppe	_	_	_	_	_	_	_	_	ORG
+19	Hessen	_	_	_	_	_	_	_	_	ORG
+20	-	_	_	_	_	_	_	_	_	ORG
+21	Thüringen	_	_	_	_	_	_	_	_	ORG
 22	,	_	_	_	_	_	_	_	_	O
 23	das	_	_	_	_	_	_	_	_	O
 24	unverändert	_	_	_	_	_	_	_	_	O
@@ -845,8 +845,8 @@
 3	dem	_	_	_	_	_	_	_	_	O
 4	Halbjahresfinanzbericht	_	_	_	_	_	_	_	_	O
 5	des	_	_	_	_	_	_	_	_	O
-6	LBBW	_	_	_	_	_	_	_	_	O
-7	-	_	_	_	_	_	_	_	_	O
+6	LBBW	_	_	_	_	_	_	_	_	ORG
+7	-	_	_	_	_	_	_	_	_	ORG
 8	Konzerns	_	_	_	_	_	_	_	_	O
 9	zu	_	_	_	_	_	_	_	_	O
 10	dem	_	_	_	_	_	_	_	_	O
@@ -880,7 +880,7 @@
 21	.	_	_	_	_	_	_	_	_	O
 
 # sent_id = 35
-1	2	_	_	_	_	_	_	_	_	MON
+1	2	_	_	_	_	_	_	_	_	O
 2	Die	_	_	_	_	_	_	_	_	O
 3	auf	_	_	_	_	_	_	_	_	O
 4	Basis	_	_	_	_	_	_	_	_	O
@@ -889,7 +889,7 @@
 7	Umsetzung	_	_	_	_	_	_	_	_	O
 8	von	_	_	_	_	_	_	_	_	O
 9	CRR/CRD	_	_	_	_	_	_	_	_	O
-10	4	_	_	_	_	_	_	_	_	MON
+10	4	_	_	_	_	_	_	_	_	O
 11	berechnete	_	_	_	_	_	_	_	_	O
 12	harte	_	_	_	_	_	_	_	_	O
 13	Kernkapitalquote	_	_	_	_	_	_	_	_	O
@@ -897,6 +897,6 @@
 15	sich	_	_	_	_	_	_	_	_	O
 16	zu	_	_	_	_	_	_	_	_	O
 17	dem	_	_	_	_	_	_	_	_	O
-18	31	_	_	_	_	_	_	_	_	MON
+18	31	_	_	_	_	_	_	_	_	O
 19	.	_	_	_	_	_	_	_	_	O
 
