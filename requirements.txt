@@ -1,5 +1,5 @@
 # Python version
-python==3.11.12
+#python==3.11.12
 
 # Core NLP libraries (Milestone 1)
 nltk==3.9.1

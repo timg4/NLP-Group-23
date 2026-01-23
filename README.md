@@ -65,6 +65,62 @@ However, even after spending a lot of time tuning the task descriptions and feed
 - Struggles with unstructured classes like ORG
 - Inconsistent results across different runs
 
+### RuleChef Rule Examples
+
+Rules are stored under `models/rule-chef-v2/rulechef_v2_data/`. One full code rule and one short regex rule:
+
+**Rule 1 (ORG, code - full rule)**
+Name: "Exclude generic capitalized nouns"
+```python
+def extract(input_data):
+    import re
+    spans = []
+    text = input_data['text']
+    regex_pattern = r'\b([A-ZÄÖÜ][a-zäöüß]+(?:\s[A-ZÄÖÜ][a-zäöüß]*)*?(?:\s+(AG|GmbH|KG|SE|Bank|Sparkasse|e\.V\.|Aktiengesellschaft|GesellschaftmbH|Group|Holding|Service|Agency|Corporate|Association))\b)'
+    matches = re.finditer(regex_pattern, text)
+    for match in matches:
+        spans.append({
+            'start': match.start(),
+            'end': match.end(),
+            'text': match.group(0)
+        })
+    return spans
+```
+
+**Rule 2 (MON, regex)**
+Name: "Capture all Monetary References"
+Pattern:
+```regex
+\d+(?:[.,]\d+)?\s?(?:EUR|USD|Mio|Mrd|\$|GBP)
+```
+
+### Invalid Rule Example (skipped)
+
+During MON rule synthesis, RuleChef produced a code rule with a stray `\n` after the regex literal, which caused a Python syntax error and the rule was skipped:
+```python
+pattern = r'\b(?:EUR|USD|GBP)\s?\d{1,3}(?:[.,]\d{3})*(?:[.,]\d+)?'\n
+matches = re.finditer(pattern, text)
+```
+
+### RuleChef Qualitative Examples
+
+The examples below are from the dev split used in the final evaluation (seed 2323).
+
+**Example 1 (MON boundary error + false positives)**
+Sentence: "Die Stärkung der Kapitalquoten soll durch eine Barkapitalzufuhr in Höhe von EUR 2,835 Mrd., an der sich die Bundesländer Niedersach- sen und Sachsen-Anhalt zusammen mit insgesamt EUR 1,7 Mrd. be- teiligen sollen, durchgeführt werden."
+Gold: MON = "EUR 2,835 Mrd.", "EUR 1,7 Mrd."
+RuleChef: MON = "2,835 Mrd.", "EUR 1,7 Mrd."; ORG = "Die Stärkung", "Kapitalquoten", "Barkapitalzufuhr"; LEG = "in Höhe von EUR", "Bundesländer Niedersach-"
+
+**Example 2 (ORG noise)**
+Sentence: "Das bauspartechnische Risiko ist eng mit dem Geschäftsmodell der BSH verknüpft und kann daher nicht vermieden werden."
+Gold: ORG = "BSH"
+RuleChef: ORG = "Das", "Geschäftsmodell", "BSH"; MON = "bauspartechnische Risiko"
+
+**Example 3 (LEG correct, many false positives)**
+Sentence: "3. Wenn der Fälligkeitstag oder ein Zinszahltag kein Bankgeschäftstag gemäß § 2 ist, so besteht der Anspruch der Schuldverschreibungsgläubiger auf Zahlung erst an dem nächstfolgenden Bankgeschäftstag."
+Gold: LEG = "§ 2"
+RuleChef: LEG = "§ 2"; ORG = "Wenn", "Fälligkeitstag", "Zinszahltag", "Bankgeschäftstag", "Anspruch"; MON = "Schuldverschreibungsgläubiger auf Zahlung erst an dem"
+
 ### Comparison Approaches
 
 Since RuleChef did not work as expected, we briefly tried some other approaches without too much tuning:
