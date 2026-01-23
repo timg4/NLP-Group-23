@@ -44,7 +44,7 @@ For detailed results, examples and analysis, see [archive/README_MILESTONES.md](
 
 ## Final Submission
 
-After milestone 2 we reworked the manually labeled data to improve quality and extended it to 170 sentences. To make this process more efficient, we developed a GUI annotation tool (`data/manual_annotation/anotate_conllu_windows.py`) that allows token-by-token labeling with keyboard shortcuts, BIO validation, and autosave functionality.
+After milestone 2 we reworked the manually labeled data to improve quality and extended it to 170 sentences. To ensure consistent annotations, each sentence was cross-checked by at least two team members. To make this process more efficient, we developed a GUI annotation tool (data/manual_annotation/anotate_conllu_windows.py) that allows token-by-token labeling with keyboard shortcuts, BIO validation, and autosave functionality.
 
 ### Labeling Pipeline
 
